@@ -9,18 +9,30 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var firstImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        print("modified")
-        print("hihi")
-        print("커밋과 동시에 푸시하기")
-        
-        print("리드미씀")
+        firstImageView.isUserInteractionEnabled = true
+        print(firstImageView.isUserInteractionEnabled)
+        print(view.isUserInteractionEnabled)
         
     }
 
+    
+    @IBAction func imageViewTapped(_ sender: UITapGestureRecognizer) {
+        print("image")
+    }
+    
+    
+    @IBAction func entireViewTapped(_ sender: UITapGestureRecognizer) {
+        print("total")
+    }
+    
+    
+    
 
 }
 

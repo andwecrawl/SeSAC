@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zDZ-g1-NSU">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ne6-jr-eUw">
+            <objects>
+                <viewController id="zDZ-g1-NSU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LFy-Zu-tgv">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6a65ac737326f667882ac317f775227b" translatesAutoresizingMaskIntoConstraints="NO" id="mF2-c2-zuh">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="5jg-bK-HEt">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tF9-eG-jiF">
+                                <rect key="frame" x="336" y="75" width="49" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tF9-eG-jiF" secondAttribute="height" multiplier="1:1" id="cXP-ps-5Z1"/>
+                                    <constraint firstAttribute="width" secondItem="tF9-eG-jiF" secondAttribute="height" multiplier="1:1" id="ePI-7c-NT8"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system">
+                                    <color key="baseForegroundColor" systemColor="opaqueSeparatorColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEe-x1-Yse">
+                                <rect key="frame" x="279" y="75" width="49" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="a2h-hx-oXM"/>
+                                    <constraint firstAttribute="width" secondItem="GEe-x1-Yse" secondAttribute="height" multiplier="1:1" id="bQO-Qf-kvA"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="qrcode" catalog="system">
+                                    <color key="baseForegroundColor" systemColor="opaqueSeparatorColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gL-dd-kta">
+                                <rect key="frame" x="226" y="75" width="49" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9gL-dd-kta" secondAttribute="height" multiplier="1:1" id="oal-hp-5Ub"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="gift" catalog="system">
+                                    <color key="baseForegroundColor" systemColor="opaqueSeparatorColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jerard" translatesAutoresizingMaskIntoConstraints="NO" id="erI-pq-eNP">
+                                <rect key="frame" x="126.66666666666669" y="478" width="140" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="IN4-34-3ZS"/>
+                                    <constraint firstAttribute="height" constant="140" id="QKc-Ye-Ioc"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nqv-ji-5Lk">
+                                <rect key="frame" x="43" y="718" width="307" height="59"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJd-Gf-QR1">
+                                        <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="59"/>
+                                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="나와의 채팅">
+                                            <imageReference key="image" image="bubble.left.fill" catalog="system" symbolScale="medium"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="light"/>
+                                        </state>
+                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="나와의 채팅" imagePadding="9">
+                                            <imageReference key="image" image="bubble.left.fill" catalog="system" symbolScale="medium"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="light"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yz9-RU-Plz">
+                                        <rect key="frame" x="107.66666666666666" y="0.0" width="91.666666666666657" height="59"/>
+                                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="나와의 채팅">
+                                            <imageReference key="image" image="bubble.left.fill" catalog="system" symbolScale="medium"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="light"/>
+                                        </state>
+                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="프로필 편집" imagePadding="9">
+                                            <imageReference key="image" image="pencil.circle.fill" catalog="system" symbolScale="medium"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="light"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pa-Lm-xGV">
+                                        <rect key="frame" x="215.33333333333329" y="0.0" width="91.666666666666657" height="59"/>
+                                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="나와의 채팅">
+                                            <imageReference key="image" image="bubble.left.fill" catalog="system" symbolScale="medium"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="light"/>
+                                        </state>
+                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="top" title="카카오스토리" imagePadding="9">
+                                            <imageReference key="image" image="ellipsis.rectangle.fill" catalog="system" symbolScale="medium"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="light"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7SH-ff-jzj">
+                                <rect key="frame" x="8" y="75" width="46.333333333333336" height="46.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7SH-ff-jzj" secondAttribute="height" multiplier="1:1" id="dVB-03-wqR"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system">
+                                    <color key="baseForegroundColor" systemColor="opaqueSeparatorColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6K-zb-XN4">
+                                <rect key="frame" x="178.33333333333334" y="634" width="36.333333333333343" height="25.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상태 메세지" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmy-ZE-BBg">
+                                <rect key="frame" x="162.33333333333334" y="667.33333333333337" width="68.666666666666657" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MZv-0I-yfC"/>
+                        <color key="backgroundColor" red="0.090196087960000004" green="0.094117648900000003" blue="0.098039209840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="7SH-ff-jzj" firstAttribute="top" secondItem="MZv-0I-yfC" secondAttribute="top" constant="16" id="0yH-ja-8YX"/>
+                            <constraint firstItem="mF2-c2-zuh" firstAttribute="bottom" secondItem="MZv-0I-yfC" secondAttribute="bottom" id="3KQ-cd-nSY"/>
+                            <constraint firstItem="tF9-eG-jiF" firstAttribute="leading" secondItem="GEe-x1-Yse" secondAttribute="trailing" constant="8" symbolic="YES" id="43S-eO-iIF"/>
+                            <constraint firstItem="MZv-0I-yfC" firstAttribute="bottom" secondItem="5jg-bK-HEt" secondAttribute="bottom" id="4Qg-g2-lwK"/>
+                            <constraint firstItem="nqv-ji-5Lk" firstAttribute="top" secondItem="erI-pq-eNP" secondAttribute="bottom" constant="100" id="6Qp-Mv-GVn"/>
+                            <constraint firstItem="tF9-eG-jiF" firstAttribute="top" secondItem="MZv-0I-yfC" secondAttribute="top" constant="16" id="8pl-N8-e4z"/>
+                            <constraint firstItem="b6K-zb-XN4" firstAttribute="centerX" secondItem="LFy-Zu-tgv" secondAttribute="centerX" id="9u3-j8-7rM"/>
+                            <constraint firstItem="MZv-0I-yfC" firstAttribute="bottom" secondItem="erI-pq-eNP" secondAttribute="bottom" constant="200" id="BeN-fN-Q0Q"/>
+                            <constraint firstItem="7SH-ff-jzj" firstAttribute="leading" secondItem="MZv-0I-yfC" secondAttribute="leading" constant="8" id="DlR-Lc-fqy"/>
+                            <constraint firstItem="GEe-x1-Yse" firstAttribute="top" secondItem="MZv-0I-yfC" secondAttribute="top" constant="16" id="IhY-Tn-WFp"/>
+                            <constraint firstItem="9gL-dd-kta" firstAttribute="centerY" secondItem="tF9-eG-jiF" secondAttribute="centerY" id="J1w-bD-IT2"/>
+                            <constraint firstItem="tF9-eG-jiF" firstAttribute="top" secondItem="MZv-0I-yfC" secondAttribute="top" constant="16" id="Krl-d0-eaE"/>
+                            <constraint firstItem="mF2-c2-zuh" firstAttribute="leading" secondItem="MZv-0I-yfC" secondAttribute="leading" id="MZk-N2-Kr2"/>
+                            <constraint firstItem="mF2-c2-zuh" firstAttribute="trailing" secondItem="MZv-0I-yfC" secondAttribute="trailing" id="OY7-K9-7eq"/>
+                            <constraint firstItem="MZv-0I-yfC" firstAttribute="trailing" secondItem="tF9-eG-jiF" secondAttribute="trailing" constant="8" id="OpA-1N-6gW"/>
+                            <constraint firstItem="5jg-bK-HEt" firstAttribute="trailing" secondItem="MZv-0I-yfC" secondAttribute="trailing" id="UTa-ZT-2Bj"/>
+                            <constraint firstItem="erI-pq-eNP" firstAttribute="centerX" secondItem="LFy-Zu-tgv" secondAttribute="centerX" id="V10-gI-BmE"/>
+                            <constraint firstItem="9gL-dd-kta" firstAttribute="top" secondItem="MZv-0I-yfC" secondAttribute="top" constant="16" id="Vcs-Ts-Mv5"/>
+                            <constraint firstItem="hmy-ZE-BBg" firstAttribute="centerX" secondItem="LFy-Zu-tgv" secondAttribute="centerX" id="Wyi-wQ-JBP"/>
+                            <constraint firstItem="GEe-x1-Yse" firstAttribute="leading" secondItem="9gL-dd-kta" secondAttribute="trailing" constant="4" id="fwU-Wd-DqE"/>
+                            <constraint firstItem="nqv-ji-5Lk" firstAttribute="centerX" secondItem="LFy-Zu-tgv" secondAttribute="centerX" id="rKZ-2g-M3L"/>
+                            <constraint firstItem="hmy-ZE-BBg" firstAttribute="top" secondItem="b6K-zb-XN4" secondAttribute="bottom" constant="8" id="s5I-7X-VLw"/>
+                            <constraint firstItem="b6K-zb-XN4" firstAttribute="top" secondItem="erI-pq-eNP" secondAttribute="bottom" constant="16" id="sOl-H3-zDL"/>
+                            <constraint firstItem="5jg-bK-HEt" firstAttribute="leading" secondItem="MZv-0I-yfC" secondAttribute="leading" id="v4Y-QD-D64"/>
+                            <constraint firstItem="5jg-bK-HEt" firstAttribute="top" secondItem="LFy-Zu-tgv" secondAttribute="top" id="vZE-4u-wo6"/>
+                            <constraint firstItem="mF2-c2-zuh" firstAttribute="top" secondItem="MZv-0I-yfC" secondAttribute="top" id="xgL-Dr-YFP"/>
+                            <constraint firstItem="9gL-dd-kta" firstAttribute="centerY" secondItem="GEe-x1-Yse" secondAttribute="centerY" id="xhz-En-Kly"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c05-6j-rpk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="705" y="-2"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="6a65ac737326f667882ac317f775227b" width="563" height="854"/>
+        <image name="bubble.left.fill" catalog="system" width="128" height="110"/>
+        <image name="ellipsis.rectangle.fill" catalog="system" width="128" height="79"/>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
+        <image name="gift" catalog="system" width="128" height="125"/>
+        <image name="jerard" width="736" height="800"/>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="qrcode" catalog="system" width="128" height="114"/>
+        <image name="shadow" width="375" height="667"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -41,13 +41,13 @@ class StatisticsViewController: UIViewController {
     
     
     
-    
     func updateLabelValue() {
         
         for index in 0...4 {
             let informationLabel = informationLabelBundle[index].text!
             resultLabelBundle[index].text = "\(emoteValue[informationLabel]!)점"
         }
+        
     }
     
     

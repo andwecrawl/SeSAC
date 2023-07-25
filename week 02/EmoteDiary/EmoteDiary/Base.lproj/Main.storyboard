@@ -83,8 +83,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="작성하기" image="pencil.tip.crop.circle" catalog="system" id="gPe-ph-aaP"/>
-                    <navigationItem key="navigationItem" title="EmoteDiary" id="14H-ge-BMY"/>
+                    <navigationItem key="navigationItem" title="EmoteDiary" id="14H-ge-BMY">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis.circle" catalog="system" id="YjG-vW-Gff">
+                            <color key="tintColor" systemColor="systemGrayColor"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="pullDownButton" destination="YjG-vW-Gff" id="LQt-qe-PZe"/>
                         <outletCollection property="emoteButtons" destination="xMo-pJ-tzD" collectionClass="NSMutableArray" id="WEf-Je-7Zd"/>
                         <outletCollection property="emoteButtons" destination="Yat-hT-RLb" collectionClass="NSMutableArray" id="Uh0-gC-NIG"/>
                         <outletCollection property="emoteButtons" destination="1tr-f7-2YX" collectionClass="NSMutableArray" id="jvh-a4-VwQ"/>
@@ -254,7 +259,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="EmoteDiary" id="gWc-91-uJ0">
                         <barButtonItem key="rightBarButtonItem" image="eraser.line.dashed.fill" catalog="system" id="oTz-EP-mwv">
-                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="systemGrayColor"/>
                             <connections>
                                 <action selector="resetButtonTapped:" destination="Fzh-WH-42x" id="TTL-DD-mE1"/>
                             </connections>
@@ -263,20 +268,20 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outletCollection property="innerViewBundle" destination="fxe-Dy-TbU" collectionClass="NSMutableArray" id="kia-LT-Cdd"/>
-                        <outletCollection property="informationLabelBundle" destination="E4g-L5-sns" collectionClass="NSMutableArray" id="kio-hE-fhT"/>
-                        <outletCollection property="resultLabelBundle" destination="dRE-1l-0TD" collectionClass="NSMutableArray" id="dsE-WN-Z1h"/>
-                        <outletCollection property="resultLabelBundle" destination="FyR-KT-0uK" collectionClass="NSMutableArray" id="OzJ-V6-1Sq"/>
                         <outletCollection property="innerViewBundle" destination="jlo-I2-a3E" collectionClass="NSMutableArray" id="bJx-fh-To1"/>
-                        <outletCollection property="informationLabelBundle" destination="RNG-AS-F8h" collectionClass="NSMutableArray" id="cTJ-6N-ROl"/>
                         <outletCollection property="innerViewBundle" destination="x04-HG-z2i" collectionClass="NSMutableArray" id="Gty-dk-1TB"/>
-                        <outletCollection property="resultLabelBundle" destination="WcH-nr-ETR" collectionClass="NSMutableArray" id="ydZ-z1-Ok6"/>
-                        <outletCollection property="informationLabelBundle" destination="WLZ-AT-Azz" collectionClass="NSMutableArray" id="0tc-Ci-QN0"/>
                         <outletCollection property="innerViewBundle" destination="YIe-Ps-hZX" collectionClass="NSMutableArray" id="bPb-p8-mMy"/>
-                        <outletCollection property="informationLabelBundle" destination="FGj-Fi-AnC" collectionClass="NSMutableArray" id="ois-jJ-WuP"/>
-                        <outletCollection property="resultLabelBundle" destination="bAO-dn-JeH" collectionClass="NSMutableArray" id="o6t-Dv-KRL"/>
-                        <outletCollection property="resultLabelBundle" destination="j8H-0x-tyO" collectionClass="NSMutableArray" id="bFs-8p-xPx"/>
                         <outletCollection property="innerViewBundle" destination="Dpp-vs-COL" collectionClass="NSMutableArray" id="cSf-es-Sw6"/>
-                        <outletCollection property="informationLabelBundle" destination="PZk-Lp-Hco" collectionClass="NSMutableArray" id="Gma-tk-UQy"/>
+                        <outletCollection property="informationLabelBundle" destination="PZk-Lp-Hco" collectionClass="NSMutableArray" id="0ei-nF-xZ8"/>
+                        <outletCollection property="informationLabelBundle" destination="FGj-Fi-AnC" collectionClass="NSMutableArray" id="Vuc-2E-72y"/>
+                        <outletCollection property="informationLabelBundle" destination="WLZ-AT-Azz" collectionClass="NSMutableArray" id="knU-af-GHC"/>
+                        <outletCollection property="informationLabelBundle" destination="RNG-AS-F8h" collectionClass="NSMutableArray" id="zC7-cD-WOf"/>
+                        <outletCollection property="informationLabelBundle" destination="E4g-L5-sns" collectionClass="NSMutableArray" id="YY6-We-k1g"/>
+                        <outletCollection property="resultLabelBundle" destination="j8H-0x-tyO" collectionClass="NSMutableArray" id="mT3-XO-WH0"/>
+                        <outletCollection property="resultLabelBundle" destination="bAO-dn-JeH" collectionClass="NSMutableArray" id="yrt-gk-iNp"/>
+                        <outletCollection property="resultLabelBundle" destination="WcH-nr-ETR" collectionClass="NSMutableArray" id="OGD-Sj-iWP"/>
+                        <outletCollection property="resultLabelBundle" destination="FyR-KT-0uK" collectionClass="NSMutableArray" id="EMI-NH-dMf"/>
+                        <outletCollection property="resultLabelBundle" destination="dRE-1l-0TD" collectionClass="NSMutableArray" id="SfL-WR-IAG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RZ0-Ka-KQk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -346,6 +351,7 @@
     <resources>
         <image name="bad" width="54" height="50"/>
         <image name="books.vertical" catalog="system" width="128" height="107"/>
+        <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <image name="eraser.line.dashed.fill" catalog="system" width="128" height="94"/>
         <image name="good" width="52" height="48"/>
         <image name="happy" width="53" height="51"/>
@@ -355,6 +361,9 @@
         <image name="soso" width="50" height="38"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

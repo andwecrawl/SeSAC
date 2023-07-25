@@ -20,7 +20,7 @@ class StatisticsViewController: UIViewController {
         super.viewDidLoad()
         
         designView()
-        designLabel()
+        designLabels()
     }
     
     
@@ -36,8 +36,6 @@ class StatisticsViewController: UIViewController {
             let emotion = informationLabelBundle[index].text!
             emoteValue[emotion] = 0
             resultLabelBundle[index].text = "0점"
-            print("reset")
-            print(emoteValue)
         }
     }
     
@@ -50,13 +48,12 @@ class StatisticsViewController: UIViewController {
             let informationLabel = informationLabelBundle[index].text!
             resultLabelBundle[index].text = "\(emoteValue[informationLabel]!)점"
         }
-        
     }
     
     
-    func designLabel() {
+    func designLabels() {
         
-        for index in 0...4 {
+        for index in informationLabelBundle.indices {
             
             // 왼쪽 Label Design
             let informationLabel = informationLabelBundle[index]
@@ -66,13 +63,12 @@ class StatisticsViewController: UIViewController {
             
             // 오른쪽 Label Design
             let resultLabel = resultLabelBundle[index]
-            let emotionStr = emoteArr[index].rawValue
-            resultLabel.text = "\(emoteValue[emotionStr]!)점"
+            resultLabel.text = "\(emoteValue[informationLabel.text!]!)점"
             resultLabel.font = UIFont.boldSystemFont(ofSize: 24)
             labelShadow(label: resultLabel)
         }
     }
-    
+
     
     func labelShadow(label: UILabel) {
         
@@ -90,9 +86,6 @@ class StatisticsViewController: UIViewController {
         
         for view in innerViewBundle {
             view.layer.cornerRadius = 10
-        }
-        
-        for view in innerViewBundle {
             view.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
             view.layer.shadowColor = UIColor.black.cgColor
             view.layer.shadowRadius = 5

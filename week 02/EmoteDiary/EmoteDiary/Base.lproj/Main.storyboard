@@ -251,7 +251,16 @@
                             <constraint firstItem="xrk-5m-INC" firstAttribute="top" secondItem="iJc-wl-mZ8" secondAttribute="top" constant="16" id="zum-4e-GVN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="EmoteDiary" id="gWc-91-uJ0"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="EmoteDiary" id="gWc-91-uJ0">
+                        <barButtonItem key="rightBarButtonItem" image="eraser.line.dashed.fill" catalog="system" id="oTz-EP-mwv">
+                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="resetButtonTapped:" destination="Fzh-WH-42x" id="TTL-DD-mE1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outletCollection property="innerViewBundle" destination="fxe-Dy-TbU" collectionClass="NSMutableArray" id="kia-LT-Cdd"/>
                         <outletCollection property="informationLabelBundle" destination="E4g-L5-sns" collectionClass="NSMutableArray" id="kio-hE-fhT"/>
@@ -337,6 +346,7 @@
     <resources>
         <image name="bad" width="54" height="50"/>
         <image name="books.vertical" catalog="system" width="128" height="107"/>
+        <image name="eraser.line.dashed.fill" catalog="system" width="128" height="94"/>
         <image name="good" width="52" height="48"/>
         <image name="happy" width="53" height="51"/>
         <image name="notBad" width="52" height="48"/>

@@ -11,7 +11,6 @@ class StatisticsViewController: UIViewController {
     
     
     @IBOutlet var innerViewBundle: [UIView]!
-    
     @IBOutlet var informationLabelBundle: [UILabel]!
     @IBOutlet var resultLabelBundle: [UILabel]!
     
@@ -24,10 +23,25 @@ class StatisticsViewController: UIViewController {
         designLabel()
     }
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateLabelValue()
     }
+    
+    
+    @IBAction func resetButtonTapped(_ sender: UIBarButtonItem) {
+        for index in informationLabelBundle.indices {
+            let emotion = informationLabelBundle[index].text!
+            emoteValue[emotion] = 0
+            resultLabelBundle[index].text = "0점"
+            print("reset")
+            print(emoteValue)
+        }
+    }
+    
+    
     
     
     func updateLabelValue() {
@@ -38,6 +52,7 @@ class StatisticsViewController: UIViewController {
         }
         
     }
+    
     
     func designLabel() {
         
@@ -57,6 +72,7 @@ class StatisticsViewController: UIViewController {
             labelShadow(label: resultLabel)
         }
     }
+    
     
     func labelShadow(label: UILabel) {
         
@@ -82,5 +98,6 @@ class StatisticsViewController: UIViewController {
             view.layer.shadowRadius = 5
             view.layer.shadowOpacity = 0.2
         }
+        
     }
 }

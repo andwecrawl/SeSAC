@@ -9,11 +9,9 @@ import UIKit
 
 class StatisticsViewController: UIViewController {
     
-    
     @IBOutlet var innerViewBundle: [UIView]!
     @IBOutlet var informationLabelBundle: [UILabel]!
     @IBOutlet var resultLabelBundle: [UILabel]!
-    
     
     
     override func viewDidLoad() {
@@ -22,7 +20,6 @@ class StatisticsViewController: UIViewController {
         designView()
         designLabels()
     }
-    
     
     
     override func viewWillAppear(_ animated: Bool) {

@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         addNumber = 1
     }
     
+    
     func eachButtonTapped(button: UIButton) {
         let three = UIAction(title: "3") { _ in
             self.addNumber = 3
@@ -44,10 +45,9 @@ class ViewController: UIViewController {
             self.emoteButtonTapped(button)
         }
         let buttonMenu = UIMenu(title: "증가할 숫자를 선택하세요", children: [three, five, ten])
-//        emoteButtons.forEach { $0.menu = buttonMenu }
         button.menu = buttonMenu
-
     }
+    
     
     func setMenu() {
         let one = UIAction(title: "1", handler: { _ in self.addNumber = 1 })
@@ -56,18 +56,5 @@ class ViewController: UIViewController {
         let buttonMenu = UIMenu(title: "증가할 숫자를 선택하세요", children: [one, five, ten])
         pullDownButton.menu = buttonMenu
     }
-    
-//    func setupMenu() {
-//        let menuClosure = {(action: UIAction) in
-//              self.update(number: action.title)
-//          }
-//        pullDownButton.menu = UIMenu(children: [
-//                  UIAction(title: "option 1", state: .on, handler:
-//                                      menuClosure),
-//                  UIAction(title: "option 2", handler: menuClosure),
-//                  UIAction(title: "option 3", handler: menuClosure),
-//              ])
-//        pullDownButton.changesSelectionAsPrimaryAction = true
-//    }
 }
 

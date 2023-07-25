@@ -48,18 +48,10 @@ class ViewController: UIViewController {
             if let result = coinedWords[word] {
                 meansTextLabel.text = result
             } else {
-                let alert = UIAlertController(title: "올바른 단어를 입력해 주세요!", message: "해당 단어가 존재하지 않습니다. 맞춤법을 확인해 주세요!", preferredStyle: .alert)
-                let okay = UIAlertAction(title: "okay", style: .default, handler: nil)
-                alert.addAction(okay)
-                present(alert, animated: true)
-                meansTextLabel.text = "올바른 단어를 입력해 주세요!"
+                giveAlert(title: "올바른 단어를 입력해 주세요!", message: "해당 단어가 존재하지 않습니다. 맞춤법을 확인해 주세요!")
             }
         } else {
-            let alert = UIAlertController(title: "단어를 입력해 주세요!", message: "", preferredStyle: .alert)
-            let okay = UIAlertAction(title: "okay", style: .default, handler: nil)
-            alert.addAction(okay)
-            present(alert, animated: true)
-            meansTextLabel.text = "단어를 입력해 주세요!"
+            giveAlert(title: "단어를 입력해 주세요!", message: "")
         }
         changeExampleWords()
     }
@@ -70,33 +62,33 @@ class ViewController: UIViewController {
         
         if let word = sender.text?.uppercased() {
             if let result = coinedWords[word] {
-                meansTextLabel.text = result
+                if result.count < 2 {
+                    giveAlert(title: "올바른 단어를 입력해 주세요!", message: "글자수가 너무 짧습니다!")
+                } else {
+                    meansTextLabel.text = result
+                }
             } else {
-                let alert = UIAlertController(title: "올바른 단어를 입력해 주세요!", message: "해당 단어가 존재하지 않습니다. 맞춤법을 확인해 주세요!", preferredStyle: .alert)
-                let okay = UIAlertAction(title: "okay", style: .default, handler: nil)
-                alert.addAction(okay)
-                present(alert, animated: true)
-                meansTextLabel.text = "올바른 단어를 입력해 주세요!"
+                giveAlert(title: "올바른 단어를 입력해 주세요!", message: "해당 단어가 존재하지 않습니다. 맞춤법을 확인해 주세요!")
             }
         } else {
-            let alert = UIAlertController(title: "단어를 입력해 주세요!", message: "", preferredStyle: .alert)
-            let okay = UIAlertAction(title: "okay", style: .default, handler: nil)
-            alert.addAction(okay)
-            present(alert, animated: true)
-            meansTextLabel.text = "단어를 입력해 주세요!"
+            giveAlert(title: "단어를 입력해 주세요!", message: "")
         }
         changeExampleWords()
     }
     
     
+    func giveAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okay = UIAlertAction(title: "okay", style: .default, handler: nil)
+        alert.addAction(okay)
+        present(alert, animated: true)
+        meansTextLabel.text = title
+    }
+    
     
     func changeExampleWords() {
         let exampleWords: [String] = randomWords()
         
-        
-        //        firstExampleWordButton.titleLabel?.text = exampleWords[0].lowercased()
-        //        secondExampleWordButton.titleLabel?.text = exampleWords[1].lowercased()
-        //        thirdExampleWordButton.titleLabel?.text = exampleWords[2].lowercased()
         /*
          왜 titleLabel?.text로 넣었을 때는 들어가는 값이 button으로 들어갈까?
          예상으로는 겉으로 들어가는 titleLabel.text 값만 바꿔줘서 그런  것 같음

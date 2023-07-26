@@ -23,7 +23,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         meansTextLabel.text = "신조어 검색기"
         meansTextLabel.font = UIFont.boldSystemFont(ofSize: 20)
@@ -44,15 +43,18 @@ class ViewController: UIViewController {
     
     @IBAction func searchButton(_ sender: UIButton) {
         meansTextLabel.font = UIFont.systemFont(ofSize: 15)
-        if let word = searchTextField.text?.uppercased() {
-            if let result = coinedWords[word] {
-                meansTextLabel.text = result
-            } else {
-                giveAlert(title: "올바른 단어를 입력해 주세요!", message: "해당 단어가 존재하지 않습니다. 맞춤법을 확인해 주세요!")
-            }
-        } else {
+        // guard let으로 변경해보는건어떨까
+        
+        guard let word = searchTextField.text?.uppercased() else {
             giveAlert(title: "단어를 입력해 주세요!", message: "")
+            return
         }
+        guard let result = coinedWords[word] else {
+            giveAlert(title: "올바른 단어를 입력해 주세요!", message: "해당 단어가 존재하지 않습니다. 맞춤법을 확인해 주세요!")
+            return
+        }
+        
+        meansTextLabel.text = result
         changeExampleWords()
     }
     
@@ -60,18 +62,19 @@ class ViewController: UIViewController {
     
     @IBAction func searchTextField(_ sender: UITextField) {
         
-        if let word = sender.text?.uppercased() {
-            if let result = coinedWords[word] {
-                if result.count < 2 {
-                    giveAlert(title: "올바른 단어를 입력해 주세요!", message: "글자수가 너무 짧습니다!")
-                } else {
-                    meansTextLabel.text = result
-                }
-            } else {
-                giveAlert(title: "올바른 단어를 입력해 주세요!", message: "해당 단어가 존재하지 않습니다. 맞춤법을 확인해 주세요!")
-            }
-        } else {
+        guard let word = sender.text?.uppercased() else {
             giveAlert(title: "단어를 입력해 주세요!", message: "")
+            return
+        }
+        guard let result = coinedWords[word] else {
+            giveAlert(title: "올바른 단어를 입력해 주세요!", message: "해당 단어가 존재하지 않습니다. 맞춤법을 확인해 주세요!")
+            return
+        }
+        
+        if result.count < 2 {
+            giveAlert(title: "올바른 단어를 입력해 주세요!", message: "글자수가 너무 짧습니다!")
+        } else {
+            meansTextLabel.text = result
         }
         changeExampleWords()
     }
@@ -88,12 +91,6 @@ class ViewController: UIViewController {
     
     func changeExampleWords() {
         let exampleWords: [String] = randomWords()
-        
-        /*
-         왜 titleLabel?.text로 넣었을 때는 들어가는 값이 button으로 들어갈까?
-         예상으로는 겉으로 들어가는 titleLabel.text 값만 바꿔줘서 그런  것 같음
-         아래 setTitle은 각 상태에서 title 자체를 바꿔주는 거니까... 적용이 되는듯?
-         */
         
         firstExampleWordButton.setTitle(exampleWords[0], for: .normal)
         secondExampleWordButton.setTitle(exampleWords[1], for: .normal)

@@ -46,13 +46,11 @@ class AddWordViewController: UIViewController {
             return
         }
         
-        
         coinedWords[word.uppercased()] = meaningTextView.text!
-        giveAlert(title: "단어가 추가되었습니다!", message: #"\#(meaningTextView.text!)라는 뜻의 신조어 \#(word)가 추가되었습니다."#)
+        giveAlert(title: "단어가 추가되었습니다!", message: #"\#(String(describing: coinedWords[word.uppercased()]))라는 뜻의 신조어 \#(word)가 추가되었습니다."#)
         meaningTextView.text = nil
         wordTextField.text = nil
     }
-    
     
     
     func giveAlert(title: String, message: String) {

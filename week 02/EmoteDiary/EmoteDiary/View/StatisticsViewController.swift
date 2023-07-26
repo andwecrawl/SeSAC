@@ -17,6 +17,9 @@ class StatisticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 여기서 UserDefault값을 가지고 와서 각 emotion Dictionary값에 넣어주고
+        // 이후에는 updateValue로 하면 되지 않을까?!
+        loadUserDefault()
         designView()
         designLabels()
     }
@@ -27,13 +30,18 @@ class StatisticsViewController: UIViewController {
         updateLabelValue()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        saveUserDefault()
+    }
     
     @IBAction func resetButtonTapped(_ sender: UIBarButtonItem) {
         for index in informationLabelBundle.indices {
             let emotion = informationLabelBundle[index].text!
+            
             emoteValue[emotion] = 0
             resultLabelBundle[index].text = "0점"
         }
+        resetUserDefault()
     }
     
     
@@ -41,8 +49,7 @@ class StatisticsViewController: UIViewController {
     func updateLabelValue() {
         
         for index in 0...4 {
-            let informationLabel = informationLabelBundle[index].text!
-            resultLabelBundle[index].text = "\(emoteValue[informationLabel]!)점"
+            resultLabelBundle[index].text = "\(emoteValue[Emote(rawValue: index)?.tag ?? "0"]!)점"
         }
         
     }
@@ -54,18 +61,20 @@ class StatisticsViewController: UIViewController {
             
             // 왼쪽 Label Design
             let informationLabel = informationLabelBundle[index]
-            informationLabel.text = emoteArr[index].rawValue
+            informationLabel.text = Emote(rawValue: index)?.tag
             informationLabel.font = UIFont.systemFont(ofSize: 18)
             labelShadow(label: informationLabel)
             
             // 오른쪽 Label Design
             let resultLabel = resultLabelBundle[index]
-            resultLabel.text = "\(emoteValue[informationLabel.text!]!)점"
+            // resultLabel.text = "\(emoteValue[informationLabel.text!]!)점"
+            loadUserDefault()
             resultLabel.font = UIFont.boldSystemFont(ofSize: 24)
             labelShadow(label: resultLabel)
+            
         }
     }
-
+    
     
     func labelShadow(label: UILabel) {
         
@@ -78,7 +87,6 @@ class StatisticsViewController: UIViewController {
     }
     
     
-    
     func designView() {
         
         for view in innerViewBundle {
@@ -88,6 +96,23 @@ class StatisticsViewController: UIViewController {
             view.layer.shadowRadius = 5
             view.layer.shadowOpacity = 0.2
         }
+        
+    }
+    
+    
+    func loadUserDefault() {
+        
+        let happy = UserDefaults.standard.integer(forKey: "happy")
+        let good = UserDefaults.standard.integer(forKey: "good")
+        let soso = UserDefaults.standard.integer(forKey: "soso")
+        let notBad = UserDefaults.standard.integer(forKey: "notBad")
+        let bad = UserDefaults.standard.integer(forKey: "bad")
+        
+        emoteValue[Emote.happy.tag]! = happy
+        emoteValue[Emote.good.tag]! = good
+        emoteValue[Emote.soso.tag]! = soso
+        emoteValue[Emote.notBad.tag]! = notBad
+        emoteValue[Emote.bad.tag]! = bad
         
     }
 }

@@ -25,8 +25,11 @@ class ViewController: UIViewController {
     
     @IBAction func emoteButtonTapped(_ sender: UIButton) {
         
-        let emotionStr = emoteArr[sender.tag].rawValue
-        emoteValue[emotionStr]! += addNumber
+        guard let emotion: String = Emote(rawValue: sender.tag)?.tag else {
+            return
+        }
+        
+        emoteValue[emotion]! += addNumber
         addNumber = 1
     }
     

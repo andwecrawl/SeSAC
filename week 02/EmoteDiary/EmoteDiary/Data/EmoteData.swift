@@ -7,15 +7,29 @@
 
 import Foundation
 
-enum Emote: String, CaseIterable {
+enum Emote: Int, CaseIterable {
     case happy
     case good
     case soso
     case notBad
     case bad
+    
+    var tag: String {
+        switch self {
+        case .happy:
+            return "happy"
+        case .good:
+            return "good"
+        case .soso:
+            return "soso"
+        case .notBad:
+            return "notBad"
+        case .bad:
+            return "bad"
+        }
+    }
+    
 }
-
-let emoteArr = Emote.allCases
 
 var emoteValue: [String: Int] = [
     "happy": 0,

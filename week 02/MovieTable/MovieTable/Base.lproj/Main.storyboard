@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x2d-qU-SZP">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +26,6 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fmC-ud-E4h">
                                             <rect key="frame" x="12" y="11" width="128" height="160"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="160" id="NjI-pQ-2hD"/>
                                                 <constraint firstAttribute="width" secondItem="fmC-ud-E4h" secondAttribute="height" multiplier="4:5" id="rH6-5P-AvL"/>
                                             </constraints>
                                         </imageView>
@@ -67,6 +66,7 @@
                                         <constraint firstItem="Pl7-lD-1yt" firstAttribute="top" secondItem="kva-dp-uc4" secondAttribute="topMargin" id="b2A-dz-33Z"/>
                                         <constraint firstItem="fmC-ud-E4h" firstAttribute="top" secondItem="kva-dp-uc4" secondAttribute="top" constant="11" id="eBN-Ci-cjn"/>
                                         <constraint firstItem="fmC-ud-E4h" firstAttribute="leading" secondItem="kva-dp-uc4" secondAttribute="leading" constant="12" id="p07-6N-Wla"/>
+                                        <constraint firstItem="Pl7-lD-1yt" firstAttribute="trailing" secondItem="kva-dp-uc4" secondAttribute="trailingMargin" id="pR8-dB-JD7"/>
                                         <constraint firstItem="Pl7-lD-1yt" firstAttribute="leading" secondItem="fmC-ud-E4h" secondAttribute="trailing" constant="12" id="qsb-G0-dpb"/>
                                     </constraints>
                                 </tableViewCellContentView>

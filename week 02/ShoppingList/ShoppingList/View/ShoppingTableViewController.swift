@@ -9,7 +9,7 @@ import UIKit
 
 class ShoppingTableViewController: UITableViewController {
     
-    var list = Shopping().list
+    var shopping = Shopping()
     
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
@@ -25,7 +25,15 @@ class ShoppingTableViewController: UITableViewController {
     }
 
     
-    @IBAction func editingTextField(_ sender: UITextField) {
+    @IBAction func textingTextField(_ sender: UITextField) {
+        guard let text = sender.text else {
+            return
+        }
+        
+        somethingToBuy = text
+    }
+    
+    @IBAction func returnTextField(_ sender: UITextField) {
         
         guard let text = sender.text else {
             return
@@ -40,19 +48,26 @@ class ShoppingTableViewController: UITableViewController {
             giveAlert(title: "추가할 물건을 적어 주세요!", message: "")
             return
         }
+        
+        // 이미 같은 물건이 list 안에 있을 때 alert 기능
+        if shopping.containedList(str: somethingToBuy) {
+            giveAlert(title: "이미 리스트에 존재하는 물품입니다!", message: "")
+            return
+        }
     
-        list.append(Stuff(name: somethingToBuy, liked: false, checked: false))
+        shopping.list.append(Stuff(name: somethingToBuy, liked: false, checked: false))
+        inputTextField.text = ""
         somethingToBuy = ""
         tableView.reloadData()
         
     }
     
     
-    
     // cell 갯수
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return shopping.list.count
     }
+    
     
     // section Number
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -65,21 +80,9 @@ class ShoppingTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingTableViewCell") as! ShoppingTableViewCell
         
-        let row = indexPath.row
+        let row = shopping.list[indexPath.row] // Stuff
         
-        cell.listLabel.text = list[row].name
-        
-        if list[row].checked {
-            cell.checkboxButton.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
-        } else {
-            cell.checkboxButton.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
-        }
-        
-        if list[row].liked {
-            cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-        } else {
-            cell.starButton.setImage(UIImage(systemName: "star"), for: .normal)
-        }
+        cell.configurateCell(row: row)
         
         return cell
         

@@ -29,7 +29,8 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
-                                                <action selector="editingTextField:" destination="Aqh-hj-tyA" eventType="editingDidEndOnExit" id="ExR-Sb-8ee"/>
+                                                <action selector="returnTextField:" destination="Aqh-hj-tyA" eventType="editingDidEndOnExit" id="ExR-Sb-8ee"/>
+                                                <action selector="textingTextField:" destination="Aqh-hj-tyA" eventType="editingDidEnd" id="f5A-Ot-N2O"/>
                                             </connections>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAF-aJ-vhI">

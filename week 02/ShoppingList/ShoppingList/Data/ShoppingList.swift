@@ -15,4 +15,16 @@ struct Shopping {
     Stuff(name: "브로콜리", liked: false, checked: false)
     ]
     
+    func makeTag(stuff: Stuff) -> String {
+        return stuff.name
+    }
+    
+    func containedList(str: String) -> Bool {
+        for element in list {
+            if element.name == str {
+                return true
+            }
+        }
+        return false
+    }
 }

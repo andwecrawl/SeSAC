@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Aqh-hj-tyA">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Shopping Table View Controller-->
+        <scene sceneID="r8g-po-qoh">
+            <objects>
+                <tableViewController id="Aqh-hj-tyA" customClass="ShoppingTableViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="0OP-pZ-jJi">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="phb-Cg-lhP">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="84"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P8L-eg-HbW">
+                                    <rect key="frame" x="4" y="4" width="385" height="76"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9SS-Ec-7lp">
+                                            <rect key="frame" x="8" y="13" width="307.33333333333331" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="editingTextField:" destination="Aqh-hj-tyA" eventType="editingDidEndOnExit" id="ExR-Sb-8ee"/>
+                                            </connections>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAF-aJ-vhI">
+                                            <rect key="frame" x="323.33333333333331" y="13" width="53.666666666666686" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="추가"/>
+                                            <connections>
+                                                <action selector="addButtonTapped:" destination="Aqh-hj-tyA" eventType="touchUpInside" id="D1X-QD-3Q6"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingTableViewCell" rowHeight="53" id="gi3-GS-DSm" customClass="ShoppingTableViewCell" customModule="ShoppingList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="134" width="393" height="53"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gi3-GS-DSm" id="dhh-ge-eLq">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="53"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgs-25-q05">
+                                            <rect key="frame" x="57" y="8" width="283" height="37"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJo-vC-z94">
+                                            <rect key="frame" x="12" y="8" width="37" height="37"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="zJo-vC-z94" secondAttribute="height" multiplier="1:1" id="mjO-bv-J1u"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="checkmark.square" catalog="system"/>
+                                            <connections>
+                                                <action selector="checkboxButtonTapped:" destination="gi3-GS-DSm" eventType="touchUpInside" id="h9t-Jy-xCA"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7X-Jq-zkx">
+                                            <rect key="frame" x="348" y="8" width="37" height="37"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Y7X-Jq-zkx" secondAttribute="height" multiplier="1:1" id="Fnd-SK-jJn"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
+                                            <connections>
+                                                <action selector="starButtonTapped:" destination="gi3-GS-DSm" eventType="touchUpInside" id="2se-pb-iMV"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Y7X-Jq-zkx" firstAttribute="top" secondItem="dhh-ge-eLq" secondAttribute="top" constant="8" id="0bU-0W-lSN"/>
+                                        <constraint firstItem="zJo-vC-z94" firstAttribute="top" secondItem="dhh-ge-eLq" secondAttribute="top" constant="8" id="5Ju-lT-80n"/>
+                                        <constraint firstAttribute="trailing" secondItem="Y7X-Jq-zkx" secondAttribute="trailing" constant="8" id="INF-3a-JZ9"/>
+                                        <constraint firstAttribute="bottom" secondItem="Y7X-Jq-zkx" secondAttribute="bottom" constant="8" id="MvB-4u-E7a"/>
+                                        <constraint firstAttribute="bottom" secondItem="zJo-vC-z94" secondAttribute="bottom" constant="8" id="Ugc-oS-18M"/>
+                                        <constraint firstAttribute="bottom" secondItem="Sgs-25-q05" secondAttribute="bottom" constant="8" id="Xb8-rh-yy2"/>
+                                        <constraint firstItem="Sgs-25-q05" firstAttribute="leading" secondItem="zJo-vC-z94" secondAttribute="trailing" constant="8" id="drZ-Wg-B24"/>
+                                        <constraint firstItem="Sgs-25-q05" firstAttribute="top" secondItem="dhh-ge-eLq" secondAttribute="top" constant="8" id="dvF-Jq-VP5"/>
+                                        <constraint firstItem="Y7X-Jq-zkx" firstAttribute="leading" secondItem="Sgs-25-q05" secondAttribute="trailing" constant="8" id="j1L-Le-NWt"/>
+                                        <constraint firstItem="zJo-vC-z94" firstAttribute="leading" secondItem="dhh-ge-eLq" secondAttribute="leading" constant="12" id="uJU-d5-DCH"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="checkboxButton" destination="zJo-vC-z94" id="aeu-SA-BfA"/>
+                                    <outlet property="listLabel" destination="Sgs-25-q05" id="7TW-FB-Thz"/>
+                                    <outlet property="starButton" destination="Y7X-Jq-zkx" id="8kW-gD-0r2"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Aqh-hj-tyA" id="fZa-XM-Gw8"/>
+                            <outlet property="delegate" destination="Aqh-hj-tyA" id="KVL-77-tas"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="addButton" destination="EAF-aJ-vhI" id="Xj1-PM-cbb"/>
+                        <outlet property="inputTextField" destination="9SS-Ec-7lp" id="AAh-UP-7qV"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kqz-Q3-hu4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="855.72519083969462" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

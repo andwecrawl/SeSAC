@@ -19,6 +19,7 @@
 		D1CABE8B2A78066100AB5CD4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABE8A2A78066100AB5CD4 /* Movie.swift */; };
 		D1CABE8D2A78066B00AB5CD4 /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABE8C2A78066B00AB5CD4 /* MovieList.swift */; };
 		D1CABEB32A781B1C00AB5CD4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABEB22A781B1C00AB5CD4 /* DetailViewController.swift */; };
+		D1E68E9D2A78E60900A275C4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E68E9C2A78E60900A275C4 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D1CABE8A2A78066100AB5CD4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		D1CABE8C2A78066B00AB5CD4 /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 		D1CABEB22A781B1C00AB5CD4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D1E68E9C2A78E60900A275C4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				D1CABE8A2A78066100AB5CD4 /* Movie.swift */,
 				D1CABE8C2A78066B00AB5CD4 /* MovieList.swift */,
+				D1E68E9C2A78E60900A275C4 /* Extension.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E68E9D2A78E60900A275C4 /* Extension.swift in Sources */,
 				D1CABE732A77F61D00AB5CD4 /* SearchViewController.swift in Sources */,
 				D1CABE852A7803C800AB5CD4 /* MovieCollectionViewController.swift in Sources */,
 				D1CABE8B2A78066100AB5CD4 /* Movie.swift in Sources */,

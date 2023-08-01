@@ -10,42 +10,46 @@ import UIKit
 class MovieCollectionViewCell: UICollectionViewCell {
     
     var movie: Movie?
-    let colors: [UIColor] = [
-        .cyan,
-        .green,
-        .lightGray,
-        .magenta,
-        .purple,
-        .systemBlue,
-        .systemRed,
-        .systemMint,
-        .systemPink,
-        .orange,
-        .systemIndigo,
-        .yellow,
-        .brown,
-        .systemTeal
-    ]
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     
+    @IBOutlet weak var likedButton: UIButton!
     
     @IBOutlet weak var backView: UIView!
     
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        designCell()
+    }
+    
     func designCell() {
+        nameLabel.font = .boldSystemFont(ofSize: 13)
+        rateLabel.font = .systemFont(ofSize: 10)
+    }
+    
+    func fillCell() {
         guard let movie else {
             return
         }
         
         nameLabel.text = movie.name
-        nameLabel.font = .boldSystemFont(ofSize: 18)
         posterImageView.image = UIImage(named: movie.name)
-        rateLabel.font = .systemFont(ofSize: 13)
-        rateLabel.text = String(movie.rate)
-        backView.backgroundColor = colors.randomElement()!
+        rateLabel.text = movie.description
+        likedButton.tintColor = .gray
+        backView.backgroundColor = UIColor.random
+        
+        if movie.liked {
+            let likedImage = UIImage(systemName: "heart.fill")
+            likedButton.setImage(likedImage, for: .normal)
+            likedButton.tintColor = .systemRed
+        } else {
+            let unlikedImage = UIImage(systemName: "heart")
+            likedButton.setImage(unlikedImage, for: .normal)
+        }
     }
     
     

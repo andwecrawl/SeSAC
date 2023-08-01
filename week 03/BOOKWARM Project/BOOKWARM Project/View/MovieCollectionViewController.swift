@@ -12,7 +12,11 @@ private let reuseIdentifier = "Cell"
 class MovieCollectionViewController: UICollectionViewController {
 
     
-    let list = MovieList().list
+    var list = MovieList().list {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -49,19 +53,19 @@ class MovieCollectionViewController: UICollectionViewController {
         
         // CollectionViewLayout 잡기
         let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 15
+        let spacing: CGFloat = 6
         
         // screen 화면에서 여백을 뺀 Cell 전체의 길이
         let width = UIScreen.main.bounds.width - (spacing * 3)
         
         // Cell 하나의 가로 / 세로
-        layout.itemSize = CGSize(width: width / 2, height: width / 4 * 3)
+        layout.itemSize = CGSize(width: width / 2, height: width * 5 / 7)
         
         // 위아래 여백
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         
         // Cell 사이 여백
-        layout.minimumInteritemSpacing = spacing
+        layout.minimumInteritemSpacing = spacing / 2
         
         // layout 적용
         collectionView.collectionViewLayout = layout
@@ -83,10 +87,17 @@ class MovieCollectionViewController: UICollectionViewController {
          
         let movie = list[indexPath.row]
         cell.movie = movie
-        cell.designCell()
-        
+        cell.fillCell()
+       
+        let row = indexPath.row
+        cell.likedButton.tag = row
+        cell.likedButton.addTarget(self, action: #selector(likedButtonTapped), for: .touchUpInside)
         return cell
         
+    }
+    
+    @objc func likedButtonTapped(_ sender: UIButton) {
+        list[sender.tag].liked.toggle()
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -97,7 +108,7 @@ class MovieCollectionViewController: UICollectionViewController {
             return
         }
         
-        vc.movieName = list[indexPath.row].name
+        vc.movie = list[indexPath.row]
         
         navigationController?.pushViewController(vc, animated: true)
     }

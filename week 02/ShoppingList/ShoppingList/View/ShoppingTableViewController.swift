@@ -9,7 +9,11 @@ import UIKit
 
 class ShoppingTableViewController: UITableViewController {
     
-    var shopping = Shopping()
+    var shopping = Shopping() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
@@ -23,7 +27,7 @@ class ShoppingTableViewController: UITableViewController {
         designHeader()
         
     }
-
+    
     
     @IBAction func textingTextField(_ sender: UITextField) {
         guard let text = sender.text else {
@@ -55,7 +59,8 @@ class ShoppingTableViewController: UITableViewController {
             return
         }
     
-        shopping.list.append(Stuff(name: somethingToBuy, liked: false, checked: false))
+        let thing = Stuff(name: somethingToBuy, liked: false, checked: false)
+        shopping.list.insert(thing, at: 0)
         inputTextField.text = ""
         somethingToBuy = ""
         tableView.reloadData()
@@ -83,15 +88,35 @@ class ShoppingTableViewController: UITableViewController {
         let row = shopping.list[indexPath.row] // Stuff
         
         cell.configurateCell(row: row)
+        cell.starButton.tag = indexPath.row
+        cell.starButton.addTarget(self, action: #selector(starButtonTapped), for: .touchUpInside)
         
+        cell.checkboxButton.tag = indexPath.row
+        cell.checkboxButton.addTarget(self, action: #selector(checkboxButtonTapped), for: .touchUpInside)
         return cell
         
     }
     
+    @objc func starButtonTapped(_ sender: UIButton) {
+        shopping.list[sender.tag].liked.toggle()
+    }
+    
+    @objc func checkboxButtonTapped(_ sender: UIButton) {
+        shopping.list[sender.tag].checked.toggle()
+    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        shopping.list.remove(at: indexPath.row)
+    }
+    
     
     
     func designHeader() {

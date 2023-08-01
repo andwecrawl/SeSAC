@@ -69,9 +69,6 @@
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="checkmark.square" catalog="system"/>
-                                            <connections>
-                                                <action selector="checkboxButtonTapped:" destination="gi3-GS-DSm" eventType="touchUpInside" id="h9t-Jy-xCA"/>
-                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7X-Jq-zkx">
                                             <rect key="frame" x="348" y="8" width="37" height="37"/>
@@ -80,9 +77,6 @@
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
-                                            <connections>
-                                                <action selector="starButtonTapped:" destination="gi3-GS-DSm" eventType="touchUpInside" id="2se-pb-iMV"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

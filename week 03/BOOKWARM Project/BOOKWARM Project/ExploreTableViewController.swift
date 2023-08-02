@@ -98,20 +98,15 @@ class ExploreTableViewController: UITableViewController, UICollectionViewDelegat
         guard let vc = storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController else { return }
         
         vc.movie = list[indexPath.row]
+        vc.hidden = false
         vc.modalTransitionStyle = .coverVertical
         vc.modalPresentationStyle = .fullScreen
-        vc.navigationItem.leftBarButtonItem?.image = UIImage(systemName: "xMark")
         present(vc, animated: true)
     }
     
-    /*
-     guard let vc = sb.instantiateViewController(identifier: "DetailViewController") as? DetailViewController else {
-         return
-     }
-     
-     vc.movie = list[indexPath.row]
-     
-     navigationController?.pushViewController(vc, animated: true)
-     */
- 
+    @objc func closeButtonClicked() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 }

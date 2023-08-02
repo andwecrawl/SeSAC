@@ -9,6 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
    
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
@@ -18,13 +19,29 @@ class DetailViewController: UIViewController {
    
     @IBOutlet weak var cardView: UIView!
     
-    
     var movie: Movie?
+    var hidden: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        closeButtonChecked()
         designInitalSetting()
+        
+    }
+    
+    
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+    
+    
+    func closeButtonChecked() {
+        closeButton.isHidden = hidden
+        if closeButton.isHidden {
+            closeButton.isEnabled = false
+        } else {
+            closeButton.isEnabled = true
+        }
     }
     
     func designInitalSetting() {

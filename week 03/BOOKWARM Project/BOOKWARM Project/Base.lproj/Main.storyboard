@@ -148,14 +148,28 @@
                                     <constraint firstItem="9jS-Ab-Ows" firstAttribute="top" secondItem="HT3-4C-pjX" secondAttribute="top" constant="30" id="PxJ-xR-ycG"/>
                                     <constraint firstAttribute="trailing" secondItem="7wf-7L-bSr" secondAttribute="trailing" constant="16" id="Yah-Ry-CFG"/>
                                     <constraint firstItem="GtH-kW-IG8" firstAttribute="top" secondItem="9jS-Ab-Ows" secondAttribute="top" id="arm-BI-9wC"/>
-                                    <constraint firstItem="wHA-AA-n7M" firstAttribute="top" secondItem="7wf-7L-bSr" secondAttribute="bottom" constant="8" id="va2-1H-lyw"/>
+                                    <constraint firstItem="wHA-AA-n7M" firstAttribute="top" secondItem="7wf-7L-bSr" secondAttribute="bottom" constant="6.6666666666666572" id="va2-1H-lyw"/>
                                     <constraint firstAttribute="trailing" secondItem="9jS-Ab-Ows" secondAttribute="trailing" constant="16" id="xyw-hk-SBR"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vch-Ho-vjm">
+                                <rect key="frame" x="8" y="67" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0p0-0E-hYl"/>
+                                    <constraint firstAttribute="width" constant="40" id="sOb-0i-KvO"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="nxO-EN-Xyn" eventType="touchUpInside" id="uJF-I8-DHA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YI2-cW-Kjp"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Vch-Ho-vjm" firstAttribute="leading" secondItem="YI2-cW-Kjp" secondAttribute="leading" constant="8" id="A2N-TU-hKq"/>
                             <constraint firstItem="HT3-4C-pjX" firstAttribute="top" secondItem="f1h-dp-cQT" secondAttribute="bottom" constant="-17.666666666666629" id="CUZ-rd-WwJ"/>
                             <constraint firstItem="f1h-dp-cQT" firstAttribute="leading" secondItem="YI2-cW-Kjp" secondAttribute="leading" id="Den-TM-0Rf"/>
                             <constraint firstItem="YI2-cW-Kjp" firstAttribute="bottom" secondItem="HT3-4C-pjX" secondAttribute="bottom" id="MjW-Uu-0SH"/>
@@ -165,11 +179,13 @@
                             <constraint firstItem="f1h-dp-cQT" firstAttribute="top" secondItem="kPN-TO-Kd3" secondAttribute="top" id="aJL-HQ-9rq"/>
                             <constraint firstAttribute="trailing" secondItem="0Xf-Oa-Ofv" secondAttribute="trailing" id="iFy-gt-rsc"/>
                             <constraint firstItem="0Xf-Oa-Ofv" firstAttribute="leading" secondItem="kPN-TO-Kd3" secondAttribute="leading" id="kQd-RE-F4E"/>
+                            <constraint firstItem="Vch-Ho-vjm" firstAttribute="top" secondItem="YI2-cW-Kjp" secondAttribute="top" constant="8" id="rBF-dE-2Hv"/>
                             <constraint firstItem="0Xf-Oa-Ofv" firstAttribute="top" secondItem="kPN-TO-Kd3" secondAttribute="top" id="vIP-C2-hOH"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cardView" destination="HT3-4C-pjX" id="GTC-Ri-XsU"/>
+                        <outlet property="closeButton" destination="Vch-Ho-vjm" id="qFO-iZ-yOR"/>
                         <outlet property="detailLabel" destination="7wf-7L-bSr" id="UVc-e1-WXw"/>
                         <outlet property="likedButton" destination="GtH-kW-IG8" id="n8K-vV-Qcq"/>
                         <outlet property="plotLabel" destination="wHA-AA-n7M" id="XkV-r9-mex"/>
@@ -367,6 +383,7 @@
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="lasso.and.sparkles" catalog="system" width="115" height="128"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

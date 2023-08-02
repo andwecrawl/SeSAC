@@ -10,7 +10,6 @@
 		D16204D32A7A2BE00089C977 /* ExploreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16204D22A7A2BE00089C977 /* ExploreTableViewController.swift */; };
 		D16204D62A7A2BFF0089C977 /* ExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16204D42A7A2BFF0089C977 /* ExploreTableViewCell.swift */; };
 		D162050B2A7A3B520089C977 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D162050A2A7A3B520089C977 /* BannerCollectionViewCell.swift */; };
-		D162050D2A7A6A370089C977 /* StretchyTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D162050C2A7A6A370089C977 /* StretchyTableViewHeaderView.swift */; };
 		D1CABE6F2A77F61D00AB5CD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABE6E2A77F61D00AB5CD4 /* AppDelegate.swift */; };
 		D1CABE712A77F61D00AB5CD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABE702A77F61D00AB5CD4 /* SceneDelegate.swift */; };
 		D1CABE732A77F61D00AB5CD4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABE722A77F61D00AB5CD4 /* SearchViewController.swift */; };
@@ -30,7 +29,6 @@
 		D16204D22A7A2BE00089C977 /* ExploreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewController.swift; sourceTree = "<group>"; };
 		D16204D42A7A2BFF0089C977 /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
 		D162050A2A7A3B520089C977 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
-		D162050C2A7A6A370089C977 /* StretchyTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyTableViewHeaderView.swift; sourceTree = "<group>"; };
 		D1CABE6B2A77F61D00AB5CD4 /* BOOKWARM Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BOOKWARM Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1CABE6E2A77F61D00AB5CD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1CABE702A77F61D00AB5CD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,9 +79,8 @@
 				D1CABE6E2A77F61D00AB5CD4 /* AppDelegate.swift */,
 				D1CABE702A77F61D00AB5CD4 /* SceneDelegate.swift */,
 				D1CABE742A77F61D00AB5CD4 /* Main.storyboard */,
-				D162050C2A7A6A370089C977 /* StretchyTableViewHeaderView.swift */,
-				D16204D22A7A2BE00089C977 /* ExploreTableViewController.swift */,
 				D162050A2A7A3B520089C977 /* BannerCollectionViewCell.swift */,
+				D16204D22A7A2BE00089C977 /* ExploreTableViewController.swift */,
 				D16204D42A7A2BFF0089C977 /* ExploreTableViewCell.swift */,
 				D1CABEB12A781A8900AB5CD4 /* View */,
 				D1CABE8E2A78066F00AB5CD4 /* Data */,
@@ -190,7 +187,6 @@
 			files = (
 				D16204D62A7A2BFF0089C977 /* ExploreTableViewCell.swift in Sources */,
 				D16204D32A7A2BE00089C977 /* ExploreTableViewController.swift in Sources */,
-				D162050D2A7A6A370089C977 /* StretchyTableViewHeaderView.swift in Sources */,
 				D1E68E9D2A78E60900A275C4 /* Extension.swift in Sources */,
 				D1CABE732A77F61D00AB5CD4 /* SearchViewController.swift in Sources */,
 				D1CABE852A7803C800AB5CD4 /* MovieCollectionViewController.swift in Sources */,

@@ -40,7 +40,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
         posterImageView.image = UIImage(named: movie.name)
         rateLabel.text = movie.description
         likedButton.tintColor = .gray
-        backView.backgroundColor = UIColor.random
+        backView.backgroundColor = movie.color
         
         if movie.liked {
             let likedImage = UIImage(systemName: "heart.fill")

@@ -5,7 +5,7 @@
 //  Created by yeoni on 2023/08/01.
 //
 
-import Foundation
+import UIKit
 
 
 
@@ -16,9 +16,13 @@ struct Movie {
     var genre: Genre
     var plot: String
     var liked: Bool
+    var color: UIColor
     
     var description: String {
         return "\(genre) · \(runningTime) · \(rate)"
+    }
+    var exploreDescription: String {
+        return "\(genre) · \(runningTime)"
     }
     
     enum Genre: String {

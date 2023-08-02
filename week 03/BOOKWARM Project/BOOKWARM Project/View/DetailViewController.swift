@@ -31,6 +31,7 @@ class DetailViewController: UIViewController {
         guard let movie else {
             return
         }
+        
         let movieTitle = movie.name
         posterImageView.image = UIImage(named: movieTitle)
         titleLabel.text = movieTitle

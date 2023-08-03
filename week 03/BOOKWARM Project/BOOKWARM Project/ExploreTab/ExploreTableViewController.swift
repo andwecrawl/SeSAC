@@ -101,6 +101,7 @@ class ExploreTableViewController: UITableViewController, UICollectionViewDelegat
         vc.hidden = false
         vc.modalTransitionStyle = .coverVertical
         vc.modalPresentationStyle = .fullScreen
+        
         present(vc, animated: true)
     }
     

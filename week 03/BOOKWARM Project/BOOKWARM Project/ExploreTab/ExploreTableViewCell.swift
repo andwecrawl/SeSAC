@@ -20,6 +20,7 @@ class ExploreTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         titleLabel.font = .boldSystemFont(ofSize: 17)
     }
+    
     func configurateCell() {
         
         guard let movie else { return }

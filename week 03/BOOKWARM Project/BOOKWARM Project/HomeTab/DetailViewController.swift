@@ -19,6 +19,9 @@ class DetailViewController: UIViewController {
    
     @IBOutlet weak var cardView: UIView!
     
+    @IBOutlet weak var memoTextView: UITextView!
+    
+    
     var movie: Movie?
     var hidden: Bool = true
     
@@ -26,14 +29,25 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         closeButtonChecked()
         designInitalSetting()
+        blurPosterImageView()
         
+        NSLayoutConstraint.activate([
+        cardView.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -50)
+      ])
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(endEditing))
+            tapGesture.cancelsTouchesInView = false
+            view.addGestureRecognizer(tapGesture)
+
     }
-    
     
     @IBAction func closeButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
     
+    @objc func endEditing() {
+        view.endEditing(true)
+    }
     
     func closeButtonChecked() {
         closeButton.isHidden = hidden
@@ -65,6 +79,19 @@ class DetailViewController: UIViewController {
             let unlikedImage = UIImage(systemName: "heart")
             likedButton.setImage(unlikedImage, for: .normal)
         }
+        
+        memoTextView.layer.borderColor = UIColor.darkGray.cgColor
+        memoTextView.layer.borderWidth = 1
+        memoTextView.layer.opacity = 0.4
+        memoTextView.layer.cornerRadius = 10
+    }
+    
+    func blurPosterImageView() {
+        let blurEffect = UIBlurEffect(style: .dark)
+        let visualEffectView = UIVisualEffectView(effect: blurEffect)
+        visualEffectView.frame = self.view.frame
+        visualEffectView.alpha = 0.3
+        self.posterImageView.addSubview(visualEffectView)
     }
     
     @IBAction func likedButtonTapped(_ sender: UIButton) {

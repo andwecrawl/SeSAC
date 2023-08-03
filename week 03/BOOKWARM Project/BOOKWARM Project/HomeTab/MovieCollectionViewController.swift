@@ -9,7 +9,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class MovieCollectionViewController: UICollectionViewController {
+class MovieCollectionViewController: UICollectionViewController, UISearchBarDelegate {
 
     
     var list = MovieList().list {
@@ -17,6 +17,7 @@ class MovieCollectionViewController: UICollectionViewController {
             collectionView.reloadData()
         }
     }
+    var searchList: [Movie] = []
     
     
     override func viewDidLoad() {
@@ -32,6 +33,10 @@ class MovieCollectionViewController: UICollectionViewController {
     
     // 코드로 화면 옮기기
     @IBAction func searchButtonTapped(_ sender: UIBarButtonItem) {
+       
+        // 누르면 숨겨져 있던 searchBar 보이는 걸로 수정... 하고 싶었는데 실패 ^_^
+        // reusableCell 어케 쓰는 거임???
+        
         
         // 스토리보드 파일 찾기
         let sb = UIStoryboard(name: "Main", bundle: nil)
@@ -45,6 +50,8 @@ class MovieCollectionViewController: UICollectionViewController {
         
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
+        
+        
     }
     
 
@@ -113,5 +120,49 @@ class MovieCollectionViewController: UICollectionViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    // 아니 이거 왜 안 댐?????
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) ->
+            UICollectionReusableView {
+                print("hi")
+         switch kind {
+         case UICollectionView.elementKindSectionHeader:
+           // 2
+           let headerView = collectionView.dequeueReusableSupplementaryView(
+             ofKind: kind,
+             withReuseIdentifier: "\(SearchCollectionReusableView.self)",
+             for: indexPath)
+
+           // 3
+           guard let typedHeaderView = headerView as? SearchCollectionReusableView
+           else { return headerView }
+
+             typedHeaderView.searchBar.placeholder = "단어를 입력하세요!"
+           return typedHeaderView
+         default:
+           // 5
+           assert(false, "Invalid element type")
+         }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else { return }
+        
+        for element in list {
+            if element.name.contains(text) || element.genre.rawValue.contains(text) {
+                searchList.append(element)
+            }
+        }
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchList = []
+        searchBar.text = ""
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchList = []
+    }
 
 }

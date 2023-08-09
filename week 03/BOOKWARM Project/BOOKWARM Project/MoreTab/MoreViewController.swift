@@ -29,39 +29,42 @@ class MoreViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchTableView: UITableView!
     
     var bookList: [Book] = []
+    var isEnd: Bool = false
+    var page: Int = 1
+    var queryText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        searchBar.delegate = self
-//        searchBar.placeholder = "검색어를 입력해 주세요."
-//        searchBar.showsCancelButton = true
-//        searchTableView.tableHeaderView = searchBar
-        
         searchTableView.dataSource = self
         searchTableView.delegate = self
+        searchTableView.prefetchDataSource = self
     }
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else { return }
-        callRequest(text: text)
+        queryText = text
+        callRequest(text: text, page: page)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        queryText = ""
         bookList = []
     }
 
-    func callRequest(text: String) {
+    func callRequest(text: String, page: Int) {
         
         guard let text = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-        let url = "https://dapi.kakao.com/v3/search/book?target=title&query=\(text)"
+        let url = "https://dapi.kakao.com/v3/search/book?target=title&query=\(text)&size=20&page=\(page)"
+        print(url)
         let header: HTTPHeaders = ["Authorization": "KakaoAK cf98a391517cae5208a42c51880b5107"]
         AF.request(url, method: .get, headers: header).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                
+
+                self.isEnd = json["meta"]["is_end"].boolValue
                 let items = json["documents"].arrayValue
                 
                 for book in items {
@@ -88,7 +91,7 @@ class MoreViewController: UIViewController, UISearchBarDelegate {
                     self.bookList.append(Book(title: title, author: authors, publisher: publisher, price: price, imageURL: imageURL))
                     
                 }
-                print(self.bookList)
+                
                 self.searchTableView.reloadData()
                 
             case .failure(let error):
@@ -101,7 +104,18 @@ class MoreViewController: UIViewController, UISearchBarDelegate {
 }
 
 
-extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
+extension MoreViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard !queryText.isEmpty else { return }
+        for indexPath in indexPaths {
+            if bookList.count - 1 == indexPath.row && isEnd == false && page < 30 {
+                page += 1
+                callRequest(text: queryText, page: page)
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookList.count
     }

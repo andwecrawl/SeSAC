@@ -39,6 +39,7 @@ class MoreViewController: UIViewController, UISearchBarDelegate {
         searchTableView.dataSource = self
         searchTableView.delegate = self
         searchTableView.prefetchDataSource = self
+        
     }
     
     
@@ -48,9 +49,11 @@ class MoreViewController: UIViewController, UISearchBarDelegate {
         callRequest(text: text, page: page)
     }
     
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         queryText = ""
         bookList = []
+        searchTableView.reloadData()
     }
 
     func callRequest(text: String, page: Int) {
@@ -107,10 +110,22 @@ class MoreViewController: UIViewController, UISearchBarDelegate {
 extension MoreViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        // queryText(검색어)가 비었다면 종료
         guard !queryText.isEmpty else { return }
+        
+        // 이 for문에서 pagenation이 구현된다.
+        // indexPath(각 셀의 위치)의 배열인 indexPaths를 돌면서 비교한다.
+        // 그 안에서 만약 indexPath가 bookList.count가 같다면 그 부분이 페이지의 끝이라는 소리니까
+        // 페이지가 끝나기 전에 데이터를 가져오는 조건을 설정해 준다.
+        // 또, 중요한 점이 json 데이터를 가져올 때 meta section에서 페이지가 끝났는지 볼 수 있는 is_end가 있다. (queryString 값은 각 json마다 다를 수 있음)
+        // 이 is_end를 서버에서 매번 가져오는데, 이 페이지가 끝 페이지가 아닐 때 새 페이지를 로드할 수 있으므로 이 값이 false일 때 로드하도록 한다.
+        // 또한, 최대 페이지 값을 설정해 주어 서버에서 제공해 주는 데이터의 페이지값을 넘는 걸 요청하여 오류가 나지 않도록 한다.
+        // Kakao 책 검색 API의 경우에는 size와 page 값은 최대 50까지였다.
         for indexPath in indexPaths {
             if bookList.count - 1 == indexPath.row && isEnd == false && page < 30 {
+                // 위 조건이 맞으면 새 페이지를 가져와야 하므로, 페이지 수를 증가시킨다.
                 page += 1
+                // 이후 callRequest(text:page:) 함수를 실행하여 서버에 데이터를 요청한다.
                 callRequest(text: queryText, page: page)
             }
         }

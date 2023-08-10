@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D16CAA502A84745B00EDC744 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16CAA4F2A84745B00EDC744 /* TranslationViewController.swift */; };
+		D16CAA522A84768100EDC744 /* PapagoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16CAA512A84768100EDC744 /* PapagoViewController.swift */; };
+		D187FE072A8512F400EF2A03 /* TranslationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D187FE062A8512F400EF2A03 /* TranslationPickerViewController.swift */; };
 		D1F9574D2A8314A0002A5335 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9574C2A8314A0002A5335 /* AppDelegate.swift */; };
 		D1F9574F2A8314A0002A5335 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9574E2A8314A0002A5335 /* SceneDelegate.swift */; };
 		D1F957512A8314A0002A5335 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F957502A8314A0002A5335 /* VideoViewController.swift */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D16CAA4F2A84745B00EDC744 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
+		D16CAA512A84768100EDC744 /* PapagoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PapagoViewController.swift; sourceTree = "<group>"; };
+		D187FE062A8512F400EF2A03 /* TranslationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationPickerViewController.swift; sourceTree = "<group>"; };
 		D1F957492A8314A0002A5335 /* PracticeAPi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeAPi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1F9574C2A8314A0002A5335 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1F9574E2A8314A0002A5335 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,7 +78,10 @@
 				D1F9574E2A8314A0002A5335 /* SceneDelegate.swift */,
 				D1F957502A8314A0002A5335 /* VideoViewController.swift */,
 				D1F9576A2A83230C002A5335 /* VideoTableViewCell.swift */,
+				D16CAA512A84768100EDC744 /* PapagoViewController.swift */,
 				D1F957522A8314A0002A5335 /* Main.storyboard */,
+				D187FE062A8512F400EF2A03 /* TranslationPickerViewController.swift */,
+				D16CAA4F2A84745B00EDC744 /* TranslationViewController.swift */,
 				D1F957552A8314A1002A5335 /* Assets.xcassets */,
 				D1F957572A8314A1002A5335 /* LaunchScreen.storyboard */,
 				D1F9575A2A8314A1002A5335 /* Info.plist */,
@@ -165,7 +174,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1F957512A8314A0002A5335 /* VideoViewController.swift in Sources */,
+				D16CAA522A84768100EDC744 /* PapagoViewController.swift in Sources */,
 				D1F9574D2A8314A0002A5335 /* AppDelegate.swift in Sources */,
+				D16CAA502A84745B00EDC744 /* TranslationViewController.swift in Sources */,
+				D187FE072A8512F400EF2A03 /* TranslationPickerViewController.swift in Sources */,
 				D1F957692A831890002A5335 /* APIKey.swift in Sources */,
 				D1F9574F2A8314A0002A5335 /* SceneDelegate.swift in Sources */,
 				D1F9576B2A83230C002A5335 /* VideoTableViewCell.swift in Sources */,

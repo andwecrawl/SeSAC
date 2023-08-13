@@ -11,7 +11,8 @@ class TrendViewController: UIViewController {
 
     @IBOutlet weak var trendTableView: UITableView!
     
-
+    var list: [TrendsMedia] = []
+    var page: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier) as? MovieTableViewCell else { return UITableViewCell()}
-//        cell.makeShadow(view: cell.posterImageView)
+
         
         return cell
     }

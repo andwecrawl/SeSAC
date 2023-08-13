@@ -10,8 +10,8 @@ import Foundation
 extension URL {
     static let basicImageURL = "https://image.tmdb.org/t/p/w500/"
     
-    static func makeImageURL(imagePath: String) -> String {
-        return basicImageURL + imagePath
+    static func makeImageURL(imagePath: String) -> URL? {
+        return URL(string: basicImageURL + imagePath)
     }
 }
 

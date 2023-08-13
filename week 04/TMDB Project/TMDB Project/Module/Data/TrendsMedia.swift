@@ -14,11 +14,17 @@ struct TrendsMedia {
     var type: Media {
         return Media(rawValue: self.mediaType) ?? .movie
     }
-    var genre: Int
+    var genre: String
     var date: String
     var overview: String
     var backdropImage: String
+    var backdropURL: URL? {
+        return URL.makeImageURL(imagePath: backdropImage)
+    }
     var posterImage: String
+    var posterURL: URL? {
+        return URL.makeImageURL(imagePath: posterImage)
+    }
 }
 
 /*

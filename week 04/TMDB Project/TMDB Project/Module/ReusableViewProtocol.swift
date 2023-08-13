@@ -19,3 +19,14 @@ extension MovieTableViewCell: ReusableViewProtocol {
     }
 }
 
+extension OverviewTableViewCell: ReusableViewProtocol {
+    static var identifier: String {
+        return String(describing: self)
+    }
+}
+
+extension CastTableViewCell: ReusableViewProtocol {
+    static var identifier: String {
+        return String(describing: self)
+    }
+}

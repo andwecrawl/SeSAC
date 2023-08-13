@@ -125,11 +125,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="actorLabel" destination="z8X-cM-cbs" id="AqI-jl-xEJ"/>
+                <outlet property="backdropImageView" destination="JBg-yr-nNz" id="VAd-Dl-BAT"/>
                 <outlet property="dateLabel" destination="JHI-03-rzh" id="klp-M9-f1P"/>
                 <outlet property="genreLabel" destination="05G-qx-77c" id="k3L-z2-nAD"/>
                 <outlet property="innerView" destination="fI7-tz-2CR" id="CgY-JM-No4"/>
                 <outlet property="outerView" destination="NNQ-7G-RQq" id="d58-xA-G2M"/>
-                <outlet property="posterImageView" destination="JBg-yr-nNz" id="VAd-Dl-BAT"/>
                 <outlet property="titleLabel" destination="Wbg-RX-mje" id="pto-Kv-nY0"/>
             </connections>
             <point key="canvasLocation" x="61.832061068702288" y="91.197183098591552"/>

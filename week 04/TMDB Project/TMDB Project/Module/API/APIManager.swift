@@ -37,19 +37,16 @@ class TMDBManager {
         }
     }
     
-    func callGenereRequest(url: String, id: Int) -> String {
-        var genreStr = "데이터를 가져올 수 없습니다."
+    func callGenereRequest(url: String, id: Int, completionHandler: @escaping (JSON) -> ()) {
         AF.request(url, method: .get, headers: headers).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
                 for genre in json["genres"] {
                     let content = genre.1
                     if content["id"].intValue == id {
-                        print(content)
-                        genreStr = "#" + content["name"].stringValue + " "
-                        print("genre: \(genreStr)")
+                        print(content["name"].stringValue)
+                        completionHandler(content)
                         return
                     }
                 }
@@ -57,8 +54,6 @@ class TMDBManager {
                 print(error)
             }
         }
-        return genreStr
-        
     }
     
     

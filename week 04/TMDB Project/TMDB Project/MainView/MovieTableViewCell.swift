@@ -6,39 +6,49 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MovieTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
-   
+    
     @IBOutlet weak var outerView: UIView!
     @IBOutlet weak var innerView: UIView!
     
-    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var actorLabel: UILabel!
     
+    var media: TrendsMedia?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-
+        
         dateLabel.font = .systemFont(ofSize: 17, weight: .regular)
         genreLabel.font = .boldSystemFont(ofSize: 20)
-        posterImageView.image = UIImage(named: "testImage")
+        backdropImageView.image = UIImage(named: "testImage")
         makeImageView(outerView: outerView, innerView: innerView)
-
+        
         
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+    func configurateCell() {
+        guard let media else { return }
+        dateLabel.text = media.date
+        genreLabel.text = media.genre
+        
+        backdropImageView.kf.setImage(with: media.backdropURL)
+        titleLabel.text = media.title
+        
+        
         
     }
     
     
+}
+extension MovieTableViewCell {
     func makeImageView(outerView: UIView, innerView: UIView) {
         // 그림자랑 cornerRadius 수정
         innerView.layer.cornerRadius = 15
@@ -48,8 +58,5 @@ class MovieTableViewCell: UITableViewCell {
         outerView.layer.shadowOffset = .zero
         outerView.layer.shadowRadius = 10
         outerView.layer.shadowOpacity = 0.3
-
-
     }
-    
 }

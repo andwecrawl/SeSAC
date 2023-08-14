@@ -13,12 +13,23 @@ class DetailTableViewController: UITableViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     
+    @IBOutlet var DetailTableView: UITableView!
+    
+    
     var media: TrendsMedia?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mainBackImageView.image = UIImage(named: "testImage")
         titleLabel.text = "안녕하세요?"
+        
+        // XIB로 따로 셀을 만들어줬을 경우에는 nib을 연결해 줘야 함
+        let overviewNib = UINib(nibName: OverviewTableViewCell.identifier, bundle: nil)
+        let castNib = UINib(nibName: CastTableViewCell.identifier, bundle: nil)
+        DetailTableView.register(overviewNib, forCellReuseIdentifier: OverviewTableViewCell.identifier)
+        DetailTableView.register(castNib, forCellReuseIdentifier: CastTableViewCell.identifier)
+        
+        
     }
 
 
@@ -27,7 +38,6 @@ class DetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         if section == 0 {
             return 1
         } else {
@@ -45,7 +55,6 @@ class DetailTableViewController: UITableViewController {
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.identifier) as? CastTableViewCell else {
-                
                 print("dead")
                 return UITableViewCell()
             }

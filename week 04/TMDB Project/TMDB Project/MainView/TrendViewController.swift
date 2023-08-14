@@ -21,30 +21,32 @@ class TrendViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.2.circlepath"), style: .plain, target: self, action: #selector(reloadAll))
         
-        
-        TMDBManager.shared.callRequest(page: page) { element in
-            let id = element["id"].intValue
-            let title = element["title"].stringValue
-            let mediaType = element["media_type"].stringValue
-            let genreInt = element["genre_ids"][0].intValue
-            var genre: String = ""
-            // 장르가 제때 안 들어감... ㅠ_ㅠ
-            URL.media = Media(rawValue: mediaType) ?? .movie
-            DispatchQueue.global().sync {
-                TMDBManager.shared.callGenereRequest(url: URL.genreURL, id: genreInt) { content in
-                    genre = content["name"].stringValue
+        DispatchQueue.global().async {
+            
+            TMDBManager.shared.callRequest(page: self.page) { element in
+                let id = element["id"].intValue
+                let title = element["title"].stringValue
+                let mediaType = element["media_type"].stringValue
+                let genreInt = element["genre_ids"][0].intValue
+                var genre: String = ""
+                // 장르가 제때 안 들어감... ㅠ_ㅠ
+                URL.media = Media(rawValue: mediaType) ?? .movie
+                DispatchQueue.global().async {
+                    TMDBManager.shared.callGenereRequest(url: URL.genreURL, id: genreInt) { content in
+                        genre = content["name"].stringValue
+                    }
                 }
+                let date = element["release_date"].stringValue
+                let overview = element["overview"].stringValue
+                let backdropImage = element["backdrop_path"].stringValue
+                let posterImage = element["poster_path"].stringValue
+                let newMedia = TrendsMedia(id: id, title: title, mediaType: mediaType, genre: genre, date: date, overview: overview, backdropImage: backdropImage, posterImage: posterImage)
+                print(newMedia)
+                self.list.append(newMedia)
+                self.trendTableView.reloadData()
             }
-            let date = element["release_date"].stringValue
-            let overview = element["overview"].stringValue
-            let backdropImage = element["backdrop_path"].stringValue
-            let posterImage = element["poster_path"].stringValue
-            let newMedia = TrendsMedia(id: id, title: title, mediaType: mediaType, genre: genre, date: date, overview: overview, backdropImage: backdropImage, posterImage: posterImage)
-            print(newMedia)
-            self.list.append(newMedia)
-            self.trendTableView.reloadData()
         }
-        
+            
         trendTableView.dataSource = self
         trendTableView.delegate = self
         

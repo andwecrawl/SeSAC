@@ -91,30 +91,13 @@
                                 <constraint firstItem="tC3-AO-d46" firstAttribute="top" secondItem="o6R-Py-2gX" secondAttribute="bottom" constant="8" id="rlT-5x-3T1"/>
                             </constraints>
                         </view>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="k4a-ou-l64">
-                                <rect key="frame" x="0.0" y="260" width="393" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k4a-ou-l64" id="G7l-52-oeW">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="23C-1o-mjG">
-                                <rect key="frame" x="0.0" y="303.66666793823242" width="393" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="23C-1o-mjG" id="A1N-eR-u3g">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="WWy-wh-mz9" id="BeG-PV-TWM"/>
                             <outlet property="delegate" destination="WWy-wh-mz9" id="X4c-4V-uxn"/>
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="DetailTableView" destination="c4e-U8-VZ5" id="7fP-Lu-khs"/>
                         <outlet property="mainBackImageView" destination="4Ds-5d-e2N" id="Yk1-6T-0FZ"/>
                         <outlet property="posterImageView" destination="tC3-AO-d46" id="Ezh-cZ-r2Y"/>
                         <outlet property="titleLabel" destination="o6R-Py-2gX" id="rA6-A4-obH"/>

@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailTableViewController: UITableViewController {
-
+    
     @IBOutlet weak var mainBackImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
@@ -25,42 +25,43 @@ class DetailTableViewController: UITableViewController {
         
         // XIB로 따로 셀을 만들어줬을 경우에는 nib을 연결해 줘야 함
         let overviewNib = UINib(nibName: OverviewTableViewCell.identifier, bundle: nil)
-        let castNib = UINib(nibName: CastTableViewCell.identifier, bundle: nil)
+        let castNib = UINib(nibName: CastingTableViewCell.identifier, bundle: nil)
         DetailTableView.register(overviewNib, forCellReuseIdentifier: OverviewTableViewCell.identifier)
-        DetailTableView.register(castNib, forCellReuseIdentifier: CastTableViewCell.identifier)
+        DetailTableView.register(castNib, forCellReuseIdentifier: CastingTableViewCell.identifier)
         
         
     }
+}
 
 
+
+// tableViewSetting
+extension DetailTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         } else {
             return 20
         }    }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OverviewTableViewCell.identifier) as? OverviewTableViewCell else {
-                print("alreadyDead")
                 return UITableViewCell()
                 
             }
             cell.overviewTextView.text = "개요입니당"
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.identifier) as? CastTableViewCell else {
-                print("dead")
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CastingTableViewCell.identifier) as? CastingTableViewCell else {
                 return UITableViewCell()
             }
             
-            print("hi")
-            cell.castImageView.image = UIImage(named: "testImage")
+            cell.profileImageView.image = UIImage(named: "testImage")
             return cell
         }
     }
@@ -79,10 +80,10 @@ class DetailTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 160
+            return 150
         } else {
-            return 100
+            return 90
         }
     }
-
+    
 }

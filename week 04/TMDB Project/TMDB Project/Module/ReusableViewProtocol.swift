@@ -25,7 +25,7 @@ extension OverviewTableViewCell: ReusableViewProtocol {
     }
 }
 
-extension CastTableViewCell: ReusableViewProtocol {
+extension CastingTableViewCell: ReusableViewProtocol {
     static var identifier: String {
         return String(describing: self)
     }

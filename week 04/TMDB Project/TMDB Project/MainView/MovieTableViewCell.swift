@@ -20,7 +20,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var actorLabel: UILabel!
     
-    var media: TrendsMedia?
+    var media: TrendMedia?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,7 +39,8 @@ class MovieTableViewCell: UITableViewCell {
         dateLabel.text = media.date
         genreLabel.text = media.genre
         
-        backdropImageView.kf.setImage(with: media.backdropURL)
+        let backdropURL = URL.makeImageURL(imagePath: media.backdropImage)
+        backdropImageView.kf.setImage(with: backdropURL)
         titleLabel.text = media.title
         
         

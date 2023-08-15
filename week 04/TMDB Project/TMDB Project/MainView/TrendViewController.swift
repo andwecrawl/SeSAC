@@ -11,8 +11,9 @@ class TrendViewController: UIViewController {
 
     @IBOutlet weak var trendTableView: UITableView!
     
-    var list: [TrendsMedia] = []
     var page: Int = 1
+    var isEnd: Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,59 +22,36 @@ class TrendViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.2.circlepath"), style: .plain, target: self, action: #selector(reloadAll))
         
-        DispatchQueue.global().async {
-            
-            TMDBManager.shared.callRequest(page: self.page) { element in
-                let id = element["id"].intValue
-                let title = element["title"].stringValue
-                let mediaType = element["media_type"].stringValue
-                let genreInt = element["genre_ids"][0].intValue
-                var genre: String = ""
-                // 장르가 제때 안 들어감... ㅠ_ㅠ
-                URL.media = Media(rawValue: mediaType) ?? .movie
-                DispatchQueue.global().async {
-                    TMDBManager.shared.callGenereRequest(url: URL.genreURL, id: genreInt) { content in
-                        genre = content["name"].stringValue
-                    }
-                }
-                let date = element["release_date"].stringValue
-                let overview = element["overview"].stringValue
-                let backdropImage = element["backdrop_path"].stringValue
-                let posterImage = element["poster_path"].stringValue
-                let newMedia = TrendsMedia(id: id, title: title, mediaType: mediaType, genre: genre, date: date, overview: overview, backdropImage: backdropImage, posterImage: posterImage)
-                print(newMedia)
-                self.list.append(newMedia)
-                self.trendTableView.reloadData()
-            }
+        TMDBManager.shared.callRequest {
+            self.reloadAll()
         }
-            
+        
+        trendTableView.prefetchDataSource = self
         trendTableView.dataSource = self
         trendTableView.delegate = self
         
         let nib = UINib(nibName: MovieTableViewCell.identifier, bundle: nil)
         trendTableView.register(nib, forCellReuseIdentifier: MovieTableViewCell.identifier)
-        
-        trendTableView.reloadData()
     }
     
     
     @objc func reloadAll() {
         trendTableView.reloadData()
-        print(list)
     }
+
 }
 
 
-extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
+extension TrendViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return bundleList.list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier) as? MovieTableViewCell else { return UITableViewCell()}
         
         let row = indexPath.row
-        cell.media = list[row]
+        cell.media = bundleList.list[row]
         cell.configurateCell()
         
         return cell
@@ -86,8 +64,25 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 클릭했을 때 코드
         // 이후 세부 화면 구현
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DetailTableViewController") as? DetailTableViewController else { return }
+       
+        vc.media = bundleList.list[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
         tableView.reloadRows(at: [indexPath], with: .none) // 내부로 들어가고 클릭 안 한 척 ^_^
     }
     
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            if bundleList.list.count - 1 == indexPath.row && isEnd == false && page < 50 {
+                // 위 조건이 맞으면 새 페이지를 가져와야 하므로, 페이지 수를 증가시킨다.
+                page += 1
+                // 이후 callRequest(text:page:) 함수를 실행하여 서버에 데이터를 요청한다.
+                TMDBManager.shared.callRequest(page: page) {
+                    self.reloadAll()
+                }
+                print("page: \(page)")
+            }
+        }
+    }
 }
 

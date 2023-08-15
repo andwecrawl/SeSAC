@@ -16,10 +16,11 @@ class DetailTableViewController: UITableViewController {
     @IBOutlet var DetailTableView: UITableView!
     
     
-    var media: TrendsMedia?
+    var media: TrendMedia?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         mainBackImageView.image = UIImage(named: "testImage")
         titleLabel.text = "안녕하세요?"
         
@@ -30,6 +31,17 @@ class DetailTableViewController: UITableViewController {
         DetailTableView.register(castNib, forCellReuseIdentifier: CastingTableViewCell.identifier)
         
         
+    }
+    
+    func configureView() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popView))
+        guard let media else { return }
+        title = media.title
+        
+    }
+    
+    @objc func popView() {
+        navigationController?.popViewController(animated: true)
     }
 }
 

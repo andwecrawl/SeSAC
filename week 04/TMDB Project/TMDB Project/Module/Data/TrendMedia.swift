@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct TrendsMedia {
+// json으로 받는 값을
+struct TrendMedia {
     var id: Int
     var title: String
     var mediaType: String
@@ -18,13 +19,13 @@ struct TrendsMedia {
     var date: String
     var overview: String
     var backdropImage: String
-    var backdropURL: URL? {
-        return URL.makeImageURL(imagePath: backdropImage)
-    }
     var posterImage: String
-    var posterURL: URL? {
-        return URL.makeImageURL(imagePath: posterImage)
-    }
+}
+
+class bundleList {
+    static let shared = bundleList()
+    
+    static var list: [TrendMedia] = []
 }
 
 /*

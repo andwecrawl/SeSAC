@@ -18,6 +18,7 @@ class DetailTableViewController: UITableViewController {
     
     
     var media: Result?
+    var actors: [CastElement] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,7 @@ class DetailTableViewController: UITableViewController {
         } else {
             titleLabel.text = "타이틀을 불러올 수 없습니다."
         }
+        titleLabel.addShadow(label: titleLabel)
         
         let posterURL = URL.makeImageURL(imagePath: media.posterPath)
         posterImageView.kf.setImage(with: posterURL)
@@ -75,8 +77,8 @@ extension DetailTableViewController {
         }    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let media else { return UITableViewCell() }
         if indexPath.section == 0 {
-            guard let media else { return UITableViewCell() }
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OverviewTableViewCell.identifier) as? OverviewTableViewCell else {
                 return UITableViewCell()
             }
@@ -85,10 +87,21 @@ extension DetailTableViewController {
             
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: CastingTableViewCell.identifier) as? CastingTableViewCell else {
-                return UITableViewCell()
-            }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CastingTableViewCell.identifier) as? CastingTableViewCell else { return UITableViewCell() }
             
+            if actors.isEmpty {
+                TMDBManager.shared.callCastRequest(movieID: media.id) { cast in
+                    self.actors = cast
+                    cell.characterLabel.text = self.actors[indexPath.row].character
+                    
+                    guard let profilePath = self.actors[indexPath.row].profilePath else { return }
+                    let url = URL.makeImageURL(imagePath: profilePath)
+                    cell.profileImageView.kf.setImage(with: url)
+                    cell.nameLabel.text = self.actors[indexPath.row].originalName
+                }
+            } else {
+                
+            }
             cell.profileImageView.image = UIImage(named: "testImage")
             return cell
         }

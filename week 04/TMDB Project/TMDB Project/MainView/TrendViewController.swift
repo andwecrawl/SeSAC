@@ -32,8 +32,6 @@ class TrendViewController: UIViewController {
         TMDBManager.shared.callRequestCodable { data, genre in
             self.trendsList = data
             self.genreList = genre
-            print("trend: \(data)")
-            print("genre: \(genre)")
             self.trendTableView.reloadData()
         }
         
@@ -58,7 +56,6 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(#function)
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier) as? MovieTableViewCell else { return UITableViewCell()}
         
         let row = indexPath.row

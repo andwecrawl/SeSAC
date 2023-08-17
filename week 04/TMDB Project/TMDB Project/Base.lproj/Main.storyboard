@@ -54,7 +54,7 @@
         <scene sceneID="dvU-RP-AWx">
             <objects>
                 <tableViewController storyboardIdentifier="DetailTableViewController" id="WWy-wh-mz9" customClass="DetailTableViewController" customModule="TMDB_Project" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="c4e-U8-VZ5">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="c4e-U8-VZ5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -72,9 +72,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tC3-AO-d46">
-                                    <rect key="frame" x="20" y="65" width="96" height="125"/>
+                                    <rect key="frame" x="20" y="73" width="90" height="117"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="tC3-AO-d46" secondAttribute="height" multiplier="1:1.3" id="6U4-Xu-4b4"/>
+                                        <constraint firstAttribute="width" constant="90" id="LSq-HH-XQa"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
@@ -89,7 +90,7 @@
                                 <constraint firstAttribute="bottom" secondItem="4Ds-5d-e2N" secondAttribute="bottom" id="hqS-5U-Y44"/>
                                 <constraint firstItem="o6R-Py-2gX" firstAttribute="leading" secondItem="oia-5t-9tP" secondAttribute="leading" constant="20" id="jZF-7a-6Oi"/>
                                 <constraint firstItem="tC3-AO-d46" firstAttribute="leading" secondItem="o6R-Py-2gX" secondAttribute="leading" id="lJ0-ru-2dj"/>
-                                <constraint firstItem="tC3-AO-d46" firstAttribute="top" secondItem="o6R-Py-2gX" secondAttribute="bottom" constant="8" id="rlT-5x-3T1"/>
+                                <constraint firstItem="tC3-AO-d46" firstAttribute="top" secondItem="o6R-Py-2gX" secondAttribute="bottom" constant="16" id="rlT-5x-3T1"/>
                             </constraints>
                         </view>
                         <connections>

@@ -69,7 +69,6 @@ class TMDBManager {
             self.callMovieRequest(url: URL.getGenreURL(media: .movie)) {
                 self.callTvRequest(url: URL.getGenreURL(media: .tv)) {
                     self.callRequest(page: page) { data, genre in
-                        print(data, genre)
                         completionHandler(data, genre)
                     }
                 }
@@ -78,7 +77,6 @@ class TMDBManager {
         } else {
             
             self.callRequest(page: page) { data, genre in
-                print(data, genre)
                 completionHandler(data, genre)
             }
         }
@@ -104,6 +102,21 @@ class TMDBManager {
                 case .success(let value):
                     TMDBManager.movieGenre = value.genres
                     completionHandler()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
+    
+    func callCastRequest(movieID: Int, completionHandler: @escaping ([CastElement]) -> ()) {
+        let url = "https://api.themoviedb.org/3/movie/\(movieID)/credits"
+        AF.request(url, method: .get, headers: headers).validate()
+            .responseDecodable(of: Cast.self) { response in
+                switch response.result {
+                case .success(let value):
+                    let casting = value.cast
+                    completionHandler(casting)
                 case .failure(let error):
                     print(error)
                 }

@@ -37,7 +37,6 @@ class TrendViewController: UIViewController {
             self.trendTableView.reloadData()
         }
         
-        trendTableView.prefetchDataSource = self
         trendTableView.dataSource = self
         trendTableView.delegate = self
         
@@ -53,17 +52,22 @@ class TrendViewController: UIViewController {
 }
 
 
-extension TrendViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
+extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trendsList.results.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(#function)
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier) as? MovieTableViewCell else { return UITableViewCell()}
         
         let row = indexPath.row
         cell.media = trendsList.results[row]
-        cell.genre = genreList[row]
+        if page == 1 {
+            cell.genre = genreList[row]
+        } else if page > 1 {
+            cell.genre = genreList[row + (page * 20)]
+        }
         cell.configurateCell()
         
         return cell
@@ -83,22 +87,5 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource, UITab
         tableView.reloadRows(at: [indexPath], with: .none) // 내부로 들어가고 클릭 안 한 척 ^_^
     }
     
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        for indexPath in indexPaths {
-            if bundleList.list.count - 1 == indexPath.row && isEnd == false && page < 50 {
-                // 위 조건이 맞으면 새 페이지를 가져와야 하므로, 페이지 수를 증가시킨다.
-                page += 1
-                // 이후 callRequest(text:page:) 함수를 실행하여 서버에 데이터를 요청한다.
-                TMDBManager.shared.callRequestCodable { data, genre in
-                    
-                    
-                }
-//                TMDBManager.shared.callRequest(page: page) {
-//                    self.reloadAll()
-//                }
-                print("page: \(page)")
-            }
-        }
-    }
 }
 

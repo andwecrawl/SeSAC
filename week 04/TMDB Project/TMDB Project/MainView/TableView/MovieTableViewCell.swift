@@ -18,7 +18,7 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var actorLabel: UILabel!
+    @IBOutlet weak var overviewLabel: UILabel!
     
     var media: Result?
     var genre: String?
@@ -48,6 +48,8 @@ class MovieTableViewCell: UITableViewCell {
 
         guard let genre else { return }
         genreLabel.text = "#" + genre
+        
+        overviewLabel.text = media.overview
         
         let backdropURL = URL.makeImageURL(imagePath: media.backdropPath)
         backdropImageView.kf.setImage(with: backdropURL)

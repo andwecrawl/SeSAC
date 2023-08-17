@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -24,10 +25,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="187" height="149.66666666666666"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testImage" translatesAutoresizingMaskIntoConstraints="NO" id="JBg-yr-nNz">
-                                        <rect key="frame" x="0.0" y="0.0" width="187" height="49.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="29.666666666666668"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbg-RX-mje">
-                                        <rect key="frame" x="8" y="57.666666666666664" width="45" height="21.666666666666664"/>
+                                        <rect key="frame" x="8" y="37.666666666666671" width="45" height="21.666666666666671"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="7RA-zx-2O5"/>
                                         </constraints>
@@ -35,9 +36,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8X-cM-cbs">
-                                        <rect key="frame" x="8" y="81.333333333333329" width="37.333333333333336" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8X-cM-cbs">
+                                        <rect key="frame" x="8" y="61.333333333333321" width="33" height="15.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.15828203914141414" green="0.15828203914141414" blue="0.15828203914141414" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -73,7 +74,7 @@
                                     <constraint firstItem="Wbg-RX-mje" firstAttribute="leading" secondItem="fI7-tz-2CR" secondAttribute="leading" constant="8" id="AiG-GP-hZs"/>
                                     <constraint firstAttribute="trailing" secondItem="ORS-XZ-nGU" secondAttribute="trailing" constant="14" id="COi-sc-wMG"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="z8X-cM-cbs" secondAttribute="trailing" constant="8" id="DfI-kQ-5ZM"/>
-                                    <constraint firstAttribute="bottom" secondItem="JBg-yr-nNz" secondAttribute="bottom" constant="100" id="QFn-QU-td3"/>
+                                    <constraint firstAttribute="bottom" secondItem="JBg-yr-nNz" secondAttribute="bottom" constant="120" id="QFn-QU-td3"/>
                                     <constraint firstItem="YPn-yA-HQK" firstAttribute="centerY" secondItem="cyr-oI-9dk" secondAttribute="centerY" id="Qcl-GM-MzJ"/>
                                     <constraint firstItem="z8X-cM-cbs" firstAttribute="leading" secondItem="fI7-tz-2CR" secondAttribute="leading" constant="8" id="UqR-fv-OxZ"/>
                                     <constraint firstItem="Wbg-RX-mje" firstAttribute="top" secondItem="JBg-yr-nNz" secondAttribute="bottom" constant="8" id="X9G-st-BD9"/>
@@ -124,12 +125,12 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="actorLabel" destination="z8X-cM-cbs" id="AqI-jl-xEJ"/>
                 <outlet property="backdropImageView" destination="JBg-yr-nNz" id="VAd-Dl-BAT"/>
                 <outlet property="dateLabel" destination="JHI-03-rzh" id="klp-M9-f1P"/>
                 <outlet property="genreLabel" destination="05G-qx-77c" id="k3L-z2-nAD"/>
                 <outlet property="innerView" destination="fI7-tz-2CR" id="CgY-JM-No4"/>
                 <outlet property="outerView" destination="NNQ-7G-RQq" id="d58-xA-G2M"/>
+                <outlet property="overviewLabel" destination="z8X-cM-cbs" id="AqI-jl-xEJ"/>
                 <outlet property="titleLabel" destination="Wbg-RX-mje" id="pto-Kv-nY0"/>
             </connections>
             <point key="canvasLocation" x="61.832061068702288" y="91.197183098591552"/>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailTableViewController: UITableViewController {
     
@@ -16,7 +17,7 @@ class DetailTableViewController: UITableViewController {
     @IBOutlet var DetailTableView: UITableView!
     
     
-    var media: TrendMedia?
+    var media: Result?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +30,28 @@ class DetailTableViewController: UITableViewController {
         let castNib = UINib(nibName: CastingTableViewCell.identifier, bundle: nil)
         DetailTableView.register(overviewNib, forCellReuseIdentifier: OverviewTableViewCell.identifier)
         DetailTableView.register(castNib, forCellReuseIdentifier: CastingTableViewCell.identifier)
-        
+        configureView()
         
     }
     
     func configureView() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popView))
         guard let media else { return }
-        title = media.title
+        if let title = media.title {
+            titleLabel.text = title
+        } else if let title = media.originalName {
+            titleLabel.text = title
+        } else if let title = media.name {
+            titleLabel.text = title
+        } else {
+            titleLabel.text = "타이틀을 불러올 수 없습니다."
+        }
         
+        let posterURL = URL.makeImageURL(imagePath: media.posterPath)
+        posterImageView.kf.setImage(with: posterURL)
+        
+        let backURL = URL.makeImageURL(imagePath: media.backdropPath)
+        mainBackImageView.kf.setImage(with: backURL)
     }
     
     @objc func popView() {
@@ -62,11 +76,13 @@ extension DetailTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
+            guard let media else { return UITableViewCell() }
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OverviewTableViewCell.identifier) as? OverviewTableViewCell else {
                 return UITableViewCell()
-                
             }
-            cell.overviewTextView.text = "개요입니당"
+            
+            cell.overviewTextView.text = media.overview
+            
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CastingTableViewCell.identifier) as? CastingTableViewCell else {

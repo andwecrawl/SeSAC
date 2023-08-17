@@ -18,7 +18,7 @@ extension URL {
 
 // tv인지 movie인지를 알고 가져오는 URL을 return
 extension URL {
-    static func getGenreURL(media: Media) -> String {
+    static func getGenreURL(media: MediaType) -> String {
         return "https://api.themoviedb.org/3/genre/\(media.rawValue)/list"
     }
 }

@@ -13,20 +13,16 @@ protocol ReusableViewProtocol {
 
 //extension 
 
-extension MovieTableViewCell: ReusableViewProtocol {
+extension UIViewController: ReusableViewProtocol {
     static var identifier: String {
         return String(describing: self)
     }
 }
 
-extension OverviewTableViewCell: ReusableViewProtocol {
+extension UITableViewCell: ReusableViewProtocol {
     static var identifier: String {
         return String(describing: self)
     }
 }
 
-extension CastingTableViewCell: ReusableViewProtocol {
-    static var identifier: String {
-        return String(describing: self)
-    }
-}
+

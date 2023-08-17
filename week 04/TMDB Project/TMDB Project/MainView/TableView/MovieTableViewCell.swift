@@ -20,7 +20,8 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var actorLabel: UILabel!
     
-    var media: TrendMedia?
+    var media: Result?
+    var genre: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,12 +37,30 @@ class MovieTableViewCell: UITableViewCell {
     
     func configurateCell() {
         guard let media else { return }
-        dateLabel.text = media.date
-        genreLabel.text = media.genre
         
-        let backdropURL = URL.makeImageURL(imagePath: media.backdropImage)
+        if let date = media.releaseDate {
+            dateLabel.text = date
+        } else if let date = media.firstAirDate {
+            dateLabel.text = date
+        } else {
+            dateLabel.text = "개봉일을 찾을 수 없습니다."
+        }
+
+        guard let genre else { return }
+        genreLabel.text = "#" + genre
+        
+        let backdropURL = URL.makeImageURL(imagePath: media.backdropPath)
         backdropImageView.kf.setImage(with: backdropURL)
-        titleLabel.text = media.title
+        
+        if let title = media.title {
+            titleLabel.text = title
+        } else if let title = media.originalTitle {
+            titleLabel.text = title
+        } else if let title = media.originalName {
+            titleLabel.text = title
+        } else {
+            titleLabel.text = "타이틀을 가져올 수 없습니다."
+        }
         
         
         

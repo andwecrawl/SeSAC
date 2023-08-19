@@ -24,13 +24,13 @@ class DetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // XIB로 따로 셀을 만들어줬을 경우에는 nib을 연결해 줘야 함
-       
         setupTableView()
         configureView()
     }
     
+    
     func setupTableView() {
+        // XIB로 따로 셀을 만들어줬을 경우에는 nib을 연결해 줘야 함
         let overviewNib = UINib(nibName: OverviewTableViewCell.identifier, bundle: nil)
         let castNib = UINib(nibName: CastingTableViewCell.identifier, bundle: nil)
         DetailTableView.register(overviewNib, forCellReuseIdentifier: OverviewTableViewCell.identifier)

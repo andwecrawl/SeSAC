@@ -25,39 +25,16 @@ class DetailTableViewController: UITableViewController {
         super.viewDidLoad()
         
         // XIB로 따로 셀을 만들어줬을 경우에는 nib을 연결해 줘야 함
+       
+        setupTableView()
+        configureView()
+    }
+    
+    func setupTableView() {
         let overviewNib = UINib(nibName: OverviewTableViewCell.identifier, bundle: nil)
         let castNib = UINib(nibName: CastingTableViewCell.identifier, bundle: nil)
         DetailTableView.register(overviewNib, forCellReuseIdentifier: OverviewTableViewCell.identifier)
         DetailTableView.register(castNib, forCellReuseIdentifier: CastingTableViewCell.identifier)
-        configureView()
-        
-    }
-    
-    func configureView() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popView))
-        
-        guard let media else { return }
-        if let title = media.title {
-            titleLabel.text = title
-        } else if let title = media.originalName {
-            titleLabel.text = title
-        } else if let title = media.name {
-            titleLabel.text = title
-        } else {
-            titleLabel.text = "타이틀을 불러올 수 없습니다."
-        }
-        
-        titleLabel.addShadow(label: titleLabel)
-        
-        let posterURL = URL.makeImageURL(imagePath: media.posterPath)
-        posterImageView.kf.setImage(with: posterURL)
-        
-        let backURL = URL.makeImageURL(imagePath: media.backdropPath)
-        mainBackImageView.kf.setImage(with: backURL)
-    }
-    
-    @objc func popView() {
-        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -125,4 +102,34 @@ extension DetailTableViewController {
         }
     }
     
+}
+
+
+extension DetailTableViewController {
+    func configureView() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popView))
+        
+        guard let media else { return }
+        if let title = media.title {
+            titleLabel.text = title
+        } else if let title = media.originalName {
+            titleLabel.text = title
+        } else if let title = media.name {
+            titleLabel.text = title
+        } else {
+            titleLabel.text = "타이틀을 불러올 수 없습니다."
+        }
+        
+        titleLabel.addShadow(label: titleLabel)
+        
+        let posterURL = URL.makeImageURL(imagePath: media.posterPath)
+        posterImageView.kf.setImage(with: posterURL)
+        
+        let backURL = URL.makeImageURL(imagePath: media.backdropPath)
+        mainBackImageView.kf.setImage(with: backURL)
+    }
+    
+    @objc func popView() {
+        navigationController?.popViewController(animated: true)
+    }
 }

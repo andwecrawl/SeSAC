@@ -62,8 +62,6 @@ class TMDBManager {
     func callRequestCodable(page: Int = 1, completionHandler: @escaping (TMDB, [String]) -> ()) {
        
         
-        // 문제가 있음.
-        // 가져오는 데이터값 안에 tv장르가 있으면 무조건 에러나거나 튕김.
         if TMDBManager.movieGenre.isEmpty && TMDBManager.tvGenre.isEmpty {
             
             self.callMovieRequest(url: URL.getGenreURL(media: .movie)) {

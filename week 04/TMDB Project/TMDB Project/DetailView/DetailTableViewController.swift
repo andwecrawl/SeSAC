@@ -20,11 +20,9 @@ class DetailTableViewController: UITableViewController {
     var media: Result?
     var actors: [CastElement] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        mainBackImageView.image = UIImage(named: "testImage")
-        titleLabel.text = "안녕하세요?"
         
         // XIB로 따로 셀을 만들어줬을 경우에는 nib을 연결해 줘야 함
         let overviewNib = UINib(nibName: OverviewTableViewCell.identifier, bundle: nil)
@@ -37,6 +35,7 @@ class DetailTableViewController: UITableViewController {
     
     func configureView() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popView))
+        
         guard let media else { return }
         if let title = media.title {
             titleLabel.text = title
@@ -47,6 +46,7 @@ class DetailTableViewController: UITableViewController {
         } else {
             titleLabel.text = "타이틀을 불러올 수 없습니다."
         }
+        
         titleLabel.addShadow(label: titleLabel)
         
         let posterURL = URL.makeImageURL(imagePath: media.posterPath)
@@ -73,8 +73,9 @@ extension DetailTableViewController {
         if section == 0 {
             return 1
         } else {
-            return 20
-        }    }
+            return 10
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let media else { return UITableViewCell() }
@@ -91,18 +92,15 @@ extension DetailTableViewController {
             
             if actors.isEmpty {
                 TMDBManager.shared.callCastRequest(movieID: media.id) { cast in
+                    print(cast)
                     self.actors = cast
-                    cell.characterLabel.text = self.actors[indexPath.row].character
-                    
-                    guard let profilePath = self.actors[indexPath.row].profilePath else { return }
-                    let url = URL.makeImageURL(imagePath: profilePath)
-                    cell.profileImageView.kf.setImage(with: url)
-                    cell.nameLabel.text = self.actors[indexPath.row].originalName
+                    cell.actors = self.actors[indexPath.row]
                 }
             } else {
-                
+                let row = indexPath.row
+                cell.actors = actors[row]
             }
-            cell.profileImageView.image = UIImage(named: "testImage")
+            
             return cell
         }
     }

@@ -29,7 +29,6 @@ class MovieTableViewCell: UITableViewCell {
         
         dateLabel.font = .systemFont(ofSize: 17, weight: .regular)
         genreLabel.font = .boldSystemFont(ofSize: 20)
-        backdropImageView.image = UIImage(named: "testImage")
         makeImageView(outerView: outerView, innerView: innerView)
         
         

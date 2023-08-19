@@ -121,3 +121,42 @@ class TMDBManager {
             }
     }
 }
+
+extension TMDBManager {
+    
+    func callSearchRequest(query: String, completionHandler: @escaping (Int) -> ()) {
+        let url = "https://api.themoviedb.org/3/search/movie?query=\(query)"
+        AF.request(url, method: .get, headers: headers).validate()
+            .responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    print("JSON: \(json)")
+                    let id = json["results"][0]["id"].intValue
+                    print(id)
+                    
+                    completionHandler(id)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        
+    }
+    
+    func callRecommendationRequest(movieID: Int, completionHandler: @escaping ([RecommendedMovie]) -> ()) {
+        let url = "https://api.themoviedb.org/3/movie/\(movieID)/recommendations"
+        AF.request(url, method: .get, headers: headers).validate()
+            .responseDecodable(of: Recommendation.self) { response in
+                switch response.result {
+                case .success(let value):
+                    let movies = value.results
+                    completionHandler(movies)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
+    
+    
+}

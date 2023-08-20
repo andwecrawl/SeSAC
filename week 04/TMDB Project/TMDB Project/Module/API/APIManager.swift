@@ -124,18 +124,18 @@ class TMDBManager {
 
 extension TMDBManager {
     
-    func callSearchRequest(query: String, completionHandler: @escaping (Int) -> ()) {
-        let url = "https://api.themoviedb.org/3/search/movie?query=\(query)"
+    func callSearchRequest(query: String, completionHandler: @escaping ([Result]) -> ()) {
+        let url = "https://api.themoviedb.org/3/search/movie?query=\(query)&size=18"
         AF.request(url, method: .get, headers: headers).validate()
             .responseJSON { response in
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)
-                    print("JSON: \(json)")
                     let id = json["results"][0]["id"].intValue
-                    print(id)
                     
-                    completionHandler(id)
+                    self.callRecommendationRequest(movieID: id) { movies in
+                        completionHandler(movies)
+                    }
                 case .failure(let error):
                     print(error)
                 }
@@ -143,10 +143,10 @@ extension TMDBManager {
         
     }
     
-    func callRecommendationRequest(movieID: Int, completionHandler: @escaping ([RecommendedMovie]) -> ()) {
+    func callRecommendationRequest(movieID: Int, completionHandler: @escaping ([Result]) -> ()) {
         let url = "https://api.themoviedb.org/3/movie/\(movieID)/recommendations"
         AF.request(url, method: .get, headers: headers).validate()
-            .responseDecodable(of: Recommendation.self) { response in
+            .responseDecodable(of: TMDB.self) { response in
                 switch response.result {
                 case .success(let value):
                     let movies = value.results

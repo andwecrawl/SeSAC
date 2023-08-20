@@ -17,7 +17,12 @@ class DetailTableViewController: UITableViewController {
     @IBOutlet var DetailTableView: UITableView!
     
     
-    var media: Result?
+    var media: Result? {
+        didSet {
+            reloadInputViews()
+        }
+    }
+    
     var actors: [CastElement] = []
     
     
@@ -69,7 +74,6 @@ extension DetailTableViewController {
             
             if actors.isEmpty {
                 TMDBManager.shared.callCastRequest(movieID: media.id) { cast in
-                    print(cast)
                     self.actors = cast
                     cell.actors = self.actors[indexPath.row]
                 }
@@ -122,10 +126,12 @@ extension DetailTableViewController {
         
         titleLabel.addShadow(label: titleLabel)
         
-        let posterURL = URL.makeImageURL(imagePath: media.posterPath)
+        guard let posterPath = media.posterPath else { return }
+        let posterURL = URL.makeImageURL(imagePath: posterPath)
         posterImageView.kf.setImage(with: posterURL)
         
-        let backURL = URL.makeImageURL(imagePath: media.backdropPath)
+        guard let backdropPath = media.backdropPath else { return }
+        let backURL = URL.makeImageURL(imagePath: backdropPath)
         mainBackImageView.kf.setImage(with: backURL)
     }
     

@@ -23,12 +23,12 @@ struct TMDB: Codable {
 // MARK: - Result
 struct Result: Codable {
     let adult: Bool
-    let backdropPath: String
+    let backdropPath: String?
     let id: Int
     let title: String?
     let originalLanguage: String
     let originalTitle: String?
-    let overview, posterPath: String
+    let overview, posterPath: String?
     let mediaType: MediaType
     let genreIDS: [Int]
     let popularity: Double

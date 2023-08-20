@@ -29,7 +29,7 @@
                         <blurEffect style="regular"/>
                     </visualEffectView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testImage" translatesAutoresizingMaskIntoConstraints="NO" id="rBh-sO-NwV">
-                        <rect key="frame" x="20" y="8" width="248" height="322"/>
+                        <rect key="frame" x="20" y="12" width="248" height="322"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="rBh-sO-NwV" secondAttribute="height" multiplier="1:1.3" id="LgV-cY-suZ"/>
                         </constraints>
@@ -44,9 +44,9 @@
                 <constraint firstItem="PvL-yT-yX0" firstAttribute="leading" secondItem="pW3-hl-YGf" secondAttribute="leading" id="SIy-Xn-OPo"/>
                 <constraint firstItem="pW3-hl-YGf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Xqu-Uk-TUT"/>
                 <constraint firstItem="pW3-hl-YGf" firstAttribute="bottom" secondItem="PvL-yT-yX0" secondAttribute="bottom" id="d8t-fD-jl4"/>
-                <constraint firstItem="rBh-sO-NwV" firstAttribute="top" secondItem="pW3-hl-YGf" secondAttribute="top" constant="8" id="dB8-3y-Hcr"/>
+                <constraint firstItem="rBh-sO-NwV" firstAttribute="top" secondItem="pW3-hl-YGf" secondAttribute="top" constant="12" id="dB8-3y-Hcr"/>
                 <constraint firstItem="pW3-hl-YGf" firstAttribute="trailing" secondItem="PvL-yT-yX0" secondAttribute="trailing" id="eZf-bk-iLW"/>
-                <constraint firstItem="pW3-hl-YGf" firstAttribute="bottom" secondItem="rBh-sO-NwV" secondAttribute="bottom" constant="16" id="fqO-6z-6vk"/>
+                <constraint firstItem="pW3-hl-YGf" firstAttribute="bottom" secondItem="rBh-sO-NwV" secondAttribute="bottom" constant="12" id="fqO-6z-6vk"/>
                 <constraint firstAttribute="trailing" secondItem="pW3-hl-YGf" secondAttribute="trailing" id="ubG-za-79p"/>
                 <constraint firstItem="rBh-sO-NwV" firstAttribute="centerX" secondItem="pW3-hl-YGf" secondAttribute="centerX" id="vUt-9X-yBt"/>
                 <constraint firstItem="pW3-hl-YGf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ysn-kQ-vtz"/>

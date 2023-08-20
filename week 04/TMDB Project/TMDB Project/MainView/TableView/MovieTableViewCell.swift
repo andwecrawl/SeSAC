@@ -50,7 +50,8 @@ class MovieTableViewCell: UITableViewCell {
         
         overviewLabel.text = media.overview
         
-        let backdropURL = URL.makeImageURL(imagePath: media.backdropPath)
+        guard let path = media.backdropPath else { return }
+        let backdropURL = URL.makeImageURL(imagePath: path)
         backdropImageView.kf.setImage(with: backdropURL)
         
         if let title = media.title {

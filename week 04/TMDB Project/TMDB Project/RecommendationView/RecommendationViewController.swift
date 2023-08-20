@@ -11,13 +11,18 @@ class RecommendationViewController: UIViewController {
 
     @IBOutlet weak var recommendationCollectionView: UICollectionView!
     
+    var movies: [Result] = [] {
+        didSet {
+            recommendationCollectionView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCollectionView()
         configureCollectionViewLayout()
         setupSearchController()
-        
     }
     
     func setupCollectionView() {
@@ -31,6 +36,7 @@ class RecommendationViewController: UIViewController {
     func setupSearchController() {
         
         let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "좋아하는 영화 제목을 입력해 주세요!"
         searchController.hidesNavigationBarDuringPresentation = false
         self.navigationItem.searchController = searchController
@@ -44,6 +50,27 @@ class RecommendationViewController: UIViewController {
 
 }
 
+extension RecommendationViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else {
+            giveAlert(title: "좋아하는 영화를 입력해 주세요!", message: "좋아하시는 영화를 기반으로 재미있는 영화를 추천해 드릴게요!")
+            return
+        }
+        
+        TMDBManager.shared.callSearchRequest(query: text) { movies in
+            self.movies = movies
+            print(movies)
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        movies = []
+    }
+    
+}
+
 
 extension RecommendationViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -51,16 +78,30 @@ extension RecommendationViewController: UICollectionViewDelegate, UICollectionVi
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendationCollectionViewCell.identifier, for: indexPath) as? RecommendationCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.posterImageView.image = UIImage(named: "testImage")
+        
+        cell.posterPath = movies[indexPath.row].posterPath
+        cell.configureCell()
+//        cell.posterImageView.image = UIImage(named: "testImage")
         
         return cell
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: DetailTableViewController.identifier) as? DetailTableViewController else { return }
+        vc.media = movies[indexPath.row]
+        let nav = UINavigationController(rootViewController: vc)
+        
+        present(nav, animated: true)
+    }
+    
+    
     
     func configureCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()

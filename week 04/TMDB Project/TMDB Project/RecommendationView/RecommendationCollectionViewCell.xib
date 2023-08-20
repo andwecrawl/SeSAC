@@ -29,9 +29,9 @@
                         <blurEffect style="regular"/>
                     </visualEffectView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testImage" translatesAutoresizingMaskIntoConstraints="NO" id="rBh-sO-NwV">
-                        <rect key="frame" x="20" y="12" width="248" height="322"/>
+                        <rect key="frame" x="29" y="12" width="230" height="322"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="rBh-sO-NwV" secondAttribute="height" multiplier="1:1.3" id="LgV-cY-suZ"/>
+                            <constraint firstAttribute="width" secondItem="rBh-sO-NwV" secondAttribute="height" multiplier="1:1.4" id="LgV-cY-suZ"/>
                         </constraints>
                     </imageView>
                 </subviews>

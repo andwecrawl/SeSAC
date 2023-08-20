@@ -59,6 +59,7 @@ class TMDBManager {
         
     }
     
+    
     func callRequestCodable(page: Int = 1, completionHandler: @escaping (TMDB, [String]) -> ()) {
        
         

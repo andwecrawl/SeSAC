@@ -52,10 +52,11 @@ extension DetailTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if section == 0 {
             return 1
         } else {
-            return 10
+            return 5
         }
     }
     
@@ -65,7 +66,6 @@ extension DetailTableViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OverviewTableViewCell.identifier) as? OverviewTableViewCell else {
                 return UITableViewCell()
             }
-            
             cell.overviewTextView.text = media.overview
             
             return cell
@@ -75,7 +75,7 @@ extension DetailTableViewController {
             if actors.isEmpty {
                 TMDBManager.shared.callCastRequest(movieID: media.id) { cast in
                     self.actors = cast
-                    cell.actors = self.actors[indexPath.row]
+                    cell.actors = cast[indexPath.row]
                 }
             } else {
                 let row = indexPath.row

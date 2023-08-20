@@ -60,7 +60,6 @@ extension RecommendationViewController: UISearchBarDelegate {
         
         TMDBManager.shared.callSearchRequest(query: text) { movies in
             self.movies = movies
-            print(movies)
         }
     }
     
@@ -87,7 +86,6 @@ extension RecommendationViewController: UICollectionViewDelegate, UICollectionVi
         
         cell.posterPath = movies[indexPath.row].posterPath
         cell.configureCell()
-//        cell.posterImageView.image = UIImage(named: "testImage")
         
         return cell
     }
@@ -96,9 +94,9 @@ extension RecommendationViewController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: DetailTableViewController.identifier) as? DetailTableViewController else { return }
         vc.media = movies[indexPath.row]
-        let nav = UINavigationController(rootViewController: vc)
         
-        present(nav, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
+        collectionView.reloadItems(at: [indexPath])
     }
     
     

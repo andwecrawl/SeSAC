@@ -126,3 +126,17 @@ extension RecommendationViewController: UICollectionViewDelegate, UICollectionVi
     
     
 }
+
+
+
+extension RecommendationViewController {
+    
+    func callRequest() {
+        
+        
+        
+        
+    }
+    
+    
+}

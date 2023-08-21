@@ -18,6 +18,7 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var originalTitleLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     
     var media: Result?
@@ -26,12 +27,19 @@ class MovieTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
+        titleLabel.text = ""
+        originalTitleLabel.text = ""
         dateLabel.font = .systemFont(ofSize: 17, weight: .regular)
         genreLabel.font = .boldSystemFont(ofSize: 20)
         makeImageView(outerView: outerView, innerView: innerView)
         
         
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        titleLabel.text = ""
+        originalTitleLabel.text = ""
     }
     
     func configurateCell() {
@@ -57,9 +65,9 @@ class MovieTableViewCell: UITableViewCell {
         if let title = media.title {
             titleLabel.text = title
         } else if let title = media.originalTitle {
-            titleLabel.text = title
+            originalTitleLabel.text = title
         } else if let title = media.originalName {
-            titleLabel.text = title
+            originalTitleLabel.text = title
         } else {
             titleLabel.text = "타이틀을 가져올 수 없습니다."
         }

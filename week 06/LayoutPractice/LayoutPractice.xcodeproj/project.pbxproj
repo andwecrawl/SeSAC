@@ -15,6 +15,7 @@
 		D187C5B42A9349CA005C261A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D187C5B22A9349CA005C261A /* LaunchScreen.storyboard */; };
 		D187C5BC2A934EF3005C261A /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D187C5BB2A934EF3005C261A /* View+.swift */; };
 		D187C5BE2A9353E0005C261A /* Button+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D187C5BD2A9353E0005C261A /* Button+.swift */; };
+		D187C5C02A93882B005C261A /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D187C5BF2A93882B005C261A /* CodeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		D187C5B52A9349CA005C261A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D187C5BB2A934EF3005C261A /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		D187C5BD2A9353E0005C261A /* Button+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+.swift"; sourceTree = "<group>"; };
+		D187C5BF2A93882B005C261A /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				D187C5A92A9349CA005C261A /* SceneDelegate.swift */,
 				D187C5AB2A9349CA005C261A /* ViewController.swift */,
 				D187C5AD2A9349CA005C261A /* Main.storyboard */,
+				D187C5BF2A93882B005C261A /* CodeViewController.swift */,
 				D187C5BB2A934EF3005C261A /* View+.swift */,
 				D187C5BD2A9353E0005C261A /* Button+.swift */,
 				D187C5B02A9349CA005C261A /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 				D187C5BE2A9353E0005C261A /* Button+.swift in Sources */,
 				D187C5BC2A934EF3005C261A /* View+.swift in Sources */,
 				D187C5AC2A9349CA005C261A /* ViewController.swift in Sources */,
+				D187C5C02A93882B005C261A /* CodeViewController.swift in Sources */,
 				D187C5A82A9349CA005C261A /* AppDelegate.swift in Sources */,
 				D187C5AA2A9349CA005C261A /* SceneDelegate.swift in Sources */,
 			);

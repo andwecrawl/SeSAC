@@ -15,26 +15,24 @@ class radiusButton: UIButton {
 }
 
 extension UIButton {
-  
-    
-    func alignTextBelow(spacing: CGFloat = 4.0) {
-            guard let image = self.imageView?.image else {
-                return
-            }
-
-            guard let titleLabel = self.titleLabel else {
-                return
-            }
-
-            guard let titleText = titleLabel.text else {
-                return
-            }
-
-            let titleSize = titleText.size(withAttributes: [
-                NSAttributedString.Key.font: titleLabel.font as Any
-            ])
-
-            titleEdgeInsets = UIEdgeInsets(top: 8, left: -image.size.width, bottom: -image.size.height, right: 0)
-            imageEdgeInsets = UIEdgeInsets(top: -(titleSize.height + 8), left: 0, bottom: 0, right: -titleSize.width)
+    static func buttonBuilder(image: UIImage?, title: String) -> UIButton {
+        let button = UIButton()
+        button.setImage(image, for: .normal)
+        if title.isEmpty {
+            button.layer.cornerRadius = 15
+            button.layer.borderColor = UIColor.white.cgColor
+            button.layer.borderWidth = 1
+        } else {
+            var configuration = UIButton.Configuration.plain()
+            configuration.imagePlacement = .top
+            button.backgroundColor = .clear
+            configuration.imagePadding = 15
+            var attributedTitle = AttributedString(title)
+            attributedTitle.font = .preferredFont(forTextStyle: .caption2)
+            configuration.attributedTitle = attributedTitle
+            button.configuration = configuration
         }
+        button.tintColor = .white
+        return button
+    }
 }

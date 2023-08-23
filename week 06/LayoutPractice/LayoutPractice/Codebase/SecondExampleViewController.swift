@@ -9,38 +9,23 @@ import UIKit
 
 class SecondExampleViewController: UIViewController {
     
-    let nameLabel = makeLabel(text: "neenee", size: 20)
-    let messageLabel = makeLabel(text: "배고파용", size: 14)
-    let xButton = makeButton(image: UIImage(systemName: "xmark"), title: "")
-    let giftButton = makeButton(image: UIImage(systemName: "gift"), title: "")
-    let qrButton = makeButton(image: UIImage(systemName: "qrcode"), title: "")
-    let cameraButton = makeButton(image: UIImage(systemName: "camera"), title: "")
-    let chattingButton = makeButton(image: UIImage(systemName: "bubble.left.fill"), title: "나와의 채팅")
-    let profilButton = makeButton(image: UIImage(systemName: "pencil"), title: "프로필 편집")
-    let storyButton = makeButton(image: UIImage(systemName: "ellipsis.rectangle"), title: "카카오스토리")
+    let nameLabel = PaddingLabel.labelBuilder(text: "neenee", size: 20, isChat: false)
+    let messageLabel = PaddingLabel.labelBuilder(text: "배고파용", size: 14, isChat: false)
+    let xButton = UIButton.buttonBuilder(image: UIImage(systemName: "xmark"), title: "")
+    let giftButton = UIButton.buttonBuilder(image: UIImage(systemName: "qrcode"), title: "")
+    let qrButton = UIButton.buttonBuilder(image: UIImage(systemName: "qrcode"), title: "")
+    let cameraButton = UIButton.buttonBuilder(image: UIImage(systemName: "camera"), title: "")
+    let chattingButton = UIButton.buttonBuilder(image: UIImage(systemName: "bubble.left.fill"), title: "나와의 채팅")
+    let profilButton = UIButton.buttonBuilder(image: UIImage(systemName: "pencil"), title: "프로필 편집")
+    let storyButton = UIButton.buttonBuilder(image: UIImage(systemName: "ellipsis.rectangle"), title: "카카오스토리")
     
-    var bgImageView = {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFill
-        view.image = UIImage(named: "bgImage")
-        return view
-    }()
+    var bgImageView = UIImageView.imageBuilder(image: "bgImage", cornerRadius: 0)
+
     
-    var profileImageView = {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFill
-                view.image = UIImage(named: "testImage")
-        view.layer.cornerRadius = 30
-        view.clipsToBounds = true
-        return view
-    }()
+    var profileImageView = UIImageView.imageBuilder(image: "testImage", cornerRadius: 30)
     
-    let filterView = {
-        let view = UIView()
-        view.backgroundColor = .black
-        view.layer.opacity = 0.3
-        return view
-    }()
+    
+    let filterView = UIView.filterBuilder(color: .black, opacity: 0.3)
     
     
     override func viewDidLoad() {
@@ -127,47 +112,5 @@ class SecondExampleViewController: UIViewController {
             make.top.equalTo(nameLabel.snp.bottom).offset(8)
         }
         
-    }
-}
-
-extension SecondExampleViewController {
-    
-    static func makeButton(image: UIImage?, title: String) -> UIButton {
-        let button = UIButton()
-        button.setImage(image, for: .normal)
-        if title.isEmpty {
-            button.layer.cornerRadius = 15
-            button.layer.borderColor = UIColor.white.cgColor
-            button.layer.borderWidth = 1
-        } else {
-            var configuration = UIButton.Configuration.plain()
-            configuration.imagePlacement = .top
-            button.backgroundColor = .clear
-            configuration.imagePadding = 15
-            var attributedTitle = AttributedString(title)
-            attributedTitle.font = .preferredFont(forTextStyle: .caption2)
-            configuration.attributedTitle = attributedTitle
-            button.configuration = configuration
-        }
-        button.tintColor = .white
-        return button
-        
-    }
-    
-    
-    static func makeAttributedString(text: String) -> NSMutableAttributedString {
-        let fontSize = UIFont.boldSystemFont(ofSize: 13)
-        let attributedStr = NSMutableAttributedString(string: text)
-        attributedStr.addAttribute(.font, value: fontSize, range: (text as NSString).range(of: text))
-        return attributedStr
-    }
-    
-    static func makeLabel(text: String, size: CGFloat) -> UILabel {
-        let label = UILabel()
-        label.text = text
-        label.font = .boldSystemFont(ofSize: size)
-        label.textColor = .white
-        label.textAlignment = .center
-        return label
     }
 }

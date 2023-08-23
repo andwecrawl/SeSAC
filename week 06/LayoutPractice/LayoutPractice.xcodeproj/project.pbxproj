@@ -11,6 +11,7 @@
 		D17029C42A94A65D00E5CDEB /* FirstExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029C32A94A65D00E5CDEB /* FirstExampleViewController.swift */; };
 		D17029C62A94A66300E5CDEB /* SecondExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029C52A94A66300E5CDEB /* SecondExampleViewController.swift */; };
 		D17029C82A94A66A00E5CDEB /* ThirdExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029C72A94A66A00E5CDEB /* ThirdExampleViewController.swift */; };
+		D17029CD2A95F7F700E5CDEB /* Label+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029CC2A95F7F700E5CDEB /* Label+.swift */; };
 		D187C5A82A9349CA005C261A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D187C5A72A9349CA005C261A /* AppDelegate.swift */; };
 		D187C5AA2A9349CA005C261A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D187C5A92A9349CA005C261A /* SceneDelegate.swift */; };
 		D187C5AC2A9349CA005C261A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D187C5AB2A9349CA005C261A /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 		D17029C32A94A65D00E5CDEB /* FirstExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstExampleViewController.swift; sourceTree = "<group>"; };
 		D17029C52A94A66300E5CDEB /* SecondExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondExampleViewController.swift; sourceTree = "<group>"; };
 		D17029C72A94A66A00E5CDEB /* ThirdExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdExampleViewController.swift; sourceTree = "<group>"; };
+		D17029CC2A95F7F700E5CDEB /* Label+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+.swift"; sourceTree = "<group>"; };
 		D187C5A42A9349CA005C261A /* LayoutPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayoutPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D187C5A72A9349CA005C261A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D187C5A92A9349CA005C261A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				D187C5AB2A9349CA005C261A /* ViewController.swift */,
 				D17029C92A94A76500E5CDEB /* Codebase */,
 				D187C5BB2A934EF3005C261A /* View+.swift */,
+				D17029CC2A95F7F700E5CDEB /* Label+.swift */,
 				D187C5BD2A9353E0005C261A /* Button+.swift */,
 				D187C5B02A9349CA005C261A /* Assets.xcassets */,
 				D187C5B22A9349CA005C261A /* LaunchScreen.storyboard */,
@@ -174,6 +177,7 @@
 			files = (
 				D17029C42A94A65D00E5CDEB /* FirstExampleViewController.swift in Sources */,
 				D17029C82A94A66A00E5CDEB /* ThirdExampleViewController.swift in Sources */,
+				D17029CD2A95F7F700E5CDEB /* Label+.swift in Sources */,
 				D17029C62A94A66300E5CDEB /* SecondExampleViewController.swift in Sources */,
 				D187C5BE2A9353E0005C261A /* Button+.swift in Sources */,
 				D187C5BC2A934EF3005C261A /* View+.swift in Sources */,

@@ -15,11 +15,11 @@ class radiusButton: UIButton {
 }
 
 extension UIButton {
-    static func buttonBuilder(image: UIImage?, title: String) -> UIButton {
+    static func buttonBuilder(image: UIImage?, title: String, cornerRadius: CGFloat) -> UIButton {
         let button = UIButton()
         button.setImage(image, for: .normal)
         if title.isEmpty {
-            button.layer.cornerRadius = 15
+            button.layer.cornerRadius = cornerRadius
             button.layer.borderColor = UIColor.white.cgColor
             button.layer.borderWidth = 1
         } else {

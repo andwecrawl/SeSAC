@@ -11,13 +11,13 @@ class SecondExampleViewController: UIViewController {
     
     let nameLabel = PaddingLabel.labelBuilder(text: "neenee", size: 20, isChat: false)
     let messageLabel = PaddingLabel.labelBuilder(text: "배고파용", size: 14, isChat: false)
-    let xButton = UIButton.buttonBuilder(image: UIImage(systemName: "xmark"), title: "")
-    let giftButton = UIButton.buttonBuilder(image: UIImage(systemName: "qrcode"), title: "")
-    let qrButton = UIButton.buttonBuilder(image: UIImage(systemName: "qrcode"), title: "")
-    let cameraButton = UIButton.buttonBuilder(image: UIImage(systemName: "camera"), title: "")
-    let chattingButton = UIButton.buttonBuilder(image: UIImage(systemName: "bubble.left.fill"), title: "나와의 채팅")
-    let profilButton = UIButton.buttonBuilder(image: UIImage(systemName: "pencil"), title: "프로필 편집")
-    let storyButton = UIButton.buttonBuilder(image: UIImage(systemName: "ellipsis.rectangle"), title: "카카오스토리")
+    let xButton = UIButton.buttonBuilder(image: UIImage(systemName: "xmark"), title: "", cornerRadius: 16)
+    let giftButton = UIButton.buttonBuilder(image: UIImage(systemName: "qrcode"), title: "", cornerRadius: 16)
+    let qrButton = UIButton.buttonBuilder(image: UIImage(systemName: "qrcode"), title: "", cornerRadius: 16)
+    let cameraButton = UIButton.buttonBuilder(image: UIImage(systemName: "camera"), title: "", cornerRadius: 0)
+    let chattingButton = UIButton.buttonBuilder(image: UIImage(systemName: "bubble.left.fill"), title: "나와의 채팅", cornerRadius: 0)
+    let profilButton = UIButton.buttonBuilder(image: UIImage(systemName: "pencil"), title: "프로필 편집", cornerRadius: 0)
+    let storyButton = UIButton.buttonBuilder(image: UIImage(systemName: "ellipsis.rectangle"), title: "카카오스토리", cornerRadius: 0)
     
     var bgImageView = UIImageView.imageBuilder(image: "bgImage", cornerRadius: 0)
 

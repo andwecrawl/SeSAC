@@ -13,10 +13,10 @@ class ThirdExampleViewController: UIViewController {
     let locationFrameView = UIView.filterBuilder(color: .darkGray, opacity: 0.1)
     let timeLabel = PaddingLabel.labelBuilder(text: timeDecotter(), size: 14, isChat: false)
     
-    let locateButton = UIButton.buttonBuilder(image: UIImage(systemName: "location.fill"), title: "")
+    let locateButton = UIButton.buttonBuilder(image: UIImage(systemName: "location.fill"), title: "", cornerRadius: 20)
     let locationLabel = PaddingLabel.labelBuilder(text: "서울, 연희동", size: 20, isChat: false)
-    let shareButton = UIButton.buttonBuilder(image: UIImage(systemName: "square.and.arrow.up"), title: "")
-    let refreshButton = UIButton.buttonBuilder(image: UIImage(systemName: "arrow.clockwise"), title: "")
+    let shareButton = UIButton.buttonBuilder(image: UIImage(systemName: "square.and.arrow.up"), title: "", cornerRadius: 20)
+    let refreshButton = UIButton.buttonBuilder(image: UIImage(systemName: "arrow.clockwise"), title: "", cornerRadius: 20)
     
     let bgImageView = UIImageView.imageBuilder(image: "pompom", cornerRadius: 0)
     let filterView = UIView.filterBuilder(color: .lightGray, opacity: 0.3)
@@ -49,10 +49,15 @@ class ThirdExampleViewController: UIViewController {
     
     func setInitView() {
         [locateButton, locationLabel, shareButton, refreshButton].forEach {
-            locationStackView.addSubview($0)
-            if $0 != shareButton {
+            locationStackView.addArrangedSubview($0)
+            if $0 != locationLabel {
+                $0.layer.borderWidth = 0
                 $0.snp.makeConstraints { make in
                     make.width.height.equalTo(locationStackView.snp.height)
+                }
+            } else {
+                $0.snp.makeConstraints { make in
+                    make.centerY.equalTo(locationStackView)
                 }
             }
         }
@@ -100,6 +105,10 @@ class ThirdExampleViewController: UIViewController {
             make.height.equalTo(120)
         }
         
+        locationStackView.snp.makeConstraints { make in
+            make.height.equalTo(40)
+        }
+        
         timeLabel.textAlignment = .justified
         timeLabel.snp.makeConstraints { make in
             make.top.equalTo(locationFrameView).offset(20)
@@ -109,6 +118,7 @@ class ThirdExampleViewController: UIViewController {
         locationStackView.snp.makeConstraints { make in
             make.bottom.equalTo(locationFrameView).inset(20)
             make.horizontalEdges.equalTo(locationFrameView).inset(20)
+            make.height.equalTo(50)
         }
         
 //        locationStackView.snp.makeConstraints { make in
@@ -122,8 +132,6 @@ class ThirdExampleViewController: UIViewController {
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(150)
             make.height.equalTo(430)
         }
-        
-        c
         
     }
     

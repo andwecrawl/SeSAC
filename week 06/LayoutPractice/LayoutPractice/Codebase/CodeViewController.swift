@@ -42,10 +42,10 @@ class CodeViewController: UIViewController {
         let vc = SecondExampleViewController()
         let nav = UINavigationController(rootViewController: vc)
         
-        nav.pushViewController(nav, animated: true)
-//        navigationController?.pushViewController(nav, animated: true)
+//        nav.pushViewController(nav, animated: true)
+//        navigationController?.pushViewController(vc, animated: true)
         
-//        present(vc, animated: true)
+        present(nav, animated: true)
     }
     
     @objc func frontButtonClicked() {

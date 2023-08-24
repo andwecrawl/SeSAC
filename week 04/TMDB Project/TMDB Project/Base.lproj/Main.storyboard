@@ -189,11 +189,28 @@
                     <connections>
                         <segue destination="h5B-ab-fvX" kind="relationship" relationship="viewControllers" id="4KJ-Wo-ipP"/>
                         <segue destination="uTZ-cf-6f4" kind="relationship" relationship="viewControllers" id="J8D-Qp-CSh"/>
+                        <segue destination="IBP-hM-bsy" kind="relationship" relationship="viewControllers" id="Sww-ij-Idw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLR-3j-ggw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="135.1145038167939" y="3.5211267605633805"/>
+        </scene>
+        <!--Theater-->
+        <scene sceneID="AZ6-4w-hWx">
+            <objects>
+                <viewController id="IBP-hM-bsy" customClass="TheatorViewController" customModule="TMDB_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WX3-SY-KfN">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="YXz-Do-Eqr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Theater" image="popcorn.fill" catalog="system" id="KBK-T8-WVF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y53-Ud-JjT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1030" y="1445"/>
         </scene>
         <!--Recommendation-->
         <scene sceneID="2Gp-L6-Dak">
@@ -217,6 +234,7 @@
     </scenes>
     <resources>
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="popcorn.fill" catalog="system" width="102" height="128"/>
         <image name="sparkles.tv.fill" catalog="system" width="128" height="95"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

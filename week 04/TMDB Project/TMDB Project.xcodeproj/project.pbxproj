@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D17029DC2A974A9200E5CDEB /* TheatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029DB2A974A9200E5CDEB /* TheatorViewController.swift */; };
+		D17029DF2A974B0600E5CDEB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D17029DE2A974B0600E5CDEB /* SnapKit */; };
+		D17029E12A9751EF00E5CDEB /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029E02A9751EF00E5CDEB /* Theater.swift */; };
 		D180A2232A8A3B230091345F /* CastingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D180A2212A8A3B230091345F /* CastingTableViewCell.swift */; };
 		D180A2242A8A3B230091345F /* CastingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D180A2222A8A3B230091345F /* CastingTableViewCell.xib */; };
 		D187C5532A8E2C92005C261A /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = D187C5522A8E2C92005C261A /* Genre.swift */; };
@@ -39,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D17029DB2A974A9200E5CDEB /* TheatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheatorViewController.swift; sourceTree = "<group>"; };
+		D17029E02A9751EF00E5CDEB /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
 		D180A2212A8A3B230091345F /* CastingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastingTableViewCell.swift; sourceTree = "<group>"; };
 		D180A2222A8A3B230091345F /* CastingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastingTableViewCell.xib; sourceTree = "<group>"; };
 		D187C5522A8E2C92005C261A /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
@@ -75,6 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1B995B92A8902B900B7941D /* Kingfisher in Frameworks */,
+				D17029DF2A974B0600E5CDEB /* SnapKit in Frameworks */,
 				D1B995AC2A88B1D000B7941D /* SwiftyJSON in Frameworks */,
 				D1B995A92A88B1C700B7941D /* Alamofire in Frameworks */,
 			);
@@ -83,6 +89,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D17029DA2A9747AE00E5CDEB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D1B995BA2A89393C00B7941D /* MainView */,
+				D1B995C92A8939AC00B7941D /* DetailView */,
+				D187C55C2A90E09A005C261A /* RecommendationView */,
+				D17029DB2A974A9200E5CDEB /* TheatorViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D187C5502A8E28B8005C261A /* TableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,10 +133,18 @@
 			isa = PBXGroup;
 			children = (
 				D187C55D2A90E0B6005C261A /* RecommendationViewController.swift */,
+				D187C5C12A939C8A005C261A /* Cell */,
+			);
+			path = RecommendationView;
+			sourceTree = "<group>";
+		};
+		D187C5C12A939C8A005C261A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
 				D187C5652A90E168005C261A /* RecommendationCollectionViewCell.swift */,
 				D187C5662A90E168005C261A /* RecommendationCollectionViewCell.xib */,
 			);
-			path = RecommendationView;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		D1B9955D2A86432200B7941D = {
@@ -144,9 +169,7 @@
 				D1B995692A86432200B7941D /* AppDelegate.swift */,
 				D1B9956B2A86432200B7941D /* SceneDelegate.swift */,
 				D1B9956F2A86432200B7941D /* Main.storyboard */,
-				D1B995BA2A89393C00B7941D /* MainView */,
-				D1B995C92A8939AC00B7941D /* DetailView */,
-				D187C55C2A90E09A005C261A /* RecommendationView */,
+				D17029DA2A9747AE00E5CDEB /* View */,
 				D1B9959E2A86614600B7941D /* Module */,
 				D1B995722A86432300B7941D /* Assets.xcassets */,
 				D1B995742A86432300B7941D /* LaunchScreen.storyboard */,
@@ -181,6 +204,7 @@
 				D1B995AF2A88C78D00B7941D /* TMDBData.swift */,
 				D187C5522A8E2C92005C261A /* Genre.swift */,
 				D187C5572A8E4E59005C261A /* Cast.swift */,
+				D17029E02A9751EF00E5CDEB /* Theater.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -233,6 +257,7 @@
 				D1B995A82A88B1C700B7941D /* Alamofire */,
 				D1B995AB2A88B1D000B7941D /* SwiftyJSON */,
 				D1B995B82A8902B900B7941D /* Kingfisher */,
+				D17029DE2A974B0600E5CDEB /* SnapKit */,
 			);
 			productName = "TMDB Project";
 			productReference = D1B995662A86432200B7941D /* TMDB Project.app */;
@@ -266,6 +291,7 @@
 				D1B995A72A88B1C700B7941D /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D1B995AA2A88B1D000B7941D /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				D1B995B72A8902B900B7941D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				D17029DD2A974B0600E5CDEB /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = D1B995672A86432200B7941D /* Products */;
 			projectDirPath = "";
@@ -309,6 +335,7 @@
 				D1B9956A2A86432200B7941D /* AppDelegate.swift in Sources */,
 				D1B995C12A89397A00B7941D /* OverviewTableViewCell.swift in Sources */,
 				D187C5582A8E4E59005C261A /* Cast.swift in Sources */,
+				D17029DC2A974A9200E5CDEB /* TheatorViewController.swift in Sources */,
 				D1B995B02A88C78D00B7941D /* TMDBData.swift in Sources */,
 				D1B9959A2A865D1A00B7941D /* MovieTableViewCell.swift in Sources */,
 				D187C5672A90E168005C261A /* RecommendationCollectionViewCell.swift in Sources */,
@@ -317,6 +344,7 @@
 				D1B9956C2A86432200B7941D /* SceneDelegate.swift in Sources */,
 				D1B995A42A88ACEB00B7941D /* APIManager.swift in Sources */,
 				D187C5532A8E2C92005C261A /* Genre.swift in Sources */,
+				D17029E12A9751EF00E5CDEB /* Theater.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +566,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D17029DD2A974B0600E5CDEB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		D1B995A72A88B1C700B7941D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -565,6 +601,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D17029DE2A974B0600E5CDEB /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D17029DD2A974B0600E5CDEB /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		D1B995A82A88B1C700B7941D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D1B995A72A88B1C700B7941D /* XCRemoteSwiftPackageReference "Alamofire" */;

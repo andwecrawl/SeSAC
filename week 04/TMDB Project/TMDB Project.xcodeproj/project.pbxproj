@@ -10,6 +10,7 @@
 		D17029DC2A974A9200E5CDEB /* TheaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029DB2A974A9200E5CDEB /* TheaterViewController.swift */; };
 		D17029DF2A974B0600E5CDEB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D17029DE2A974B0600E5CDEB /* SnapKit */; };
 		D17029E12A9751EF00E5CDEB /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029E02A9751EF00E5CDEB /* Theater.swift */; };
+		D17029E32A97810800E5CDEB /* Button+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029E22A97810800E5CDEB /* Button+.swift */; };
 		D180A2232A8A3B230091345F /* CastingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D180A2212A8A3B230091345F /* CastingTableViewCell.swift */; };
 		D180A2242A8A3B230091345F /* CastingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D180A2222A8A3B230091345F /* CastingTableViewCell.xib */; };
 		D187C5532A8E2C92005C261A /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = D187C5522A8E2C92005C261A /* Genre.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		D17029DB2A974A9200E5CDEB /* TheaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewController.swift; sourceTree = "<group>"; };
 		D17029E02A9751EF00E5CDEB /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
+		D17029E22A97810800E5CDEB /* Button+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+.swift"; sourceTree = "<group>"; };
 		D180A2212A8A3B230091345F /* CastingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastingTableViewCell.swift; sourceTree = "<group>"; };
 		D180A2222A8A3B230091345F /* CastingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastingTableViewCell.xib; sourceTree = "<group>"; };
 		D187C5522A8E2C92005C261A /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				D1B9959C2A86614200B7941D /* ReusableViewProtocol.swift */,
 				D1B995AD2A88C49D00B7941D /* URL+.swift */,
 				D187C5542A8E492E005C261A /* Label+.swift */,
+				D17029E22A97810800E5CDEB /* Button+.swift */,
 				D187C5692A90E53D005C261A /* ViewController+.swift */,
 			);
 			path = Extension;
@@ -331,6 +334,7 @@
 				D187C5552A8E492E005C261A /* Label+.swift in Sources */,
 				D1B995BC2A89395500B7941D /* DetailTableViewController.swift in Sources */,
 				D1B9959D2A86614200B7941D /* ReusableViewProtocol.swift in Sources */,
+				D17029E32A97810800E5CDEB /* Button+.swift in Sources */,
 				D187C55E2A90E0B6005C261A /* RecommendationViewController.swift in Sources */,
 				D1B9956A2A86432200B7941D /* AppDelegate.swift in Sources */,
 				D1B995C12A89397A00B7941D /* OverviewTableViewCell.swift in Sources */,

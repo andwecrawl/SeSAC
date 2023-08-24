@@ -28,7 +28,10 @@ class TheaterViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     let mapView = MKMapView()
+    let locationButton = UIButton.buttonBuilder(bgColor: .systemBlue, image: UIImage(systemName: "location.fill"))
+    let theaterButton = UIButton.buttonBuilder(bgColor: .red, image: UIImage(systemName: "popcorn.fill"))
     
+    var isFirst: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,14 +43,30 @@ class TheaterViewController: UIViewController {
         checkDeviceLocationAuthorization()
     }
     
+    @objc func locationButtonTouched() {
+        checkDeviceLocationAuthorization()
+    }
     
     func setupLayout() {
+        locationButton.addTarget(self, action: #selector(locationButtonTouched), for: .touchUpInside)
+        theaterButton.menu = setupPop()
         
         view.addSubview(mapView)
+        view.addSubview(locationButton)
+        view.addSubview(theaterButton)
+        
         mapView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
+        locationButton.snp.makeConstraints { make in
+            make.bottom.trailing.equalTo(view.safeAreaLayoutGuide).inset(30)
+        }
+        
+        theaterButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(100)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(30)
+        }
         
     }
     
@@ -72,17 +91,12 @@ class TheaterViewController: UIViewController {
                 }
                 
             } else { // 요청이 꺼져 있으면
-                
                 self.showRequestLocationServiceAlert()
-                
-                
-                
             }
         }
         
         
         func checkCurrentLocationAuthorization(status: CLAuthorizationStatus) {
-            
             switch status {
             case .notDetermined:
                 // 최초로 사용자가 앱을 켰을 때
@@ -97,16 +111,17 @@ class TheaterViewController: UIViewController {
                 print("restricted")
             case .denied:
                 print("denied")
+                showRequestLocationServiceAlert()
             case .authorizedAlways:
                 print("authorizedAlways")
+                locationManager.startUpdatingLocation()
             case .authorizedWhenInUse:
                 print("authorizedWhenInUse")
-                
                 // didUpdateLocation 메서드 실행
                 locationManager.startUpdatingLocation()
             case .authorized:
                 print("authorized")
-                
+                locationManager.startUpdatingLocation()
             @unknown default:
                 // 얘는 왜?
                 // 추후 애플에서 추가할지 모를 CLAuthorizationStatus 값을 대비하는 거임!!
@@ -114,18 +129,15 @@ class TheaterViewController: UIViewController {
                 // 아~ 다 구현하긴 했는데 혹시 더 추가될지 몰라서 넣은 거야~ 임
                 print("default")
             }
-            
-            
-            
-            
         }
-        
     }
+    
     
     func setAnnotation(status: Status) {
         
         switch status {
         case .total:
+            mapView.removeAnnotations(mapView.annotations)
             theaterList.forEach { theater in
                 let annotation = MKPointAnnotation()
                 annotation.title = theater.location
@@ -133,6 +145,7 @@ class TheaterViewController: UIViewController {
                 mapView.addAnnotation(annotation)
             }
         case .lotte:
+            mapView.removeAnnotations(mapView.annotations)
             theaterList.forEach { theater in
                 let annotation = MKPointAnnotation()
                 if theater.type == "롯데시네마" {
@@ -142,6 +155,7 @@ class TheaterViewController: UIViewController {
                 }
             }
         case .cgv:
+            mapView.removeAnnotations(mapView.annotations)
             theaterList.forEach { theater in
                 let annotation = MKPointAnnotation()
                 if theater.type == "CGV" {
@@ -151,6 +165,7 @@ class TheaterViewController: UIViewController {
                 }
             }
         case .megabox:
+            mapView.removeAnnotations(mapView.annotations)
             theaterList.forEach { theater in
                 let annotation = MKPointAnnotation()
                 if theater.type == "메가박스" {
@@ -164,27 +179,46 @@ class TheaterViewController: UIViewController {
     }
     
     
-    func setLocation() {
+    func setLocation(location: CLLocationCoordinate2D?) {
         
         // 37.517829, 126.886270
-        let center = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
-        let location = MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
+        let center = location ?? CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
+        mapView.setRegion(region, animated: true)
         
+        mapView.removeAnnotations(mapView.annotations)
+        let annotation = MKPointAnnotation()
+        annotation.title = "currentLocation!"
+        annotation.coordinate = center
+        mapView.addAnnotation(annotation)
     }
     
+    func setFirstView() {
+        let center = CLLocationCoordinate2D(latitude: 37.510858, longitude: 126.959930)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 20000, longitudinalMeters: 20000)
+        mapView.setRegion(region, animated: true)
+        isFirst = false
+        
+        setAnnotation(status: .total)
+    }
 }
+
+
 
 
 // 위치 가져오기 3: 프로토콜 선언
 extension TheaterViewController: CLLocationManagerDelegate {
-    
+   
     // 사용자에게 위치를 성공적으로 가져올 경우
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         if let coordinate = locations.last?.coordinate {
-            print(coordinate)
+            if isFirst {
+                setFirstView()
+            } else {
+                setLocation(location: coordinate)
+            }
         }
-        
         
         locationManager.stopUpdatingLocation()
         
@@ -198,14 +232,12 @@ extension TheaterViewController: CLLocationManagerDelegate {
     
     
     
-    
     // 사용자의 권한 상태가 바뀌었을 때를 알려줌!!
     // 근데 명확한 권한 상태를 알려주는 게 아니라서 정확한 권한을 아는 건 다른 method에서 수행해야 함
     // iOS 14 이상
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         // 위치 권한 바뀌었을 때!! 어떻게 바뀌었는지 check해주는 method 실행해야 함
-        
-        
+        checkDeviceLocationAuthorization()
     }
     
     
@@ -213,10 +245,7 @@ extension TheaterViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         // 위치 권한 바뀌었을 때!! 어떻게 바뀌었는지 check해주는 method 실행해야 함
         
-        
     }
-    
-    
     
 }
 
@@ -250,6 +279,27 @@ extension TheaterViewController {
         requestLocationServiceAlert.addAction(goSetting)
         
         present(requestLocationServiceAlert, animated: true, completion: nil)
+    }
+    
+    
+    // popUpButtonBuilder
+    func setupPop() -> UIMenu {
+        lazy var menuItems: [UIAction] = [
+            UIAction(title: "전체", handler: { _ in
+                self.setAnnotation(status: .total)
+            }),
+            UIAction(title: "롯데시네마", handler: { _ in
+                self.setAnnotation(status: .lotte)
+            }),
+            UIAction(title: "CGV", handler: { _ in
+                self.setAnnotation(status: .cgv)
+            }),
+            UIAction(title: "메가박스", handler: { _ in
+                self.setAnnotation(status: .megabox)
+            })
+        ]
+        let menu = UIMenu(title: "", options: [], children: menuItems.reversed())
+        return menu
     }
     
 }

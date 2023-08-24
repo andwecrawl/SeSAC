@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D17029DC2A974A9200E5CDEB /* TheatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029DB2A974A9200E5CDEB /* TheatorViewController.swift */; };
+		D17029DC2A974A9200E5CDEB /* TheaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029DB2A974A9200E5CDEB /* TheaterViewController.swift */; };
 		D17029DF2A974B0600E5CDEB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D17029DE2A974B0600E5CDEB /* SnapKit */; };
 		D17029E12A9751EF00E5CDEB /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029E02A9751EF00E5CDEB /* Theater.swift */; };
 		D180A2232A8A3B230091345F /* CastingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D180A2212A8A3B230091345F /* CastingTableViewCell.swift */; };
@@ -42,7 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D17029DB2A974A9200E5CDEB /* TheatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheatorViewController.swift; sourceTree = "<group>"; };
+		D17029DB2A974A9200E5CDEB /* TheaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewController.swift; sourceTree = "<group>"; };
 		D17029E02A9751EF00E5CDEB /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
 		D180A2212A8A3B230091345F /* CastingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastingTableViewCell.swift; sourceTree = "<group>"; };
 		D180A2222A8A3B230091345F /* CastingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastingTableViewCell.xib; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 				D1B995BA2A89393C00B7941D /* MainView */,
 				D1B995C92A8939AC00B7941D /* DetailView */,
 				D187C55C2A90E09A005C261A /* RecommendationView */,
-				D17029DB2A974A9200E5CDEB /* TheatorViewController.swift */,
+				D17029DB2A974A9200E5CDEB /* TheaterViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -335,7 +335,7 @@
 				D1B9956A2A86432200B7941D /* AppDelegate.swift in Sources */,
 				D1B995C12A89397A00B7941D /* OverviewTableViewCell.swift in Sources */,
 				D187C5582A8E4E59005C261A /* Cast.swift in Sources */,
-				D17029DC2A974A9200E5CDEB /* TheatorViewController.swift in Sources */,
+				D17029DC2A974A9200E5CDEB /* TheaterViewController.swift in Sources */,
 				D1B995B02A88C78D00B7941D /* TMDBData.swift in Sources */,
 				D1B9959A2A865D1A00B7941D /* MovieTableViewCell.swift in Sources */,
 				D187C5672A90E168005C261A /* RecommendationCollectionViewCell.swift in Sources */,

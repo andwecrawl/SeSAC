@@ -199,7 +199,7 @@
         <!--Theater-->
         <scene sceneID="AZ6-4w-hWx">
             <objects>
-                <viewController id="IBP-hM-bsy" customClass="TheatorViewController" customModule="TMDB_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="IBP-hM-bsy" customClass="TheaterViewController" customModule="TMDB_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WX3-SY-KfN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

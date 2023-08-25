@@ -16,6 +16,11 @@ class CastingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var characterLabel: UILabel!
     
+    override func awakeFromNib() {
+        nameLabel.text = "정보를 찾을 수 없습니다."
+        characterLabel.text = "정보를 찾을 수 없습니다."
+        profileImageView.image =  UIImage(named: "noImage")
+    }
     
     var actors: CastElement? {
         didSet {

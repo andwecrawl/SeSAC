@@ -28,7 +28,8 @@ class DetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
+        tableView.rowHeight = UITableView.automaticDimension
         setupTableView()
         configureView()
     }

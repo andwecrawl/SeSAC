@@ -56,7 +56,8 @@ class ThirdiewController: UIViewController {
         
         UserDefaultsHelper.shared.haveBeenBefore = true
         let vc = TrendViewController()
-        SceneDelegate.window?.rootViewController = vc
+        let nav = UINavigationController(rootViewController: vc)
+        SceneDelegate.window?.rootViewController = nav
         SceneDelegate.window?.makeKeyAndVisible()
     }
     

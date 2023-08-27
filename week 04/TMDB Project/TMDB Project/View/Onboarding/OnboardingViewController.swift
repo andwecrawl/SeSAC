@@ -26,6 +26,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .white
         list = [FirstViewController(), SecondViewController(), ThirdiewController()]
         
         delegate = self

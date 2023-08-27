@@ -47,6 +47,12 @@ class TheaterViewController: UIViewController {
         checkDeviceLocationAuthorization()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        
+        mapView.removeAnnotations(mapView.annotations)
+    }
+    
     func setupLayout() {
         locationButton.addTarget(self, action: #selector(locationButtonTouched), for: .touchUpInside)
         theaterButton.menu = setupPop()

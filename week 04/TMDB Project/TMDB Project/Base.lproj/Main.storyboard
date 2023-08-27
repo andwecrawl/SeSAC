@@ -113,7 +113,7 @@
         <!--Recommendation View Controller-->
         <scene sceneID="d1o-Ml-ku5">
             <objects>
-                <viewController id="tSh-1j-iHy" customClass="RecommendationViewController" customModule="TMDB_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecommendationViewController" id="tSh-1j-iHy" customClass="RecommendationViewController" customModule="TMDB_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a4u-In-6yB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,11 +157,13 @@
             </objects>
             <point key="canvasLocation" x="1956.4885496183206" y="716.90140845070425"/>
         </scene>
-        <!--Trends-->
+        <!--Today's Trend-->
         <scene sceneID="EmL-Zh-cj3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h5B-ab-fvX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Trends" image="sparkles.tv.fill" catalog="system" id="anE-md-hKP"/>
+                <navigationController storyboardIdentifier="TrendNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="h5B-ab-fvX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Today's Trend" image="sparkles.tv.fill" catalog="system" selectedImage="sparkles.tv.fill" id="anE-md-hKP">
+                        <color key="badgeColor" systemColor="systemFillColor"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Cj-93-1Bk">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -179,7 +181,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="uKF-c1-gYR">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Yy8-Lk-9Lh" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="Yy8-Lk-9Lh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lZb-MU-Dzo">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -199,14 +201,17 @@
         <!--Theater-->
         <scene sceneID="AZ6-4w-hWx">
             <objects>
-                <viewController id="IBP-hM-bsy" customClass="TheaterViewController" customModule="TMDB_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TheaterViewController" id="IBP-hM-bsy" customClass="TheaterViewController" customModule="TMDB_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WX3-SY-KfN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="YXz-Do-Eqr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" systemColor="systemFillColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Theater" image="popcorn.fill" catalog="system" id="KBK-T8-WVF"/>
+                    <tabBarItem key="tabBarItem" title="Theater" image="popcorn.fill" catalog="system" selectedImage="popcorn.fill" id="KBK-T8-WVF">
+                        <color key="badgeColor" systemColor="systemFillColor"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y53-Ud-JjT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -216,7 +221,9 @@
         <scene sceneID="2Gp-L6-Dak">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uTZ-cf-6f4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recommendation" image="magnifyingglass.circle.fill" catalog="system" id="TSy-uh-NzU"/>
+                    <tabBarItem key="tabBarItem" title="Recommendation" image="magnifyingglass.circle.fill" catalog="system" selectedImage="magnifyingglass.circle.fill" id="TSy-uh-NzU">
+                        <color key="badgeColor" systemColor="systemFillColor"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bXJ-gP-nTa">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -241,6 +248,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

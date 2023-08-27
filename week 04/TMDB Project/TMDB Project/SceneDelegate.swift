@@ -17,15 +17,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
+//        UserDefaultsHelper.shared.haveBeenBefore = false
+        
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
         if UserDefaultsHelper.shared.haveBeenBefore {
             // 처음이 아닐 때
             let sb = UIStoryboard(name: "Main", bundle: nil)
-            guard let vc = sb.instantiateViewController(withIdentifier: TrendViewController.identifier) as? TrendViewController else { return }
-            let nav = UINavigationController(rootViewController: vc)
-            window?.rootViewController = nav
+            
+            guard let tabBarController = sb.instantiateViewController(withIdentifier: "mainTabBarController") as? UITabBarController else {
+                fatalError("탭바 컨트롤러를 가져올 수 없습니다.")
+            }
+            
+            guard let firstVC = sb.instantiateViewController(withIdentifier: TrendViewController.identifier) as? TrendViewController else { return }
+            let firstNav = UINavigationController(rootViewController: firstVC)
+            
+            guard let secondVC = sb.instantiateViewController(withIdentifier: RecommendationViewController.identifier) as? RecommendationViewController else { return }
+            let secondNav = UINavigationController(rootViewController: secondVC)
+            
+            guard let thirdVC = sb.instantiateViewController(withIdentifier: TheaterViewController.identifier) as? TheaterViewController else { return }
+            let thirdNav = UINavigationController(rootViewController: thirdVC)
+            
+            tabBarController.viewControllers = [firstNav, secondVC, thirdNav]
+            
+            window?.rootViewController = tabBarController
             window?.makeKeyAndVisible()
         } else {
             let vc = OnboardingViewController()

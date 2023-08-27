@@ -20,11 +20,12 @@ class TrendViewController: UIViewController {
     var page: Int = 1
     var isEnd: Bool = false
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Today's Trend"
+        title = "Today\'s Trend"
+        tabBarItem.image = UIImage(systemName: "sparkles.tv.fill")
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.2.circlepath"), style: .plain, target: self, action: #selector(reloadAll))
         

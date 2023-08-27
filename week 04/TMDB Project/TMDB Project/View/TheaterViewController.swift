@@ -115,7 +115,6 @@ class TheaterViewController: UIViewController {
                 // 이후 info.plist에서 Privacy - Location When In USe Authorization에 요청 메세지를 적어야 한다.
             case .restricted:
                 print("restricted")
-                showRequestLocationServiceAlert()
             case .denied:
                 print("denied")
                 showRequestLocationServiceAlert()

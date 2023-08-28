@@ -9,7 +9,7 @@ import UIKit
 
 class TrendViewController: BaseViewController {
 
-    @IBOutlet weak var trendTableView: UITableView!
+//    @IBOutlet weak var trendTableView: UITableView!
     
     let mainView = TrendView()
     
@@ -47,15 +47,8 @@ class TrendViewController: BaseViewController {
     }
     
     
-    @objc func reloadAll() {
-        mainView.tableView.reloadData()
-    }
-    
     func setNavigationBar() {
         title = "Today's Trend"
-        tabBarItem.image = UIImage(systemName: "sparkles.tv.fill")
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.2.circlepath"), style: .plain, target: self, action: #selector(reloadAll))
     }
     
 

@@ -21,7 +21,6 @@ class RecommendationViewController: UIViewController {
         super.viewDidLoad()
        
         title = "Recommendation"
-        tabBarItem.image = UIImage(systemName: "magnifyingglass.circle.fill")
         
         setupCollectionView()
         configureCollectionViewLayout()

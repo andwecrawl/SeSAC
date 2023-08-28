@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class TrendTableViewCell: BaseTableViewCell {
     
@@ -41,6 +42,7 @@ class TrendTableViewCell: BaseTableViewCell {
     var media: Result?
     var genre: String?
     
+    
     override func configureView() {
         addSubview(dateLabel)
         addSubview(genreLabel)
@@ -57,11 +59,25 @@ class TrendTableViewCell: BaseTableViewCell {
         innerView.addSubview(arrowImageView)
     }
     
+    
     override func setConstraints() {
         
+        dateLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(10)
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.bottom.equalTo(genreLabel.snp.top)
+        }
+        
+        genreLabel.snp.makeConstraints { make in
+            make.horizontalEdges.equalTo(dateLabel)
+        }
+        
+        
+        makeImageView(outerView: outerView, innerView: innerView)
         outerView.snp.makeConstraints { make in
-            make.height.equalTo(400)
+            make.top.equalTo(genreLabel.snp.bottom).offset(12)
             make.bottom.equalToSuperview().inset(20)
+            
             make.horizontalEdges.equalToSuperview().inset(16)
         }
         
@@ -71,46 +87,49 @@ class TrendTableViewCell: BaseTableViewCell {
         
         backdropImageView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
-            make.bottom.equalToSuperview().inset(120)
+            make.bottom.equalToSuperview().inset(125)
         }
         
         titleLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: Float(751)), for: .horizontal)
         titleLabel.setContentHuggingPriority(UILayoutPriority(rawValue: Float(250)), for: .horizontal)
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(backdropImageView.snp.bottom).inset(8)
-            make.leading.equalToSuperview().inset(8)
+            make.top.equalTo(backdropImageView.snp.bottom).offset(16)
+            make.leading.equalToSuperview().inset(12)
             make.trailing.equalTo(originalTitleLabel.snp.leading).inset(8)
             make.height.equalTo(20)
         }
         
         originalTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(backdropImageView.snp.bottom).inset(8)
-            make.trailing.equalToSuperview().inset(8)
+            make.top.equalTo(backdropImageView.snp.bottom).offset(8)
+            make.trailing.equalToSuperview().inset(12)
             make.height.equalTo(20)
         }
         
         overviewLabel.numberOfLines = 2
         overviewLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(4)
-            make.horizontalEdges.equalToSuperview().inset(8)
+            make.horizontalEdges.equalToSuperview().inset(12)
         }
         
+        detailLabel.text = "자세히 보기"
         detailLabel.snp.makeConstraints { make in
             make.centerY.equalTo(arrowImageView)
-            make.leading.equalToSuperview().inset(12)
+            make.leading.equalToSuperview().inset(16)
             make.trailing.equalTo(arrowImageView).offset(8)
         }
         
+        arrowImageView.image = UIImage(systemName: "greaterthan")
         arrowImageView.snp.makeConstraints { make in
-            make.trailing.bottom.equalToSuperview().inset(8)
+            make.trailing.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview().inset(12)
             make.height.equalTo(20)
-            make.width.equalTo(10)
+            make.width.equalTo(arrowImageView.snp.height).multipliedBy(0.5)
         }
         
         lineView.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(12)
             make.trailing.equalToSuperview().inset(14)
-            make.bottom.equalTo(detailLabel.snp.top).offset(12)
+            make.top.equalTo(detailLabel.snp.top).offset(-10)
         }
         
         
@@ -125,7 +144,6 @@ class TrendTableViewCell: BaseTableViewCell {
         dateLabel.font = .systemFont(ofSize: 17, weight: .regular)
         genreLabel.font = .boldSystemFont(ofSize: 20)
         makeImageView(outerView: outerView, innerView: innerView)
-        
         
     }
     

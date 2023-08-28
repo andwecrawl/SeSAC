@@ -185,11 +185,11 @@ class TheaterViewController: UIViewController {
     }
     
     
-    func setLocation(location: CLLocationCoordinate2D?) {
+    func setLocation(location: CLLocationCoordinate2D?, check: Bool = true) {
         
         // 37.517829, 126.886270
         let center = location ?? CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
         
         mapView.removeAnnotations(mapView.annotations)
@@ -199,13 +199,13 @@ class TheaterViewController: UIViewController {
         mapView.addAnnotation(annotation)
     }
     
-    func setFirstView() {
+    func setFirstView(status: Status) {
         let center = CLLocationCoordinate2D(latitude: 37.510858, longitude: 126.959930)
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: 20000, longitudinalMeters: 20000)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 16000, longitudinalMeters: 16000)
         mapView.setRegion(region, animated: true)
         isFirst = false
         
-        setAnnotation(status: .total)
+        setAnnotation(status: status)
     }
 }
 
@@ -220,7 +220,7 @@ extension TheaterViewController: CLLocationManagerDelegate {
         
         if let coordinate = locations.last?.coordinate {
             if isFirst {
-                setFirstView()
+                setFirstView(status: .total)
             } else {
                 setLocation(location: coordinate)
             }
@@ -292,16 +292,16 @@ extension TheaterViewController {
     func setupPop() -> UIMenu {
         lazy var menuItems: [UIAction] = [
             UIAction(title: "전체", handler: { _ in
-                self.setAnnotation(status: .total)
+                self.setFirstView(status: .total)
             }),
             UIAction(title: "롯데시네마", handler: { _ in
-                self.setAnnotation(status: .lotte)
+                self.setFirstView(status: .lotte)
             }),
             UIAction(title: "CGV", handler: { _ in
-                self.setAnnotation(status: .cgv)
+                self.setFirstView(status: .cgv)
             }),
             UIAction(title: "메가박스", handler: { _ in
-                self.setAnnotation(status: .megabox)
+                self.setFirstView(status: .megabox)
             })
         ]
         let menu = UIMenu(title: "", options: [], children: menuItems.reversed())

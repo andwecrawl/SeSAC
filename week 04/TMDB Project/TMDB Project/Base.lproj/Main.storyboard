@@ -110,7 +110,7 @@
             </objects>
             <point key="canvasLocation" x="2823.6641221374043" y="3.5211267605633805"/>
         </scene>
-        <!--Recommendation View Controller-->
+        <!--Recommendation-->
         <scene sceneID="d1o-Ml-ku5">
             <objects>
                 <viewController storyboardIdentifier="RecommendationViewController" id="tSh-1j-iHy" customClass="RecommendationViewController" customModule="TMDB_Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,7 +148,7 @@
                             <constraint firstItem="rBE-nx-MZF" firstAttribute="trailing" secondItem="zST-lT-YqR" secondAttribute="trailing" id="x0R-in-vcL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Aed-6e-be4"/>
+                    <navigationItem key="navigationItem" title="Recommendation" id="Aed-6e-be4"/>
                     <connections>
                         <outlet property="recommendationCollectionView" destination="zST-lT-YqR" id="aWz-Py-DYh"/>
                     </connections>

@@ -72,7 +72,7 @@ class TrendTableViewCell: BaseTableViewCell {
             make.horizontalEdges.equalTo(dateLabel)
         }
         
-        
+        innerView.backgroundColor = .white
         makeImageView(outerView: outerView, innerView: innerView)
         outerView.snp.makeConstraints { make in
             make.top.equalTo(genreLabel.snp.bottom).offset(12)
@@ -100,7 +100,7 @@ class TrendTableViewCell: BaseTableViewCell {
         }
         
         originalTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(backdropImageView.snp.bottom).offset(8)
+            make.top.equalTo(backdropImageView.snp.bottom).offset(16)
             make.trailing.equalToSuperview().inset(12)
             make.height.equalTo(20)
         }
@@ -121,7 +121,7 @@ class TrendTableViewCell: BaseTableViewCell {
         arrowImageView.image = UIImage(systemName: "greaterthan")
         arrowImageView.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview().inset(12)
+            make.bottom.equalToSuperview().inset(8)
             make.height.equalTo(20)
             make.width.equalTo(arrowImageView.snp.height).multipliedBy(0.5)
         }

@@ -45,6 +45,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.makeKeyAndVisible()
         } else {
             let vc = OnboardingViewController()
+            
             window?.rootViewController = vc
             window?.makeKeyAndVisible()
         }

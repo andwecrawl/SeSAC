@@ -10,6 +10,13 @@
 		D1499B452A9B34AE000717DD /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B442A9B34AE000717DD /* UserDefaultsHelper.swift */; };
 		D1499B482A9B38C8000717DD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B472A9B38C8000717DD /* OnboardingViewController.swift */; };
 		D1499B4A2A9B3A3D000717DD /* ElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B492A9B3A3D000717DD /* ElementViewController.swift */; };
+		D1499B862A9CBEB1000717DD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B852A9CBEB1000717DD /* BaseViewController.swift */; };
+		D1499B882A9CBEEF000717DD /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B872A9CBEEF000717DD /* BaseView.swift */; };
+		D1499B8A2A9CBF5E000717DD /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B892A9CBF5E000717DD /* BaseTableViewCell.swift */; };
+		D1499B8C2A9CC09E000717DD /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B8B2A9CC09E000717DD /* TrendView.swift */; };
+		D1499B8E2A9CC16F000717DD /* TrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B8D2A9CC16F000717DD /* TrendTableViewCell.swift */; };
+		D1499B912A9CC33D000717DD /* LabelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B902A9CC33D000717DD /* LabelBuilder.swift */; };
+		D1499B932A9CC507000717DD /* ImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B922A9CC507000717DD /* ImageBuilder.swift */; };
 		D17029DC2A974A9200E5CDEB /* TheaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029DB2A974A9200E5CDEB /* TheaterViewController.swift */; };
 		D17029DF2A974B0600E5CDEB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D17029DE2A974B0600E5CDEB /* SnapKit */; };
 		D17029E12A9751EF00E5CDEB /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029E02A9751EF00E5CDEB /* Theater.swift */; };
@@ -49,6 +56,13 @@
 		D1499B442A9B34AE000717DD /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		D1499B472A9B38C8000717DD /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		D1499B492A9B3A3D000717DD /* ElementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementViewController.swift; sourceTree = "<group>"; };
+		D1499B852A9CBEB1000717DD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D1499B872A9CBEEF000717DD /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		D1499B892A9CBF5E000717DD /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		D1499B8B2A9CC09E000717DD /* TrendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
+		D1499B8D2A9CC16F000717DD /* TrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewCell.swift; sourceTree = "<group>"; };
+		D1499B902A9CC33D000717DD /* LabelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelBuilder.swift; sourceTree = "<group>"; };
+		D1499B922A9CC507000717DD /* ImageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBuilder.swift; sourceTree = "<group>"; };
 		D17029DB2A974A9200E5CDEB /* TheaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewController.swift; sourceTree = "<group>"; };
 		D17029E02A9751EF00E5CDEB /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
 		D17029E22A97810800E5CDEB /* Button+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+.swift"; sourceTree = "<group>"; };
@@ -116,9 +130,29 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		D1499B842A9CBEA3000717DD /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D1499B852A9CBEB1000717DD /* BaseViewController.swift */,
+				D1499B872A9CBEEF000717DD /* BaseView.swift */,
+				D1499B892A9CBF5E000717DD /* BaseTableViewCell.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D1499B8F2A9CC329000717DD /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				D1499B902A9CC33D000717DD /* LabelBuilder.swift */,
+				D1499B922A9CC507000717DD /* ImageBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		D17029DA2A9747AE00E5CDEB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D1499B842A9CBEA3000717DD /* Base */,
 				D1499B462A9B3645000717DD /* Onboarding */,
 				D1B995BA2A89393C00B7941D /* MainView */,
 				D1B995C92A8939AC00B7941D /* DetailView */,
@@ -210,6 +244,7 @@
 		D1B9959E2A86614600B7941D /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				D1499B8F2A9CC329000717DD /* Builder */,
 				D1B995B62A8900C700B7941D /* Data */,
 				D187C5562A8E4D99005C261A /* Extension */,
 				D1B995B52A89009900B7941D /* API */,
@@ -241,6 +276,8 @@
 			isa = PBXGroup;
 			children = (
 				D1B9956D2A86432200B7941D /* TrendViewController.swift */,
+				D1499B8B2A9CC09E000717DD /* TrendView.swift */,
+				D1499B8D2A9CC16F000717DD /* TrendTableViewCell.swift */,
 				D187C5502A8E28B8005C261A /* TableView */,
 			);
 			path = MainView;
@@ -354,8 +391,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1B9956E2A86432200B7941D /* TrendViewController.swift in Sources */,
+				D1499B882A9CBEEF000717DD /* BaseView.swift in Sources */,
 				D180A2232A8A3B230091345F /* CastingTableViewCell.swift in Sources */,
 				D187C56A2A90E53D005C261A /* ViewController+.swift in Sources */,
+				D1499B8A2A9CBF5E000717DD /* BaseTableViewCell.swift in Sources */,
 				D187C5552A8E492E005C261A /* Label+.swift in Sources */,
 				D1499B482A9B38C8000717DD /* OnboardingViewController.swift in Sources */,
 				D1B995BC2A89395500B7941D /* DetailTableViewController.swift in Sources */,
@@ -367,15 +406,20 @@
 				D187C5582A8E4E59005C261A /* Cast.swift in Sources */,
 				D17029DC2A974A9200E5CDEB /* TheaterViewController.swift in Sources */,
 				D1B995B02A88C78D00B7941D /* TMDBData.swift in Sources */,
+				D1499B912A9CC33D000717DD /* LabelBuilder.swift in Sources */,
 				D1B9959A2A865D1A00B7941D /* MovieTableViewCell.swift in Sources */,
 				D187C5672A90E168005C261A /* RecommendationCollectionViewCell.swift in Sources */,
 				D1B995AE2A88C49D00B7941D /* URL+.swift in Sources */,
 				D1B995A22A88AC7100B7941D /* APIKey.swift in Sources */,
 				D1B9956C2A86432200B7941D /* SceneDelegate.swift in Sources */,
 				D1499B452A9B34AE000717DD /* UserDefaultsHelper.swift in Sources */,
+				D1499B862A9CBEB1000717DD /* BaseViewController.swift in Sources */,
+				D1499B932A9CC507000717DD /* ImageBuilder.swift in Sources */,
 				D1B995A42A88ACEB00B7941D /* APIManager.swift in Sources */,
 				D187C5532A8E2C92005C261A /* Genre.swift in Sources */,
 				D17029E12A9751EF00E5CDEB /* Theater.swift in Sources */,
+				D1499B8C2A9CC09E000717DD /* TrendView.swift in Sources */,
+				D1499B8E2A9CC16F000717DD /* TrendTableViewCell.swift in Sources */,
 				D1499B4A2A9B3A3D000717DD /* ElementViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

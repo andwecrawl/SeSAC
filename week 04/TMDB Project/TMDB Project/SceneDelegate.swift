@@ -39,7 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             guard let thirdVC = sb.instantiateViewController(withIdentifier: TheaterViewController.identifier) as? TheaterViewController else { return }
             let thirdNav = UINavigationController(rootViewController: thirdVC)
             
-            tabBarController.viewControllers = [firstNav, secondVC, thirdNav]
+            tabBarController.viewControllers = [firstNav, secondNav, thirdNav]
             
             window?.rootViewController = tabBarController
             window?.makeKeyAndVisible()

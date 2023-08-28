@@ -71,9 +71,6 @@ class MovieTableViewCell: UITableViewCell {
         } else {
             titleLabel.text = "타이틀을 가져올 수 없습니다."
         }
-        
-        
-        
     }
     
     

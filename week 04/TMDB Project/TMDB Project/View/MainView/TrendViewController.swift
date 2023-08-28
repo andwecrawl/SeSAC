@@ -7,13 +7,19 @@
 
 import UIKit
 
-class TrendViewController: UIViewController {
+class TrendViewController: BaseViewController {
 
     @IBOutlet weak var trendTableView: UITableView!
     
+    let mainView = TrendView()
+    
+    override func loadView() {
+        self.view = mainView
+    }
+    
     var trendsList: TMDB = TMDB(page: 0, results: [], totalPages: 0, totalResults: 0) {
         didSet {
-            trendTableView.reloadData()
+            mainView.tableView.reloadData()
         }
     }
     var genreList: [String] = []
@@ -24,30 +30,39 @@ class TrendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Today\'s Trend"
-        tabBarItem.image = UIImage(systemName: "sparkles.tv.fill")
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.2.circlepath"), style: .plain, target: self, action: #selector(reloadAll))
+        setNavigationBar()
         
         
         TMDBManager.shared.callRequestCodable { data, genre in
             self.trendsList = data
             self.genreList = genre
-            self.trendTableView.reloadData()
+            self.mainView.tableView.reloadData()
         }
         
-        trendTableView.dataSource = self
-        trendTableView.delegate = self
-        
-        let nib = UINib(nibName: MovieTableViewCell.identifier, bundle: nil)
-        trendTableView.register(nib, forCellReuseIdentifier: MovieTableViewCell.identifier)
+//        trendTableView.dataSource = self
+//        trendTableView.delegate = self
+//
+//        let nib = UINib(nibName: MovieTableViewCell.identifier, bundle: nil)
+//        trendTableView.register(nib, forCellReuseIdentifier: MovieTableViewCell.identifier)
     }
     
     
     @objc func reloadAll() {
-        trendTableView.reloadData()
+        mainView.tableView.reloadData()
     }
+    
+    func setNavigationBar() {
+        title = "Today's Trend"
+        tabBarItem.image = UIImage(systemName: "sparkles.tv.fill")
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.2.circlepath"), style: .plain, target: self, action: #selector(reloadAll))
+    }
+    
 
+    override func configureView() {
+        mainView.tableView.delegate = self
+        mainView.tableView.dataSource = self
+    }
 }
 
 
@@ -57,7 +72,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier) as? MovieTableViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier) as? TrendTableViewCell else { return UITableViewCell()}
         
         let row = indexPath.row
         cell.media = trendsList.results[row]

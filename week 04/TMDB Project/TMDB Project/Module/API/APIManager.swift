@@ -53,7 +53,7 @@ class TMDBManager {
                     deliverValue(value, genreArray)
                     
                 case .failure(let error):
-                    print(error)
+                    print("movie", error)
                 }
             }
         
@@ -89,7 +89,7 @@ class TMDBManager {
                         TMDBManager.tvGenre = value.genres
                         completionHandler()
                     case .failure(let error):
-                        print(error)
+                        print("tvGenre", error)
                     }
                 }
         }
@@ -102,7 +102,7 @@ class TMDBManager {
                     TMDBManager.movieGenre = value.genres
                     completionHandler()
                 case .failure(let error):
-                    print(error)
+                    print("movieGenre", error)
                 }
             }
     }
@@ -117,7 +117,7 @@ class TMDBManager {
                     let casting = value.cast
                     completionHandler(casting)
                 case .failure(let error):
-                    print(error)
+                    print("cast", error)
                 }
             }
     }

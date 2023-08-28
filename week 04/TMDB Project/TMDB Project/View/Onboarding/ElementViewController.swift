@@ -54,10 +54,25 @@ class ThirdiewController: UIViewController {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         guard let SceneDelegate = windowScene?.delegate as? SceneDelegate else { return }
         
+        print("clicked!")
         UserDefaultsHelper.shared.haveBeenBefore = true
-        let vc = TrendViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        SceneDelegate.window?.rootViewController = nav
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let tabBarController = sb.instantiateViewController(withIdentifier: "mainTabBarController") as? UITabBarController else {
+            fatalError("탭바 컨트롤러를 가져올 수 없습니다.")
+        }
+        
+        guard let firstVC = sb.instantiateViewController(withIdentifier: TrendViewController.identifier) as? TrendViewController else { return }
+        let firstNav = UINavigationController(rootViewController: firstVC)
+        
+        guard let secondVC = sb.instantiateViewController(withIdentifier: RecommendationViewController.identifier) as? RecommendationViewController else { return }
+        let secondNav = UINavigationController(rootViewController: secondVC)
+        
+        guard let thirdVC = sb.instantiateViewController(withIdentifier: TheaterViewController.identifier) as? TheaterViewController else { return }
+        let thirdNav = UINavigationController(rootViewController: thirdVC)
+        
+        tabBarController.viewControllers = [firstNav, secondNav, thirdNav]
+        
+        SceneDelegate.window?.rootViewController = tabBarController
         SceneDelegate.window?.makeKeyAndVisible()
     }
     
@@ -66,6 +81,7 @@ class ThirdiewController: UIViewController {
         view.addSubview(button)
         button.snp.makeConstraints { make in
             make.bottom.equalToSuperview().inset(100)
+            make.height.equalTo(50)
             make.horizontalEdges.equalToSuperview().inset(30)
         }
     }

@@ -30,7 +30,7 @@ class TrendTableViewCell: BaseTableViewCell {
     
     let lineView = {
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = .lightGray
         view.snp.makeConstraints { make in
             make.height.equalTo(1)
         }

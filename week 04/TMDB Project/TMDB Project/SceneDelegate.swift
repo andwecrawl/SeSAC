@@ -30,16 +30,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 fatalError("탭바 컨트롤러를 가져올 수 없습니다.")
             }
             
+            
             guard let firstVC = sb.instantiateViewController(withIdentifier: TrendViewController.identifier) as? TrendViewController else { return }
             let firstNav = UINavigationController(rootViewController: firstVC)
+            firstNav.tabBarItem = UITabBarItem(title: "Today's Trend", image: UIImage(systemName: "sparkles.tv.fill"), selectedImage: UIImage(systemName: "sparkles.tv.fill"))
             
             guard let secondVC = sb.instantiateViewController(withIdentifier: RecommendationViewController.identifier) as? RecommendationViewController else { return }
             let secondNav = UINavigationController(rootViewController: secondVC)
+            secondNav.tabBarItem = UITabBarItem(title: "Recommendation", image: UIImage(systemName: "magnifyingglass.circle.fill"), selectedImage: UIImage(systemName: "magnifyingglass.circle.fill"))
             
             guard let thirdVC = sb.instantiateViewController(withIdentifier: TheaterViewController.identifier) as? TheaterViewController else { return }
             let thirdNav = UINavigationController(rootViewController: thirdVC)
             
-            tabBarController.viewControllers = [firstNav, secondNav, thirdNav]
+            let fourthVC = ProfileViewController()
+            let fourthNav = UINavigationController(rootViewController: fourthVC)
+            fourthNav.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle.fill"), selectedImage: UIImage(systemName: "person.crop.circle.fill"))
+            
+            tabBarController.viewControllers = [firstNav, secondNav, thirdNav, fourthNav]
             
             window?.rootViewController = tabBarController
             window?.makeKeyAndVisible()

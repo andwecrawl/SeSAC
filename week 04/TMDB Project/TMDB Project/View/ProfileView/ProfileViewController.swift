@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import PhotosUI
 
 class ProfileViewController: BaseViewController {
     let mainView = ProfileView()
     
-    let settingList = SettingList().user
+    var settingList = SettingList().user
     
     override func loadView() {
         self.view = mainView
@@ -28,8 +29,41 @@ class ProfileViewController: BaseViewController {
     }
     
     @objc func profileClicked() {
-        
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        configuration.filter = .images
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
     }
+}
+
+
+extension ProfileViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        
+        // 이미지 클릭 시 화면 dismiss
+        picker.dismiss(animated: true)
+        
+        // itemProvider == 선택한 asset을 보여주는 역할을 함!!
+        if let itemProvider = results.first?.itemProvider,
+           itemProvider.canLoadObject(ofClass: UIImage.self) {
+            let type: NSItemProviderReading.Type = UIImage.self
+            itemProvider.loadObject(ofClass: type) { image, error in
+                if let image = image as? UIImage {
+                    DispatchQueue.main.async {
+                        self.mainView.profileImageView.layer.cornerRadius = 60
+                        self.mainView.profileImageView.image = image
+                        
+                    }
+                } else {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -41,9 +75,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier) as? ProfileTableViewCell else { return UITableViewCell()}
-        let element = settingList[indexPath.row].name.rawValue
-        cell.settingLabel.text = element
-        cell.textField.placeholder = element
+        let settings = settingList[indexPath.row].name.rawValue
+        let data = settingList[indexPath.row].user
+        cell.settingLabel.text = settings
+        cell.textField.text = data
+        cell.textField.placeholder = settings
         return cell
     }
     
@@ -52,9 +88,33 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = EditingViewController()
-        vc.setting = settingList[indexPath.row].name
-        navigationController?.pushViewController(vc, animated: true)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        let setting = settingList[indexPath.row].name
+        if setting == .Gender {
+            let vc = PickerViewController()
+            vc.setting = setting
+            vc.completionHandler = { text in
+                self.settingList[indexPath.row].user = text
+                tableView.reloadRows(at: [indexPath], with: .none)
+            }
+            navigationController?.pushViewController(vc, animated: true)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        } else {
+            let vc = EditingViewController()
+            vc.setting = setting
+            vc.completionHandler = { text in
+                self.settingList[indexPath.row].user = text
+                tableView.reloadRows(at: [indexPath], with: .none)
+            }
+            navigationController?.pushViewController(vc, animated: true)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    
+}
+
+extension ProfileViewController: PassTextDelegate {
+    func receiveText(text: String) {
+        
     }
 }

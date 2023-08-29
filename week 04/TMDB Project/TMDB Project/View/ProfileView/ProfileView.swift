@@ -14,10 +14,10 @@ class ProfileView: BaseView {
         return view
     }()
     
-    let profileImageView = {
+    var profileImageView = {
         let view = UIImageView()
         view.backgroundColor = .lightGray
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.clipsToBounds = true
         view.backgroundColor = .gray
         return view
     }()
@@ -54,7 +54,6 @@ class ProfileView: BaseView {
     }
     
     override func setConstraints() {
-        headerView.backgroundColor = .green
         headerView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(8)
             make.height.equalTo(180)
@@ -74,7 +73,6 @@ class ProfileView: BaseView {
             make.size.equalTo(profileImageView)
         }
        
-        profileButton.backgroundColor = .yellow
         profileButton.snp.makeConstraints { make in
             make.top.equalTo(profileImageView.snp.bottom).offset(8)
             make.centerX.equalToSuperview()

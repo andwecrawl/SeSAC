@@ -55,6 +55,8 @@
 		D1C1576F2A9DE78C002DB668 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C1576E2A9DE78C002DB668 /* ProfileTableViewCell.swift */; };
 		D1C157712A9E1FA9002DB668 /* ProfileSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157702A9E1FA9002DB668 /* ProfileSetting.swift */; };
 		D1C157732A9E28DA002DB668 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157722A9E28DA002DB668 /* EditingViewController.swift */; };
+		D1C157772A9E51BD002DB668 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157762A9E51BD002DB668 /* PickerViewController.swift */; };
+		D1C157792A9E5408002DB668 /* protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157782A9E5408002DB668 /* protocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +106,8 @@
 		D1C1576E2A9DE78C002DB668 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		D1C157702A9E1FA9002DB668 /* ProfileSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetting.swift; sourceTree = "<group>"; };
 		D1C157722A9E28DA002DB668 /* EditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
+		D1C157762A9E51BD002DB668 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		D1C157782A9E5408002DB668 /* protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +202,7 @@
 				D1B995AD2A88C49D00B7941D /* URL+.swift */,
 				D1499B432A9B3491000717DD /* ViewElement */,
 				D1499B442A9B34AE000717DD /* UserDefaultsHelper.swift */,
+				D1C157782A9E5408002DB668 /* protocol.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 				D1C1576C2A9DE4FC002DB668 /* ProfileView.swift */,
 				D1C1576E2A9DE78C002DB668 /* ProfileTableViewCell.swift */,
 				D1C157722A9E28DA002DB668 /* EditingViewController.swift */,
+				D1C157762A9E51BD002DB668 /* PickerViewController.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -434,11 +440,13 @@
 				D1B995B02A88C78D00B7941D /* TMDBData.swift in Sources */,
 				D1499B912A9CC33D000717DD /* LabelBuilder.swift in Sources */,
 				D1B9959A2A865D1A00B7941D /* MovieTableViewCell.swift in Sources */,
+				D1C157772A9E51BD002DB668 /* PickerViewController.swift in Sources */,
 				D187C5672A90E168005C261A /* RecommendationCollectionViewCell.swift in Sources */,
 				D1B995AE2A88C49D00B7941D /* URL+.swift in Sources */,
 				D1C157712A9E1FA9002DB668 /* ProfileSetting.swift in Sources */,
 				D1B995A22A88AC7100B7941D /* APIKey.swift in Sources */,
 				D1B9956C2A86432200B7941D /* SceneDelegate.swift in Sources */,
+				D1C157792A9E5408002DB668 /* protocol.swift in Sources */,
 				D1499B452A9B34AE000717DD /* UserDefaultsHelper.swift in Sources */,
 				D1499B862A9CBEB1000717DD /* BaseViewController.swift in Sources */,
 				D1499B932A9CC507000717DD /* ImageBuilder.swift in Sources */,

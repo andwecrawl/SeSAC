@@ -16,13 +16,14 @@ class PickerViewController: BaseViewController {
         return picker
     }()
     
-    var setting: SettingName?
-    
+    var delegate: PassTextDelegate?
     
     override func configureView() {
         super.configureView()
         
         view.addSubview(pickerView)
+        pickerView.delegate = self
+        pickerView.dataSource = self
     }
     
     override func setConstraints() {
@@ -55,7 +56,7 @@ extension PickerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print("\(list[row])")
-        completionHandler?("\(list[row])")
+        delegate?.receiveText(text: "\(list[row])")
     }
     
     

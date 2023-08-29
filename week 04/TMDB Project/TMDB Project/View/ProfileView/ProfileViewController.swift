@@ -91,11 +91,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         let setting = settingList[indexPath.row].name
         if setting == .Gender {
             let vc = PickerViewController()
-            vc.setting = setting
-            vc.completionHandler = { text in
-                self.settingList[indexPath.row].user = text
-                tableView.reloadRows(at: [indexPath], with: .none)
-            }
+            vc.delegate = self
             navigationController?.pushViewController(vc, animated: true)
             tableView.reloadRows(at: [indexPath], with: .automatic)
         } else {
@@ -115,6 +111,14 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ProfileViewController: PassTextDelegate {
     func receiveText(text: String) {
-        
+        for index in settingList.indices {
+            let setting = settingList[index]
+            if setting.name == .Gender {
+                settingList[index].user = text
+                print(settingList)
+                mainView.tableView.reloadData()
+                return
+            }
+        }
     }
 }

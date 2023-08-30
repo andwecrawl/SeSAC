@@ -52,7 +52,6 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
             itemProvider.loadObject(ofClass: type) { image, error in
                 if let image = image as? UIImage {
                     DispatchQueue.main.async {
-                        self.mainView.profileImageView.layer.cornerRadius = 60
                         self.mainView.profileImageView.image = image
                         
                     }
@@ -62,8 +61,6 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
             }
         }
     }
-    
-    
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -84,7 +81,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
+        return 50
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

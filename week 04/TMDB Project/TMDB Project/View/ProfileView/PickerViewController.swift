@@ -9,7 +9,7 @@ import UIKit
 
 class PickerViewController: BaseViewController {
     
-    let list = ["Male", "Female", "They / Them"]
+    let list = ["성별을 선택해 주세요", "Male", "Female", "They / Them"]
     
     let pickerView = {
         let picker = UIPickerView()
@@ -22,13 +22,21 @@ class PickerViewController: BaseViewController {
         super.configureView()
         
         view.addSubview(pickerView)
+        
+        title = "Gender"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonClicked))
+        
         pickerView.delegate = self
         pickerView.dataSource = self
     }
     
+    @objc func saveButtonClicked() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     override func setConstraints() {
         pickerView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(70)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(10)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
         }
     }
@@ -55,10 +63,13 @@ extension PickerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("\(list[row])")
-        delegate?.receiveText(text: "\(list[row])")
+        if row == 0 {
+            giveAlert(title: "성별을 골라 주세요!", message: "")
+            delegate?.receiveText(text: "")
+        } else {
+            delegate?.receiveText(text: "\(list[row])")
+        }
     }
-    
     
 }
 

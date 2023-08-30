@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class DetailTableViewController: UITableViewController {
+class DetailTableViewController: BaseViewController {
     
     @IBOutlet weak var mainBackImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -16,6 +16,7 @@ class DetailTableViewController: UITableViewController {
     
     @IBOutlet var DetailTableView: UITableView!
     
+    let mainView = DetailView()
     
     var media: Result? {
         didSet {
@@ -24,35 +25,36 @@ class DetailTableViewController: UITableViewController {
     }
     
     var actors: [CastElement] = []
+    var isExpand: Bool = false
     
+    
+    override func loadView() {
+        self.view = mainView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        tableView.rowHeight = UITableView.automaticDimension
-        setupTableView()
-        configureView()
+        
     }
     
-    
-    func setupTableView() {
-        // XIB로 따로 셀을 만들어줬을 경우에는 nib을 연결해 줘야 함
-        let overviewNib = UINib(nibName: OverviewTableViewCell.identifier, bundle: nil)
-        let castNib = UINib(nibName: CastingTableViewCell.identifier, bundle: nil)
-        DetailTableView.register(overviewNib, forCellReuseIdentifier: OverviewTableViewCell.identifier)
-        DetailTableView.register(castNib, forCellReuseIdentifier: CastingTableViewCell.identifier)
+    override func configureView() {
+        super.configureView()
+        
+        mainView.tableView.dataSource = self
+        mainView.tableView.delegate = self
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popView))
     }
 }
 
 
 
 // tableViewSetting
-extension DetailTableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
+extension DetailTableViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
             return 1
@@ -61,17 +63,23 @@ extension DetailTableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let media else { return UITableViewCell() }
         if indexPath.section == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: OverviewTableViewCell.identifier) as? OverviewTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CodeOverviewTableViewCell.identifier) as? CodeOverviewTableViewCell else {
                 return UITableViewCell()
             }
-            cell.overviewTextView.text = media.overview
+            
+            if let overview = media.overview {
+                cell.overviewLabel.text = "\n" + overview
+            } else {
+                cell.overviewLabel.text = "줄거리를 불러올 수 없습니다."
+            }
+            cell.overviewLabel.numberOfLines = isExpand ? 0 : 5
             
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: CastingTableViewCell.identifier) as? CastingTableViewCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.identifier) as? CastTableViewCell else { return UITableViewCell() }
             
             if actors.isEmpty {
                 TMDBManager.shared.callCastRequest(movieID: media.id) { cast in
@@ -87,7 +95,7 @@ extension DetailTableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return "Overview"
         } else {
@@ -95,48 +103,68 @@ extension DetailTableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            isExpand.toggle()
+        }
         tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 150
+            return UITableView.automaticDimension
         } else {
             return 90
         }
     }
     
-}
-
-
-extension DetailTableViewController {
-    func configureView() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popView))
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: DetailHeaderView.headerViewID) as? DetailHeaderView else { return UIView() }
         
-        guard let media else { return }
-        if let title = media.title {
-            titleLabel.text = title
-        } else if let title = media.originalName {
-            titleLabel.text = title
-        } else if let title = media.name {
-            titleLabel.text = title
+        if section == 0 {
+            guard let media else { return UIView() }
+            if let title = media.title {
+                header.titleLabel.text = title
+            } else if let title = media.originalName {
+                header.titleLabel.text = title
+            } else if let title = media.name {
+                header.titleLabel.text = title
+            } else {
+                header.titleLabel.text = "타이틀을 불러올 수 없습니다."
+            }
+            
+            let image = UIImage(named: "noImage")
+            if let posterPath = media.posterPath {
+                let posterURL = URL.makeImageURL(imagePath: posterPath)
+                header.posterImageView.kf.setImage(with: posterURL)
+            } else {
+                header.posterImageView.image = image
+            }
+            
+            if let backdropPath = media.backdropPath {
+                let backURL = URL.makeImageURL(imagePath: backdropPath)
+                header.mainBackImageView.kf.setImage(with: backURL)
+            } else {
+                header.mainBackImageView.image = image
+            }
+            
+            return header
         } else {
-            titleLabel.text = "타이틀을 불러올 수 없습니다."
+            return nil
         }
-        
-        titleLabel.addShadow(label: titleLabel)
-        
-        guard let posterPath = media.posterPath else { return }
-        let posterURL = URL.makeImageURL(imagePath: posterPath)
-        posterImageView.kf.setImage(with: posterURL)
-        
-        guard let backdropPath = media.backdropPath else { return }
-        let backURL = URL.makeImageURL(imagePath: backdropPath)
-        mainBackImageView.kf.setImage(with: backURL)
     }
     
     @objc func popView() {
         navigationController?.popViewController(animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 210
+        } else {
+            return 0
+        }
+    }
 }
+
+

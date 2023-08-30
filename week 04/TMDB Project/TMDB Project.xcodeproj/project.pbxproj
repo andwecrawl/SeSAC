@@ -57,6 +57,11 @@
 		D1C157732A9E28DA002DB668 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157722A9E28DA002DB668 /* EditingViewController.swift */; };
 		D1C157772A9E51BD002DB668 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157762A9E51BD002DB668 /* PickerViewController.swift */; };
 		D1C157792A9E5408002DB668 /* protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157782A9E5408002DB668 /* protocol.swift */; };
+		D1C157802A9F85EB002DB668 /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C1577F2A9F85EB002DB668 /* CastTableViewCell.swift */; };
+		D1C157842A9F8BFC002DB668 /* CodeOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157832A9F8BFC002DB668 /* CodeOverviewTableViewCell.swift */; };
+		D1C157862A9F8FF3002DB668 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157852A9F8FF3002DB668 /* DetailHeaderView.swift */; };
+		D1C157882A9F9642002DB668 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157872A9F9642002DB668 /* DetailView.swift */; };
+		D1C1578A2A9F9C4B002DB668 /* FilterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157892A9F9C4B002DB668 /* FilterBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +113,11 @@
 		D1C157722A9E28DA002DB668 /* EditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
 		D1C157762A9E51BD002DB668 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		D1C157782A9E5408002DB668 /* protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocol.swift; sourceTree = "<group>"; };
+		D1C1577F2A9F85EB002DB668 /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
+		D1C157832A9F8BFC002DB668 /* CodeOverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeOverviewTableViewCell.swift; sourceTree = "<group>"; };
+		D1C157852A9F8FF3002DB668 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
+		D1C157872A9F9642002DB668 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		D1C157892A9F9C4B002DB668 /* FilterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +169,7 @@
 			children = (
 				D1499B902A9CC33D000717DD /* LabelBuilder.swift */,
 				D1499B922A9CC507000717DD /* ImageBuilder.swift */,
+				D1C157892A9F9C4B002DB668 /* FilterBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -304,6 +315,10 @@
 			isa = PBXGroup;
 			children = (
 				D1B995BB2A89395500B7941D /* DetailTableViewController.swift */,
+				D1C157872A9F9642002DB668 /* DetailView.swift */,
+				D1C157852A9F8FF3002DB668 /* DetailHeaderView.swift */,
+				D1C1577F2A9F85EB002DB668 /* CastTableViewCell.swift */,
+				D1C157832A9F8BFC002DB668 /* CodeOverviewTableViewCell.swift */,
 				D187C5512A8E28C0005C261A /* TableView */,
 				D1B995CB2A8939BD00B7941D /* OverviewCell */,
 			);
@@ -427,8 +442,10 @@
 				D1499B8A2A9CBF5E000717DD /* BaseTableViewCell.swift in Sources */,
 				D187C5552A8E492E005C261A /* Label+.swift in Sources */,
 				D1C1576B2A9DE371002DB668 /* ProfileViewController.swift in Sources */,
+				D1C157862A9F8FF3002DB668 /* DetailHeaderView.swift in Sources */,
 				D1499B482A9B38C8000717DD /* OnboardingViewController.swift in Sources */,
 				D1B995BC2A89395500B7941D /* DetailTableViewController.swift in Sources */,
+				D1C1578A2A9F9C4B002DB668 /* FilterBuilder.swift in Sources */,
 				D1B9959D2A86614200B7941D /* ReusableViewProtocol.swift in Sources */,
 				D17029E32A97810800E5CDEB /* Button+.swift in Sources */,
 				D1C1576F2A9DE78C002DB668 /* ProfileTableViewCell.swift in Sources */,
@@ -439,14 +456,17 @@
 				D17029DC2A974A9200E5CDEB /* TheaterViewController.swift in Sources */,
 				D1B995B02A88C78D00B7941D /* TMDBData.swift in Sources */,
 				D1499B912A9CC33D000717DD /* LabelBuilder.swift in Sources */,
+				D1C157802A9F85EB002DB668 /* CastTableViewCell.swift in Sources */,
 				D1B9959A2A865D1A00B7941D /* MovieTableViewCell.swift in Sources */,
 				D1C157772A9E51BD002DB668 /* PickerViewController.swift in Sources */,
 				D187C5672A90E168005C261A /* RecommendationCollectionViewCell.swift in Sources */,
+				D1C157842A9F8BFC002DB668 /* CodeOverviewTableViewCell.swift in Sources */,
 				D1B995AE2A88C49D00B7941D /* URL+.swift in Sources */,
 				D1C157712A9E1FA9002DB668 /* ProfileSetting.swift in Sources */,
 				D1B995A22A88AC7100B7941D /* APIKey.swift in Sources */,
 				D1B9956C2A86432200B7941D /* SceneDelegate.swift in Sources */,
 				D1C157792A9E5408002DB668 /* protocol.swift in Sources */,
+				D1C157882A9F9642002DB668 /* DetailView.swift in Sources */,
 				D1499B452A9B34AE000717DD /* UserDefaultsHelper.swift in Sources */,
 				D1499B862A9CBEB1000717DD /* BaseViewController.swift in Sources */,
 				D1499B932A9CC507000717DD /* ImageBuilder.swift in Sources */,

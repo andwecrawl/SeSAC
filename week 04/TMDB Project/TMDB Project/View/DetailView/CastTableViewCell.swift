@@ -59,7 +59,6 @@ class CastTableViewCell: BaseTableViewCell {
     }
     
     override func configureView() {
-        print(#function)
         addSubview(profileImageView)
         addSubview(stackView)
         stackView.addArrangedSubview(nameLabel)
@@ -67,7 +66,6 @@ class CastTableViewCell: BaseTableViewCell {
     }
     
     override func setConstraints() {
-        print(#function)
         profileImageView.snp.makeConstraints { make in
             make.verticalEdges.equalTo(self.safeAreaLayoutGuide).inset(14)
             make.leading.equalTo(self.safeAreaLayoutGuide).inset(16)

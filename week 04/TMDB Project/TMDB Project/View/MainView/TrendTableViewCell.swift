@@ -14,8 +14,8 @@ class TrendTableViewCell: BaseTableViewCell {
     let genreLabel = UILabel.labelBuilder(size: 17, weight: .bold)
     
     let backdropImageView = UIImageView.imageBuilder()
-    let titleLabel = UILabel.labelBuilder(size: 18, weight: .medium)
-    let originalTitleLabel = UILabel.labelBuilder(size: 18, weight: .medium)
+    let titleLabel = UILabel.labelBuilder(size: 18, weight: .bold)
+    let originalTitleLabel = UILabel.labelBuilder(size: 18, weight: .bold)
     let overviewLabel = UILabel.labelBuilder(size: 13, weight: .medium)
     
     let innerView = {

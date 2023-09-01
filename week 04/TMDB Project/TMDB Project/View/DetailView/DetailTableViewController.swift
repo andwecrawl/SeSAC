@@ -10,12 +10,6 @@ import Kingfisher
 
 class DetailTableViewController: BaseViewController {
     
-    @IBOutlet weak var mainBackImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var posterImageView: UIImageView!
-    
-    @IBOutlet var DetailTableView: UITableView!
-    
     let mainView = DetailView()
     
     var media: Result? {
@@ -35,6 +29,8 @@ class DetailTableViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getActor()
+        
     }
     
     override func configureView() {
@@ -43,6 +39,14 @@ class DetailTableViewController: BaseViewController {
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popView))
+    }
+    
+    func getActor() {
+        guard let media else { return }
+        TMDBManager.shared.callCastRequest(movieID: media.id) { cast in
+            self.actors = cast
+            self.mainView.tableView.reloadData()
+        }
     }
 }
 
@@ -59,7 +63,7 @@ extension DetailTableViewController: UITableViewDataSource, UITableViewDelegate 
         if section == 0 {
             return 1
         } else {
-            return 5
+            return actors.count > 10 ? 10 : actors.count
         }
     }
     
@@ -81,15 +85,8 @@ extension DetailTableViewController: UITableViewDataSource, UITableViewDelegate 
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.identifier) as? CastTableViewCell else { return UITableViewCell() }
             
-            if actors.isEmpty {
-                TMDBManager.shared.callCastRequest(movieID: media.id) { cast in
-                    self.actors = cast
-                    cell.actors = cast[indexPath.row]
-                }
-            } else {
                 let row = indexPath.row
                 cell.actors = actors[row]
-            }
             
             return cell
         }

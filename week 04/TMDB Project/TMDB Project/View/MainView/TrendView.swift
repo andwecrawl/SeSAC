@@ -9,6 +9,7 @@ import UIKit
 
 class TrendView: BaseView {
     
+    
     let tableView = {
         let view = UITableView(frame: .zero)
         view.register(TrendTableViewCell.self, forCellReuseIdentifier: TrendTableViewCell.identifier)

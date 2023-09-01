@@ -9,8 +9,6 @@ import UIKit
 
 class TrendViewController: BaseViewController {
 
-//    @IBOutlet weak var trendTableView: UITableView!
-    
     let mainView = TrendView()
     
     override func loadView() {
@@ -22,6 +20,7 @@ class TrendViewController: BaseViewController {
             mainView.tableView.reloadData()
         }
     }
+    
     var genreList: [String] = []
     var page: Int = 1
     var isEnd: Bool = false
@@ -38,12 +37,6 @@ class TrendViewController: BaseViewController {
             self.genreList = genre
             self.mainView.tableView.reloadData()
         }
-        
-//        trendTableView.dataSource = self
-//        trendTableView.delegate = self
-//
-//        let nib = UINib(nibName: MovieTableViewCell.identifier, bundle: nil)
-//        trendTableView.register(nib, forCellReuseIdentifier: MovieTableViewCell.identifier)
     }
     
     

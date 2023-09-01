@@ -112,7 +112,6 @@ extension ProfileViewController: PassTextDelegate {
             let setting = settingList[index]
             if setting.name == .Gender {
                 settingList[index].user = text
-                print(settingList)
                 mainView.tableView.reloadData()
                 return
             }

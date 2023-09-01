@@ -54,7 +54,6 @@ class ThirdiewController: UIViewController {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         guard let SceneDelegate = windowScene?.delegate as? SceneDelegate else { return }
         
-        print("clicked!")
         UserDefaultsHelper.shared.haveBeenBefore = true
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let tabBarController = sb.instantiateViewController(withIdentifier: "mainTabBarController") as? UITabBarController else {

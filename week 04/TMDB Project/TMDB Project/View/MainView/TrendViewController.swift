@@ -57,6 +57,7 @@ class TrendViewController: BaseViewController {
         case 2:
             TMDBRequest(segment: .tv)
         case 3:
+            TMDBRequest(segment: .person)
             print("Person")
 //            TMDBRequest(segment: .person)
         default:
@@ -67,7 +68,15 @@ class TrendViewController: BaseViewController {
     
     func TMDBRequest(segment: Trends) {
         if segment == .person {
-            
+            print("person???")
+            TMDBManager.shared.callPersonRequest { person in
+                print("come?")
+                guard let person else {
+                    print("nil")
+                    return
+                }
+                print("hello?")
+            }
         } else {
             TMDBManager.shared.callRequestCodable(segment: segment) { data, genre in
                 self.trendsList = data

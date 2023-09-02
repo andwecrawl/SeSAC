@@ -10,6 +10,10 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+enum Trends: String {
+    case all, movie, tv, person
+}
+
 class TMDBManager {
     
     static var movieGenre: [Genre] = []
@@ -24,9 +28,14 @@ class TMDBManager {
         "Authorization": APIKey.auth.rawValue
     ]
     
-    func callRequest(page: Int = 1, deliverValue: @escaping (TMDB, [String]) -> ()) {
-        
-        let url = "https://api.themoviedb.org/3/trending/all/day?language=en-US&page=\(page)"
+    func callRequest(page: Int = 1, segment: Trends, deliverValue: @escaping (TMDB, [String]) -> ()) {
+        var url = ""
+        switch segment {
+        case .all:
+            url = "https://api.themoviedb.org/3/trending/all/day?language=en-US&page=\(page)"
+        default:
+            url = "https://api.themoviedb.org/3/trending/\(segment.rawValue)/day?language=en-US"
+        }
         
         AF.request(url, method: .get, headers: headers).validate()
             .responseDecodable(of: TMDB.self) { response in
@@ -60,14 +69,14 @@ class TMDBManager {
     }
     
     
-    func callRequestCodable(page: Int = 1, completionHandler: @escaping (TMDB, [String]) -> ()) {
+    func callRequestCodable(page: Int = 1, segment: Trends, completionHandler: @escaping (TMDB, [String]) -> ()) {
        
         
         if TMDBManager.movieGenre.isEmpty && TMDBManager.tvGenre.isEmpty {
             
             self.callMovieRequest(url: URL.getGenreURL(media: .movie)) {
                 self.callTvRequest(url: URL.getGenreURL(media: .tv)) {
-                    self.callRequest(page: page) { data, genre in
+                    self.callRequest(page: page, segment: segment) { data, genre in
                         completionHandler(data, genre)
                     }
                 }
@@ -75,7 +84,7 @@ class TMDBManager {
             
         } else {
             
-            self.callRequest(page: page) { data, genre in
+            self.callRequest(page: page, segment: segment) { data, genre in
                 completionHandler(data, genre)
             }
         }

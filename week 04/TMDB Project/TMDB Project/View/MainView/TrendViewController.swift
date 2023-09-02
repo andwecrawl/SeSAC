@@ -30,13 +30,6 @@ class TrendViewController: BaseViewController {
         super.viewDidLoad()
         
         setNavigationBar()
-        
-        
-        TMDBManager.shared.callRequestCodable { data, genre in
-            self.trendsList = data
-            self.genreList = genre
-            self.mainView.tableView.reloadData()
-        }
     }
     
     
@@ -48,6 +41,43 @@ class TrendViewController: BaseViewController {
     override func configureView() {
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
+        
+        TMDBRequest(segment: .all)
+        mainView.segmentedControl.selectedSegmentIndex = 0
+        mainView.segmentedControl.addTarget(self, action: #selector(segmentValueChanged), for: UIControl.Event.valueChanged)
+    }
+    
+    @objc func segmentValueChanged() {
+        let index = mainView.segmentedControl.selectedSegmentIndex
+        switch index {
+        case 0:
+            print("All")
+            TMDBRequest(segment: .all)
+        case 1:
+            print("Movie")
+            TMDBRequest(segment: .movie)
+        case 2:
+            print("Tv")
+            TMDBRequest(segment: .tv)
+        case 3:
+            print("Person")
+            TMDBRequest(segment: .person)
+        default:
+            print("anybodyThere")
+        }
+        mainView.tableView.reloadData()
+    }
+    
+    func TMDBRequest(segment: Trends) {
+        if segment == .person {
+            
+        } else {
+            TMDBManager.shared.callRequestCodable(segment: segment) { data, genre in
+                self.trendsList = data
+                self.genreList = genre
+                self.mainView.tableView.reloadData()
+            }
+        }
     }
 }
 
@@ -60,14 +90,18 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier) as? TrendTableViewCell else { return UITableViewCell()}
         
-        let row = indexPath.row
-        cell.media = trendsList.results[row]
-        if page == 1 {
-            cell.genre = genreList[row]
-        } else if page > 1 {
-            cell.genre = genreList[row + (page * 20)]
+        switch mainView.segmentedControl.selectedSegmentIndex {
+            
+        default:
+            let row = indexPath.row
+            cell.media = trendsList.results[row]
+            if page == 1 {
+                cell.genre = genreList[row]
+            } else if page > 1 {
+                cell.genre = genreList[row + (page * 20)]
+            }
+            cell.configurateCell()
         }
-        cell.configurateCell()
         
         return cell
     }

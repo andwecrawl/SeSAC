@@ -30,6 +30,8 @@
 		D187C5672A90E168005C261A /* RecommendationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D187C5652A90E168005C261A /* RecommendationCollectionViewCell.swift */; };
 		D187C5682A90E168005C261A /* RecommendationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D187C5662A90E168005C261A /* RecommendationCollectionViewCell.xib */; };
 		D187C56A2A90E53D005C261A /* ViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D187C5692A90E53D005C261A /* ViewController+.swift */; };
+		D18F24CD2AA38C7B003280E5 /* SegmentControl+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18F24CC2AA38C7B003280E5 /* SegmentControl+.swift */; };
+		D18F24CF2AA3A580003280E5 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18F24CE2AA3A580003280E5 /* Person.swift */; };
 		D1B9956A2A86432200B7941D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B995692A86432200B7941D /* AppDelegate.swift */; };
 		D1B9956C2A86432200B7941D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9956B2A86432200B7941D /* SceneDelegate.swift */; };
 		D1B9956E2A86432200B7941D /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B9956D2A86432200B7941D /* TrendViewController.swift */; };
@@ -87,6 +89,8 @@
 		D187C5652A90E168005C261A /* RecommendationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCollectionViewCell.swift; sourceTree = "<group>"; };
 		D187C5662A90E168005C261A /* RecommendationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationCollectionViewCell.xib; sourceTree = "<group>"; };
 		D187C5692A90E53D005C261A /* ViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+.swift"; sourceTree = "<group>"; };
+		D18F24CC2AA38C7B003280E5 /* SegmentControl+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentControl+.swift"; sourceTree = "<group>"; };
+		D18F24CE2AA3A580003280E5 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D1B995662A86432200B7941D /* TMDB Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TMDB Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B995692A86432200B7941D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1B9956B2A86432200B7941D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 				D187C5542A8E492E005C261A /* Label+.swift */,
 				D17029E22A97810800E5CDEB /* Button+.swift */,
 				D187C5692A90E53D005C261A /* ViewController+.swift */,
+				D18F24CC2AA38C7B003280E5 /* SegmentControl+.swift */,
 			);
 			path = ViewElement;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 				D187C5522A8E2C92005C261A /* Genre.swift */,
 				D187C5572A8E4E59005C261A /* Cast.swift */,
 				D17029E02A9751EF00E5CDEB /* Theater.swift */,
+				D18F24CE2AA3A580003280E5 /* Person.swift */,
 				D1C157702A9E1FA9002DB668 /* ProfileSetting.swift */,
 			);
 			path = Data;
@@ -449,6 +455,7 @@
 				D1B9959D2A86614200B7941D /* ReusableViewProtocol.swift in Sources */,
 				D17029E32A97810800E5CDEB /* Button+.swift in Sources */,
 				D1C1576F2A9DE78C002DB668 /* ProfileTableViewCell.swift in Sources */,
+				D18F24CF2AA3A580003280E5 /* Person.swift in Sources */,
 				D187C55E2A90E0B6005C261A /* RecommendationViewController.swift in Sources */,
 				D1B9956A2A86432200B7941D /* AppDelegate.swift in Sources */,
 				D1B995C12A89397A00B7941D /* OverviewTableViewCell.swift in Sources */,
@@ -457,6 +464,7 @@
 				D1B995B02A88C78D00B7941D /* TMDBData.swift in Sources */,
 				D1499B912A9CC33D000717DD /* LabelBuilder.swift in Sources */,
 				D1C157802A9F85EB002DB668 /* CastTableViewCell.swift in Sources */,
+				D18F24CD2AA38C7B003280E5 /* SegmentControl+.swift in Sources */,
 				D1B9959A2A865D1A00B7941D /* MovieTableViewCell.swift in Sources */,
 				D1C157772A9E51BD002DB668 /* PickerViewController.swift in Sources */,
 				D187C5672A90E168005C261A /* RecommendationCollectionViewCell.swift in Sources */,

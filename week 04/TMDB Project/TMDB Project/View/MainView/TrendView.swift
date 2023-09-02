@@ -8,7 +8,14 @@
 import UIKit
 
 class TrendView: BaseView {
-    
+   
+    let segmentedControl = {
+        let trendsList = ["All", "Movie", "Tv", "Person"]
+        var segment = UISegmentedControl(items: trendsList)
+        segment.backgroundColor = .systemGray6
+        segment.tintColor = .white
+        return segment
+    }()
     
     let tableView = {
         let view = UITableView(frame: .zero)
@@ -18,7 +25,7 @@ class TrendView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        self.backgroundColor = .white
         configureView()
         setConstraints()
     }
@@ -28,12 +35,18 @@ class TrendView: BaseView {
     }
     
     override func configureView() {
+        super.configureView()
+        addSubview(segmentedControl)
         addSubview(tableView)
     }
     
     override func setConstraints() {
+        segmentedControl.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
+        }
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(segmentedControl.snp.bottom).offset(8)
+            make.horizontalEdges.bottom.equalTo(self.safeAreaLayoutGuide)
         }
     }
 }

@@ -79,7 +79,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 클릭했을 때 코드
         // 이후 세부 화면 구현
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DetailTableViewController") as? DetailTableViewController else { return }
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: DetailTableViewController.identifier) as? DetailTableViewController else { return }
        
         vc.media = trendsList.results[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)

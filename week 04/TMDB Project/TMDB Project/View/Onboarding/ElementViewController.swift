@@ -59,8 +59,8 @@ class ThirdiewController: UIViewController {
         guard let tabBarController = sb.instantiateViewController(withIdentifier: "mainTabBarController") as? UITabBarController else {
             fatalError("탭바 컨트롤러를 가져올 수 없습니다.")
         }
-        
-        guard let firstVC = sb.instantiateViewController(withIdentifier: TrendViewController.identifier) as? TrendViewController else { return }
+       
+        let firstVC = TrendViewController()
         let firstNav = UINavigationController(rootViewController: firstVC)
         
         guard let secondVC = sb.instantiateViewController(withIdentifier: RecommendationViewController.identifier) as? RecommendationViewController else { return }

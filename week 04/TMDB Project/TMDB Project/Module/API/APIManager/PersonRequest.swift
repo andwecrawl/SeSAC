@@ -11,20 +11,17 @@ import Alamofire
 extension TMDBManager {
     
     func callPersonRequest(completionHandler: @escaping (Person?) -> Void) {
-        print("hello?")
         guard let url = URL(string: "https://api.themoviedb.org/3/trending/person/day?language=en-US") else {
             print("url Error")
             return
         }
         
-        print("1")
         var request = URLRequest(url: url, timeoutInterval: 5)
         request.headers = headers
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             
-            print("hi?")
             if let error = error {
                 print("error", error)
                 completionHandler(nil)

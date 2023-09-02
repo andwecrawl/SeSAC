@@ -51,7 +51,7 @@ struct KnownFor: Codable {
     let originalTitle: String?
     let overview: String
     let posterPath: String?
-    let mediaType: KnownForMediaType
+    let mediaType: MediaType
     let genreIDS: [Int]
     let popularity: Double
     let releaseDate: String?
@@ -81,11 +81,6 @@ struct KnownFor: Codable {
         case firstAirDate = "first_air_date"
         case originCountry = "origin_country"
     }
-}
-
-enum KnownForMediaType: String, Codable {
-    case movie = "movie"
-    case tv = "tv"
 }
 
 enum KnownForDepartment: String, Codable {

@@ -51,17 +51,14 @@ class TrendViewController: BaseViewController {
         let index = mainView.segmentedControl.selectedSegmentIndex
         switch index {
         case 0:
-            print("All")
             TMDBRequest(segment: .all)
         case 1:
-            print("Movie")
             TMDBRequest(segment: .movie)
         case 2:
-            print("Tv")
             TMDBRequest(segment: .tv)
         case 3:
             print("Person")
-            TMDBRequest(segment: .person)
+//            TMDBRequest(segment: .person)
         default:
             print("anybodyThere")
         }
@@ -84,30 +81,51 @@ class TrendViewController: BaseViewController {
 
 extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trendsList.results.count
+        if mainView.segmentedControl.selectedSegmentIndex == 3 {
+            return 4
+        } else {
+            return trendsList.results.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier) as? TrendTableViewCell else { return UITableViewCell()}
+        let segmentIndex = mainView.segmentedControl.selectedSegmentIndex
         
-        switch mainView.segmentedControl.selectedSegmentIndex {
+        if segmentIndex == 3 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PersonTableViewCell.identifier) as? PersonTableViewCell else { return UITableViewCell()}
+            cell.nameLabel.text = "hello"
+            cell.knownForLabel.text = "acting"
+            cell.genderLabel.text = "male"
+            cell.popularityLabel.text = "veryfamous"
+            cell.knownLabel.text = "아무튼유명한거"
+            return cell
             
-        default:
-            let row = indexPath.row
-            cell.media = trendsList.results[row]
-            if page == 1 {
-                cell.genre = genreList[row]
-            } else if page > 1 {
-                cell.genre = genreList[row + (page * 20)]
-            }
-            cell.configurateCell()
+        } else {
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier) as? TrendTableViewCell else { return UITableViewCell()}
+
+                let row = indexPath.row
+                cell.media = trendsList.results[row]
+                if page == 1 {
+                    cell.genre = genreList[row]
+                } else if page > 1 {
+                    cell.genre = genreList[row + (page * 20)]
+                }
+                cell.configurateCell()
+            
+            return cell
+            
         }
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 400
+        
+        let segmentIndex = mainView.segmentedControl.selectedSegmentIndex
+        if segmentIndex == 3 {
+            return 200
+        } else {
+            return 400
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

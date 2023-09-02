@@ -20,6 +20,7 @@ class TrendView: BaseView {
     let tableView = {
         let view = UITableView(frame: .zero)
         view.register(TrendTableViewCell.self, forCellReuseIdentifier: TrendTableViewCell.identifier)
+        view.register(PersonTableViewCell.self, forCellReuseIdentifier: PersonTableViewCell.identifier)
         return view
     }()
     

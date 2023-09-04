@@ -1,0 +1,52 @@
+//
+//  Book.swift
+//  BOOKWARM Project
+//
+//  Created by yeoni on 2023/09/04.
+//
+
+import Foundation
+
+// MARK: - Book
+struct Book: Codable {
+    let documents: [Document]
+    let meta: Meta
+}
+
+// MARK: - Document
+struct Document: Codable {
+    let authors: [String]
+    let contents, datetime: String
+    let price: Int
+    let publisher: String
+    let salePrice: Int
+    let thumbnail: String?
+    let title: String
+    let url: String
+    
+    var authorsDescriptions: String {
+        get {
+            if authors.count == 1 {
+                return authors.first!
+            } else {
+                if authors.isEmpty { return "" }
+                return "\(authors[0]) 외 \(authors.count - 1)명"
+            }
+        }
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case authors, contents, datetime, price, publisher
+        case salePrice = "sale_price"
+        case thumbnail, title, url
+    }
+}
+
+// MARK: - Meta
+struct Meta: Codable {
+    let isEnd: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case isEnd = "is_end"
+    }
+}

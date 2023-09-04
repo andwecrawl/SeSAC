@@ -42,7 +42,7 @@ class MovieCollectionViewController: UICollectionViewController, UISearchBarDele
         let sb = UIStoryboard(name: "Main", bundle: nil)
         
         // 스토리보드 파일 내 뷰 컨트롤러 찾기
-        guard let vc = sb.instantiateViewController(identifier: "SearchViewController") as? SearchViewController else {
+        guard let vc = sb.instantiateViewController(identifier: SearchViewController.identifier) as? SearchViewController else {
             return
         }
         

@@ -19,14 +19,13 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var backView: UIView!
     
+//    let nameLabel = UILabel.labelBuilder(size: 13, weight: .bold)
+//    let rateLabel = UILabel.labelBuilder(size: 10, weight: .medium)
+//    let posterImageView =
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        designCell()
-    }
-    
-    func designCell() {
         nameLabel.font = .boldSystemFont(ofSize: 13)
         rateLabel.font = .systemFont(ofSize: 10)
     }

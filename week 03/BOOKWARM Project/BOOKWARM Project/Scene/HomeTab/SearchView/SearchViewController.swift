@@ -46,7 +46,6 @@ class SearchViewController: UIViewController {
         let xMark = UIImage(systemName: "xmark")
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: xMark, style: .plain, target: self, action: #selector(closeButtonTapped))
         navigationItem.leftBarButtonItem?.tintColor = .black
-        print("hello?")
     }
     
     @objc func closeButtonTapped() {
@@ -125,6 +124,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         vc.modalTransitionStyle = .coverVertical
         vc.modalPresentationStyle = .formSheet
         
+//        navigationController?.pushViewController(vc, animated: true)
         present(vc, animated: true)
         
         tableView.keyboardDismissMode = .onDrag

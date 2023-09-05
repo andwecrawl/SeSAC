@@ -14,25 +14,25 @@ class BookTable: Object {
     @Persisted var contents: String
     @Persisted var price: Int
     @Persisted var authors: String
-    @Persisted var dateTime: String
+    @Persisted var publisher: String
     @Persisted var thumbnail: String?
     @Persisted var url: String
     @Persisted var liked: Bool
     
-    convenience init(title: String, contents: String, price: Int, authors: String, dateTime: String, thumbnail: String?, url: String, liked: Bool) {
+    convenience init(title: String, contents: String, price: Int, authors: String, publisher: String, thumbnail: String?, url: String, liked: Bool) {
         self.init()
         self.title = title
         self.contents = contents
         self.price = price
         self.authors = authors
-        self.dateTime = dateTime
+        self.publisher = publisher
         self.thumbnail = thumbnail
         self.url = url
         self.liked = liked
     }
     
     convenience init(book: Document) {
-        self.init(title: book.title, contents: book.contents, price: book.price, authors: book.authorsDescriptions, dateTime: book.datetime, thumbnail: book.thumbnail, url: book.url, liked: false)
+        self.init(title: book.title, contents: book.contents, price: book.price, authors: book.authorsDescriptions, publisher: book.publisher, thumbnail: book.thumbnail, url: book.url, liked: false)
     }
 }
 

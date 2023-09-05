@@ -36,7 +36,6 @@ class APIHelper {
                 return
             }
             
-            print(String(data: data ?? Data(), encoding: .utf8))
             do {
                 let result = try JSONDecoder().decode(Book.self, from: data!)
                 DispatchQueue.main.async {
@@ -49,5 +48,4 @@ class APIHelper {
             
         }.resume()
     }
-    
 }

@@ -26,6 +26,8 @@
 		D18F25112AA5F747003280E5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D18F25102AA5F747003280E5 /* SnapKit */; };
 		D18F25132AA60B5F003280E5 /* Realm+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18F25122AA60B5F003280E5 /* Realm+.swift */; };
 		D1C501F12AA70D0B00878E5A /* FileManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C501F02AA70D0B00878E5A /* FileManager+.swift */; };
+		D1C501F32AA7284700878E5A /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C501F22AA7284700878E5A /* ImageHelper.swift */; };
+		D1C501F82AA73CD000878E5A /* WormDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C501F72AA73CD000878E5A /* WormDetailViewController.swift */; };
 		D1CABE6F2A77F61D00AB5CD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABE6E2A77F61D00AB5CD4 /* AppDelegate.swift */; };
 		D1CABE712A77F61D00AB5CD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABE702A77F61D00AB5CD4 /* SceneDelegate.swift */; };
 		D1CABE762A77F61D00AB5CD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CABE742A77F61D00AB5CD4 /* Main.storyboard */; };
@@ -60,6 +62,8 @@
 		D18F24FE2AA5EB73003280E5 /* WormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WormViewController.swift; sourceTree = "<group>"; };
 		D18F25122AA60B5F003280E5 /* Realm+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+.swift"; sourceTree = "<group>"; };
 		D1C501F02AA70D0B00878E5A /* FileManager+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+.swift"; sourceTree = "<group>"; };
+		D1C501F22AA7284700878E5A /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		D1C501F72AA73CD000878E5A /* WormDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WormDetailViewController.swift; sourceTree = "<group>"; };
 		D1CABE6B2A77F61D00AB5CD4 /* BOOKWARM Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BOOKWARM Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1CABE6E2A77F61D00AB5CD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1CABE702A77F61D00AB5CD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,7 +130,9 @@
 		D18F24E82AA5A421003280E5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				D1C501F02AA70D0B00878E5A /* FileManager+.swift */,
 				D18F24E62AA5A3AD003280E5 /* APIHelper.swift */,
+				D1C501F22AA7284700878E5A /* ImageHelper.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -154,7 +160,6 @@
 		D18F24F82AA5E7FF003280E5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				D1C501F02AA70D0B00878E5A /* FileManager+.swift */,
 				D18F24F92AA5E827003280E5 /* identifier.swift */,
 				D1E68E9C2A78E60900A275C4 /* Extension.swift */,
 			);
@@ -165,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				D18F24FE2AA5EB73003280E5 /* WormViewController.swift */,
+				D1C501F72AA73CD000878E5A /* WormDetailViewController.swift */,
 			);
 			path = WormTab;
 			sourceTree = "<group>";
@@ -330,12 +336,14 @@
 				D1CABE852A7803C800AB5CD4 /* MovieCollectionViewController.swift in Sources */,
 				D1CABE8B2A78066100AB5CD4 /* Movie.swift in Sources */,
 				D162050B2A7A3B520089C977 /* BannerCollectionViewCell.swift in Sources */,
+				D1C501F82AA73CD000878E5A /* WormDetailViewController.swift in Sources */,
 				D1CABE882A7803D500AB5CD4 /* MovieCollectionViewCell.swift in Sources */,
 				D1CABE6F2A77F61D00AB5CD4 /* AppDelegate.swift in Sources */,
 				D18F24EA2AA5A542003280E5 /* Book.swift in Sources */,
 				D18F25132AA60B5F003280E5 /* Realm+.swift in Sources */,
 				D17D346D2A7BE541007EFFE7 /* SearchViewController.swift in Sources */,
 				D1CABE712A77F61D00AB5CD4 /* SceneDelegate.swift in Sources */,
+				D1C501F32AA7284700878E5A /* ImageHelper.swift in Sources */,
 				D17D346B2A7BD2C3007EFFE7 /* SearchCollectionReusableView.swift in Sources */,
 				D18F24F02AA5B8C9003280E5 /* RealmModel.swift in Sources */,
 				D1CABE8D2A78066B00AB5CD4 /* MovieList.swift in Sources */,

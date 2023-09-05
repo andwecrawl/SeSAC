@@ -23,6 +23,7 @@ struct Document: Codable {
     let thumbnail: String?
     let title: String
     let url: String
+    var liked: Bool = false
     
     var authorsDescriptions: String {
         get {
@@ -32,6 +33,12 @@ struct Document: Codable {
                 if authors.isEmpty { return "" }
                 return "\(authors[0]) 외 \(authors.count - 1)명"
             }
+        }
+    }
+    
+    var description: String {
+        get {
+            return "\(authorsDescriptions) · \(publisher) · \(price)"
         }
     }
 

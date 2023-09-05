@@ -105,18 +105,16 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 120
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let realm = try! Realm()
-        let book = bookList[indexPath.row]
-        let record = BookTable(book: book)
         
-        try! realm.write {
-            realm.add(record)
-            print("saved!!")
-        }
+        let book = bookList[indexPath.row]
+        saveBookData(book: book)
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
+
+
+

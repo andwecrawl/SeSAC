@@ -16,7 +16,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene)
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = UITabBarController()
+      
+        guard let firstVC = sb.instantiateViewController(withIdentifier: MovieCollectionViewController.identifier) as? MovieCollectionViewController else { return }
+        let firstNav = UINavigationController(rootViewController: firstVC)
+        firstNav.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
+        
+        guard let secondVC = sb.instantiateViewController(withIdentifier: ExploreTableViewController.identifier) as? ExploreTableViewController else { return }
+        let secondNav = UINavigationController(rootViewController: secondVC)
+        secondNav.tabBarItem = UITabBarItem(title: "Explore", image: UIImage(systemName: "lasso.and.sparkles"), tag: 1)
+        
+        let thirdVC = WormViewController()
+        let thirdNav = UINavigationController(rootViewController: thirdVC)
+        thirdNav.tabBarItem = UITabBarItem(title: "Book", image: UIImage(systemName: "bookmark.circle.fill"), tag: 2)
+        
+        guard let fourthVC = sb.instantiateViewController(withIdentifier: MoreViewController.identifier) as? MoreViewController else { return }
+        let fourthNav = UINavigationController(rootViewController: fourthVC)
+        fourthNav.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "plus.magnifyingglass"), tag: 3)
+        
+        tabBarController.setViewControllers([firstNav, secondNav, thirdNav, fourthNav], animated: false)
+        
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

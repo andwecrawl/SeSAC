@@ -54,8 +54,6 @@ class MovieCollectionViewController: UICollectionViewController, UISearchBarDele
         
     }
     
-
-    
     func setCollectionViewLayout() {
         
         // CollectionViewLayout 잡기
@@ -77,7 +75,6 @@ class MovieCollectionViewController: UICollectionViewController, UISearchBarDele
         // layout 적용
         collectionView.collectionViewLayout = layout
     }
-    
     
     // cell의 갯수
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

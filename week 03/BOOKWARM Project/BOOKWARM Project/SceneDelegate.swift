@@ -40,6 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         tabBarController.setViewControllers([firstNav, secondNav, thirdNav, fourthNav], animated: false)
         
+        
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         

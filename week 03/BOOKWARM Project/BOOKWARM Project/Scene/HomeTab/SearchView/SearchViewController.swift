@@ -120,12 +120,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
         
         vc.movie = searchList[indexPath.row]
-        vc.hidden = false
-        vc.modalTransitionStyle = .coverVertical
-        vc.modalPresentationStyle = .formSheet
         
-//        navigationController?.pushViewController(vc, animated: true)
-        present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
         
         tableView.keyboardDismissMode = .onDrag
         tableView.reloadRows(at: [indexPath], with: .none)

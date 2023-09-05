@@ -118,10 +118,8 @@ class MovieCollectionViewController: UICollectionViewController, UISearchBarDele
     }
     
     
-    // 아니 이거 왜 안 댐?????
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) ->
             UICollectionReusableView {
-                print("hi")
          switch kind {
          case UICollectionView.elementKindSectionHeader:
            // 2

@@ -117,6 +117,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource, UITabl
         
         let book = bookList[indexPath.row]
         saveBookData(book: book)
+        
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }

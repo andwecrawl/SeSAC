@@ -94,8 +94,12 @@ class MovieCollectionViewCell: UICollectionViewCell {
         
         nameLabel.text = book.title
         rateLabel.text = book.authors
-        if let thumb = book.thumbnail {
-            getImage(urlText: thumb)
+        
+        if book.thumbnail != nil {
+            FileManagerHelper.shared.doSomethingToDocument(status: .load, id: book._id, image: nil) { image in
+                self.backImageVIew.image = image
+                self.posterImageView.image = image
+            }
         } else {
             posterImageView.image = UIImage(named: "noImage")
             backImageVIew.image = UIImage(named: "noImage")
@@ -112,19 +116,4 @@ class MovieCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func getImage(urlText: String) {
-        let url = URL(string: urlText)
-        
-        DispatchQueue.global().async {
-            guard let url else { return }
-            
-            let data = try! Data(contentsOf: url)
-            
-            DispatchQueue.main.async {
-                let image = UIImage(data: data)
-                self.backImageVIew.image = image
-                self.posterImageView.image = image
-            }
-        }
-    }
 }

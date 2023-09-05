@@ -89,4 +89,20 @@ extension WormViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // WormDetailView로 이동!!
+        // 각 Book 정보 넘기기
+//        let vc = WormDetailViewController()
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        
+        guard let vc = sb.instantiateViewController(identifier: DetailViewController.identifier) as? DetailViewController else {
+            return
+        }
+        
+        vc.book = record[indexPath.item]
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }

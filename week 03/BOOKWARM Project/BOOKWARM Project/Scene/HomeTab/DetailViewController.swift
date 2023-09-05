@@ -9,7 +9,6 @@ import UIKit
 
 class DetailViewController: UIViewController {
    
-    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
@@ -23,64 +22,64 @@ class DetailViewController: UIViewController {
     
     
     var movie: Movie?
-    var hidden: Bool = true
+    var book: BookTable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        closeButtonChecked()
         designInitalSetting()
+        configureView()
         blurPosterImageView()
         
-        NSLayoutConstraint.activate([
-        cardView.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -50)
-      ])
-        
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(endEditing))
             tapGesture.cancelsTouchesInView = false
             view.addGestureRecognizer(tapGesture)
 
     }
     
-    @IBAction func closeButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true)
-    }
-    
     @objc func endEditing() {
         view.endEditing(true)
     }
     
-    func closeButtonChecked() {
-        closeButton.isHidden = hidden
-        if closeButton.isHidden {
-            closeButton.isEnabled = false
-        } else {
-            closeButton.isEnabled = true
+    func designInitalSetting() {
+
+        if let movie = movie {
+            
+            let movieTitle = movie.name
+            posterImageView.image = UIImage(named: movieTitle)
+            titleLabel.text = movieTitle
+            detailLabel.text = movie.description
+            plotLabel.textAlignment = .justified
+            plotLabel.text = movie.plot
+            
+            if movie.liked {
+                let likedImage = UIImage(systemName: "heart.fill")
+                likedButton.setImage(likedImage, for: .normal)
+                likedButton.tintColor = .systemRed
+            } else {
+                let unlikedImage = UIImage(systemName: "heart")
+                likedButton.setImage(unlikedImage, for: .normal)
+            }
+            
+        } else if let book = book {
+            FileManagerHelper.shared.doSomethingToDocument(status: .load, id: book._id, image: nil) { image in
+                self.posterImageView.image = image
+            }
+            titleLabel.text = book.title
+            let description: String = "\(book.authors) · \(book.publisher) · \(book.price)"
+            detailLabel.text = description
+            
+            print(book.description)
+            plotLabel.textAlignment = .justified
+            plotLabel.text = book.contents
+            
         }
     }
     
-    func designInitalSetting() {
-        guard let movie else {
-            return
-        }
-        
-        let movieTitle = movie.name
-        posterImageView.image = UIImage(named: movieTitle)
-        titleLabel.text = movieTitle
-        detailLabel.text = movie.description
-        plotLabel.textAlignment = .justified
-        plotLabel.text = movie.plot
-        makeShadow(view: cardView)
-        
-        if movie.liked {
-            let likedImage = UIImage(systemName: "heart.fill")
-            likedButton.setImage(likedImage, for: .normal)
-            likedButton.tintColor = .systemRed
-        } else {
-            let unlikedImage = UIImage(systemName: "heart")
-            likedButton.setImage(unlikedImage, for: .normal)
-        }
-        
-        memoTextView.layer.borderColor = UIColor.darkGray.cgColor
+    func configureView() {
+        memoTextView.layer.borderColor = UIColor.lightGray.cgColor
+        memoTextView.backgroundColor = .darkGray
+        memoTextView.textColor = .white
         memoTextView.layer.borderWidth = 1
         memoTextView.layer.opacity = 0.4
         memoTextView.layer.cornerRadius = 10
@@ -95,7 +94,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func likedButtonTapped(_ sender: UIButton) {
-        
+        // 좋아요 눌렀을 때 구현!!
     }
     
     func makeShadow(view: UIView) {

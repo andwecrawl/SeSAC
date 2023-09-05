@@ -52,9 +52,14 @@ extension MoreViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else { return }
         queryText = text
-        APIHelper.shared.callRequest(text: text, page: page) { book in
-            guard let book else { return }
+        APIHelper.shared.callSessionRequest(text: text, page: page) { book in
+            guard let book else {
+                print("nooo")
+                return
+                
+            }
             
+            print(book)
             self.isEnd = book.meta.isEnd
             self.bookList.append(contentsOf: book.documents)
         }
@@ -78,7 +83,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource, UITabl
         for indexPath in indexPaths {
             if bookList.count - 1 == indexPath.row && isEnd == false && page < 30 {
                 page += 1
-                APIHelper.shared.callRequest(text: queryText, page: page) { book in
+                APIHelper.shared.callSessionRequest(text: queryText, page: page) { book in
                     
                     guard let book else { return }
                     self.bookList.append(contentsOf: book.documents)

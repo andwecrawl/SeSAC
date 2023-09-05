@@ -12,6 +12,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     var movie: Movie?
     var book: BookTable?
+    let realm = try! Realm()
     
     @IBOutlet weak var backImageVIew: UIImageView!
     @IBOutlet weak var blur: UIVisualEffectView!
@@ -23,9 +24,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var backView: UIView!
     
-    //    let nameLabel = UILabel.labelBuilder(size: 13, weight: .bold)
-    //    let rateLabel = UILabel.labelBuilder(size: 10, weight: .medium)
-    //    let posterImageView =
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,7 +49,9 @@ class MovieCollectionViewCell: UICollectionViewCell {
                 likedButton.setImage(unlikedImage, for: .normal)
                 likedButton.tintColor = .gray
             }
-            book.liked.toggle()
+            try! realm.write {
+                book.liked.toggle()
+            }
         }
     }
     

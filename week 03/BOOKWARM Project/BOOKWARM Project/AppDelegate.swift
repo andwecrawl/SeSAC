@@ -16,9 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let config = Realm.Configuration(schemaVersion: 1) { migration, oldSchemaVersion in
+        let config = Realm.Configuration(schemaVersion: 3) { migration, oldSchemaVersion in
             
             if oldSchemaVersion < 1 { } // memo column 추가
+            
+            if oldSchemaVersion < 2 { // authors -> author
+                migration.renameProperty(onType: BookTable.className(), from: "authors", to: "author")
+            }
+            
+            if oldSchemaVersion < 3 { // bookDescription 추가
+                migration.enumerateObjects(ofType: BookTable.className()) { oldObject, newObject in
+                    guard let oldObject else { return }
+                    guard let newObject else { return }
+                    
+                    newObject["bookDescription"] = "\(String(describing: oldObject["author"])) · \(String(describing: oldObject["publisher"])) · \(String(describing: oldObject["price"]))"
+                }
+            }
+            
+            if oldSchemaVersion < 4 { // price(Int) -> String
+                migration.enumerateObjects(ofType: BookTable.className()) { oldObject, newObject in
+                    guard let oldObject else { return }
+                    guard let newObject else { return }
+                }
+            }
             
         }
         

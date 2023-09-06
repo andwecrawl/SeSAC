@@ -70,7 +70,7 @@ class DetailViewController: UIViewController {
                 self.posterImageView.image = image
             }
             titleLabel.text = book.title
-            let description: String = "\(book.authors) · \(book.publisher) · \(book.price)"
+            let description: String = "\(book.author) · \(book.publisher) · \(book.price)"
             detailLabel.text = description
             
             print(book.description)

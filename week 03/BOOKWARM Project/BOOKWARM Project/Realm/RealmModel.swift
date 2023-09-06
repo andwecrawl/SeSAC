@@ -12,20 +12,21 @@ class BookTable: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var title: String
     @Persisted var contents: String
-    @Persisted var price: Int
-    @Persisted var authors: String
+    @Persisted var price: String
+    @Persisted var author: String
     @Persisted var publisher: String
     @Persisted var thumbnail: String?
     @Persisted var url: String
     @Persisted var liked: Bool
     @Persisted var memo: String
+    @Persisted var bookDescription: String
     
     convenience init(title: String, contents: String, price: Int, authors: String, publisher: String, thumbnail: String?, url: String, liked: Bool) {
         self.init()
         self.title = title
         self.contents = contents
-        self.price = price
-        self.authors = authors
+        self.price = String(price)
+        self.author = authors
         self.publisher = publisher
         self.thumbnail = thumbnail
         self.url = url

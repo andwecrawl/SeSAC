@@ -92,7 +92,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
         guard let book else { return }
         
         nameLabel.text = book.title
-        rateLabel.text = book.authors
+        rateLabel.text = book.author
         
         if book.thumbnail != nil {
             FileManagerHelper.shared.manageFileToDocument(status: .load, id: book._id, image: nil) { image in

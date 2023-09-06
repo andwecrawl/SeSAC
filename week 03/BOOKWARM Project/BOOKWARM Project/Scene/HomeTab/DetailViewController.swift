@@ -131,12 +131,23 @@ extension DetailViewController: UITextViewDelegate {
 extension DetailViewController {
     
     func configureView() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "삭제", style: .plain, target: self, action: #selector(deleteItem))
+        
         memoTextView.layer.borderColor = UIColor.lightGray.cgColor
         memoTextView.backgroundColor = .darkGray
         memoTextView.textColor = .white
         memoTextView.layer.borderWidth = 1
         memoTextView.layer.opacity = 0.4
         memoTextView.layer.cornerRadius = 10
+    }
+    
+    @objc func deleteItem() {
+        guard let book else {
+            giveAlert(title: "책 데이터만 삭제할 수 있습니다!", message: "")
+            return
+        }
+        navigationController?.popViewController(animated: true)
+        repository.delete(book)
     }
     
     func blurPosterImageView() {

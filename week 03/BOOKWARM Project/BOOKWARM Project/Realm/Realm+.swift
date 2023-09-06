@@ -14,6 +14,7 @@ protocol BookTableRepositoryType: AnyObject {
     func updateBook(id: ObjectId, liked: Bool, memo: String)
     func getFileURL()
     func checkSchemaVersion()
+    func delete(_ item: BookTable)
 }
 
 
@@ -47,6 +48,16 @@ class BookTableRepository: BookTableRepositoryType {
             }
         } catch {
             print("\(error)")
+        }
+    }
+    
+    func delete(_ item: BookTable) {
+        do {
+            try realm.write {
+                realm.delete(item)
+            }
+        } catch {
+            
         }
     }
     

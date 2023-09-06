@@ -8,33 +8,37 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-   
+    
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var plotLabel: UILabel!
     
     @IBOutlet weak var likedButton: UIButton!
-   
+    
     @IBOutlet weak var cardView: UIView!
     
     @IBOutlet weak var memoTextView: UITextView!
     
+    let repository = BookTableRepository()
     
     var movie: Movie?
     var book: BookTable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        memoTextView.delegate = self
+        
         designInitalSetting()
         configureView()
         blurPosterImageView()
         
-
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(endEditing))
-            tapGesture.cancelsTouchesInView = false
-            view.addGestureRecognizer(tapGesture)
-
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+        
     }
     
     @objc func endEditing() {
@@ -42,7 +46,7 @@ class DetailViewController: UIViewController {
     }
     
     func designInitalSetting() {
-
+        
         if let movie = movie {
             
             let movieTitle = movie.name
@@ -62,7 +66,7 @@ class DetailViewController: UIViewController {
             }
             
         } else if let book = book {
-            FileManagerHelper.shared.doSomethingToDocument(status: .load, id: book._id, image: nil) { image in
+            FileManagerHelper.shared.manageFileToDocument(status: .load, id: book._id, image: nil) { image in
                 self.posterImageView.image = image
             }
             titleLabel.text = book.title
@@ -73,8 +77,58 @@ class DetailViewController: UIViewController {
             plotLabel.textAlignment = .justified
             plotLabel.text = book.contents
             
+            if book.liked {
+                let likedImage = UIImage(systemName: "heart.fill")
+                likedButton.setImage(likedImage, for: .normal)
+                likedButton.tintColor = .systemRed
+            } else {
+                let unlikedImage = UIImage(systemName: "heart")
+                likedButton.setImage(unlikedImage, for: .normal)
+            }
+            
+            memoTextView.text = book.memo
         }
     }
+    
+
+    @IBAction func likedButtonTapped(_ sender: UIButton) {
+        // 좋아요 눌렀을 때 구현!!
+        
+        if var movie = movie {
+            movie.liked.toggle()
+            // movieData 전달 코드 필요
+        } else if let book = book {
+            let liked = book.liked ? false : true
+            if liked {
+                let likedImage = UIImage(systemName: "heart.fill")
+                likedButton.setImage(likedImage, for: .normal)
+                likedButton.tintColor = .systemRed
+            } else {
+                let unlikedImage = UIImage(systemName: "heart")
+                likedButton.setImage(unlikedImage, for: .normal)
+                likedButton.tintColor = .gray
+            }
+            repository.updateBook(id: book._id, liked: liked, memo: book.memo)
+        }
+        
+        
+    }
+    
+}
+    
+
+extension DetailViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        guard let book else { return }
+        if let text = textView.text {
+            repository.updateBook(id: book._id, liked: book.liked, memo: text)
+        }
+    }
+}
+
+
+
+extension DetailViewController {
     
     func configureView() {
         memoTextView.layer.borderColor = UIColor.lightGray.cgColor
@@ -91,10 +145,6 @@ class DetailViewController: UIViewController {
         visualEffectView.frame = self.view.frame
         visualEffectView.alpha = 0.3
         self.posterImageView.addSubview(visualEffectView)
-    }
-    
-    @IBAction func likedButtonTapped(_ sender: UIButton) {
-        // 좋아요 눌렀을 때 구현!!
     }
     
     func makeShadow(view: UIView) {

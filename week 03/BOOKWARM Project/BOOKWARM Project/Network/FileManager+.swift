@@ -18,7 +18,7 @@ class FileManagerHelper {
         case save, load, remove
     }
     
-    func doSomethingToDocument(status: Status, id: ObjectId, image: UIImage?, completionHandler: @escaping (UIImage?) -> ()) {
+    func manageFileToDocument(status: Status, id: ObjectId, image: UIImage?, completionHandler: @escaping (UIImage?) -> ()) {
         let fileName = "user_\(id).jpg"
         
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }

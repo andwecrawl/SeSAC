@@ -11,7 +11,8 @@ import RealmSwift
 
 class WormViewController: UIViewController {
    
-    var record: Results<BookTable>! 
+    var record: Results<BookTable>!
+    let repository = BookTableRepository()
     
     lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
@@ -27,16 +28,17 @@ class WormViewController: UIViewController {
         configureView()
         setConstraints()
         
-        let realm = try! Realm()
-        
-        record = realm.objects(BookTable.self).sorted(byKeyPath: "title", ascending: false)
+        record = repository.fetch()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         collectionView.reloadData()
+        repository.checkSchemaVersion()
+        repository.getFileURL()
     }
+    
     
     func configureView() {
         view.backgroundColor = .systemBackground
@@ -92,7 +94,6 @@ extension WormViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // WormDetailView로 이동!!
         // 각 Book 정보 넘기기
-//        let vc = WormDetailViewController()
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
         

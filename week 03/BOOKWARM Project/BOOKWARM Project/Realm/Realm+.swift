@@ -8,37 +8,59 @@
 import UIKit
 import RealmSwift
 
-extension UIViewController {
-    func saveBookData(book: Document) {
-        let realm = try! Realm()
-        let record = BookTable(book: book)
-        
-        if let thumb = record.thumbnail {
-            APIHelper.shared.getImage(path: thumb) { image in
-                guard let image else { return }
-                FileManagerHelper.shared.doSomethingToDocument(status: .save, id: record._id, image: image) { image in
-                    guard image != nil else {
-                        print("error!")
-                        return
-                    }
-                }
-            }
-        }
-        try! realm.write {
-            realm.add(record)
-            print("saved!!")
-        }
-    }
+protocol BookTableRepositoryType: AnyObject {
+    func fetch() -> Results<BookTable>
+    func create(_ item: BookTable)
+    func updateBook(id: ObjectId, liked: Bool, memo: String)
+    func getFileURL()
+    func checkSchemaVersion()
 }
 
-extension UICollectionViewCell {
-    func saveBookData(book: BookTable) {
-        let realm = try! Realm()
-        let record = book
-        
-        try! realm.write {
-            realm.add(record)
-            print("saved!!")
+
+
+class BookTableRepository: BookTableRepositoryType {
+    
+    let realm = try! Realm()
+    
+    
+    func fetch() -> RealmSwift.Results<BookTable> {
+        let record = realm.objects(BookTable.self).sorted(byKeyPath: "title", ascending: false)
+        return record
+    }
+    
+    func create(_ item: BookTable) {
+        do {
+            try realm.write {
+                realm.add(item)
+            }
+        } catch {
+            print(error)
         }
     }
+    
+    func updateBook(id: ObjectId, liked: Bool, memo: String) {
+        do {
+            try realm.write{
+                
+                realm.create(BookTable.self, value: ["_id": id, "liked": liked, "memo": memo], update: .modified)
+                
+            }
+        } catch {
+            print("\(error)")
+        }
+    }
+    
+    func getFileURL() {
+        print(realm.configuration.fileURL)
+    }
+    
+    func checkSchemaVersion() {
+        do {
+            let version = try schemaVersionAtURL(realm.configuration.fileURL!)
+            print("Schema Version: \(version)")
+        } catch {
+            print(error)
+        }
+    }
+    
 }

@@ -13,6 +13,7 @@ import RealmSwift
 class MoreViewController: UIViewController {
     
     let searchBar = UISearchBar()
+    let repository = BookTableRepository()
     
     @IBOutlet weak var searchTableView: UITableView!
     
@@ -116,7 +117,18 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let book = bookList[indexPath.row]
-        saveBookData(book: book)
+        let bookTable = BookTable(book: book)
+        if let thumb = bookTable.thumbnail {
+            APIHelper.shared.getImage(path: thumb) { image in
+                guard let image else { return }
+                FileManagerHelper.shared.manageFileToDocument(status: .save, id: bookTable._id, image: image) { image in
+                    if image == nil {
+                        print("image error")
+                    }
+                }
+            }
+        }
+        repository.create(bookTable)
         
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }

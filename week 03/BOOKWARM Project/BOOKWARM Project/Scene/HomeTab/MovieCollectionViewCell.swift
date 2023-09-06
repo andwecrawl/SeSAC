@@ -12,7 +12,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     var movie: Movie?
     var book: BookTable?
-    let realm = try! Realm()
+    let repository = BookTableRepository()
     
     @IBOutlet weak var backImageVIew: UIImageView!
     @IBOutlet weak var blur: UIVisualEffectView!
@@ -40,7 +40,8 @@ class MovieCollectionViewCell: UICollectionViewCell {
             movie.liked.toggle()
             // movieData 전달 코드 필요
         } else if let book = book {
-            if book.liked {
+            let liked = book.liked ? false : true
+            if liked {
                 let likedImage = UIImage(systemName: "heart.fill")
                 likedButton.setImage(likedImage, for: .normal)
                 likedButton.tintColor = .systemRed
@@ -49,9 +50,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
                 likedButton.setImage(unlikedImage, for: .normal)
                 likedButton.tintColor = .gray
             }
-            try! realm.write {
-                book.liked.toggle()
-            }
+            repository.updateBook(id: book._id, liked: liked, memo: book.memo)
         }
     }
     
@@ -96,7 +95,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
         rateLabel.text = book.authors
         
         if book.thumbnail != nil {
-            FileManagerHelper.shared.doSomethingToDocument(status: .load, id: book._id, image: nil) { image in
+            FileManagerHelper.shared.manageFileToDocument(status: .load, id: book._id, image: nil) { image in
                 self.backImageVIew.image = image
                 self.posterImageView.image = image
             }

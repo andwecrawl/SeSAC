@@ -18,6 +18,7 @@ class BookTable: Object {
     @Persisted var thumbnail: String?
     @Persisted var url: String
     @Persisted var liked: Bool
+    @Persisted var memo: String
     
     convenience init(title: String, contents: String, price: Int, authors: String, publisher: String, thumbnail: String?, url: String, liked: Bool) {
         self.init()
@@ -36,6 +37,3 @@ class BookTable: Object {
     }
 }
 
-/*
- Document(authors: ["市川拓司／著"], contents: "", datetime: "2017-07-14T00:00:00.000+09:00", isbn: "4093864713 9784093864718", price: 19750, publisher: "小學館", salePrice: 18490, status: Optional("정상판매"), thumbnail: Optional("https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F3499882%3Ftimestamp%3D20230315162037"), title: "MM", translators: [], url: "https://search.daum.net/search?w=bookpage&bookId=3499882&q=MM")
- */

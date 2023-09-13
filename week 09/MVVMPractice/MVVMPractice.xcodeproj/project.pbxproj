@@ -22,6 +22,7 @@
 		D19AF8B82AB212BF00B7ED11 /* Lotto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF8B72AB212BF00B7ED11 /* Lotto.swift */; };
 		D19AF8BA2AB2144500B7ED11 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF8B92AB2144500B7ED11 /* Observable.swift */; };
 		D19AF8BC2AB214D400B7ED11 /* LottoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF8BB2AB214D400B7ED11 /* LottoViewModel.swift */; };
+		D19AF8BF2AB217CA00B7ED11 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF8BE2AB217CA00B7ED11 /* APIHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		D19AF8B72AB212BF00B7ED11 /* Lotto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lotto.swift; sourceTree = "<group>"; };
 		D19AF8B92AB2144500B7ED11 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		D19AF8BB2AB214D400B7ED11 /* LottoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoViewModel.swift; sourceTree = "<group>"; };
+		D19AF8BE2AB217CA00B7ED11 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		D19AF8A22AB1DE3700B7ED11 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D19AF8BD2AB217C300B7ED11 /* Network */,
 				D19AF8B52AB212AD00B7ED11 /* Data */,
 				D19AF8B62AB212B200B7ED11 /* Builder */,
 			);
@@ -123,6 +126,14 @@
 				D19AF8AE2AB1EDE800B7ED11 /* ViewBuilder.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		D19AF8BD2AB217C300B7ED11 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D19AF8BE2AB217CA00B7ED11 /* APIHelper.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +222,7 @@
 				D19AF8B42AB1F16000B7ED11 /* LottoView.swift in Sources */,
 				D19AF8B82AB212BF00B7ED11 /* Lotto.swift in Sources */,
 				D19AF8AA2AB1E0AF00B7ED11 /* LabelBuilder.swift in Sources */,
+				D19AF8BF2AB217CA00B7ED11 /* APIHelper.swift in Sources */,
 				D19AF8AF2AB1EDE800B7ED11 /* ViewBuilder.swift in Sources */,
 				D19AF8912AB1DDA200B7ED11 /* SceneDelegate.swift in Sources */,
 			);

@@ -11,6 +11,7 @@ import SnapKit
 class LottoView: UIView {
     
     let titleLabel = UILabel.labelBuilder(text: "로또 당첨 번호 조회", size: 20, weight: .bold)
+    let priceLabel = UILabel.labelBuilder(text: "당첨금", size: 17, weight: .medium)
     
     let firstBall = UIView.viewBuilder(bgColor: .systemRed)
     let firstLabel = UILabel.labelBuilder(text: "0", size: 15, weight: .regular)
@@ -66,6 +67,7 @@ class LottoView: UIView {
     func configureView() {
 //        self.dd = .white
         self.addSubview(titleLabel)
+        self.addSubview(priceLabel)
         firstBall.addSubview(firstLabel)
         secondBall.addSubview(secondLabel)
         thirdBall.addSubview(thirdLabel)
@@ -90,11 +92,17 @@ class LottoView: UIView {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide).inset(100)
             make.centerX.equalTo(self.safeAreaLayoutGuide)
-            make.height.equalTo(50)
+            make.height.equalTo(40)
+        }
+        
+        priceLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom)
+            make.centerX.equalTo(self.safeAreaLayoutGuide)
+            make.height.equalTo(40)
         }
         
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(12)
+            make.top.equalTo(priceLabel.snp.bottom).offset(12)
             make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(30)
         }
         

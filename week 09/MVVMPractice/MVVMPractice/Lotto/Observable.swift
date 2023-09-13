@@ -11,7 +11,11 @@ class Observable<T> {
     
     var listener: ((T) -> ())?
     
-    var value: T
+    var value: T {
+        didSet {
+            listener?(value)
+        }
+    }
     
     init(_ value: T) {
         self.value = value

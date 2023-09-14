@@ -13,8 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UILabel.appearance().textColor = .black
-        UIView.appearance().backgroundColor = .systemBackground
+        UILabel.appearance().textColor = .white
+//        UIView.appearance().backgroundColor = .systemBackground
         return true
     }
 

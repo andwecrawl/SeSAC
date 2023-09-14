@@ -11,6 +11,7 @@ class LottoViewController: UIViewController {
     
     let mainView = LottoView()
     let viewModel = LottoViewModel()
+    var drwNo: Int = 0
     
     override func loadView() {
         self.view = mainView
@@ -22,10 +23,7 @@ class LottoViewController: UIViewController {
         configureView()
         bindData()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.viewModel.fetchLottoAPI(drwNo: 1084)
-        }
-        
+        mainView.priceLabel.text = "행운을 빕니다!"
     }
     
     func configureView() {
@@ -36,8 +34,7 @@ class LottoViewController: UIViewController {
     }
     
     @objc func chooseButtonClicked() {
-        self.viewModel.fetchLottoAPI(drwNo: Int.random(in: 1000...1083))
-        print("clicked!!")
+        self.viewModel.fetchLottoAPI(drwNo: drwNo)
     }
     
     
@@ -85,15 +82,18 @@ extension LottoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 100
+        return viewModel.drwNo.count
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("clicked!! \(component), \(row)")
+        drwNo = viewModel.drwNo.reversed()[row]
+        mainView.chooseTextField.text = "\(drwNo)회차"
+        mainView.chooseTextField.resignFirstResponder()
+        mainView.pickerView.resignFirstResponder()
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(row)"
+        return "\(viewModel.drwNo.reversed()[row])"
     }
     
     

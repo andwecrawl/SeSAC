@@ -65,9 +65,10 @@ class LottoView: UIView {
     
     
     func configureView() {
-//        self.dd = .white
+        
         self.addSubview(titleLabel)
         self.addSubview(priceLabel)
+        
         firstBall.addSubview(firstLabel)
         secondBall.addSubview(secondLabel)
         thirdBall.addSubview(thirdLabel)
@@ -86,6 +87,7 @@ class LottoView: UIView {
         }
         
         chooseTextField.inputView = pickerView
+        chooseTextField.textAlignment = .center
     }
     
     func setConstraints() {
@@ -130,9 +132,5 @@ class LottoView: UIView {
         }
         
     }
-    
-    
-    
-    
 }
 

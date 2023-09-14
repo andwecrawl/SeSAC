@@ -8,6 +8,15 @@
 import Foundation
 
 class LottoViewModel {
+    var drwNo: [Int] {
+        get {
+            var array: [Int] = []
+            for num in 1...1084 {
+                array.append(num)
+            }
+            return array
+        }
+    }
     let num1 = Observable(1)
     let num2 = Observable(2)
     let num3 = Observable(3)

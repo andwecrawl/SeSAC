@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D15764BE2AB5E6A200655918 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15764BD2AB5E6A200655918 /* LoginViewModel.swift */; };
 		D19AF88F2AB1DDA200B7ED11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF88E2AB1DDA200B7ED11 /* AppDelegate.swift */; };
 		D19AF8912AB1DDA200B7ED11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF8902AB1DDA200B7ED11 /* SceneDelegate.swift */; };
 		D19AF8932AB1DDA200B7ED11 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF8922AB1DDA200B7ED11 /* LoginViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D15764BD2AB5E6A200655918 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D19AF88B2AB1DDA200B7ED11 /* MVVMPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19AF88E2AB1DDA200B7ED11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D19AF8902AB1DDA200B7ED11 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D15764BC2AB31BD700655918 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D19AF8922AB1DDA200B7ED11 /* LoginViewController.swift */,
+				D15764BD2AB5E6A200655918 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		D19AF8822AB1DDA200B7ED11 = {
 			isa = PBXGroup;
 			children = (
@@ -78,7 +89,8 @@
 			children = (
 				D19AF88E2AB1DDA200B7ED11 /* AppDelegate.swift */,
 				D19AF8902AB1DDA200B7ED11 /* SceneDelegate.swift */,
-				D19AF8922AB1DDA200B7ED11 /* LoginViewController.swift */,
+				D19AF8B92AB2144500B7ED11 /* Observable.swift */,
+				D15764BC2AB31BD700655918 /* Login */,
 				D19AF8AD2AB1ED8300B7ED11 /* Lotto */,
 				D19AF8A22AB1DE3700B7ED11 /* Model */,
 				D19AF8972AB1DDA200B7ED11 /* Assets.xcassets */,
@@ -104,7 +116,6 @@
 				D19AF8AB2AB1ED3500B7ED11 /* LottoViewController.swift */,
 				D19AF8B32AB1F16000B7ED11 /* LottoView.swift */,
 				D19AF8BB2AB214D400B7ED11 /* LottoViewModel.swift */,
-				D19AF8B92AB2144500B7ED11 /* Observable.swift */,
 			);
 			path = Lotto;
 			sourceTree = "<group>";
@@ -218,6 +229,7 @@
 				D19AF8A82AB1DEA100B7ED11 /* ButtonBuilder.swift in Sources */,
 				D19AF8AC2AB1ED3500B7ED11 /* LottoViewController.swift in Sources */,
 				D19AF8BC2AB214D400B7ED11 /* LottoViewModel.swift in Sources */,
+				D15764BE2AB5E6A200655918 /* LoginViewModel.swift in Sources */,
 				D19AF88F2AB1DDA200B7ED11 /* AppDelegate.swift in Sources */,
 				D19AF8B42AB1F16000B7ED11 /* LottoView.swift in Sources */,
 				D19AF8B82AB212BF00B7ED11 /* Lotto.swift in Sources */,

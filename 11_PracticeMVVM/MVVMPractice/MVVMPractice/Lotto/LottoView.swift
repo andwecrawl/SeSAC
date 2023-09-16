@@ -47,7 +47,7 @@ class LottoView: UIView {
     }()
     
     let chooseTextField = UITextField.textFieldBuilder(placeholder: "원하는 회차를 골라 보세요!")
-    let chooseButton = UIButton.ButtonBuilder(title: "선택")
+    let chooseButton = UIButton.buttonBuilder(title: "선택")
     
     let pickerView = UIPickerView()
     

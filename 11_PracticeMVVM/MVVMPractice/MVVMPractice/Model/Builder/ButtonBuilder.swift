@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIButton {
-    static func ButtonBuilder(title: String) -> UIButton {
+    static func buttonBuilder(title: String) -> UIButton {
         let view = UIButton()
         view.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         view.setTitle(title, for: .normal)

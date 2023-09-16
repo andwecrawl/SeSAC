@@ -12,6 +12,7 @@ extension UITextField {
         let view = UITextField()
         view.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: UIColor.systemGray5])
         view.textColor = .systemGray5
+        view.textAlignment = .center
         return view
     }
 }

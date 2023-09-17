@@ -30,6 +30,8 @@ class LoginViewController: UIViewController {
         return view
     }()
     
+    let viewModel = LoginViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -49,22 +51,83 @@ class LoginViewController: UIViewController {
             }
         }
         
+        assignButton.addTarget(self, action: #selector(assignButtonClicked), for: .touchUpInside)
+        loginTextField.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
+        locationTextField.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
+        nicknameTextField.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
+        inviteCodeTextField.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
+    }
+    
+    @objc func assignButtonClicked() {
+        viewModel.signIn {
+            // 화면 전환 코드
+        }
+    }
+    
+    @objc func textFieldDidChanged(_ sender: UITextField) {
+        guard let text = sender.text else { return }
+        switch sender {
+        case loginTextField:
+            viewModel.id.value = text
+            viewModel.checkValidation()
+        case passwordTextField:
+            viewModel.password.value = text
+            viewModel.checkValidation()
+        case nicknameTextField:
+            viewModel.nickname.value = text
+            viewModel.checkValidation()
+        case locationTextField:
+            viewModel.location.value = text
+            viewModel.checkValidation()
+        case inviteCodeTextField:
+            viewModel.inviteCode.value = text
+            viewModel.checkValidation()
+        default:
+            return
+        }
     }
     
     func setConstraints() {
         logoImageView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(50)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(120)
-            make.height.equalTo(logoImageView.snp.width).multipliedBy(0.25)
+            make.height.equalTo(logoImageView.snp.width).multipliedBy(0.33)
         }
-
+        
         stackView.snp.makeConstraints { make in
             make.top.equalTo(logoImageView.snp.bottom).offset(80)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
     }
     
-    
+    func bindData() {
+        
+        viewModel.id.bind { id in
+            self.loginTextField.text = id
+        }
+        
+        viewModel.password.bind { pw in
+            self.passwordTextField.text = pw
+        }
+        
+        viewModel.nickname.bind { nickname in
+            self.nicknameTextField.text = nickname
+        }
+        
+        viewModel.location.bind { location in
+            self.locationTextField.text = location
+        }
+        
+        viewModel.inviteCode.bind { code in
+            self.inviteCodeTextField.text = code
+        }
+        
+        viewModel.isVailed.bind { bool in
+            self.assignButton.isEnabled = bool
+            self.loginTextField.backgroundColor = bool ? .red : .lightGray
+        }
+    }
     
     
 }

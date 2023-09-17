@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D15764BE2AB5E6A200655918 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15764BD2AB5E6A200655918 /* LoginViewModel.swift */; };
+		D15764C12AB6F79A00655918 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D15764C02AB6F79A00655918 /* SnapKit */; };
 		D19AF88F2AB1DDA200B7ED11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF88E2AB1DDA200B7ED11 /* AppDelegate.swift */; };
 		D19AF8912AB1DDA200B7ED11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF8902AB1DDA200B7ED11 /* SceneDelegate.swift */; };
 		D19AF8932AB1DDA200B7ED11 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF8922AB1DDA200B7ED11 /* LoginViewController.swift */; };
@@ -18,7 +19,6 @@
 		D19AF8AA2AB1E0AF00B7ED11 /* LabelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF8A92AB1E0AF00B7ED11 /* LabelBuilder.swift */; };
 		D19AF8AC2AB1ED3500B7ED11 /* LottoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF8AB2AB1ED3500B7ED11 /* LottoViewController.swift */; };
 		D19AF8AF2AB1EDE800B7ED11 /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF8AE2AB1EDE800B7ED11 /* ViewBuilder.swift */; };
-		D19AF8B22AB1EE5500B7ED11 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D19AF8B12AB1EE5500B7ED11 /* SnapKit */; };
 		D19AF8B42AB1F16000B7ED11 /* LottoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF8B32AB1F16000B7ED11 /* LottoView.swift */; };
 		D19AF8B82AB212BF00B7ED11 /* Lotto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF8B72AB212BF00B7ED11 /* Lotto.swift */; };
 		D19AF8BA2AB2144500B7ED11 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF8B92AB2144500B7ED11 /* Observable.swift */; };
@@ -52,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D19AF8B22AB1EE5500B7ED11 /* SnapKit in Frameworks */,
+				D15764C12AB6F79A00655918 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +164,7 @@
 			);
 			name = MVVMPractice;
 			packageProductDependencies = (
-				D19AF8B12AB1EE5500B7ED11 /* SnapKit */,
+				D15764C02AB6F79A00655918 /* SnapKit */,
 			);
 			productName = MVVMPractice;
 			productReference = D19AF88B2AB1DDA200B7ED11 /* MVVMPractice.app */;
@@ -195,7 +195,7 @@
 			);
 			mainGroup = D19AF8822AB1DDA200B7ED11;
 			packageReferences = (
-				D19AF8B02AB1EE5500B7ED11 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D15764BF2AB6F79A00655918 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = D19AF88C2AB1DDA200B7ED11 /* Products */;
 			projectDirPath = "";
@@ -446,7 +446,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D19AF8B02AB1EE5500B7ED11 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		D15764BF2AB6F79A00655918 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -457,9 +457,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D19AF8B12AB1EE5500B7ED11 /* SnapKit */ = {
+		D15764C02AB6F79A00655918 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D19AF8B02AB1EE5500B7ED11 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = D15764BF2AB6F79A00655918 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

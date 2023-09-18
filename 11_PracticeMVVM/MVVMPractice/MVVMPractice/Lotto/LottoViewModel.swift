@@ -36,7 +36,6 @@ class LottoViewModel {
         
         APIHelper.shared.requestLotto(drwNo: drwNo) { lotto, message in
             guard let lotto else {
-                print(message)
                 return
             }
             

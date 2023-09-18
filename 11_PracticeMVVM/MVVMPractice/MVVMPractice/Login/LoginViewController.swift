@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
         return view
     }()
     
-    let statusLabel = UILabel.labelBuilder(text: "환영합니다!", size: 18, weight: .medium)
     let statusLabel = UILabel.labelBuilder(text: "환영합니다!", size: 19, weight: .medium)
     let loginTextField = UITextField.textFieldBuilder(placeholder: "이메일 주소 또는 전화번호")
     let passwordTextField = UITextField.textFieldBuilder(placeholder: "비밀번호")
@@ -38,6 +37,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         configureView()
         setConstraints()
+        bindData()
     }
     
     
@@ -63,6 +63,8 @@ class LoginViewController: UIViewController {
         passwordTextField.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
         nicknameTextField.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
         inviteCodeTextField.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
+        
+        assignButton.isEnabled = viewModel.isVailed.value
     }
     
     @objc func assignButtonClicked() {
@@ -76,16 +78,12 @@ class LoginViewController: UIViewController {
         switch sender {
         case loginTextField:
             viewModel.id.value = text
-            viewModel.checkValidation()
         case passwordTextField:
             viewModel.password.value = text
-            viewModel.checkValidation()
         case nicknameTextField:
             viewModel.nickname.value = text
-            viewModel.checkValidation()
         case inviteCodeTextField:
             viewModel.inviteCode.value = text
-            viewModel.checkValidation()
         default:
             return
         }
@@ -98,7 +96,6 @@ class LoginViewController: UIViewController {
             make.height.equalTo(logoImageView.snp.width).multipliedBy(0.33)
         }
         
-        stackView.snp.makeConstraints { make in
         statusLabel.snp.makeConstraints { make in
             make.top.equalTo(logoImageView.snp.bottom).offset(100)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
@@ -114,23 +111,35 @@ class LoginViewController: UIViewController {
         
         viewModel.id.bind { id in
             self.loginTextField.text = id
+            self.viewModel.checkValidation { alertMessage in
+                self.statusLabel.text = alertMessage
+            }
         }
         
         viewModel.password.bind { pw in
             self.passwordTextField.text = pw
+            self.viewModel.checkValidation { alertMessage in
+                self.statusLabel.text = alertMessage
+            }
         }
         
         viewModel.nickname.bind { nickname in
             self.nicknameTextField.text = nickname
+            self.viewModel.checkValidation { alertMessage in
+                self.statusLabel.text = alertMessage
+            }
         }
         
         viewModel.inviteCode.bind { code in
             self.inviteCodeTextField.text = code
+            self.viewModel.checkValidation { alertMessage in
+                self.statusLabel.text = alertMessage
+            }
         }
         
         viewModel.isVailed.bind { bool in
             self.assignButton.isEnabled = bool
-            self.loginTextField.backgroundColor = bool ? .red : .lightGray
+            self.assignButton.backgroundColor = bool ? .red : .lightGray
         }
     }
     

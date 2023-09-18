@@ -12,6 +12,7 @@ extension UIButton {
         let view = UIButton()
         view.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         view.setTitle(title, for: .normal)
+        view.layer.cornerRadius = 5
         view.tintColor = .white
         view.backgroundColor = .systemRed
         return view

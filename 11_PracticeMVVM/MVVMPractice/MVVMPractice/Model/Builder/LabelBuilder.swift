@@ -11,6 +11,7 @@ extension UILabel {
     static func labelBuilder(text: String, size: CGFloat, weight: UIFont.Weight) -> UILabel {
         let view = UILabel()
         view.text = text
+        view.textAlignment = .center
         view.font = .systemFont(ofSize: size, weight: weight)
         view.backgroundColor = .clear
         return view

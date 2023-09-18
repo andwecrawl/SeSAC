@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     }()
     
     let statusLabel = UILabel.labelBuilder(text: "환영합니다!", size: 18, weight: .medium)
+    let statusLabel = UILabel.labelBuilder(text: "환영합니다!", size: 19, weight: .medium)
     let loginTextField = UITextField.textFieldBuilder(placeholder: "이메일 주소 또는 전화번호")
     let passwordTextField = UITextField.textFieldBuilder(placeholder: "비밀번호")
     let nicknameTextField = UITextField.textFieldBuilder(placeholder: "닉네임")
@@ -43,6 +44,7 @@ class LoginViewController: UIViewController {
     func configureView() {
         view.addSubview(logoImageView)
         
+        view.addSubview(statusLabel)
         view.addSubview(stackView)
         [loginTextField, passwordTextField, nicknameTextField, inviteCodeTextField, assignButton].forEach { element in
             stackView.addArrangedSubview(element)
@@ -97,7 +99,13 @@ class LoginViewController: UIViewController {
         }
         
         stackView.snp.makeConstraints { make in
+        statusLabel.snp.makeConstraints { make in
             make.top.equalTo(logoImageView.snp.bottom).offset(100)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
+        
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(statusLabel.snp.bottom).offset(30)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
     }

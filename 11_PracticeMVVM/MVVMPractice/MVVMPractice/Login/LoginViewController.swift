@@ -15,16 +15,17 @@ class LoginViewController: UIViewController {
         view.contentMode = .scaleToFill
         return view
     }()
+    
+    let statusLabel = UILabel.labelBuilder(text: "환영합니다!", size: 18, weight: .medium)
     let loginTextField = UITextField.textFieldBuilder(placeholder: "이메일 주소 또는 전화번호")
     let passwordTextField = UITextField.textFieldBuilder(placeholder: "비밀번호")
     let nicknameTextField = UITextField.textFieldBuilder(placeholder: "닉네임")
-    let locationTextField = UITextField.textFieldBuilder(placeholder: "위치")
     let inviteCodeTextField = UITextField.textFieldBuilder(placeholder: "추천 코드 입력")
     let assignButton = UIButton.buttonBuilder(title: "회원가입")
     let stackView = {
         let view = UIStackView()
         view.axis = .vertical
-        view.spacing = 10
+        view.spacing = 20
         view.alignment = .center
         view.distribution = .equalSpacing
         return view
@@ -43,18 +44,21 @@ class LoginViewController: UIViewController {
         view.addSubview(logoImageView)
         
         view.addSubview(stackView)
-        [loginTextField, passwordTextField, nicknameTextField, locationTextField, inviteCodeTextField, assignButton].forEach { element in
+        [loginTextField, passwordTextField, nicknameTextField, inviteCodeTextField, assignButton].forEach { element in
             stackView.addArrangedSubview(element)
             element.snp.makeConstraints { make in
                 make.horizontalEdges.equalToSuperview()
-                make.height.equalTo(40)
+                if element == assignButton {
+                    make.height.equalTo(50)
+                } else {
+                    make.height.equalTo(40)
+                }
             }
         }
         
         assignButton.addTarget(self, action: #selector(assignButtonClicked), for: .touchUpInside)
         loginTextField.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
-        locationTextField.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
         nicknameTextField.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
         inviteCodeTextField.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
     }
@@ -77,9 +81,6 @@ class LoginViewController: UIViewController {
         case nicknameTextField:
             viewModel.nickname.value = text
             viewModel.checkValidation()
-        case locationTextField:
-            viewModel.location.value = text
-            viewModel.checkValidation()
         case inviteCodeTextField:
             viewModel.inviteCode.value = text
             viewModel.checkValidation()
@@ -96,7 +97,7 @@ class LoginViewController: UIViewController {
         }
         
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(logoImageView.snp.bottom).offset(80)
+            make.top.equalTo(logoImageView.snp.bottom).offset(100)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
     }
@@ -113,10 +114,6 @@ class LoginViewController: UIViewController {
         
         viewModel.nickname.bind { nickname in
             self.nicknameTextField.text = nickname
-        }
-        
-        viewModel.location.bind { location in
-            self.locationTextField.text = location
         }
         
         viewModel.inviteCode.bind { code in

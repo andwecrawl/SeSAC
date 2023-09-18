@@ -12,12 +12,12 @@ class LoginViewModel {
     var id = Observable("id")
     var password = Observable("password")
     var nickname = Observable("nickname")
-    var location = Observable("location")
     var inviteCode = Observable("12345678")
     var isVailed = Observable(false)
     
     func checkValidation() {
-        if id.value.count > 5 && password.value.count > 8 {
+        if id.value.count > 5 && password.value.count > 8
+            && inviteCode.value.count > 5 {
             isVailed.value = true
         } else {
             isVailed.value = false

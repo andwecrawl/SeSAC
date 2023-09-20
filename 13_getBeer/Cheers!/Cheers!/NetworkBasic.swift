@@ -13,15 +13,15 @@ class APIHelper {
     
     private init() { }
     
-    func request(api: BeerAPI, completionHandler: @escaping (Beer?, Error?) -> ()) {
-        AF.request(api.endpoint, method: api.method).responseDecodable(of: Beer.self) { response in
+    func request<T: Decodable>(type: T.Type, api: BeerAPI, completionHandler: @escaping (Result<T, Error>) -> ()) {
+        AF.request(api.endpoint, method: api.method).responseDecodable(of: T.self) { response in
             switch response.result {
             case .success(let data):
-                completionHandler(data, nil)
+                completionHandler(.success(data))
             case .failure(_):
                 let statusCode = response.response?.statusCode ?? 500
                 guard let error = NetworkError(rawValue: statusCode) else { return }
-                completionHandler(nil, error)
+                completionHandler(.failure(error))
             }
         }
     }

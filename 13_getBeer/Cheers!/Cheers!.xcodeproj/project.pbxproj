@@ -13,14 +13,15 @@
 		D1BA58802ABAC803007437F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1BA587F2ABAC803007437F4 /* Assets.xcassets */; };
 		D1BA58832ABAC803007437F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BA58812ABAC803007437F4 /* LaunchScreen.storyboard */; };
 		D1BA588B2ABACA9A007437F4 /* BeersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA588A2ABACA9A007437F4 /* BeersViewModel.swift */; };
-		D1BA588D2ABACA9E007437F4 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA588C2ABACA9E007437F4 /* Network.swift */; };
+		D1BA588D2ABACA9E007437F4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA588C2ABACA9E007437F4 /* Router.swift */; };
 		D1BA58912ABACAB8007437F4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA58902ABACAB8007437F4 /* Kingfisher */; };
 		D1BA58942ABACAC1007437F4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA58932ABACAC1007437F4 /* Alamofire */; };
 		D1BA58972ABACACB007437F4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA58962ABACACB007437F4 /* SnapKit */; };
-		D1BA58992ABACB7F007437F4 /* NetworkBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA58982ABACB7F007437F4 /* NetworkBasic.swift */; };
+		D1BA58992ABACB7F007437F4 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA58982ABACB7F007437F4 /* APIHelper.swift */; };
 		D1BA589B2ABACC9D007437F4 /* BeerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA589A2ABACC9D007437F4 /* BeerAPI.swift */; };
 		D1BA589D2ABACF07007437F4 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA589C2ABACF07007437F4 /* NetworkError.swift */; };
 		D1BA589F2ABACFF5007437F4 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA589E2ABACFF5007437F4 /* Beer.swift */; };
+		D1BA58A22ABAD702007437F4 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA58A12ABAD702007437F4 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,11 +33,12 @@
 		D1BA58822ABAC803007437F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1BA58842ABAC803007437F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1BA588A2ABACA9A007437F4 /* BeersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeersViewModel.swift; sourceTree = "<group>"; };
-		D1BA588C2ABACA9E007437F4 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		D1BA58982ABACB7F007437F4 /* NetworkBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkBasic.swift; sourceTree = "<group>"; };
+		D1BA588C2ABACA9E007437F4 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		D1BA58982ABACB7F007437F4 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		D1BA589A2ABACC9D007437F4 /* BeerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerAPI.swift; sourceTree = "<group>"; };
 		D1BA589C2ABACF07007437F4 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		D1BA589E2ABACFF5007437F4 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
+		D1BA58A12ABAD702007437F4 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +90,9 @@
 		D1BA588E2ABACAA7007437F4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				D1BA588C2ABACA9E007437F4 /* Network.swift */,
-				D1BA58982ABACB7F007437F4 /* NetworkBasic.swift */,
-				D1BA589A2ABACC9D007437F4 /* BeerAPI.swift */,
+				D1BA588C2ABACA9E007437F4 /* Router.swift */,
+				D1BA58A12ABAD702007437F4 /* Network.swift */,
+				D1BA58A32ABAD70E007437F4 /* NetworkBasic */,
 				D1BA589C2ABACF07007437F4 /* NetworkError.swift */,
 			);
 			name = Network;
@@ -102,6 +104,15 @@
 				D1BA589E2ABACFF5007437F4 /* Beer.swift */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		D1BA58A32ABAD70E007437F4 /* NetworkBasic */ = {
+			isa = PBXGroup;
+			children = (
+				D1BA589A2ABACC9D007437F4 /* BeerAPI.swift */,
+				D1BA58982ABACB7F007437F4 /* APIHelper.swift */,
+			);
+			name = NetworkBasic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,10 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1BA588D2ABACA9E007437F4 /* Network.swift in Sources */,
+				D1BA58A22ABAD702007437F4 /* Network.swift in Sources */,
+				D1BA588D2ABACA9E007437F4 /* Router.swift in Sources */,
 				D1BA589F2ABACFF5007437F4 /* Beer.swift in Sources */,
 				D1BA589D2ABACF07007437F4 /* NetworkError.swift in Sources */,
-				D1BA58992ABACB7F007437F4 /* NetworkBasic.swift in Sources */,
+				D1BA58992ABACB7F007437F4 /* APIHelper.swift in Sources */,
 				D1BA588B2ABACA9A007437F4 /* BeersViewModel.swift in Sources */,
 				D1BA587B2ABAC802007437F4 /* BeersViewController.swift in Sources */,
 				D1BA589B2ABACC9D007437F4 /* BeerAPI.swift in Sources */,

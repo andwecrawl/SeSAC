@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 enum Router: URLRequestConvertible {
-
     
     case beers
     case singleBeer
@@ -19,7 +18,7 @@ enum Router: URLRequestConvertible {
         return URL(string: "https://api.punkapi.com/v2/beers")!
     }
     
-    var path: String {
+    private var path: String {
         switch self {
         case .beers:
             return ""
@@ -30,7 +29,7 @@ enum Router: URLRequestConvertible {
         }
     }
     
-    var method: HTTPMethod {
+    private var method: HTTPMethod {
         return .get
     }
     

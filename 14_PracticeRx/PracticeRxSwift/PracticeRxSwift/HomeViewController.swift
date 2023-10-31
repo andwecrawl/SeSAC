@@ -16,7 +16,6 @@ class HomeViewController: UIViewController {
         let view = UIStackView()
         view.axis = .vertical
         view.spacing = 0
-        view.alignment = .center
         view.distribution = .fillEqually
         return view
     }()

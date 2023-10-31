@@ -20,6 +20,7 @@
 		D1F08C652AF1268C007E793C /* DefaultWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08C642AF1268C007E793C /* DefaultWireframe.swift */; };
 		D1F08C672AF13222007E793C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08C662AF13222007E793C /* HomeViewController.swift */; };
 		D1F08C692AF1757B007E793C /* RxValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08C682AF1757B007E793C /* RxValidationViewController.swift */; };
+		D1F08C6B2AF17C32007E793C /* RxNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08C6A2AF17C32007E793C /* RxNumberViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		D1F08C642AF1268C007E793C /* DefaultWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultWireframe.swift; sourceTree = "<group>"; };
 		D1F08C662AF13222007E793C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D1F08C682AF1757B007E793C /* RxValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxValidationViewController.swift; sourceTree = "<group>"; };
+		D1F08C6A2AF17C32007E793C /* RxNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNumberViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				D1F08C4A2AF1177F007E793C /* RxTableViewController.swift */,
 				D1F08C5F2AF11A13007E793C /* RxPickerViewController.swift */,
 				D1F08C682AF1757B007E793C /* RxValidationViewController.swift */,
+				D1F08C6A2AF17C32007E793C /* RxNumberViewController.swift */,
 				D1F08C4C2AF1177F007E793C /* Main.storyboard */,
 				D1F08C4F2AF11781007E793C /* Assets.xcassets */,
 				D1F08C512AF11781007E793C /* LaunchScreen.storyboard */,
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1F08C692AF1757B007E793C /* RxValidationViewController.swift in Sources */,
+				D1F08C6B2AF17C32007E793C /* RxNumberViewController.swift in Sources */,
 				D1F08C4B2AF1177F007E793C /* RxTableViewController.swift in Sources */,
 				D1F08C472AF1177F007E793C /* AppDelegate.swift in Sources */,
 				D1F08C602AF11A13007E793C /* RxPickerViewController.swift in Sources */,

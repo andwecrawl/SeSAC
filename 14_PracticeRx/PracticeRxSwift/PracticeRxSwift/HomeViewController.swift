@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     let tableViewButton = UIButton()
     let pickerButton = UIButton()
     let validationButton = UIButton()
+    let numberButton = UIButton()
     
     let stackView = {
         let view = UIStackView()
@@ -35,7 +36,8 @@ class HomeViewController: UIViewController {
         [
             tableViewButton,
             pickerButton,
-            validationButton
+            validationButton,
+            numberButton
         ]
             .forEach { stackView.addArrangedSubview($0) }
         
@@ -56,7 +58,13 @@ class HomeViewController: UIViewController {
         tableViewButton.addTarget(self, action: #selector(tableViewButtonClicked), for: .touchUpInside)
         pickerButton.addTarget(self, action: #selector(pickerButtonClicked), for: .touchUpInside)
         validationButton.addTarget(self, action: #selector(validationButtonClicked), for: .touchUpInside)
+        numberButton.addTarget(self, action: #selector(numberButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func numberButtonClicked() {
+        let vc = RxNumberViewController()
         
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func validationButtonClicked() {

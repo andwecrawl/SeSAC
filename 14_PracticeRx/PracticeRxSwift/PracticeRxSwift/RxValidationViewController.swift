@@ -7,15 +7,19 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+
+private let minimalUsernameLength = 5
+private let minimalPasswordLength = 5
 
 class RxValidationViewController: UIViewController {
     
     var idLabel = UILabel()
-    let idTextField = UITextField()
+    let usernameOutlet = UITextField()
     let usernameValidOutlet = UILabel()
     
     let passwordLabel = UILabel()
-    let passwordTextField = UITextField()
+    let passwordOutlet = UITextField()
     let passwordValidOutlet = UILabel()
     let button = UIButton()
     
@@ -27,22 +31,23 @@ class RxValidationViewController: UIViewController {
         return view
     }()
     
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setConstraints()
         configureView()
-        
+        checkValidations()
     }
     
     func setConstraints() {
         [
             idLabel,
-            idTextField,
+            usernameOutlet,
             usernameValidOutlet,
             passwordLabel,
-            passwordTextField,
+            passwordOutlet,
             passwordValidOutlet,
             button
         ]
@@ -64,15 +69,62 @@ class RxValidationViewController: UIViewController {
         }
         
         idLabel.text = "Username"
-        idTextField.placeholder = "아이디를 입력해 주세용"
+        usernameOutlet.placeholder = "아이디를 입력해 주세용"
         usernameValidOutlet.text = "Label"
         passwordLabel.text = "Password"
-        passwordTextField.placeholder = "비밀번호를 입력해 주세용"
+        passwordOutlet.placeholder = "비밀번호를 입력해 주세용"
         passwordValidOutlet.text = "Label"
         
         button.backgroundColor = .green
     }
     
+    func checkValidations() {
+        
+        usernameValidOutlet.text = "Username has to be at least \(minimalUsernameLength) characters"
+        passwordValidOutlet.text = "Password has to be at least \(minimalPasswordLength) characters"
+
+        let usernameValid = usernameOutlet.rx.text.orEmpty
+            .map { $0.count >= minimalUsernameLength }
+            .share(replay: 1)
+        
+        let passwordValid = passwordOutlet.rx.text.orEmpty
+            .map { $0.count >= minimalPasswordLength }
+            .share(replay: 1)
+        
+        let everythingValid = Observable.combineLatest(usernameValid, passwordValid) { $0 && $1 }
+            .share(replay: 1)
+        
+        usernameValid
+            .bind(to: passwordOutlet.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        usernameValid
+            .bind(to: usernameValidOutlet.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        passwordValid
+            .bind(to: passwordValidOutlet.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        everythingValid
+            .bind(to: button.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        button.rx.tap
+            .subscribe(onNext: { [weak self] _ in self?.showAlert() })
+            .disposed(by: disposeBag)
+    }
     
-    
+    func showAlert() {
+        let alert = UIAlertController(
+            title: "RxExample",
+            message: "This is wonderful",
+            preferredStyle: .alert
+        )
+        let defaultAction = UIAlertAction(title: "Ok",
+                                          style: .default,
+                                          handler: nil)
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
+    }
 }

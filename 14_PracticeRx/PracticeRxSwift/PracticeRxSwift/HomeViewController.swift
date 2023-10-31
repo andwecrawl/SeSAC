@@ -11,6 +11,7 @@ class HomeViewController: UIViewController {
     
     let tableViewButton = UIButton()
     let pickerButton = UIButton()
+    let validationButton = UIButton()
     
     let stackView = {
         let view = UIStackView()
@@ -33,7 +34,8 @@ class HomeViewController: UIViewController {
         
         [
             tableViewButton,
-            pickerButton
+            pickerButton,
+            validationButton
         ]
             .forEach { stackView.addArrangedSubview($0) }
         
@@ -49,10 +51,18 @@ class HomeViewController: UIViewController {
         
         tableViewButton.backgroundColor = .green
         pickerButton.backgroundColor = .yellow
+        validationButton.backgroundColor = .blue
         
         tableViewButton.addTarget(self, action: #selector(tableViewButtonClicked), for: .touchUpInside)
         pickerButton.addTarget(self, action: #selector(pickerButtonClicked), for: .touchUpInside)
+        validationButton.addTarget(self, action: #selector(validationButtonClicked), for: .touchUpInside)
         
+    }
+    
+    @objc func validationButtonClicked() {
+        let vc = RxValidationViewController()
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func tableViewButtonClicked() {

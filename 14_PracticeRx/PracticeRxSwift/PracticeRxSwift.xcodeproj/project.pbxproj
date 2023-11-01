@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D110F6082AF255CF008B04D1 /* RxSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F6072AF255CF008B04D1 /* RxSampleViewController.swift */; };
 		D1F08C472AF1177F007E793C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08C462AF1177F007E793C /* AppDelegate.swift */; };
 		D1F08C492AF1177F007E793C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08C482AF1177F007E793C /* SceneDelegate.swift */; };
 		D1F08C4B2AF1177F007E793C /* RxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08C4A2AF1177F007E793C /* RxTableViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D110F6072AF255CF008B04D1 /* RxSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSampleViewController.swift; sourceTree = "<group>"; };
 		D1F08C432AF1177F007E793C /* PracticeRxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeRxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1F08C462AF1177F007E793C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1F08C482AF1177F007E793C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				D1F08C5F2AF11A13007E793C /* RxPickerViewController.swift */,
 				D1F08C682AF1757B007E793C /* RxValidationViewController.swift */,
 				D1F08C6A2AF17C32007E793C /* RxNumberViewController.swift */,
+				D110F6072AF255CF008B04D1 /* RxSampleViewController.swift */,
 				D1F08C4C2AF1177F007E793C /* Main.storyboard */,
 				D1F08C4F2AF11781007E793C /* Assets.xcassets */,
 				D1F08C512AF11781007E793C /* LaunchScreen.storyboard */,
@@ -175,6 +178,7 @@
 				D1F08C602AF11A13007E793C /* RxPickerViewController.swift in Sources */,
 				D1F08C652AF1268C007E793C /* DefaultWireframe.swift in Sources */,
 				D1F08C492AF1177F007E793C /* SceneDelegate.swift in Sources */,
+				D110F6082AF255CF008B04D1 /* RxSampleViewController.swift in Sources */,
 				D1F08C672AF13222007E793C /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     let pickerButton = UIButton()
     let validationButton = UIButton()
     let numberButton = UIButton()
+    let sampleButton = UIButton()
     
     let stackView = {
         let view = UIStackView()
@@ -37,7 +38,8 @@ class HomeViewController: UIViewController {
             tableViewButton,
             pickerButton,
             validationButton,
-            numberButton
+            numberButton,
+            sampleButton
         ]
             .forEach { stackView.addArrangedSubview($0) }
         
@@ -54,11 +56,13 @@ class HomeViewController: UIViewController {
         tableViewButton.backgroundColor = .green
         pickerButton.backgroundColor = .yellow
         validationButton.backgroundColor = .blue
+        sampleButton.backgroundColor = .magenta
         
         tableViewButton.addTarget(self, action: #selector(tableViewButtonClicked), for: .touchUpInside)
         pickerButton.addTarget(self, action: #selector(pickerButtonClicked), for: .touchUpInside)
         validationButton.addTarget(self, action: #selector(validationButtonClicked), for: .touchUpInside)
         numberButton.addTarget(self, action: #selector(numberButtonClicked), for: .touchUpInside)
+        sampleButton.addTarget(self, action: #selector(sampleButtonClicked), for: .touchUpInside)
     }
     
     @objc func numberButtonClicked() {
@@ -85,5 +89,11 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc func sampleButtonClicked() {
+        print("clicked!!")
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "RxSampleViewController") as? RxSampleViewController else { return }
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
 }

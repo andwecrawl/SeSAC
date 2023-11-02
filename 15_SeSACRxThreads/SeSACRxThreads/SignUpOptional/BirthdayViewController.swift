@@ -68,13 +68,9 @@ class BirthdayViewController: UIViewController {
   
     let nextButton = PointButton(title: "가입하기")
     
-    let birthday: BehaviorSubject<Date> = BehaviorSubject(value: .now)
-    let year = BehaviorSubject(value: 0)
-    let month = BehaviorSubject(value: 0)
-    let day = BehaviorSubject(value: 0)
+    var buttonColor = BehaviorSubject(value: UIColor.red)
     
-    let buttonColor = BehaviorSubject(value: UIColor.red)
-    let isEnabled = BehaviorSubject(value: false)
+    let viewModel = BirthdayViewModel()
     
     let disposeBag = DisposeBag()
     
@@ -123,7 +119,7 @@ class BirthdayViewController: UIViewController {
     
     func bind() {
         
-        isEnabled
+        viewModel.isEnabled
             .bind(to: nextButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
@@ -131,30 +127,18 @@ class BirthdayViewController: UIViewController {
             .bind(to: nextButton.rx.backgroundColor)
             .disposed(by: disposeBag)
         
-        birthDayPicker.rx.date
-            .bind(to: birthday)
-            .disposed(by: disposeBag)
-        
-        birthday
-            .subscribe(with: self) { owner, date in
-                let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
-                
-                if let year = components.year, let month = components.month, let day = components.day {
-                    owner.year.onNext(year)
-                    owner.month.onNext(month)
-                    owner.day.onNext(day)
-                }
-                
-                let compareResult = date.compare(Date().beforeSeventeenYears)
-                let isValid = compareResult == .orderedDescending ? false : true
-                let color: UIColor = isValid ? .blue : .red
-                owner.isEnabled.onNext(isValid)
+        viewModel.isEnabled
+            .bind(with: self, onNext: { owner, value in
+                let color: UIColor = value ? .blue : .red
                 owner.buttonColor.onNext(color)
-            }
+            })
             .disposed(by: disposeBag)
         
+        birthDayPicker.rx.date
+            .bind(to: viewModel.birthday)
+            .disposed(by: disposeBag)
         
-        year
+        viewModel.year
             // UI Mainthread에서 동작하도록!!
             .observe(on: MainScheduler.instance)
             .subscribe(with: self) { object, value in
@@ -162,14 +146,14 @@ class BirthdayViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        month
+        viewModel.month
             .map({ "\($0)월" })
             .subscribe(with: self) { object, str in
                 object.monthLabel.text = str
             }
             .disposed(by: disposeBag)
         
-        day
+        viewModel.day
             .map({ "\($0)일" })
             .bind(to: dayLabel.rx.text)
             .disposed(by: disposeBag)

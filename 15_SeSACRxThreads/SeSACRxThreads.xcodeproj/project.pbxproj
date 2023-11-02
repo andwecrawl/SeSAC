@@ -32,6 +32,7 @@
 		D110F60A2AF26ED2008B04D1 /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F6092AF26ED2008B04D1 /* Extension+Date.swift */; };
 		D110F60E2AF422DD008B04D1 /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F60D2AF422DD008B04D1 /* BirthdayViewModel.swift */; };
 		D110F6112AF42560008B04D1 /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F6102AF42560008B04D1 /* NicknameViewModel.swift */; };
+		D110F6142AF42622008B04D1 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F6132AF42622008B04D1 /* PhoneViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		D110F6092AF26ED2008B04D1 /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
 		D110F60D2AF422DD008B04D1 /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
 		D110F6102AF42560008B04D1 /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
+		D110F6132AF42622008B04D1 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,9 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				D110F60F2AF42556008B04D1 /* Birthday */,
-				041280702AEFAD3D00972552 /* PhoneViewController.swift */,
-				041280722AEFAD4B00972552 /* NicknameViewController.swift */,
-				D110F6102AF42560008B04D1 /* NicknameViewModel.swift */,
+				D110F6152AF42624008B04D1 /* Phone */,
+				D110F6122AF42607008B04D1 /* Nickname */,
 			);
 			path = SignUpOptional;
 			sourceTree = "<group>";
@@ -210,6 +211,24 @@
 				D110F60D2AF422DD008B04D1 /* BirthdayViewModel.swift */,
 			);
 			path = Birthday;
+			sourceTree = "<group>";
+		};
+		D110F6122AF42607008B04D1 /* Nickname */ = {
+			isa = PBXGroup;
+			children = (
+				041280722AEFAD4B00972552 /* NicknameViewController.swift */,
+				D110F6102AF42560008B04D1 /* NicknameViewModel.swift */,
+			);
+			path = Nickname;
+			sourceTree = "<group>";
+		};
+		D110F6152AF42624008B04D1 /* Phone */ = {
+			isa = PBXGroup;
+			children = (
+				041280702AEFAD3D00972552 /* PhoneViewController.swift */,
+				D110F6132AF42622008B04D1 /* PhoneViewModel.swift */,
+			);
+			path = Phone;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +379,7 @@
 				041280282AEF9BAB00972552 /* ViewController.swift in Sources */,
 				041280632AEFA0CE00972552 /* PointButton.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
+				D110F6142AF42622008B04D1 /* PhoneViewModel.swift in Sources */,
 				D110F6062AF23F34008B04D1 /* Extension+String.swift in Sources */,
 				D110F60A2AF26ED2008B04D1 /* Extension+Date.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,

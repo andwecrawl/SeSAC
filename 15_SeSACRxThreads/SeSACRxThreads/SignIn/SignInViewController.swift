@@ -17,6 +17,8 @@ class SignInViewController: UIViewController {
     let signInButton = PointButton(title: "로그인")
     let signUpButton = UIButton()
     
+    let viewModel = SignInViewModel()
+    
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -27,12 +29,6 @@ class SignInViewController: UIViewController {
         configureLayout()
         configure()
         bind()
-        
-        signUpButton.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
-    }
-    
-    @objc func signUpButtonClicked() {
-        navigationController?.pushViewController(SignUpViewController(), animated: true)
     }
     
     
@@ -72,10 +68,43 @@ class SignInViewController: UIViewController {
         }
     }
     
+    
     func bind() {
         
+        viewModel.email
+            .bind(to: emailTextField.rx.text.orEmpty)
+            .disposed(by: disposeBag)
+        
+        viewModel.password
+            .bind(to: passwordTextField.rx.text.orEmpty)
+            .disposed(by: disposeBag)
+        
+        viewModel.isEnable
+            .bind(to: signInButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        viewModel.isEnable
+            .map({ $0 ? UIColor.blue : UIColor.red })
+            .bind(to: signInButton.rx.backgroundColor)
+            .disposed(by: disposeBag)
+        
+        viewModel.isEnable
+            .map({ $0 ? UIColor.blue.cgColor : UIColor.red.cgColor })
+            .bind(to: emailTextField.layer.rx.borderColor, passwordTextField.layer.rx.borderColor)
+            .disposed(by: disposeBag)
         
         
+        signInButton.rx.tap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(SearchViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        signUpButton.rx.tap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(SignUpViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
         
     }
 }

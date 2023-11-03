@@ -33,6 +33,8 @@
 		D110F60E2AF422DD008B04D1 /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F60D2AF422DD008B04D1 /* BirthdayViewModel.swift */; };
 		D110F6112AF42560008B04D1 /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F6102AF42560008B04D1 /* NicknameViewModel.swift */; };
 		D110F6142AF42622008B04D1 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F6132AF42622008B04D1 /* PhoneViewModel.swift */; };
+		D110F6202AF4D086008B04D1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F61E2AF4D086008B04D1 /* SearchViewController.swift */; };
+		D110F6212AF4D086008B04D1 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F61F2AF4D086008B04D1 /* SearchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		D110F60D2AF422DD008B04D1 /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
 		D110F6102AF42560008B04D1 /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
 		D110F6132AF42622008B04D1 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
+		D110F61E2AF4D086008B04D1 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D110F61F2AF4D086008B04D1 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 		041280222AEF9BAB00972552 /* SeSACRxThreads */ = {
 			isa = PBXGroup;
 			children = (
+				D110F61D2AF4D086008B04D1 /* SearchView */,
 				041280532AEF9C1F00972552 /* SignUp */,
 				041280542AEF9C2600972552 /* SignIn */,
 				0412806D2AEFAD0F00972552 /* SignUpOptional */,
@@ -229,6 +234,15 @@
 				D110F6132AF42622008B04D1 /* PhoneViewModel.swift */,
 			);
 			path = Phone;
+			sourceTree = "<group>";
+		};
+		D110F61D2AF4D086008B04D1 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				D110F61E2AF4D086008B04D1 /* SearchViewController.swift */,
+				D110F61F2AF4D086008B04D1 /* SearchTableViewCell.swift */,
+			);
+			path = SearchView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,10 +388,12 @@
 				0412806F2AEFAD2D00972552 /* BirthdayViewController.swift in Sources */,
 				041280652AEFA2F000972552 /* SignTextField.swift in Sources */,
 				0412806C2AEFABFE00972552 /* PasswordViewController.swift in Sources */,
+				D110F6202AF4D086008B04D1 /* SearchViewController.swift in Sources */,
 				041280562AEFA04800972552 /* SignInViewController.swift in Sources */,
 				D110F60E2AF422DD008B04D1 /* BirthdayViewModel.swift in Sources */,
 				041280282AEF9BAB00972552 /* ViewController.swift in Sources */,
 				041280632AEFA0CE00972552 /* PointButton.swift in Sources */,
+				D110F6212AF4D086008B04D1 /* SearchTableViewCell.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
 				D110F6142AF42622008B04D1 /* PhoneViewModel.swift in Sources */,
 				D110F6062AF23F34008B04D1 /* Extension+String.swift in Sources */,

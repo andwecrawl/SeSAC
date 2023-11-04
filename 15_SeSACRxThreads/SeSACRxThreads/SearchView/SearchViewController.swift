@@ -22,8 +22,10 @@ class SearchViewController: UIViewController {
      }()
     
     let searchBar = UISearchBar()
-     
-    var items = BehaviorSubject(value: Array(100...150).map { "안녕하세요 \($0)"})
+    
+    var data = ["A", "B", "C", "D"]
+    
+    lazy var items = BehaviorSubject(value: data)
     
     let disposeBag = DisposeBag()
     
@@ -39,12 +41,36 @@ class SearchViewController: UIViewController {
     func bind() {
         
         items
-            .bind(to: tableView.rx.items(cellIdentifier: SearchTableViewCell.identifier, cellType: SearchTableViewCell.self)) { (row, element, cell) in
+            .bind(to: tableView.rx.items(cellIdentifier: SearchTableViewCell.identifier, cellType: SearchTableViewCell.self)) {
+                (row, element, cell) in
+                
                 cell.appNameLabel.text = element
                 cell.appIconImageView.backgroundColor = .green
+                cell.downloadButton.rx.tap
+                    .subscribe(with: self) { owner, _ in
+                        owner.navigationController?.pushViewController(SimpleViewController(), animated: true)
+                    }
+                    .disposed(by: cell.disposeBag)
+            }
+            .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .subscribe(with: self) { owner, value in
+                print(value)
+            }
+            .disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(String.self)
+            .subscribe(with: self) { owner, value in
+                print(value)
             }
             .disposed(by: disposeBag)
 
+        Observable.zip(tableView.rx.itemSelected, tableView.rx.modelSelected(String.self))
+            .map({ "cell selected!! \($0) \($1)" })
+            .bind(to: navigationItem.rx.title)
+            .disposed(by: disposeBag)
+        
     }
     
     private func setSearchController() {

@@ -7,11 +7,15 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class PasswordViewController: UIViewController {
    
     let passwordTextField = SignTextField(placeholderText: "비밀번호를 입력해주세요")
     let nextButton = PointButton(title: "다음")
+    
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,12 +23,15 @@ class PasswordViewController: UIViewController {
         view.backgroundColor = Color.white
         
         configureLayout()
-         
-        nextButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
+        bind()
     }
     
-    @objc func nextButtonClicked() {
-        navigationController?.pushViewController(PhoneViewController(), animated: true)
+    func bind() {
+        nextButton.rx.tap
+            .bind(with: self) { owner, void in
+                owner.navigationController?.pushViewController(PhoneViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     func configureLayout() {

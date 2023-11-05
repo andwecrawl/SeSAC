@@ -70,8 +70,6 @@ class ShoppingTableViewCell: UITableViewCell {
     
     func configurateCell() {
         guard let stuff else { return }
-        print(stuff)
-        print("hi")
         
         listLabel.text = stuff.name
         

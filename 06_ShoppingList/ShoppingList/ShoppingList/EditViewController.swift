@@ -15,8 +15,7 @@ class EditViewController: UIViewController {
         return textField
     }()
     
-    var indexPath: IndexPath?
-    var name: String?
+    var completionHandler: ((String) -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +24,17 @@ class EditViewController: UIViewController {
     }
     
     func configureView() {
+        view.backgroundColor = .white
+        
         view.addSubview(textField)
         
         textField.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(100)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
+            make.height.equalTo(50)
         }
+        
+        title = "수정하기"
         
         let saveButton = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonClicked))
         navigationItem.setRightBarButton(saveButton, animated: true)
@@ -39,6 +43,8 @@ class EditViewController: UIViewController {
     @objc func saveButtonClicked() {
         guard let text = textField.text else { return }
         
+        completionHandler?(text)
+        navigationController?.popViewController(animated: true)
         
     }
 

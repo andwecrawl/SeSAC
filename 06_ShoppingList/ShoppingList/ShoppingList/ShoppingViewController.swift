@@ -75,7 +75,12 @@ class ShoppingViewController: UIViewController {
         
         tableView.rx.itemSelected
             .bind(with: self) { owner, indexPath in
-                print("\(owner.data.list[indexPath.row])")
+                let vc = EditViewController()
+                vc.completionHandler = { text in
+                    owner.data.list[indexPath.row].name = text
+                    owner.list.onNext(owner.data.list)
+                }
+                owner.navigationController?.pushViewController(vc, animated: true)
             }
             .disposed(by: disposeBag)
         

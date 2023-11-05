@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		D110F6082AF255CF008B04D1 /* RxSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D110F6072AF255CF008B04D1 /* RxSampleViewController.swift */; };
+		D1CC22D22AF6AA8100684175 /* RxTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC22D12AF6AA8100684175 /* RxTableViewModel.swift */; };
+		D1CC22D42AF6AA8E00684175 /* RxPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC22D32AF6AA8E00684175 /* RxPickerViewModel.swift */; };
+		D1CC22D62AF6AA9600684175 /* RxValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC22D52AF6AA9600684175 /* RxValidationViewModel.swift */; };
+		D1CC22D82AF6AA9D00684175 /* RxNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC22D72AF6AA9D00684175 /* RxNumberViewModel.swift */; };
+		D1CC22DA2AF6AAA400684175 /* RxSampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC22D92AF6AAA400684175 /* RxSampleViewModel.swift */; };
 		D1F08C472AF1177F007E793C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08C462AF1177F007E793C /* AppDelegate.swift */; };
 		D1F08C492AF1177F007E793C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08C482AF1177F007E793C /* SceneDelegate.swift */; };
 		D1F08C4B2AF1177F007E793C /* RxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08C4A2AF1177F007E793C /* RxTableViewController.swift */; };
@@ -26,6 +31,11 @@
 
 /* Begin PBXFileReference section */
 		D110F6072AF255CF008B04D1 /* RxSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSampleViewController.swift; sourceTree = "<group>"; };
+		D1CC22D12AF6AA8100684175 /* RxTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTableViewModel.swift; sourceTree = "<group>"; };
+		D1CC22D32AF6AA8E00684175 /* RxPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPickerViewModel.swift; sourceTree = "<group>"; };
+		D1CC22D52AF6AA9600684175 /* RxValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxValidationViewModel.swift; sourceTree = "<group>"; };
+		D1CC22D72AF6AA9D00684175 /* RxNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNumberViewModel.swift; sourceTree = "<group>"; };
+		D1CC22D92AF6AAA400684175 /* RxSampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSampleViewModel.swift; sourceTree = "<group>"; };
 		D1F08C432AF1177F007E793C /* PracticeRxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeRxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1F08C462AF1177F007E793C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1F08C482AF1177F007E793C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +65,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1CC22DB2AF6AB1F00684175 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				D110F6072AF255CF008B04D1 /* RxSampleViewController.swift */,
+				D1CC22D92AF6AAA400684175 /* RxSampleViewModel.swift */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
+		D1CC22DC2AF6AB2500684175 /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				D1F08C6A2AF17C32007E793C /* RxNumberViewController.swift */,
+				D1CC22D72AF6AA9D00684175 /* RxNumberViewModel.swift */,
+			);
+			path = Number;
+			sourceTree = "<group>";
+		};
+		D1CC22DD2AF6AB2E00684175 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				D1F08C682AF1757B007E793C /* RxValidationViewController.swift */,
+				D1CC22D52AF6AA9600684175 /* RxValidationViewModel.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		D1CC22DE2AF6AB3600684175 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				D1F08C5F2AF11A13007E793C /* RxPickerViewController.swift */,
+				D1CC22D32AF6AA8E00684175 /* RxPickerViewModel.swift */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		D1CC22DF2AF6AB3C00684175 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				D1F08C4A2AF1177F007E793C /* RxTableViewController.swift */,
+				D1CC22D12AF6AA8100684175 /* RxTableViewModel.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
 		D1F08C3A2AF1177F007E793C = {
 			isa = PBXGroup;
 			children = (
@@ -77,11 +132,11 @@
 				D1F08C462AF1177F007E793C /* AppDelegate.swift */,
 				D1F08C482AF1177F007E793C /* SceneDelegate.swift */,
 				D1F08C662AF13222007E793C /* HomeViewController.swift */,
-				D1F08C4A2AF1177F007E793C /* RxTableViewController.swift */,
-				D1F08C5F2AF11A13007E793C /* RxPickerViewController.swift */,
-				D1F08C682AF1757B007E793C /* RxValidationViewController.swift */,
-				D1F08C6A2AF17C32007E793C /* RxNumberViewController.swift */,
-				D110F6072AF255CF008B04D1 /* RxSampleViewController.swift */,
+				D1CC22DF2AF6AB3C00684175 /* Table */,
+				D1CC22DE2AF6AB3600684175 /* Picker */,
+				D1CC22DD2AF6AB2E00684175 /* Validation */,
+				D1CC22DC2AF6AB2500684175 /* Number */,
+				D1CC22DB2AF6AB1F00684175 /* Sample */,
 				D1F08C4C2AF1177F007E793C /* Main.storyboard */,
 				D1F08C4F2AF11781007E793C /* Assets.xcassets */,
 				D1F08C512AF11781007E793C /* LaunchScreen.storyboard */,
@@ -173,12 +228,17 @@
 			files = (
 				D1F08C692AF1757B007E793C /* RxValidationViewController.swift in Sources */,
 				D1F08C6B2AF17C32007E793C /* RxNumberViewController.swift in Sources */,
+				D1CC22DA2AF6AAA400684175 /* RxSampleViewModel.swift in Sources */,
+				D1CC22D82AF6AA9D00684175 /* RxNumberViewModel.swift in Sources */,
 				D1F08C4B2AF1177F007E793C /* RxTableViewController.swift in Sources */,
+				D1CC22D22AF6AA8100684175 /* RxTableViewModel.swift in Sources */,
 				D1F08C472AF1177F007E793C /* AppDelegate.swift in Sources */,
 				D1F08C602AF11A13007E793C /* RxPickerViewController.swift in Sources */,
 				D1F08C652AF1268C007E793C /* DefaultWireframe.swift in Sources */,
+				D1CC22D62AF6AA9600684175 /* RxValidationViewModel.swift in Sources */,
 				D1F08C492AF1177F007E793C /* SceneDelegate.swift in Sources */,
 				D110F6082AF255CF008B04D1 /* RxSampleViewController.swift in Sources */,
+				D1CC22D42AF6AA8E00684175 /* RxPickerViewModel.swift in Sources */,
 				D1F08C672AF13222007E793C /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

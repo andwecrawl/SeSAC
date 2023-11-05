@@ -24,8 +24,8 @@ class RxTableViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         
         setConstraints()
-//        configureView()
-        configureNewSample()
+        configureView()
+//        configureNewSample()
     }
     
     func setConstraints() {
@@ -93,6 +93,7 @@ class RxTableViewController: UIViewController, UITableViewDelegate {
             .subscribe(onNext: { indexPath in
                 DefaultWireframe.presentAlert("tapped! \(indexPath.section), \(indexPath.row)")
             })
+            .disposed(by: disposeBag)
 //            .subscribe { indexPath in
 //                DefaultWireframe.presentAlert("tapped! \(indexPath.section), \(indexPath.row)")
 //            }

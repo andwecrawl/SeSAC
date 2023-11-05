@@ -87,12 +87,6 @@ class ShoppingViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        Observable.zip(tableView.rx.itemSelected, tableView.rx.modelSelected(Stuff.self))
-            .map({ "셀 선택 \($0) \($1)" })
-            .bind(to: navigationItem.rx.title)
-            .disposed(by: disposeBag)
-        
-        
         header.addButton.rx.tap
             .withLatestFrom(header.inputTextField.rx.text.orEmpty)
             .subscribe(with: self) { owner, value in
@@ -105,6 +99,15 @@ class ShoppingViewController: UIViewController {
                     owner.data.list.insert(newStuff, at: 0)
                 }
                 owner.list.onNext(owner.data.list)
+            }
+            .disposed(by: disposeBag)
+        
+        header.inputTextField.rx.text.orEmpty
+            .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .bind(with: self) { owner, value in
+                let result = value.isEmpty ? owner.data.list : owner.data.list.filter{ $0.name.contains(value) }
+                owner.list.onNext(result)
             }
             .disposed(by: disposeBag)
         

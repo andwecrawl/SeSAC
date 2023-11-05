@@ -20,13 +20,11 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="84"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P8L-eg-HbW">
-                                    <rect key="frame" x="4" y="4" width="385" height="76"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8L-eg-HbW">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9SS-Ec-7lp">
-                                            <rect key="frame" x="8" y="13" width="307.33333333333331" height="50"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9SS-Ec-7lp">
+                                            <rect key="frame" x="16" y="16" width="299.33333333333331" height="48"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
@@ -34,9 +32,8 @@
                                                 <action selector="textingTextField:" destination="Aqh-hj-tyA" eventType="editingDidEnd" id="f5A-Ot-N2O"/>
                                             </connections>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAF-aJ-vhI">
-                                            <rect key="frame" x="323.33333333333331" y="13" width="53.666666666666686" height="50"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAF-aJ-vhI">
+                                            <rect key="frame" x="323.33333333333331" y="16" width="53.666666666666686" height="48"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="추가"/>
                                             <connections>
@@ -45,12 +42,27 @@
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                    <constraints>
+                                        <constraint firstItem="9SS-Ec-7lp" firstAttribute="leading" secondItem="P8L-eg-HbW" secondAttribute="leading" constant="16" id="35K-tc-xPO"/>
+                                        <constraint firstItem="EAF-aJ-vhI" firstAttribute="leading" secondItem="9SS-Ec-7lp" secondAttribute="trailing" constant="8" id="6Ej-9F-fQ9"/>
+                                        <constraint firstItem="9SS-Ec-7lp" firstAttribute="top" secondItem="P8L-eg-HbW" secondAttribute="top" constant="16" id="Qfa-oM-lZG"/>
+                                        <constraint firstAttribute="bottom" secondItem="9SS-Ec-7lp" secondAttribute="bottom" constant="16" id="WYq-qS-Xje"/>
+                                        <constraint firstAttribute="trailing" secondItem="EAF-aJ-vhI" secondAttribute="trailing" constant="16" id="Ybi-cu-FB5"/>
+                                        <constraint firstItem="EAF-aJ-vhI" firstAttribute="top" secondItem="P8L-eg-HbW" secondAttribute="top" constant="16" id="fjX-EQ-22q"/>
+                                        <constraint firstAttribute="bottom" secondItem="EAF-aJ-vhI" secondAttribute="bottom" constant="16" id="yO1-ah-ZSM"/>
+                                    </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="P8L-eg-HbW" secondAttribute="bottom" constant="4" id="Uv3-xi-3T8"/>
+                                <constraint firstItem="P8L-eg-HbW" firstAttribute="top" secondItem="phb-Cg-lhP" secondAttribute="top" id="Yye-17-1Hm"/>
+                                <constraint firstAttribute="trailing" secondItem="P8L-eg-HbW" secondAttribute="trailing" id="mWl-bO-0ig"/>
+                                <constraint firstItem="P8L-eg-HbW" firstAttribute="leading" secondItem="phb-Cg-lhP" secondAttribute="leading" id="mla-mx-ihc"/>
+                            </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingTableViewCell" rowHeight="53" id="gi3-GS-DSm" customClass="ShoppingTableViewCell" customModule="ShoppingList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShoppingTableViewCell" rowHeight="53" id="gi3-GS-DSm" customClass="ShoppingTableViewCell" customModule="ShoppingList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="134" width="393" height="53"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gi3-GS-DSm" id="dhh-ge-eLq">

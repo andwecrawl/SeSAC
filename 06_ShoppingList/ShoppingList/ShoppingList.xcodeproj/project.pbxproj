@@ -19,6 +19,8 @@
 		D1CABE2B2A73BCD900AB5CD4 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABE2A2A73BCD900AB5CD4 /* ShoppingList.swift */; };
 		D1CC22E22AF73C7D00684175 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D1CC22E12AF73C7D00684175 /* RxCocoa */; };
 		D1CC22E62AF7664400684175 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC22E52AF7664400684175 /* ShoppingViewController.swift */; };
+		D1CC22E92AF76A6500684175 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D1CC22E82AF76A6500684175 /* SnapKit */; };
+		D1CC22EB2AF7725C00684175 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC22EA2AF7725C00684175 /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,7 @@
 		D1CABE282A73BCA900AB5CD4 /* Stuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stuff.swift; sourceTree = "<group>"; };
 		D1CABE2A2A73BCD900AB5CD4 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
 		D1CC22E52AF7664400684175 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
+		D1CC22EA2AF7725C00684175 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +46,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1CC22E22AF73C7D00684175 /* RxCocoa in Frameworks */,
+				D1CC22E92AF76A6500684175 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +76,7 @@
 				D1CABE122A73BB3800AB5CD4 /* SceneDelegate.swift */,
 				D1CABE142A73BB3800AB5CD4 /* ViewController.swift */,
 				D1CC22E52AF7664400684175 /* ShoppingViewController.swift */,
+				D1CC22EA2AF7725C00684175 /* HeaderView.swift */,
 				D1CABE2D2A7640F200AB5CD4 /* Storyboard */,
 				D1CABE2C2A7640EC00AB5CD4 /* Data */,
 				D1CABE192A73BB3900AB5CD4 /* Assets.xcassets */,
@@ -118,6 +123,7 @@
 			name = ShoppingList;
 			packageProductDependencies = (
 				D1CC22E12AF73C7D00684175 /* RxCocoa */,
+				D1CC22E82AF76A6500684175 /* SnapKit */,
 			);
 			productName = ShoppingList;
 			productReference = D1CABE0D2A73BB3800AB5CD4 /* ShoppingList.app */;
@@ -149,6 +155,7 @@
 			mainGroup = D1CABE042A73BB3800AB5CD4;
 			packageReferences = (
 				D1CC22E02AF73C7D00684175 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				D1CC22E72AF76A6500684175 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = D1CABE0E2A73BB3800AB5CD4 /* Products */;
 			projectDirPath = "";
@@ -178,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1CABE272A73BC7800AB5CD4 /* ShoppingTableViewCell.swift in Sources */,
+				D1CC22EB2AF7725C00684175 /* HeaderView.swift in Sources */,
 				D1CABE292A73BCA900AB5CD4 /* Stuff.swift in Sources */,
 				D1CABE2B2A73BCD900AB5CD4 /* ShoppingList.swift in Sources */,
 				D1CABE152A73BB3800AB5CD4 /* ViewController.swift in Sources */,
@@ -336,7 +344,6 @@
 				INFOPLIST_FILE = ShoppingList/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -364,7 +371,6 @@
 				INFOPLIST_FILE = ShoppingList/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -412,6 +418,14 @@
 				minimumVersion = 6.6.0;
 			};
 		};
+		D1CC22E72AF76A6500684175 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -419,6 +433,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D1CC22E02AF73C7D00684175 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
+		};
+		D1CC22E82AF76A6500684175 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1CC22E72AF76A6500684175 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D1CABE112A73BB3800AB5CD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABE102A73BB3800AB5CD4 /* AppDelegate.swift */; };
 		D1CABE132A73BB3800AB5CD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABE122A73BB3800AB5CD4 /* SceneDelegate.swift */; };
-		D1CABE152A73BB3800AB5CD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABE142A73BB3800AB5CD4 /* ViewController.swift */; };
+		D1CABE152A73BB3800AB5CD4 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CABE142A73BB3800AB5CD4 /* EditViewController.swift */; };
 		D1CABE182A73BB3800AB5CD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CABE162A73BB3800AB5CD4 /* Main.storyboard */; };
 		D1CABE1A2A73BB3900AB5CD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1CABE192A73BB3900AB5CD4 /* Assets.xcassets */; };
 		D1CABE1D2A73BB3900AB5CD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CABE1B2A73BB3900AB5CD4 /* LaunchScreen.storyboard */; };
@@ -27,7 +27,7 @@
 		D1CABE0D2A73BB3800AB5CD4 /* ShoppingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1CABE102A73BB3800AB5CD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1CABE122A73BB3800AB5CD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D1CABE142A73BB3800AB5CD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D1CABE142A73BB3800AB5CD4 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		D1CABE172A73BB3800AB5CD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1CABE192A73BB3900AB5CD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1CABE1C2A73BB3900AB5CD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 			children = (
 				D1CABE102A73BB3800AB5CD4 /* AppDelegate.swift */,
 				D1CABE122A73BB3800AB5CD4 /* SceneDelegate.swift */,
-				D1CABE142A73BB3800AB5CD4 /* ViewController.swift */,
+				D1CABE142A73BB3800AB5CD4 /* EditViewController.swift */,
 				D1CC22E52AF7664400684175 /* ShoppingViewController.swift */,
 				D1CC22EA2AF7725C00684175 /* HeaderView.swift */,
 				D1CABE2D2A7640F200AB5CD4 /* Storyboard */,
@@ -188,7 +188,7 @@
 				D1CC22EB2AF7725C00684175 /* HeaderView.swift in Sources */,
 				D1CABE292A73BCA900AB5CD4 /* Stuff.swift in Sources */,
 				D1CABE2B2A73BCD900AB5CD4 /* ShoppingList.swift in Sources */,
-				D1CABE152A73BB3800AB5CD4 /* ViewController.swift in Sources */,
+				D1CABE152A73BB3800AB5CD4 /* EditViewController.swift in Sources */,
 				D1CABE252A73BC6C00AB5CD4 /* ShoppingTableViewController.swift in Sources */,
 				D1CABE112A73BB3800AB5CD4 /* AppDelegate.swift in Sources */,
 				D1CC22E62AF7664400684175 /* ShoppingViewController.swift in Sources */,

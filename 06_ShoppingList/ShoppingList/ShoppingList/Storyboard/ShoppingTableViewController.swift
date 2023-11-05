@@ -114,6 +114,7 @@ extension ShoppingTableViewController {
         let row = shopping.list[indexPath.row] // Stuff
         
         cell.stuff = row
+        cell.configurateCell()
         cell.starButton.tag = indexPath.row
         cell.starButton.addTarget(self, action: #selector(starButtonTapped), for: .touchUpInside)
         

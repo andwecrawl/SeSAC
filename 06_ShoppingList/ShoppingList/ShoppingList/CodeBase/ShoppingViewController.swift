@@ -21,9 +21,7 @@ class ShoppingViewController: UIViewController {
         return view
     }()
     
-    var data = Shopping()
-    
-    lazy var list = BehaviorSubject(value: data.list)
+    let viewModel = ShoppingViewModel()
     
     let disposeBag = DisposeBag()
     
@@ -54,20 +52,20 @@ class ShoppingViewController: UIViewController {
     
     func bind() {
         
-        list
+        viewModel.list
             .bind(to: tableView.rx.items(cellIdentifier: ShoppingTableViewCell.identifier, cellType: ShoppingTableViewCell.self)) { row, element, cell in
                 cell.stuff = element
                 cell.configurateCell()
                 cell.checkboxButton.rx.tap
                     .subscribe(with: self, onNext: { owner, void in
-                        owner.data.list[row].checked.toggle()
-                        owner.list.onNext(owner.data.list)
+                        owner.viewModel.data.list[row].checked.toggle()
+                        owner.viewModel.list.onNext(owner.viewModel.data.list)
                     })
                     .disposed(by: cell.disposeBag)
                 cell.starButton.rx.tap
                     .subscribe(with: self, onNext: { owner, void in
-                        owner.data.list[row].liked.toggle()
-                        owner.list.onNext(owner.data.list)
+                        owner.viewModel.data.list[row].liked.toggle()
+                        owner.viewModel.list.onNext(owner.viewModel.data.list)
                     })
                     .disposed(by: cell.disposeBag)
             }
@@ -77,8 +75,8 @@ class ShoppingViewController: UIViewController {
             .bind(with: self) { owner, indexPath in
                 let vc = EditViewController()
                 vc.completionHandler = { text in
-                    owner.data.list[indexPath.row].name = text
-                    owner.list.onNext(owner.data.list)
+                    owner.viewModel.data.list[indexPath.row].name = text
+                    owner.viewModel.list.onNext(owner.viewModel.data.list)
                 }
                 owner.navigationController?.pushViewController(vc, animated: true)
             }
@@ -87,8 +85,8 @@ class ShoppingViewController: UIViewController {
         tableView.rx.itemDeleted
             .subscribe(with: self, onNext: { owner, indexPath in
                 let row = indexPath.row
-                owner.data.list.remove(at: row)
-                owner.list.onNext(owner.data.list)
+                owner.viewModel.data.list.remove(at: row)
+                owner.viewModel.list.onNext(owner.viewModel.data.list)
             })
             .disposed(by: disposeBag)
         
@@ -97,13 +95,13 @@ class ShoppingViewController: UIViewController {
             .subscribe(with: self) { owner, value in
                 if value.isEmpty {
                     owner.sendOneSideAlert(title: "추가할 물건을 적어 주세요!")
-                } else if owner.data.containedList(str: value) {
+                } else if owner.viewModel.data.containedList(str: value) {
                     owner.sendOneSideAlert(title: "이미 리스트에 존재하는 물건입니다.")
                 } else {
                     let newStuff = Stuff(name: value, liked: false, checked: false)
-                    owner.data.list.insert(newStuff, at: 0)
+                    owner.viewModel.data.list.insert(newStuff, at: 0)
                 }
-                owner.list.onNext(owner.data.list)
+                owner.viewModel.list.onNext(owner.viewModel.data.list)
             }
             .disposed(by: disposeBag)
         
@@ -111,8 +109,8 @@ class ShoppingViewController: UIViewController {
             .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .bind(with: self) { owner, value in
-                let result = value.isEmpty ? owner.data.list : owner.data.list.filter{ $0.name.contains(value) }
-                owner.list.onNext(result)
+                let result = value.isEmpty ? owner.viewModel.data.list : owner.viewModel.data.list.filter{ $0.name.contains(value) }
+                owner.viewModel.list.onNext(result)
             }
             .disposed(by: disposeBag)
         

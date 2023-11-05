@@ -21,6 +21,7 @@
 		D1CC22E62AF7664400684175 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC22E52AF7664400684175 /* ShoppingViewController.swift */; };
 		D1CC22E92AF76A6500684175 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D1CC22E82AF76A6500684175 /* SnapKit */; };
 		D1CC22EB2AF7725C00684175 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC22EA2AF7725C00684175 /* HeaderView.swift */; };
+		D1CC22EE2AF7CA2D00684175 /* ShoppingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC22ED2AF7CA2D00684175 /* ShoppingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D1CABE2A2A73BCD900AB5CD4 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
 		D1CC22E52AF7664400684175 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
 		D1CC22EA2AF7725C00684175 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		D1CC22ED2AF7CA2D00684175 /* ShoppingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +76,7 @@
 			children = (
 				D1CABE102A73BB3800AB5CD4 /* AppDelegate.swift */,
 				D1CABE122A73BB3800AB5CD4 /* SceneDelegate.swift */,
-				D1CABE142A73BB3800AB5CD4 /* EditViewController.swift */,
-				D1CC22E52AF7664400684175 /* ShoppingViewController.swift */,
-				D1CC22EA2AF7725C00684175 /* HeaderView.swift */,
+				D1CC22EC2AF7CA1B00684175 /* CodeBase */,
 				D1CABE2D2A7640F200AB5CD4 /* Storyboard */,
 				D1CABE2C2A7640EC00AB5CD4 /* Data */,
 				D1CABE192A73BB3900AB5CD4 /* Assets.xcassets */,
@@ -103,6 +103,17 @@
 				D1CABE262A73BC7800AB5CD4 /* ShoppingTableViewCell.swift */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		D1CC22EC2AF7CA1B00684175 /* CodeBase */ = {
+			isa = PBXGroup;
+			children = (
+				D1CABE142A73BB3800AB5CD4 /* EditViewController.swift */,
+				D1CC22E52AF7664400684175 /* ShoppingViewController.swift */,
+				D1CC22ED2AF7CA2D00684175 /* ShoppingViewModel.swift */,
+				D1CC22EA2AF7725C00684175 /* HeaderView.swift */,
+			);
+			path = CodeBase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +197,7 @@
 			files = (
 				D1CABE272A73BC7800AB5CD4 /* ShoppingTableViewCell.swift in Sources */,
 				D1CC22EB2AF7725C00684175 /* HeaderView.swift in Sources */,
+				D1CC22EE2AF7CA2D00684175 /* ShoppingViewModel.swift in Sources */,
 				D1CABE292A73BCA900AB5CD4 /* Stuff.swift in Sources */,
 				D1CABE2B2A73BCD900AB5CD4 /* ShoppingList.swift in Sources */,
 				D1CABE152A73BB3800AB5CD4 /* EditViewController.swift in Sources */,

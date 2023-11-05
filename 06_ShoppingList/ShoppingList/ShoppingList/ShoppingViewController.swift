@@ -21,12 +21,6 @@ class ShoppingViewController: UIViewController {
         return view
     }()
     
-    var shopping = Shopping() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-    
     var data = Shopping()
     
     lazy var list = BehaviorSubject(value: data.list)
@@ -62,24 +56,16 @@ class ShoppingViewController: UIViewController {
         
         list
             .bind(to: tableView.rx.items(cellIdentifier: ShoppingTableViewCell.identifier, cellType: ShoppingTableViewCell.self)) { row, element, cell in
-//                cell.stuff = element
-//                cell.configurateCell()
-                
-                cell.listLabel.text = element.name
-                
-                let star = element.liked ? "star.fill" : "star"
-                let square = element.checked ? "checkmark.square.fill" : "checkmark.square"
-                
-                cell.checkboxButton.setImage(UIImage(systemName: square), for: .normal)
-                cell.starButton.setImage(UIImage(systemName: star), for: .normal)
+                cell.stuff = element
+                cell.configurateCell()
                 cell.checkboxButton.rx.tap
-                    .bind(with: self, onNext: { owner, void in
+                    .subscribe(with: self, onNext: { owner, void in
                         owner.data.list[row].checked.toggle()
                         owner.list.onNext(owner.data.list)
                     })
                     .disposed(by: cell.disposeBag)
                 cell.starButton.rx.tap
-                    .bind(with: self, onNext: { owner, void in
+                    .subscribe(with: self, onNext: { owner, void in
                         owner.data.list[row].liked.toggle()
                         owner.list.onNext(owner.data.list)
                     })

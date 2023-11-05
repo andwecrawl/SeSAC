@@ -15,6 +15,7 @@ class ShoppingTableViewCell: UITableViewCell {
     
     let checkboxButton = {
         let view = UIButton()
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -25,15 +26,26 @@ class ShoppingTableViewCell: UITableViewCell {
     
     let starButton = {
         let button = UIButton()
+        button.isUserInteractionEnabled = true
         return button
     }()
+    
+    var stuff: Stuff?
+    
+    var disposeBag = DisposeBag()
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        disposeBag = DisposeBag()
+    }
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         [checkboxButton, listLabel, starButton]
-            .forEach({ self.addSubview($0) })
+            .forEach({ contentView.addSubview($0) })
         
         checkboxButton.snp.makeConstraints { make in
             make.verticalEdges.leading.equalTo(self.safeAreaLayoutGuide).inset(8)
@@ -56,14 +68,10 @@ class ShoppingTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    var stuff: Stuff?
-    
-    let disposeBag = DisposeBag()
-    
     func configurateCell() {
         guard let stuff else { return }
         print(stuff)
+        print("hi")
         
         listLabel.text = stuff.name
         

@@ -75,4 +75,9 @@ final class SearchTableViewCell: UITableViewCell {
             $0.width.equalTo(72)
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
 }

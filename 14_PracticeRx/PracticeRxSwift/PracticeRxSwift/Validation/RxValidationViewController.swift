@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import RxSwift
+import RxCocoa
 
 private let minimalUsernameLength = 5
 private let minimalPasswordLength = 5
@@ -39,6 +40,7 @@ class RxValidationViewController: UIViewController {
         setConstraints()
         configureView()
         checkValidations()
+        bind()
     }
     
     func setConstraints() {
@@ -71,11 +73,47 @@ class RxValidationViewController: UIViewController {
         idLabel.text = "Username"
         usernameOutlet.placeholder = "아이디를 입력해 주세용"
         usernameValidOutlet.text = "Label"
+        usernameValidOutlet.text = "Username has to be at least \(minimalUsernameLength) characters"
         passwordLabel.text = "Password"
         passwordOutlet.placeholder = "비밀번호를 입력해 주세용"
         passwordValidOutlet.text = "Label"
+        passwordValidOutlet.text = "Password has to be at least \(minimalPasswordLength) characters"
         
         button.backgroundColor = .green
+    }
+    
+    func bind() {
+        
+        usernameOutlet.rx.text.orEmpty
+            .map({ $0.count >= 5 })
+            .bind(to: usernameValidation)
+            .disposed(by: disposeBag)
+        
+        passwordOutlet.rx.text.orEmpty
+            .map({ $0.count >= 5 })
+            .bind(to: passwordValidation)
+            .disposed(by: disposeBag)
+        
+        Observable.combineLatest(usernameValidation, passwordValidation)
+            .bind(with: self) { owner, validation in
+                
+                owner.usernameValidOutlet.isHidden = validation.0
+                owner.passwordValidOutlet.isHidden = validation.1
+                
+                let isValidID = validation.0 && validation.1
+                let color: UIColor = isValidID ? .blue : .red
+                owner.button.isEnabled = isValidID
+                owner.button.backgroundColor = color
+            }
+            .disposed(by: disposeBag)
+        
+        button.rx.tap
+            .bind(with: self) { owner, _ in
+                owner.showAlert()
+            }
+            .disposed(by: disposeBag)
+        
+        
     }
     
     func checkValidations() {

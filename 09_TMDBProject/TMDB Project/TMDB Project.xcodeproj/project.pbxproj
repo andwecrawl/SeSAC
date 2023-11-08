@@ -66,6 +66,7 @@
 		D1C157862A9F8FF3002DB668 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157852A9F8FF3002DB668 /* DetailHeaderView.swift */; };
 		D1C157882A9F9642002DB668 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157872A9F9642002DB668 /* DetailView.swift */; };
 		D1C1578A2A9F9C4B002DB668 /* FilterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157892A9F9C4B002DB668 /* FilterBuilder.swift */; };
+		D1CC23332AFBAE4300684175 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC23322AFBAE4300684175 /* Search.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,7 @@
 		D1C157852A9F8FF3002DB668 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		D1C157872A9F9642002DB668 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		D1C157892A9F9C4B002DB668 /* FilterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBuilder.swift; sourceTree = "<group>"; };
+		D1CC23322AFBAE4300684175 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,8 +187,8 @@
 		D17029DA2A9747AE00E5CDEB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D1C157692A9DE363002DB668 /* ProfileView */,
 				D1499B842A9CBEA3000717DD /* Base */,
+				D1C157692A9DE363002DB668 /* ProfileView */,
 				D1499B462A9B3645000717DD /* Onboarding */,
 				D1B995BA2A89393C00B7941D /* MainView */,
 				D1B995C92A8939AC00B7941D /* DetailView */,
@@ -312,9 +314,10 @@
 				D1B995AF2A88C78D00B7941D /* TMDBData.swift */,
 				D187C5522A8E2C92005C261A /* Genre.swift */,
 				D187C5572A8E4E59005C261A /* Cast.swift */,
-				D17029E02A9751EF00E5CDEB /* Theater.swift */,
 				D18F24CE2AA3A580003280E5 /* Person.swift */,
 				D1C157702A9E1FA9002DB668 /* ProfileSetting.swift */,
+				D1CC23322AFBAE4300684175 /* Search.swift */,
+				D17029E02A9751EF00E5CDEB /* Theater.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				D17029E12A9751EF00E5CDEB /* Theater.swift in Sources */,
 				D1499B8C2A9CC09E000717DD /* TrendView.swift in Sources */,
 				D1499B8E2A9CC16F000717DD /* TrendTableViewCell.swift in Sources */,
+				D1CC23332AFBAE4300684175 /* Search.swift in Sources */,
 				D1C1576D2A9DE4FC002DB668 /* ProfileView.swift in Sources */,
 				D1499B4A2A9B3A3D000717DD /* ElementViewController.swift in Sources */,
 			);

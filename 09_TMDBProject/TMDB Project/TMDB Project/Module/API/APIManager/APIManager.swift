@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 enum Trends: String {
     case all, movie, tv, person

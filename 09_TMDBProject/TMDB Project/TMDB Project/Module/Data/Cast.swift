@@ -8,13 +8,13 @@
 import Foundation
 
 // MARK: - Cast
-struct Cast: Codable {
+struct Cast: Decodable {
     let id: Int
     let cast, crew: [CastElement]
 }
 
 // MARK: - CastElement
-struct CastElement: Codable {
+struct CastElement: Decodable {
     let adult: Bool
     let gender, id: Int
     let knownForDepartment, name, originalName: String

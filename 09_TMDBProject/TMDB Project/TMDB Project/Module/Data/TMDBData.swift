@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Video
-struct TMDB: Codable {
+struct TMDB: Decodable {
     let page: Int
     let results: [Result]
     let totalPages, totalResults: Int
@@ -21,7 +21,7 @@ struct TMDB: Codable {
 }
 
 // MARK: - Result
-struct Result: Codable {
+struct Result: Decodable {
     let adult: Bool
     let backdropPath: String?
     let id: Int
@@ -61,7 +61,7 @@ struct Result: Codable {
     }
 }
 
-enum MediaType: String, Codable {
+enum MediaType: String, Decodable {
     case movie = "movie"
     case tv = "tv"
 }

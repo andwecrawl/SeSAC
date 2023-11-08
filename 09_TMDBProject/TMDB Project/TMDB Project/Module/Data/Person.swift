@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Person
-struct Person: Codable {
+struct Person: Decodable {
     let page: Int
     let results: [People]
     let totalPages, totalResults: Int
@@ -21,7 +21,7 @@ struct Person: Codable {
 }
 
 // MARK: - Result
-struct People: Codable {
+struct People: Decodable {
     let adult: Bool
     let id: Int
     let name, originalName: String
@@ -42,7 +42,7 @@ struct People: Codable {
 }
 
 // MARK: - KnownFor
-struct KnownFor: Codable {
+struct KnownFor: Decodable {
     let adult: Bool
     let backdropPath: String?
     let id: Int
@@ -83,7 +83,7 @@ struct KnownFor: Codable {
     }
 }
 
-enum KnownForDepartment: String, Codable {
+enum KnownForDepartment: String, Decodable {
     case acting = "Acting"
     case directing = "Directing"
 }

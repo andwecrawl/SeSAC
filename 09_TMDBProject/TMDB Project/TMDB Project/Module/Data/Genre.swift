@@ -8,17 +8,17 @@
 import Foundation
 
 // MARK: - Tv
-struct Tv: Codable {
+struct Tv: Decodable {
     let genres: [Genre]
 }
 
 // MARK: - Movie
-struct Movie: Codable {
+struct Movie: Decodable {
     let genres: [Genre]
 }
 
 // MARK: - Genre
-struct Genre: Codable {
+struct Genre: Decodable {
     let id: Int
     let name: String
 }

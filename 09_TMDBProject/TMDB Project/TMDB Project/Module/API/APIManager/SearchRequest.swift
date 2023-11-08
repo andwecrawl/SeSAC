@@ -13,20 +13,21 @@ extension TMDBManager {
     
     func callSearchRequest(query: String, completionHandler: @escaping ([Result]) -> ()) {
         let url = "https://api.themoviedb.org/3/search/movie?query=\(query)&size=18"
+        
         AF.request(url, method: .get, headers: headers).validate()
-            .responseJSON { response in
+            .responseDecodable(of: Search.self, completionHandler: { response in
                 switch response.result {
-                case .success(let value):
-                    let json = JSON(value)
-                    let id = json["results"][0]["id"].intValue
                     
+                case .success(let value):
+                    guard let result = value.results.first else { return }
+                    let id = result.id
                     self.callRecommendationRequest(movieID: id) { movies in
                         completionHandler(movies)
                     }
                 case .failure(let error):
                     print(error)
                 }
-            }
+            })
         
     }
     

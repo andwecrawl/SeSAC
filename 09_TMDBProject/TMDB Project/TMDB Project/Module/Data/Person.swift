@@ -27,7 +27,7 @@ struct People: Decodable {
     let name, originalName: String
     let popularity: Double
     let gender: Int
-    let knownForDepartment: KnownForDepartment
+    let knownForDepartment: String
     let profilePath: String?
     let knownFor: [KnownFor]
 
@@ -38,6 +38,11 @@ struct People: Decodable {
         case knownForDepartment = "known_for_department"
         case profilePath = "profile_path"
         case knownFor = "known_for"
+    }
+    
+    var descriptions: String {
+        let gender = gender == 0 ? "male" : "female"
+        return "\(knownForDepartment) | \(gender)"
     }
 }
 
@@ -83,8 +88,4 @@ struct KnownFor: Decodable {
     }
 }
 
-enum KnownForDepartment: String, Decodable {
-    case acting = "Acting"
-    case directing = "Directing"
-}
 

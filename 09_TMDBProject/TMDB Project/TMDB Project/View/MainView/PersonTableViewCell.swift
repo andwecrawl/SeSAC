@@ -14,7 +14,7 @@ class PersonTableViewCell: BaseTableViewCell {
     
     let profileImageView = UIImageView.imageBuilder()
     let nameLabel = UILabel.labelBuilder(size: 20, weight: .bold)
-    let knownForLabel = UILabel.labelBuilder(size: 16, weight: .light)
+    let descriptionLabel = UILabel.labelBuilder(size: 16, weight: .light)
     let genderLabel = UILabel.labelBuilder(size: 16, weight: .light)
     let popularityLabel = UILabel.labelBuilder(size: 16, weight: .light)
     let knownLabel = UILabel.labelBuilder(size: 16, weight: .light)
@@ -37,7 +37,7 @@ class PersonTableViewCell: BaseTableViewCell {
         innerView.addSubview(profileImageView)
         innerView.addSubview(stackView)
         stackView.addArrangedSubview(nameLabel)
-        stackView.addArrangedSubview(knownForLabel)
+        stackView.addArrangedSubview(descriptionLabel)
         stackView.addArrangedSubview(genderLabel)
         stackView.addArrangedSubview(popularityLabel)
         stackView.addArrangedSubview(knownLabel)

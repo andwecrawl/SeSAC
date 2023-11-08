@@ -61,6 +61,9 @@ extension RecommendationViewController: UISearchBarDelegate {
         }
         
         TMDBManager.shared.callSearchRequest(query: text) { movies in
+            if movies.isEmpty {
+                self.giveAlert(title: "추천해드릴 영화가 없어요!", message: "")
+            }
             self.movies = movies
         }
     }

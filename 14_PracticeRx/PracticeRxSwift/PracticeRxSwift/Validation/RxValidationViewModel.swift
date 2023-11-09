@@ -12,6 +12,7 @@ import RxCocoa
 class RxValidationViewModel {
     
     struct Input {
+        
         var username: ControlProperty<String?>
         var password: ControlProperty<String?>
         
@@ -22,10 +23,13 @@ class RxValidationViewModel {
         
         var usernameValidation: Observable<Bool>
         var passwordValidation: Observable<Bool>
+        var buttonValidation: PublishSubject<Bool>
         
         let tap: ControlEvent<Void>
         
     }
+    
+    let disposeBag = DisposeBag()
     
     func transform(input: Input) -> Output {
         
@@ -35,9 +39,19 @@ class RxValidationViewModel {
         let passwordValidation = input.password.orEmpty
             .map({ $0.count >= 5 })
         
+        var buttonValidation = PublishSubject<Bool>()
+        
+        Observable.combineLatest(usernameValidation, passwordValidation)
+            .bind(with: self) { owner, isValid in
+                let validation = isValid.0 && isValid.1
+                buttonValidation.onNext(validation)
+            }
+            .disposed(by: disposeBag)
+        
         return Output(
             usernameValidation: usernameValidation,
             passwordValidation: passwordValidation,
+            buttonValidation: buttonValidation,
             tap: input.tap
         )
     }

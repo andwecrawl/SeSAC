@@ -10,8 +10,6 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-private let minimalUsernameLength = 5
-private let minimalPasswordLength = 5
 
 class RxValidationViewController: UIViewController {
     
@@ -32,6 +30,8 @@ class RxValidationViewController: UIViewController {
         return view
     }()
     
+    let viewModel = RxValidationViewModel()
+    
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -39,8 +39,7 @@ class RxValidationViewController: UIViewController {
         
         setConstraints()
         configureView()
-        checkValidations()
-        bind()
+        inputOutput()
     }
     
     func setConstraints() {
@@ -72,15 +71,46 @@ class RxValidationViewController: UIViewController {
         
         idLabel.text = "Username"
         usernameOutlet.placeholder = "아이디를 입력해 주세용"
-        usernameValidOutlet.text = "Label"
         usernameValidOutlet.text = "Username has to be at least \(minimalUsernameLength) characters"
         passwordLabel.text = "Password"
         passwordOutlet.placeholder = "비밀번호를 입력해 주세용"
-        passwordValidOutlet.text = "Label"
         passwordValidOutlet.text = "Password has to be at least \(minimalPasswordLength) characters"
         
         button.backgroundColor = .green
     }
+    
+    
+    
+    func inputOutput() {
+        
+        let input = RxValidationViewModel.Input(
+            username: usernameOutlet.rx.text,
+            password: passwordOutlet.rx.text,
+            tap: button.rx.tap)
+        let output = viewModel.transform(input: input)
+        
+        output.usernameValidation
+            .bind(to: usernameValidOutlet.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        output.passwordValidation
+            .bind(to: passwordValidOutlet.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        output.buttonValidation
+            .bind(to: button.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        output.tap
+            .bind(with: self) { owner, _ in
+                owner.showAlert()
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    
+    var usernameValidation = BehaviorRelay(value: false)
+    let passwordValidation = BehaviorRelay(value: false)
     
     func bind() {
         
@@ -116,17 +146,21 @@ class RxValidationViewController: UIViewController {
         
     }
     
+    
+    private let minimalUsernameLength = 5
+    private let minimalPasswordLength = 5
+    
     func checkValidations() {
         
         usernameValidOutlet.text = "Username has to be at least \(minimalUsernameLength) characters"
         passwordValidOutlet.text = "Password has to be at least \(minimalPasswordLength) characters"
 
         let usernameValid = usernameOutlet.rx.text.orEmpty
-            .map { $0.count >= minimalUsernameLength }
+            .map { $0.count >= self.minimalUsernameLength }
             .share(replay: 1)
         
         let passwordValid = passwordOutlet.rx.text.orEmpty
-            .map { $0.count >= minimalPasswordLength }
+            .map { $0.count >= self.minimalPasswordLength }
             .share(replay: 1)
         
         let everythingValid = Observable.combineLatest(usernameValid, passwordValid) { $0 && $1 }

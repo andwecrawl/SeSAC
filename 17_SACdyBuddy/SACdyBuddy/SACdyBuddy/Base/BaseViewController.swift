@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class BaseViewController: ViewController {
     
@@ -16,6 +17,7 @@ class BaseViewController: ViewController {
         setConstraints()
         configureView()
     }
+    
     
     func configureHierarchy() {
         view.backgroundColor = .white

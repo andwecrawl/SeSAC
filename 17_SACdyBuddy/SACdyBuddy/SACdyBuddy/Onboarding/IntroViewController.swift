@@ -9,11 +9,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-enum VCType {
-    case email
-    case password
-    case nickname
-}
 
 class IntroViewController: BaseViewController {
     
@@ -40,6 +35,8 @@ class IntroViewController: BaseViewController {
         button.configuration = config
         return button
     }()
+    
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,8 +87,11 @@ class IntroViewController: BaseViewController {
         
         nextButton.rx.tap
             .bind { _ in
-                let vc = 
+                let vc = JoinViewController()
+                vc.VCType = .email
+                self.navigationController?.pushViewController(vc, animated: true)
             }
+            .disposed(by: disposeBag)
         
     }
     

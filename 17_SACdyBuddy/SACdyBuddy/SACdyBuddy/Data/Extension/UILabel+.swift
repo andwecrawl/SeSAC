@@ -1,5 +1,5 @@
 //
-//  String+.swift
+//  UILabel+.swift
 //  SACdyBuddy
 //
 //  Created by yeoni on 2023/11/09.

@@ -156,6 +156,7 @@ class JoinViewController: BaseViewController {
                 owner.nextButton.isEnabled = isValid
                 var config = UIButton.Configuration.filled()
                 config.baseBackgroundColor = isValid ? .systemGreen : .gray
+                config.title = "다음으로"
                 owner.nextButton.configuration = config
                 
                 owner.lineView.backgroundColor = isValid ? .systemGreen : .systemRed

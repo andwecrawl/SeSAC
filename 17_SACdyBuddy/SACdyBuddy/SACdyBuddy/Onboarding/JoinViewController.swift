@@ -72,6 +72,8 @@ class JoinViewController: BaseViewController {
         return button
     }()
     
+    let viewModel = JoinViewModel()
+    
     let disposeBag = DisposeBag()
     
     var VCType: VCType?
@@ -139,22 +141,16 @@ class JoinViewController: BaseViewController {
     
     func bind() {
         
-        inputTextField.rx.text.orEmpty
-            .map { str in
-                switch self.VCType {
-                case .email:
-                    return (str.range(of: RegexType.email.rawValue, options: .regularExpression) != nil)
-                case .password:
-                    return (str.range(of: RegexType.password.rawValue, options: .regularExpression) != nil)
-                default:
-                    return false
-                }
-            }
-            .bind(to: isValid)
-            .disposed(by: disposeBag)
+        viewModel.VCType = VCType
         
+        let input = JoinViewModel.Input(
+            userInput: inputTextField.rx.text.orEmpty,
+            tap: nextButton.rx.tap
+        )
         
-        isValid
+        guard let output = viewModel.translate(input: input) else { return }
+        
+        output.isValid
             .bind(with: self) { owner, isValid in
                 
                 owner.nextButton.isEnabled = isValid
@@ -167,7 +163,7 @@ class JoinViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         
-        nextButton.rx.tap
+        output.tap
             .bind(with: self, onNext: { owner, _ in
                 
                 if owner.VCType == .email {

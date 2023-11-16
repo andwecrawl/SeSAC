@@ -72,6 +72,16 @@ class PersonTableViewCell: BaseTableViewCell {
         knownLabel.sizeToFit()
     }
     
+    func configureCell() {
+        guard let people else { return }
+        nameLabel.text = people.name
+        descriptionLabel.text = people.descriptions
+        knownLabel.text = people.knownForArr
+        guard let path = people.profilePath else { return }
+        let profileURL = URL.makeImageURL(imagePath: path)
+        profileImageView.kf.setImage(with: profileURL)
+        
+        
     }
     
 }

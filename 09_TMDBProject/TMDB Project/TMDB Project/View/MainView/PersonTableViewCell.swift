@@ -13,11 +13,9 @@ class PersonTableViewCell: BaseTableViewCell {
     let outerView = UIView()
     
     let profileImageView = UIImageView.imageBuilder()
-    let nameLabel = UILabel.labelBuilder(size: 20, weight: .bold)
-    let descriptionLabel = UILabel.labelBuilder(size: 16, weight: .light)
-    let genderLabel = UILabel.labelBuilder(size: 16, weight: .light)
-    let popularityLabel = UILabel.labelBuilder(size: 16, weight: .light)
-    let knownLabel = UILabel.labelBuilder(size: 16, weight: .light)
+    let nameLabel = UILabel.labelBuilder(size: 19, weight: .bold)
+    let descriptionLabel = UILabel.labelBuilder(size: 16, weight: .medium)
+    let knownLabel = UILabel.labelBuilder(size: 14, weight: .regular)
     
     let stackView = {
         let view = UIStackView()
@@ -28,51 +26,52 @@ class PersonTableViewCell: BaseTableViewCell {
         return view
     }()
     
+    var people: People?
+    
     override func configureView() {
         super.configureView()
         
-        addSubview(outerView)
+        contentView.addSubview(outerView)
         outerView.addSubview(innerView)
         
         innerView.addSubview(profileImageView)
         innerView.addSubview(stackView)
-        stackView.addArrangedSubview(nameLabel)
-        stackView.addArrangedSubview(descriptionLabel)
-        stackView.addArrangedSubview(genderLabel)
-        stackView.addArrangedSubview(popularityLabel)
-        stackView.addArrangedSubview(knownLabel)
+        [nameLabel, descriptionLabel, knownLabel]
+            .forEach { stackView.addArrangedSubview($0) }
         
-        makeImageView(outerView: outerView, innerView: innerView)
+        makeImageView(outerView: contentView, innerView: outerView)
+        contentView.layer.shadowOpacity = 0.15
     }
     
     override func setConstraints() {
-        outerView.backgroundColor = .lightGray
+        outerView.backgroundColor = .white
         outerView.snp.makeConstraints { make in
             make.edges.equalTo(self.safeAreaLayoutGuide).inset(10)
         }
         
-        innerView.backgroundColor = .red
         innerView.snp.makeConstraints { make in
-            make.edges.equalTo(outerView).inset(12)
+            make.edges.equalTo(contentView).inset(12)
         }
         
-//        profileImageView.image = UIImage(named: "testImage")
-        profileImageView.backgroundColor = .black
+        profileImageView.image = UIImage(named: "testImage")
+        profileImageView.contentMode = .scaleToFill
         profileImageView.snp.makeConstraints { make in
-            make.verticalEdges.leading.equalToSuperview()
-//            make.trailing.equalTo(stackView.snp.leading)
-            make.width.equalTo(120)
-            make.height.equalTo(profileImageView.snp.width).multipliedBy(1.3)
+            make.verticalEdges.leading.equalToSuperview().inset(12)
+            make.width.equalTo(profileImageView.snp.height).multipliedBy(0.7)
         }
         
-        stackView.backgroundColor = .yellow
         stackView.layer.opacity = 0.7
+        stackView.distribution = .fillProportionally
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(profileImageView)
-            make.bottom.lessThanOrEqualToSuperview()
-            make.leading.equalTo(profileImageView.snp.trailing).offset(8)
-            make.trailing.equalToSuperview()
+            make.centerY.equalTo(profileImageView)
+            make.leading.equalTo(profileImageView.snp.trailing).offset(12)
+            make.trailing.equalToSuperview().inset(12)
         }
+        
+        knownLabel.numberOfLines = 0
+        knownLabel.sizeToFit()
+    }
+    
     }
     
 }

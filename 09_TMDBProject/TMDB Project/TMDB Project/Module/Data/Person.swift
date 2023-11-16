@@ -44,6 +44,23 @@ struct People: Decodable {
         let gender = gender == 0 ? "male" : "female"
         return "\(knownForDepartment) | \(gender)"
     }
+    
+    var knownForArr: String {
+        let arr = knownFor.map { $0.title ?? $0.originalTitle ?? $0.originalName ?? "이전 작품이 없어요!" }
+        var result = ""
+        for index in arr.indices {
+            result.append(arr[index])
+            print(result)
+            if index >= 2 {
+                return result
+            } else {
+                result.append(" | ")
+            }
+            print(result)
+        }
+        print(result)
+        return result
+    }
 }
 
 // MARK: - KnownFor

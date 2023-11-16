@@ -141,6 +141,11 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 클릭했을 때 코드
         // 이후 세부 화면 구현
+        let segmentIndex = mainView.segmentedControl.selectedSegmentIndex
+        if segmentIndex == 3 {
+            return
+        }
+        
         guard let vc = storyboard?.instantiateViewController(withIdentifier: DetailTableViewController.identifier) as? DetailTableViewController else { return }
         
         vc.media = trendsList.results[indexPath.row]

@@ -139,6 +139,9 @@ class JoinViewController: BaseViewController {
         
         informationLabel.text = VCType?.rawValue
         descriptionLabel.text = VCType?.requirement
+        if VCType == .phoneNumber {
+            inputTextField.isSecureTextEntry = true
+        }
         lineView.backgroundColor = .gray
     }
     
@@ -192,6 +195,7 @@ class JoinViewController: BaseViewController {
                     let vc = HomeViewController()
                     let nav = UINavigationController(rootViewController: vc)
                     
+                    UserDefaultsHelper.shared.haveBeenBefore = true
                     SceneDelegate?.window?.rootViewController = nav
                     SceneDelegate?.window?.makeKeyAndVisible()
                     

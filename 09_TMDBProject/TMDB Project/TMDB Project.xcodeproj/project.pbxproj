@@ -17,6 +17,7 @@
 		D1499B8E2A9CC16F000717DD /* TrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B8D2A9CC16F000717DD /* TrendTableViewCell.swift */; };
 		D1499B912A9CC33D000717DD /* LabelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B902A9CC33D000717DD /* LabelBuilder.swift */; };
 		D1499B932A9CC507000717DD /* ImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B922A9CC507000717DD /* ImageBuilder.swift */; };
+		D1674CDA2B063A8C000697C2 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D1674CD92B063A8C000697C2 /* Tabman */; };
 		D17029DC2A974A9200E5CDEB /* TheaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029DB2A974A9200E5CDEB /* TheaterViewController.swift */; };
 		D17029DF2A974B0600E5CDEB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D17029DE2A974B0600E5CDEB /* SnapKit */; };
 		D17029E12A9751EF00E5CDEB /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029E02A9751EF00E5CDEB /* Theater.swift */; };
@@ -135,6 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1B995B92A8902B900B7941D /* Kingfisher in Frameworks */,
+				D1674CDA2B063A8C000697C2 /* Tabman in Frameworks */,
 				D17029DF2A974B0600E5CDEB /* SnapKit in Frameworks */,
 				D1B995A92A88B1C700B7941D /* Alamofire in Frameworks */,
 			);
@@ -387,6 +389,7 @@
 				D1B995A82A88B1C700B7941D /* Alamofire */,
 				D1B995B82A8902B900B7941D /* Kingfisher */,
 				D17029DE2A974B0600E5CDEB /* SnapKit */,
+				D1674CD92B063A8C000697C2 /* Tabman */,
 			);
 			productName = "TMDB Project";
 			productReference = D1B995662A86432200B7941D /* TMDB Project.app */;
@@ -420,6 +423,7 @@
 				D1B995A72A88B1C700B7941D /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D1B995B72A8902B900B7941D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				D17029DD2A974B0600E5CDEB /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D1674CD82B063A8C000697C2 /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = D1B995672A86432200B7941D /* Products */;
 			projectDirPath = "";
@@ -722,6 +726,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D1674CD82B063A8C000697C2 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.2;
+			};
+		};
 		D17029DD2A974B0600E5CDEB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -749,6 +761,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D1674CD92B063A8C000697C2 /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1674CD82B063A8C000697C2 /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
+		};
 		D17029DE2A974B0600E5CDEB /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D17029DD2A974B0600E5CDEB /* XCRemoteSwiftPackageReference "SnapKit" */;

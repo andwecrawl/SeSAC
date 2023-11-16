@@ -104,13 +104,10 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PersonTableViewCell.identifier) as? PersonTableViewCell else { return UITableViewCell()}
             let row = indexPath.row
             let person = personList.results[row]
+            cell.people = person
             
-            // 추후 이미지 추가와 코드 정리 필요!!
-            cell.nameLabel.text = person.name
-            cell.descriptionLabel.text = person.descriptions
-            cell.genderLabel.text = person.gender == 0 ? "male" : "female"
-            cell.popularityLabel.text = "\(person.popularity)"
-            cell.knownLabel.text = "아무튼유명한거"
+            cell.configureCell()
+            
             return cell
             
         } else {
@@ -135,7 +132,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         
         let segmentIndex = mainView.segmentedControl.selectedSegmentIndex
         if segmentIndex == 3 {
-            return 200
+            return 150
         } else {
             return 400
         }

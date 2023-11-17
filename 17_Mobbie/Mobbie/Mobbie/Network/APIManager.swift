@@ -35,15 +35,31 @@ class APIManager {
                 print("error", error)
             }
         }
-        
-        
     }
     
-    func login() {
-        
+    func login(email: String, password: String) {
+        provider.request(.Login(email: email, password: password)) { result in
+            switch result {
+            case .success(let value):
+                print("success", value.statusCode)
+                print(value.data)
+                
+            case .failure(let error):
+                print("error", error)
+            }
+        }
     }
     
-    func checkEmailValidation() {
-        
+    func checkEmailValidation(email: String) {
+        provider.request(.emailValidation(email: email)) { result in
+            switch result {
+            case .success(let value):
+                print("success", value.statusCode)
+                print(value.data)
+                
+            case .failure(let error):
+                print("error", error)
+            }
+        }
     }
 }

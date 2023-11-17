@@ -192,7 +192,7 @@ class JoinViewController: BaseViewController {
                     let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                     let SceneDelegate = windowScene?.delegate as? SceneDelegate
                     
-                    let vc = HomeViewController()
+                    let vc = FeedViewController()
                     let nav = UINavigationController(rootViewController: vc)
                     
                     UserDefaultsHelper.shared.haveBeenBefore = true

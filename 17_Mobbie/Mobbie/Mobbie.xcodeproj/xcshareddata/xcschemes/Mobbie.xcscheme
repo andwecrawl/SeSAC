@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D1CC23482AFCEB1000684175"
-               BuildableName = "BMob.app"
-               BlueprintName = "BMob"
-               ReferencedContainer = "container:BMob.xcodeproj">
+               BuildableName = "Mobbie.app"
+               BlueprintName = "Mobbie"
+               ReferencedContainer = "container:Mobbie.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D1CC23482AFCEB1000684175"
-            BuildableName = "BMob.app"
-            BlueprintName = "BMob"
-            ReferencedContainer = "container:BMob.xcodeproj">
+            BuildableName = "Mobbie.app"
+            BlueprintName = "Mobbie"
+            ReferencedContainer = "container:Mobbie.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D1CC23482AFCEB1000684175"
-            BuildableName = "BMob.app"
-            BlueprintName = "BMob"
-            ReferencedContainer = "container:BMob.xcodeproj">
+            BuildableName = "Mobbie.app"
+            BlueprintName = "Mobbie"
+            ReferencedContainer = "container:Mobbie.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

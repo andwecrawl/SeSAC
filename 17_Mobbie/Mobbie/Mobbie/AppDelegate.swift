@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  SACdyBuddy
+//  Mobbie
 //
 //  Created by yeoni on 2023/11/09.
 //

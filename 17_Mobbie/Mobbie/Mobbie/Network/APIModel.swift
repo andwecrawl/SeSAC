@@ -1,5 +1,5 @@
 //
-//  LSLPModel.swift
+//  APIModel.swift
 //  BMob
 //
 //  Created by yeoni on 2023/11/16.

@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  SACdyBuddy
+//  Mobbie
 //
 //  Created by yeoni on 2023/11/09.
 //
@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let vc = UserDefaultsHelper.shared.haveBeenBefore ? IntroViewController() : LoginViewController()
+        let vc = UserDefaultsHelper.shared.haveBeenBefore ? LoginViewController() : IntroViewController()
         window?.rootViewController = UINavigationController(rootViewController: vc)
         window?.makeKeyAndVisible()
     }

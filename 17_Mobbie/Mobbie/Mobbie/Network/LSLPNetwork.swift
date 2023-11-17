@@ -46,7 +46,7 @@ extension LSLPNetwork: TargetType {
             
         case .emailValidation(email: let email):
             let data = EmailValidation(email: email)
-            return .requestJSONEncodable(email)
+            return .requestJSONEncodable(data)
         }
     }
     

@@ -1,5 +1,5 @@
 //
-//  APIModel.swift
+//  EncodableModel.swift
 //  BMob
 //
 //  Created by yeoni on 2023/11/16.

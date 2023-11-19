@@ -24,8 +24,4 @@ class TabViewController: BaseViewController {
         }
     }
     
-    override func configureView() {
-    }
-    
-    
 }

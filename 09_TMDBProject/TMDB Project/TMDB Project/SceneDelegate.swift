@@ -23,9 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // 처음이 아닐 때
             let sb = UIStoryboard(name: "Main", bundle: nil)
             
-            guard let tabBarController = sb.instantiateViewController(withIdentifier: "mainTabBarController") as? UITabBarController else {
-                fatalError("탭바 컨트롤러를 가져올 수 없습니다.")
-            }
+            let tabbar = UITabBarController()
             
             let firstNav = UINavigationController(rootViewController: TrendViewController())
             firstNav.tabBarItem = UITabBarItem(title: "Today's Trend", image: UIImage(systemName: "sparkles.tv.fill"), selectedImage: UIImage(systemName: "sparkles.tv.fill"))
@@ -41,9 +39,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let fourthNav = UINavigationController(rootViewController: fourthVC)
             fourthNav.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle.fill"), selectedImage: UIImage(systemName: "person.crop.circle.fill"))
             
-            tabBarController.viewControllers = [firstNav, secondNav, thirdNav, fourthNav]
+            tabbar.viewControllers = [firstNav, secondNav, thirdNav, fourthNav]
             
-            window?.rootViewController = tabBarController
+            window?.rootViewController = tabbar
             window?.makeKeyAndVisible()
         } else {
             let vc = OnboardingViewController()

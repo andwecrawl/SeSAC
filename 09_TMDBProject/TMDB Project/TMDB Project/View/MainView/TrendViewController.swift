@@ -7,28 +7,20 @@
 
 import UIKit
 
-class TrendViewController: BaseViewController {
+import Tabman
+import Pageboy
+
+class TrendViewController: TabmanViewController {
     
-    let mainView = TrendView()
+    let bar = setCustomButtonBar()
+    let viewControllers = [TabViewController(), TabViewController(), TabViewController(), TabViewController()]
+        
+    var trendsList: TMDB = TMDB(page: 0, results: [], totalPages: 0, totalResults: 0)
     
-    override func loadView() {
-        self.view = mainView
-    }
-    
-    var trendsList: TMDB = TMDB(page: 0, results: [], totalPages: 0, totalResults: 0) {
-        didSet {
-            mainView.tableView.reloadData()
-        }
-    }
-    var personList: Person = Person(page: 0, results: [], totalPages: 0, totalResults: 0) {
-        didSet {
-            DispatchQueue.main.async {
-                self.mainView.tableView.reloadData()
-            }
-        }
-    }
+    var personList: Person = Person(page: 0, results: [], totalPages: 0, totalResults: 0)
     
     var genreList: [String] = []
+    var currentPage: Int = 0
     var page: Int = 1
     var isEnd: Bool = false
     
@@ -37,6 +29,8 @@ class TrendViewController: BaseViewController {
         super.viewDidLoad()
         
         setNavigationBar()
+        setConstraints()
+        configureView()
     }
     
     
@@ -44,44 +38,67 @@ class TrendViewController: BaseViewController {
         title = "Today's Trend"
     }
     
+    func setConstraints() {
+        self.dataSource = self
+        self.isScrollEnabled = false
+        addBar(bar, dataSource: self, at: .top)
+    }
     
-    override func configureView() {
-        mainView.tableView.delegate = self
-        mainView.tableView.dataSource = self
+    static func setCustomButtonBar() -> TMBar.ButtonBar {
+        let bar = TMBar.ButtonBar()
         
-        TMDBRequest(segment: .all)
-        mainView.segmentedControl.selectedSegmentIndex = 0
-        mainView.segmentedControl.addTarget(self, action: #selector(segmentValueChanged), for: UIControl.Event.valueChanged)
-    }
-    
-    @objc func segmentValueChanged() {
-        let index = mainView.segmentedControl.selectedSegmentIndex
-        switch index {
-        case 0:
-            TMDBRequest(segment: .all)
-        case 1:
-            TMDBRequest(segment: .movie)
-        case 2:
-            TMDBRequest(segment: .tv)
-        case 3:
-            TMDBRequest(segment: .person)
-        default:
-            print("anybodyThere")
+        bar.layout.transitionStyle = .snap
+        bar.layout.contentMode = .fit
+        bar.layout.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        
+        bar.backgroundView.style = .blur(style: .light)
+        bar.buttons.customize { (button) in
+            button.tintColor = .systemGray4
+            button.selectedTintColor = .black
+            button.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+            button.selectedFont = UIFont.systemFont(ofSize: 15, weight: .semibold)
         }
-        mainView.tableView.reloadData()
+        bar.indicator.weight = .custom(value: 2)
+        bar.indicator.tintColor = .black
+        
+        return bar
     }
     
-    func TMDBRequest(segment: Trends) {
-        if segment == .person {
-            TMDBManager.shared.callPersonRequest { person in
+    func configureView() {
+        view.backgroundColor = .white
+        viewControllers.forEach {
+            $0.tableView.delegate = self
+            $0.tableView.dataSource = self
+        }
+        
+        TMDBRequest(index: currentPage) {
+            print("reload")
+            self.viewControllers[0].tableView.reloadData()
+        }
+    }
+    
+    
+    func TMDBRequest(index: Int, completion: @escaping () -> ()) {
+        var segment: Trends = .all
+        segment.setIndex(index)
+        
+        if segment == .person && personList.results.isEmpty {
+            TMDBManager.shared.callPersonRequest { [weak self] person in
+                print("person Request")
+                guard let self else { return }
                 guard let person else { return }
+                
                 self.personList = person
+                completion()
             }
         } else {
-            TMDBManager.shared.callRequestCodable(segment: segment) { data, genre in
+            TMDBManager.shared.callRequestCodable(segment: segment) { [weak self] data, genre in
+                print("another Request")
+                guard let self else { return }
+                
                 self.trendsList = data
                 self.genreList = genre
-                self.mainView.tableView.reloadData()
+                completion()
             }
         }
     }
@@ -90,7 +107,7 @@ class TrendViewController: BaseViewController {
 
 extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if mainView.segmentedControl.selectedSegmentIndex == 3 {
+        if currentPage == 3 {
             return personList.results.count
         } else {
             return trendsList.results.count
@@ -98,9 +115,8 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let segmentIndex = mainView.segmentedControl.selectedSegmentIndex
         
-        if segmentIndex == 3 {
+        if currentPage == 3 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PersonTableViewCell.identifier) as? PersonTableViewCell else { return UITableViewCell()}
             let row = indexPath.row
             let person = personList.results[row]
@@ -130,8 +146,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let segmentIndex = mainView.segmentedControl.selectedSegmentIndex
-        if segmentIndex == 3 {
+        if currentPage == 3 {
             return 150
         } else {
             return 400
@@ -139,19 +154,57 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 클릭했을 때 코드
-        // 이후 세부 화면 구현
-        let segmentIndex = mainView.segmentedControl.selectedSegmentIndex
-        if segmentIndex == 3 {
+        
+        if currentPage == 3 {
             return
         }
         
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: DetailTableViewController.identifier) as? DetailTableViewController else { return }
+        let vc = DetailTableViewController()
         
         vc.media = trendsList.results[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
-        tableView.reloadRows(at: [indexPath], with: .none) // 내부로 들어가고 클릭 안 한 척 ^_^
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
     
 }
 
+
+
+
+extension TrendViewController: PageboyViewControllerDataSource, TMBarDataSource {
+    
+    func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+        return viewControllers.count
+    }
+
+    func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
+        if currentPage != index {
+            currentPage = index
+            TMDBRequest(index: currentPage) {
+                print("changed?")
+                self.viewControllers[index].tableView.reloadData()
+            }
+        }
+        return viewControllers[index]
+    }
+
+    func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+        return .at(index: 0)
+    }
+
+    func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
+        switch index {
+        case 0:
+            return TMBarItem(title: "All")
+        case 1:
+            return TMBarItem(title: "Movie")
+        case 2:
+            return TMBarItem(title: "TV")
+        case 3:
+            return TMBarItem(title: "Actor")
+        default:
+            let title = "Page \(index)"
+            return TMBarItem(title: title)
+        }
+    }
+}

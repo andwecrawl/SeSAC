@@ -19,6 +19,8 @@
 		D1499B932A9CC507000717DD /* ImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B922A9CC507000717DD /* ImageBuilder.swift */; };
 		D1674CDA2B063A8C000697C2 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D1674CD92B063A8C000697C2 /* Tabman */; };
 		D1674D032B0A0BE9000697C2 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1674D022B0A0BE9000697C2 /* TabViewController.swift */; };
+		D1674D282B0A344F000697C2 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1674D272B0A344F000697C2 /* APIError.swift */; };
+		D1674D2A2B0A3988000697C2 /* Trends.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1674D292B0A3988000697C2 /* Trends.swift */; };
 		D17029DC2A974A9200E5CDEB /* TheaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029DB2A974A9200E5CDEB /* TheaterViewController.swift */; };
 		D17029DF2A974B0600E5CDEB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D17029DE2A974B0600E5CDEB /* SnapKit */; };
 		D17029E12A9751EF00E5CDEB /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029E02A9751EF00E5CDEB /* Theater.swift */; };
@@ -82,6 +84,8 @@
 		D1499B902A9CC33D000717DD /* LabelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelBuilder.swift; sourceTree = "<group>"; };
 		D1499B922A9CC507000717DD /* ImageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBuilder.swift; sourceTree = "<group>"; };
 		D1674D022B0A0BE9000697C2 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		D1674D272B0A344F000697C2 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		D1674D292B0A3988000697C2 /* Trends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trends.swift; sourceTree = "<group>"; };
 		D17029DB2A974A9200E5CDEB /* TheaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewController.swift; sourceTree = "<group>"; };
 		D17029E02A9751EF00E5CDEB /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
 		D17029E22A97810800E5CDEB /* Button+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+.swift"; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 			children = (
 				D18F24D42AA3B60E003280E5 /* APIManager */,
 				D1B995A12A88AC7100B7941D /* APIKey.swift */,
+				D1674D272B0A344F000697C2 /* APIError.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				D1C157702A9E1FA9002DB668 /* ProfileSetting.swift */,
 				D1CC23322AFBAE4300684175 /* Search.swift */,
 				D17029E02A9751EF00E5CDEB /* Theater.swift */,
+				D1674D292B0A3988000697C2 /* Trends.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -463,6 +469,7 @@
 				D1B9956E2A86432200B7941D /* TrendViewController.swift in Sources */,
 				D1C157732A9E28DA002DB668 /* EditingViewController.swift in Sources */,
 				D1499B882A9CBEEF000717DD /* BaseView.swift in Sources */,
+				D1674D2A2B0A3988000697C2 /* Trends.swift in Sources */,
 				D180A2232A8A3B230091345F /* CastingTableViewCell.swift in Sources */,
 				D187C56A2A90E53D005C261A /* ViewController+.swift in Sources */,
 				D1499B8A2A9CBF5E000717DD /* BaseTableViewCell.swift in Sources */,
@@ -508,6 +515,7 @@
 				D1499B8E2A9CC16F000717DD /* TrendTableViewCell.swift in Sources */,
 				D1CC23332AFBAE4300684175 /* Search.swift in Sources */,
 				D1C1576D2A9DE4FC002DB668 /* ProfileView.swift in Sources */,
+				D1674D282B0A344F000697C2 /* APIError.swift in Sources */,
 				D1499B4A2A9B3A3D000717DD /* ElementViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

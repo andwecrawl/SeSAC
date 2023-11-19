@@ -72,7 +72,6 @@ class TrendViewController: TabmanViewController {
         }
         
         TMDBRequest(index: currentPage) {
-            print("reload")
             self.viewControllers[0].tableView.reloadData()
         }
     }
@@ -84,7 +83,6 @@ class TrendViewController: TabmanViewController {
         
         if segment == .person && personList.results.isEmpty {
             TMDBManager.shared.callPersonRequest { [weak self] person in
-                print("person Request")
                 guard let self else { return }
                 guard let person else { return }
                 
@@ -93,7 +91,6 @@ class TrendViewController: TabmanViewController {
             }
         } else {
             TMDBManager.shared.callRequestCodable(segment: segment) { [weak self] data, genre in
-                print("another Request")
                 guard let self else { return }
                 
                 self.trendsList = data
@@ -181,7 +178,6 @@ extension TrendViewController: PageboyViewControllerDataSource, TMBarDataSource 
         if currentPage != index {
             currentPage = index
             TMDBRequest(index: currentPage) {
-                print("changed?")
                 self.viewControllers[index].tableView.reloadData()
             }
         }

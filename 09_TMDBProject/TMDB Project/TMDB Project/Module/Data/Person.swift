@@ -50,15 +50,12 @@ struct People: Decodable {
         var result = ""
         for index in arr.indices {
             result.append(arr[index])
-            print(result)
             if index >= 2 {
                 return result
             } else {
                 result.append(" | ")
             }
-            print(result)
         }
-        print(result)
         return result
     }
 }

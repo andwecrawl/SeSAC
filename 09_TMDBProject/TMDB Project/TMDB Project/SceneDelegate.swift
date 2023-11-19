@@ -27,9 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 fatalError("탭바 컨트롤러를 가져올 수 없습니다.")
             }
             
-            
-            guard let firstVC = sb.instantiateViewController(withIdentifier: TrendViewController.identifier) as? TrendViewController else { return }
-            let firstNav = UINavigationController(rootViewController: firstVC)
+            let firstNav = UINavigationController(rootViewController: TrendViewController())
             firstNav.tabBarItem = UITabBarItem(title: "Today's Trend", image: UIImage(systemName: "sparkles.tv.fill"), selectedImage: UIImage(systemName: "sparkles.tv.fill"))
             
             guard let secondVC = sb.instantiateViewController(withIdentifier: RecommendationViewController.identifier) as? RecommendationViewController else { return }

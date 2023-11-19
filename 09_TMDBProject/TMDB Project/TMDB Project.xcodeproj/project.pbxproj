@@ -18,6 +18,7 @@
 		D1499B912A9CC33D000717DD /* LabelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B902A9CC33D000717DD /* LabelBuilder.swift */; };
 		D1499B932A9CC507000717DD /* ImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B922A9CC507000717DD /* ImageBuilder.swift */; };
 		D1674CDA2B063A8C000697C2 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = D1674CD92B063A8C000697C2 /* Tabman */; };
+		D1674D032B0A0BE9000697C2 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1674D022B0A0BE9000697C2 /* TabViewController.swift */; };
 		D17029DC2A974A9200E5CDEB /* TheaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029DB2A974A9200E5CDEB /* TheaterViewController.swift */; };
 		D17029DF2A974B0600E5CDEB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D17029DE2A974B0600E5CDEB /* SnapKit */; };
 		D17029E12A9751EF00E5CDEB /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17029E02A9751EF00E5CDEB /* Theater.swift */; };
@@ -80,6 +81,7 @@
 		D1499B8D2A9CC16F000717DD /* TrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewCell.swift; sourceTree = "<group>"; };
 		D1499B902A9CC33D000717DD /* LabelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelBuilder.swift; sourceTree = "<group>"; };
 		D1499B922A9CC507000717DD /* ImageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBuilder.swift; sourceTree = "<group>"; };
+		D1674D022B0A0BE9000697C2 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		D17029DB2A974A9200E5CDEB /* TheaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewController.swift; sourceTree = "<group>"; };
 		D17029E02A9751EF00E5CDEB /* Theater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
 		D17029E22A97810800E5CDEB /* Button+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+.swift"; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				D1B9956D2A86432200B7941D /* TrendViewController.swift */,
+				D1674D022B0A0BE9000697C2 /* TabViewController.swift */,
 				D1499B8B2A9CC09E000717DD /* TrendView.swift */,
 				D1499B8D2A9CC16F000717DD /* TrendTableViewCell.swift */,
 				D18F24D02AA3A698003280E5 /* PersonTableViewCell.swift */,
@@ -497,6 +500,7 @@
 				D1499B452A9B34AE000717DD /* UserDefaultsHelper.swift in Sources */,
 				D1499B862A9CBEB1000717DD /* BaseViewController.swift in Sources */,
 				D1499B932A9CC507000717DD /* ImageBuilder.swift in Sources */,
+				D1674D032B0A0BE9000697C2 /* TabViewController.swift in Sources */,
 				D1B995A42A88ACEB00B7941D /* APIManager.swift in Sources */,
 				D187C5532A8E2C92005C261A /* Genre.swift in Sources */,
 				D17029E12A9751EF00E5CDEB /* Theater.swift in Sources */,

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
+	<string>Dark</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>위치를 가져오려고 해요! 위치 권한을 허락해 주세요!</string>
 	<key>UIApplicationSceneManifest</key>

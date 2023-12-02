@@ -40,7 +40,7 @@ class TrendTableViewCell: BaseTableViewCell {
     let arrowImageView = UIImageView.imageBuilder()
     
     var media: Result?
-    var genre: String?
+    var genre: [String]?
     
     
     override func configureView() {
@@ -72,7 +72,7 @@ class TrendTableViewCell: BaseTableViewCell {
             make.horizontalEdges.equalTo(dateLabel)
         }
         
-        innerView.backgroundColor = .white
+//        innerView.backgroundColor = .white
         makeImageView(outerView: outerView, innerView: innerView)
         outerView.snp.makeConstraints { make in
             make.top.equalTo(genreLabel.snp.bottom).offset(12)
@@ -145,6 +145,13 @@ class TrendTableViewCell: BaseTableViewCell {
         genreLabel.font = .boldSystemFont(ofSize: 20)
         makeImageView(outerView: outerView, innerView: innerView)
         
+        [
+            titleLabel,
+            originalTitleLabel,
+            overviewLabel
+        ]
+            .forEach { $0.textColor = .black }
+        
     }
     
     override func prepareForReuse() {
@@ -166,7 +173,7 @@ class TrendTableViewCell: BaseTableViewCell {
         }
         
         guard let genre else { return }
-        genreLabel.text = "#" + genre
+        genreLabel.text = "#" + (genre.first ?? "Romance")
         
         overviewLabel.text = media.overview
         

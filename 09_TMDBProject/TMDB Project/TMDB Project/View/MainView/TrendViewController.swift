@@ -19,7 +19,7 @@ class TrendViewController: TabmanViewController {
     
     var personList: Person = Person(page: 0, results: [], totalPages: 0, totalResults: 0)
     
-    var genreList: [String] = []
+    var genreList: [[String]] = []
     var currentPage: Int = 0
     var page: Int = 1
     var isEnd: Bool = false
@@ -55,15 +55,17 @@ class TrendViewController: TabmanViewController {
         bar.layout.contentMode = .fit
         bar.layout.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         
-        bar.backgroundView.style = .blur(style: .light)
+        bar.backgroundView.style = .clear
+        bar.backgroundColor = .black
         bar.buttons.customize { (button) in
-            button.tintColor = .systemGray4
-            button.selectedTintColor = .black
+            button.backgroundColor = .black
+            button.tintColor = .systemGray2
+            button.selectedTintColor = .white
             button.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
             button.selectedFont = UIFont.systemFont(ofSize: 15, weight: .semibold)
         }
         bar.indicator.weight = .custom(value: 2)
-        bar.indicator.tintColor = .black
+        bar.indicator.tintColor = .white
         
         return bar
     }
@@ -111,6 +113,7 @@ class TrendViewController: TabmanViewController {
 
 
 extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if currentPage == 3 {
             return personList.results.count
@@ -121,9 +124,10 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let row = indexPath.row
+        
         if currentPage == 3 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PersonTableViewCell.identifier) as? PersonTableViewCell else { return UITableViewCell()}
-            let row = indexPath.row
             let person = personList.results[row]
             cell.people = person
             
@@ -131,11 +135,27 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
             
             return cell
             
+        } else if currentPage == 0 && indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: FirstTrendsTableViewCell.identifier) as? FirstTrendsTableViewCell else { return UITableViewCell()}
+            
+            cell.configureView()
+            cell.media = trendsList.results[row]
+            cell.configureCell()
+            
+            return cell
+        } else if currentPage == 1 || currentPage == 2 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: newTrendCell.identifier, for: indexPath) as? newTrendCell else { return UITableViewCell() }
+            
+            cell.RankLabel.text = "\(row + 1)"
+            cell.media = trendsList.results[row]
+            cell.genre = genreList[row]
+            cell.configurateCell()
+            
+            return cell
         } else {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier) as? TrendTableViewCell else { return UITableViewCell()}
             
-            let row = indexPath.row
             cell.media = trendsList.results[row]
             if page == 1 {
                 cell.genre = genreList[row]
@@ -153,6 +173,10 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         
         if currentPage == 3 {
             return 150
+        } else if currentPage == 0 && indexPath.row == 0 {
+            return 600
+        } else if currentPage == 1 || currentPage == 2 {
+            return 320
         } else {
             return 400
         }

@@ -91,7 +91,9 @@ class TrendViewController: TabmanViewController {
                 guard let person else { return }
                 
                 self.personList = person
-                completion()
+                DispatchQueue.main.async {
+                    completion()
+                }
             }
         } else {
             TMDBManager.shared.callRequestCodable(segment: segment) { [weak self] data, genre in
@@ -99,7 +101,9 @@ class TrendViewController: TabmanViewController {
                 
                 self.trendsList = data
                 self.genreList = genre
-                completion()
+                DispatchQueue.main.async {
+                    completion()
+                }
             }
         }
     }

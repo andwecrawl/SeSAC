@@ -71,7 +71,6 @@
 		D1C1578A2A9F9C4B002DB668 /* FilterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157892A9F9C4B002DB668 /* FilterBuilder.swift */; };
 		D1CC23332AFBAE4300684175 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC23322AFBAE4300684175 /* Search.swift */; };
 		D1D332B22B1AFD3700852274 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D332B12B1AFD3700852274 /* Color.swift */; };
-		D1D332B62B1B034000852274 /* TrendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D332B52B1B034000852274 /* TrendHeaderView.swift */; };
 		D1D332BA2B1B0CA900852274 /* FirstTrendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D332B92B1B0CA900852274 /* FirstTrendsTableViewCell.swift */; };
 		D1D332BE2B1B172900852274 /* newTrendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D332BC2B1B172900852274 /* newTrendCell.swift */; };
 		D1D332BF2B1B172900852274 /* newTrendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D332BD2B1B172900852274 /* newTrendCell.xib */; };
@@ -140,7 +139,6 @@
 		D1C157892A9F9C4B002DB668 /* FilterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBuilder.swift; sourceTree = "<group>"; };
 		D1CC23322AFBAE4300684175 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		D1D332B12B1AFD3700852274 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		D1D332B52B1B034000852274 /* TrendHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendHeaderView.swift; sourceTree = "<group>"; };
 		D1D332B92B1B0CA900852274 /* FirstTrendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTrendsTableViewCell.swift; sourceTree = "<group>"; };
 		D1D332BC2B1B172900852274 /* newTrendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newTrendCell.swift; sourceTree = "<group>"; };
 		D1D332BD2B1B172900852274 /* newTrendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = newTrendCell.xib; sourceTree = "<group>"; };
@@ -219,8 +217,6 @@
 			children = (
 				D1B995982A865D1A00B7941D /* MovieTableViewCell.swift */,
 				D1B995992A865D1A00B7941D /* MovieTableViewCell.xib */,
-				D1D332B52B1B034000852274 /* TrendHeaderView.swift */,
-				D1D332B92B1B0CA900852274 /* FirstTrendsTableViewCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -395,6 +391,7 @@
 		D1D332BB2B1B16F300852274 /* NewCell */ = {
 			isa = PBXGroup;
 			children = (
+				D1D332B92B1B0CA900852274 /* FirstTrendsTableViewCell.swift */,
 				D1D332BC2B1B172900852274 /* newTrendCell.swift */,
 				D1D332BD2B1B172900852274 /* newTrendCell.xib */,
 			);
@@ -531,7 +528,6 @@
 				D1B9956C2A86432200B7941D /* SceneDelegate.swift in Sources */,
 				D1C157792A9E5408002DB668 /* protocol.swift in Sources */,
 				D1C157882A9F9642002DB668 /* DetailView.swift in Sources */,
-				D1D332B62B1B034000852274 /* TrendHeaderView.swift in Sources */,
 				D1499B452A9B34AE000717DD /* UserDefaultsHelper.swift in Sources */,
 				D1499B862A9CBEB1000717DD /* BaseViewController.swift in Sources */,
 				D1499B932A9CC507000717DD /* ImageBuilder.swift in Sources */,

@@ -44,7 +44,7 @@ class PersonTableViewCell: BaseTableViewCell {
     }
     
     override func setConstraints() {
-        outerView.backgroundColor = .white
+//        outerView.backgroundColor = .white
         outerView.snp.makeConstraints { make in
             make.edges.equalTo(self.safeAreaLayoutGuide).inset(10)
         }

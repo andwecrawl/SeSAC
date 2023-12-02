@@ -9,7 +9,7 @@ import UIKit
 
 extension UILabel {
     
-    static func labelBuilder(size: CGFloat, weight: UIFont.Weight, color: UIColor = .black) -> UILabel {
+    static func labelBuilder(size: CGFloat, weight: UIFont.Weight, color: UIColor = .white) -> UILabel {
         let view = UILabel()
         view.font = .systemFont(ofSize: size, weight: weight)
         view.textColor = color

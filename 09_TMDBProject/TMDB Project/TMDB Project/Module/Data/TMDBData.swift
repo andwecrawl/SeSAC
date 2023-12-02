@@ -39,6 +39,9 @@ struct Result: Decodable {
     let name, originalName, firstAirDate: String?
     let originCountry: [String]?
 
+    var descriptions: String {
+        return "\(releaseDate ?? "2020") | \(mediaType.rawValue)"
+    }
     enum CodingKeys: String, CodingKey {
         case adult
         case backdropPath = "backdrop_path"

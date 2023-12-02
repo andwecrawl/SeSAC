@@ -70,6 +70,11 @@
 		D1C157882A9F9642002DB668 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157872A9F9642002DB668 /* DetailView.swift */; };
 		D1C1578A2A9F9C4B002DB668 /* FilterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C157892A9F9C4B002DB668 /* FilterBuilder.swift */; };
 		D1CC23332AFBAE4300684175 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC23322AFBAE4300684175 /* Search.swift */; };
+		D1D332B22B1AFD3700852274 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D332B12B1AFD3700852274 /* Color.swift */; };
+		D1D332B62B1B034000852274 /* TrendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D332B52B1B034000852274 /* TrendHeaderView.swift */; };
+		D1D332BA2B1B0CA900852274 /* FirstTrendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D332B92B1B0CA900852274 /* FirstTrendsTableViewCell.swift */; };
+		D1D332BE2B1B172900852274 /* newTrendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D332BC2B1B172900852274 /* newTrendCell.swift */; };
+		D1D332BF2B1B172900852274 /* newTrendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D332BD2B1B172900852274 /* newTrendCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +139,11 @@
 		D1C157872A9F9642002DB668 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		D1C157892A9F9C4B002DB668 /* FilterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBuilder.swift; sourceTree = "<group>"; };
 		D1CC23322AFBAE4300684175 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		D1D332B12B1AFD3700852274 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		D1D332B52B1B034000852274 /* TrendHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendHeaderView.swift; sourceTree = "<group>"; };
+		D1D332B92B1B0CA900852274 /* FirstTrendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTrendsTableViewCell.swift; sourceTree = "<group>"; };
+		D1D332BC2B1B172900852274 /* newTrendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newTrendCell.swift; sourceTree = "<group>"; };
+		D1D332BD2B1B172900852274 /* newTrendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = newTrendCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +219,8 @@
 			children = (
 				D1B995982A865D1A00B7941D /* MovieTableViewCell.swift */,
 				D1B995992A865D1A00B7941D /* MovieTableViewCell.xib */,
+				D1D332B52B1B034000852274 /* TrendHeaderView.swift */,
+				D1D332B92B1B0CA900852274 /* FirstTrendsTableViewCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -287,6 +299,7 @@
 				D17029DA2A9747AE00E5CDEB /* View */,
 				D1B9959E2A86614600B7941D /* Module */,
 				D1B995722A86432300B7941D /* Assets.xcassets */,
+				D1D332B12B1AFD3700852274 /* Color.swift */,
 				D1B995742A86432300B7941D /* LaunchScreen.storyboard */,
 				D1B995772A86432300B7941D /* Info.plist */,
 				D1B9959F2A88AC0900B7941D /* .gitignore */,
@@ -333,6 +346,7 @@
 		D1B995BA2A89393C00B7941D /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				D1D332BB2B1B16F300852274 /* NewCell */,
 				D1B9956D2A86432200B7941D /* TrendViewController.swift */,
 				D1674D022B0A0BE9000697C2 /* TabViewController.swift */,
 				D1499B8B2A9CC09E000717DD /* TrendView.swift */,
@@ -376,6 +390,15 @@
 				D1C157762A9E51BD002DB668 /* PickerViewController.swift */,
 			);
 			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		D1D332BB2B1B16F300852274 /* NewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D1D332BC2B1B172900852274 /* newTrendCell.swift */,
+				D1D332BD2B1B172900852274 /* newTrendCell.xib */,
+			);
+			path = NewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +475,7 @@
 				D1B995762A86432300B7941D /* LaunchScreen.storyboard in Resources */,
 				D1B995C22A89397A00B7941D /* OverviewTableViewCell.xib in Resources */,
 				D1B995732A86432300B7941D /* Assets.xcassets in Resources */,
+				D1D332BF2B1B172900852274 /* newTrendCell.xib in Resources */,
 				D180A2242A8A3B230091345F /* CastingTableViewCell.xib in Resources */,
 				D1B9959B2A865D1A00B7941D /* MovieTableViewCell.xib in Resources */,
 				D1B995712A86432200B7941D /* Main.storyboard in Resources */,
@@ -483,8 +507,10 @@
 				D17029E32A97810800E5CDEB /* Button+.swift in Sources */,
 				D1C1576F2A9DE78C002DB668 /* ProfileTableViewCell.swift in Sources */,
 				D18F24CF2AA3A580003280E5 /* Person.swift in Sources */,
+				D1D332B22B1AFD3700852274 /* Color.swift in Sources */,
 				D187C55E2A90E0B6005C261A /* RecommendationViewController.swift in Sources */,
 				D1B9956A2A86432200B7941D /* AppDelegate.swift in Sources */,
+				D1D332BA2B1B0CA900852274 /* FirstTrendsTableViewCell.swift in Sources */,
 				D1B995C12A89397A00B7941D /* OverviewTableViewCell.swift in Sources */,
 				D187C5582A8E4E59005C261A /* Cast.swift in Sources */,
 				D17029DC2A974A9200E5CDEB /* TheaterViewController.swift in Sources */,
@@ -493,6 +519,7 @@
 				D1C157802A9F85EB002DB668 /* CastTableViewCell.swift in Sources */,
 				D1B9959A2A865D1A00B7941D /* MovieTableViewCell.swift in Sources */,
 				D18F24D32AA3B5EF003280E5 /* SearchRequest.swift in Sources */,
+				D1D332BE2B1B172900852274 /* newTrendCell.swift in Sources */,
 				D1C157772A9E51BD002DB668 /* PickerViewController.swift in Sources */,
 				D18F24D62AA3B650003280E5 /* PersonRequest.swift in Sources */,
 				D187C5672A90E168005C261A /* RecommendationCollectionViewCell.swift in Sources */,
@@ -504,6 +531,7 @@
 				D1B9956C2A86432200B7941D /* SceneDelegate.swift in Sources */,
 				D1C157792A9E5408002DB668 /* protocol.swift in Sources */,
 				D1C157882A9F9642002DB668 /* DetailView.swift in Sources */,
+				D1D332B62B1B034000852274 /* TrendHeaderView.swift in Sources */,
 				D1499B452A9B34AE000717DD /* UserDefaultsHelper.swift in Sources */,
 				D1499B862A9CBEB1000717DD /* BaseViewController.swift in Sources */,
 				D1499B932A9CC507000717DD /* ImageBuilder.swift in Sources */,

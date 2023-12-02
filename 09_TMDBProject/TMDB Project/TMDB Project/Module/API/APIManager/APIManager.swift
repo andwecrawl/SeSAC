@@ -23,7 +23,7 @@ class TMDBManager {
         "Authorization": APIKey.auth.rawValue
     ]
     
-    func callRequest(page: Int = 1, segment: Trends, deliverValue: @escaping (TMDB, [String]) -> ()) {
+    func callRequest(page: Int = 1, segment: Trends, deliverValue: @escaping (TMDB, [[String]]) -> ()) {
         var url = ""
         switch segment {
         case .all:
@@ -36,23 +36,23 @@ class TMDBManager {
             .responseDecodable(of: TMDB.self) { response in
                 switch response.result {
                 case .success(let value):
-                    var genreArray: [String] = []
+                    print(value)
+                    var genreArray: [[String]] = []
                     
                     for element in value.results {
+                        var array: [String] = []
                         if element.mediaType == .movie {
-                            for genre in TMDBManager.movieGenre {
-                                if genre.id == element.genreIDS[0] {
-                                    genreArray.append(genre.name)
-                                }
+                            for index in element.genreIDS.indices {
+                                let genre = TMDBManager.movieGenre.filter { $0.id == element.genreIDS[index] }.first!.name
+                                array.append(genre)
                             }
                         } else {
-                            for genre in TMDBManager.tvGenre {
-                                if genre.id == element.genreIDS[0] {
-                                    genreArray.append(genre.name)
-                                }
+                            for index in element.genreIDS.indices {
+                                let genre = TMDBManager.tvGenre.filter { $0.id == element.genreIDS[index] }.first!.name
+                                array.append(genre)
                             }
                         }
-                        
+                        genreArray.append(array)
                     }
                     deliverValue(value, genreArray)
                     
@@ -64,8 +64,8 @@ class TMDBManager {
     }
     
     
-    func callRequestCodable(page: Int = 1, segment: Trends, completionHandler: @escaping (TMDB, [String]) -> ()) {
-       
+    func callRequestCodable(page: Int = 1, segment: Trends, completionHandler: @escaping (TMDB, [[String]]) -> ()) {
+        
         
         if TMDBManager.movieGenre.isEmpty && TMDBManager.tvGenre.isEmpty {
             
@@ -86,17 +86,17 @@ class TMDBManager {
     }
     
     func callTvRequest(url: String, completionHandler: @escaping () -> ()) {
-            AF.request(url, method: .get, headers: headers).validate()
-                .responseDecodable(of: Tv.self) { response in
-                    switch response.result {
-                    case .success(let value):
-                        TMDBManager.tvGenre = value.genres
-                        completionHandler()
-                    case .failure(let error):
-                        print("tvGenre", error)
-                    }
+        AF.request(url, method: .get, headers: headers).validate()
+            .responseDecodable(of: Tv.self) { response in
+                switch response.result {
+                case .success(let value):
+                    TMDBManager.tvGenre = value.genres
+                    completionHandler()
+                case .failure(let error):
+                    print("tvGenre", error)
                 }
-        }
+            }
+    }
     
     func callMovieRequest(url: String, completionHandler: @escaping () -> ()) {
         AF.request(url, method: .get, headers: headers).validate()

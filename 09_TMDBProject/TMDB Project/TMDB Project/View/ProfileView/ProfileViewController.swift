@@ -23,7 +23,11 @@ class ProfileViewController: BaseViewController {
         mainView.tableView.dataSource = self
         
         title = "Profile"
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = .black
+        navigationController?.navigationBar.standardAppearance = navigationBarAppearance
         
+        mainView.backgroundColor = .black
         mainView.imageButton.addTarget(self, action: #selector(profileClicked), for: .touchUpInside)
         mainView.profileButton.addTarget(self, action: #selector(profileClicked), for: .touchUpInside)
     }

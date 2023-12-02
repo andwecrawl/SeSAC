@@ -36,6 +36,10 @@ class TrendViewController: TabmanViewController {
     
     func setNavigationBar() {
         title = "Today's Trend"
+        
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = .black
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
     }
     
     func setConstraints() {

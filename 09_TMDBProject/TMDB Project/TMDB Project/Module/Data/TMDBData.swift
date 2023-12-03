@@ -67,4 +67,13 @@ struct Result: Decodable {
 enum MediaType: String, Decodable {
     case movie = "movie"
     case tv = "tv"
+    
+    var media: String {
+        switch self {
+        case .movie:
+            "영화"
+        case .tv:
+            "프로그램"
+        }
+    }
 }

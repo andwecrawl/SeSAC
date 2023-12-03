@@ -51,7 +51,7 @@ class DetailHeaderView: UITableViewHeaderFooterView {
         }
         
         filterView.snp.makeConstraints { make in
-            make.edges.equalTo(mainBackImageView)
+            make.edges.equalToSuperview()
         }
         
         titleLabel.numberOfLines = 0

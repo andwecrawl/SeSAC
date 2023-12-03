@@ -13,8 +13,16 @@ class TabViewController: BaseViewController {
     let tableView = {
         let view = UITableView(frame: .zero)
         view.separatorColor = .darkGray
-        let nib = UINib(nibName: newTrendCell.identifier, bundle: nil)
-        view.register(nib, forCellReuseIdentifier: newTrendCell.identifier)
+        
+        let trendNib = UINib(nibName: newTrendCell.identifier, bundle: nil)
+        view.register(trendNib, forCellReuseIdentifier: newTrendCell.identifier)
+        
+        let topNib = UINib(nibName: AllTopTableViewCell.identifier, bundle: nil)
+        view.register(topNib, forCellReuseIdentifier: AllTopTableViewCell.identifier)
+        
+        let collectionNib = UINib(nibName: CollectionTableViewCell.identifier, bundle: nil)
+        view.register(collectionNib, forCellReuseIdentifier: CollectionTableViewCell.identifier)
+        
         view.register(TrendTableViewCell.self, forCellReuseIdentifier: TrendTableViewCell.identifier)
         view.register(PersonTableViewCell.self, forCellReuseIdentifier: PersonTableViewCell.identifier)
         return view

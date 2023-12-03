@@ -136,11 +136,11 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
             
         } else if currentPage == 0 && indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: FirstTrendsTableViewCell.identifier) as? FirstTrendsTableViewCell else { return UITableViewCell()}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AllTopTableViewCell.identifier) as? AllTopTableViewCell else { return UITableViewCell()}
             
-            cell.configureView()
             cell.media = trendsList.results[row]
-            cell.configureCell()
+            cell.genre = genreList[row]
+            cell.configureView()
             
             return cell
         } else if currentPage == 1 || currentPage == 2 {
@@ -154,18 +154,13 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         } else {
             
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier) as? TrendTableViewCell else { return UITableViewCell()}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionTableViewCell.identifier) as? CollectionTableViewCell else { return UITableViewCell()}
             
-            cell.media = trendsList.results[row]
-            if page == 1 {
-                cell.genre = genreList[row]
-            } else if page > 1 {
-                cell.genre = genreList[row + (page * 20)]
-            }
-            cell.configurateCell()
+            cell.configureCell()
+            cell.collectionView.delegate = self
+            cell.collectionView.dataSource = self
             
             return cell
-            
         }
     }
     
@@ -174,11 +169,11 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         if currentPage == 3 {
             return 150
         } else if currentPage == 0 && indexPath.row == 0 {
-            return 600
+            return 300
         } else if currentPage == 1 || currentPage == 2 {
             return 320
         } else {
-            return 400
+            return 260
         }
     }
     
@@ -235,4 +230,29 @@ extension TrendViewController: PageboyViewControllerDataSource, TMBarDataSource 
             return TMBarItem(title: title)
         }
     }
+}
+
+
+extension TrendViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterCollectionViewCell.identifier, for: indexPath) as? PosterCollectionViewCell else { return UICollectionViewCell() }
+        
+        cell.media = trendsList.results.randomElement()
+        cell.imageView.backgroundColor = .yellow
+        cell.configureCell()
+        
+        return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let space:CGFloat = 3
+        let width: CGFloat = ( UIScreen.main.bounds.width - space * 3 ) / 3
+        return CGSize(width: width , height: width * 1.4)
+    }
+    
 }

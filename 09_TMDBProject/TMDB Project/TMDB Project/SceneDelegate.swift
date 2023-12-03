@@ -34,6 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             guard let thirdVC = sb.instantiateViewController(withIdentifier: TheaterViewController.identifier) as? TheaterViewController else { return }
             let thirdNav = UINavigationController(rootViewController: thirdVC)
+            thirdNav.tabBarItem = UITabBarItem(title: "Theater", image: UIImage(systemName: "popcorn.fill"), selectedImage: UIImage(systemName: "popcorn.fill"))
             
             let fourthVC = ProfileViewController()
             let fourthNav = UINavigationController(rootViewController: fourthVC)

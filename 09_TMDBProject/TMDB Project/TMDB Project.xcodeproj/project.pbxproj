@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D138BAA62B273D81000AF479 /* LocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138BAA52B273D81000AF479 /* LocationRequest.swift */; };
 		D1499B452A9B34AE000717DD /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B442A9B34AE000717DD /* UserDefaultsHelper.swift */; };
 		D1499B482A9B38C8000717DD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B472A9B38C8000717DD /* OnboardingViewController.swift */; };
 		D1499B4A2A9B3A3D000717DD /* ElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1499B492A9B3A3D000717DD /* ElementViewController.swift */; };
@@ -81,6 +82,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D138BAA52B273D81000AF479 /* LocationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRequest.swift; sourceTree = "<group>"; };
 		D1499B442A9B34AE000717DD /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		D1499B472A9B38C8000717DD /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		D1499B492A9B3A3D000717DD /* ElementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				D1B995A32A88ACEB00B7941D /* APIManager.swift */,
 				D18F24D22AA3B5EF003280E5 /* SearchRequest.swift */,
 				D18F24D52AA3B650003280E5 /* PersonRequest.swift */,
+				D138BAA52B273D81000AF479 /* LocationRequest.swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				D1B9956E2A86432200B7941D /* TrendViewController.swift in Sources */,
 				D1C157732A9E28DA002DB668 /* EditingViewController.swift in Sources */,
 				D1499B882A9CBEEF000717DD /* BaseView.swift in Sources */,
+				D138BAA62B273D81000AF479 /* LocationRequest.swift in Sources */,
 				D1674D2A2B0A3988000697C2 /* Trends.swift in Sources */,
 				D180A2232A8A3B230091345F /* CastingTableViewCell.swift in Sources */,
 				D187C56A2A90E53D005C261A /* ViewController+.swift in Sources */,

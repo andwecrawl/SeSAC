@@ -32,23 +32,23 @@
                             <constraint firstAttribute="width" secondItem="oA6-kK-gS4" secondAttribute="height" multiplier="1:1.4" id="DRZ-y0-uU7"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aiC-8F-NGW">
-                        <rect key="frame" x="208.66666666666663" y="149.33333333333334" width="161.33333333333337" height="62.333333333333343"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aiC-8F-NGW">
+                        <rect key="frame" x="208.66666666666663" y="149.33333333333334" width="169.33333333333337" height="62.333333333333343"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCf-cT-nsb">
-                                <rect key="frame" x="0.0" y="0.0" width="161.33333333333334" height="20.333333333333332"/>
+                                <rect key="frame" x="0.0" y="0.0" width="169.33333333333334" height="20.333333333333332"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6N-RO-f4u">
-                                <rect key="frame" x="0.0" y="24.333333333333314" width="161.33333333333334" height="17"/>
+                                <rect key="frame" x="0.0" y="24.333333333333314" width="169.33333333333334" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yc7-JJ-fto">
-                                <rect key="frame" x="0.0" y="45.333333333333314" width="161.33333333333334" height="17"/>
+                                <rect key="frame" x="0.0" y="45.333333333333314" width="169.33333333333334" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="aiC-8F-NGW" secondAttribute="trailing" constant="20" id="5TD-aF-XGC"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="aiC-8F-NGW" secondAttribute="trailing" constant="12" id="5TD-aF-XGC"/>
                     <constraint firstItem="oA6-kK-gS4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="5yv-94-KQS"/>
                     <constraint firstItem="aiC-8F-NGW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oA6-kK-gS4" secondAttribute="top" constant="4" id="BvL-Sh-IqN"/>
                     <constraint firstItem="bhm-eR-rAN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="H1Y-0J-vvD"/>

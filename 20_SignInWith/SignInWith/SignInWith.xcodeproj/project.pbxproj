@@ -13,6 +13,7 @@
 		D10F4CBA2B3D04EA00B574A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D10F4CB82B3D04EA00B574A6 /* Main.storyboard */; };
 		D10F4CBC2B3D04EC00B574A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D10F4CBB2B3D04EC00B574A6 /* Assets.xcassets */; };
 		D10F4CBF2B3D04EC00B574A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D10F4CBD2B3D04EC00B574A6 /* LaunchScreen.storyboard */; };
+		D10F4CC82B3E634700B574A6 /* FaceIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10F4CC72B3E634700B574A6 /* FaceIDManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		D10F4CBE2B3D04EC00B574A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D10F4CC02B3D04EC00B574A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D10F4CC62B3D0C2400B574A6 /* SignInWith.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SignInWith.entitlements; sourceTree = "<group>"; };
+		D10F4CC72B3E634700B574A6 /* FaceIDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				D10F4CB22B3D04EA00B574A6 /* AppDelegate.swift */,
 				D10F4CB42B3D04EA00B574A6 /* SceneDelegate.swift */,
 				D10F4CB62B3D04EA00B574A6 /* ViewController.swift */,
+				D10F4CC72B3E634700B574A6 /* FaceIDManager.swift */,
 				D10F4CB82B3D04EA00B574A6 /* Main.storyboard */,
 				D10F4CBB2B3D04EC00B574A6 /* Assets.xcassets */,
 				D10F4CBD2B3D04EC00B574A6 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D10F4CB72B3D04EA00B574A6 /* ViewController.swift in Sources */,
+				D10F4CC82B3E634700B574A6 /* FaceIDManager.swift in Sources */,
 				D10F4CB32B3D04EA00B574A6 /* AppDelegate.swift in Sources */,
 				D10F4CB52B3D04EA00B574A6 /* SceneDelegate.swift in Sources */,
 			);

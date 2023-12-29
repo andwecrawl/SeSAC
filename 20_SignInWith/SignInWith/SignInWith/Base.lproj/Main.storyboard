@@ -24,17 +24,29 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fri-M5-HpC">
+                                <rect key="frame" x="20" y="262" width="353" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3HF-CX-hcX"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="FaceID"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Fri-M5-HpC" firstAttribute="top" secondItem="3BD-Qj-lNe" secondAttribute="bottom" constant="28" id="6GI-kF-T9l"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fri-M5-HpC" secondAttribute="trailing" constant="20" id="Q2P-Xu-nmj"/>
                             <constraint firstItem="3BD-Qj-lNe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="W91-qM-4Ch"/>
                             <constraint firstItem="3BD-Qj-lNe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="135" id="ezQ-WD-OdH"/>
+                            <constraint firstItem="Fri-M5-HpC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="nJM-lW-Ho8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3BD-Qj-lNe" secondAttribute="trailing" constant="20" id="vqa-a0-T9w"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="appleLoginButton" destination="3BD-Qj-lNe" id="Pn9-Ly-lvp"/>
+                        <outlet property="faceIDButton" destination="Fri-M5-HpC" id="oXA-pB-GtO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -27,6 +27,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var appleLoginButton: ASAuthorizationAppleIDButton!
     
+    @IBOutlet weak var faceIDButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         appleLoginButton.addTarget(self, action: #selector(appleLoginButtonTapped), for: .touchUpInside)

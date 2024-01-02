@@ -26,16 +26,16 @@ struct ContentView: View {
     ContentView()
 }
 
-struct coinCell: View {
+struct CoinCell: View {
     @State var coinName: String
     @State var coinEngName: String
-    @State var comparsion: String
-    @State var cost: String
-    @State var payment: String
+    @State var tradePrice: String // 현재가
+    @State var change: String // 전일대비
+    @State var accTradePrice: String // 거래대금
     
     var body: some View {
         HStack(alignment: .center) {
-            VStack(alignment: .leading) {
+            LazyVStack(alignment: .leading) {
                 Text(coinName)
                     .font(.subheadline.bold())
                 Text(coinEngName)
@@ -43,9 +43,16 @@ struct coinCell: View {
             }
             .padding()
             Group {
-                Text("현재가")
-                Text("전일대비")
-                Text("거래 대금")
+                Text(tradePrice)
+                Text(change)
+                Text(accTradePrice)
+            }
+            .padding(.horizontal, 14)
+            .font(.footnote)
+        }
+        .frame(width: .infinity, height: 36)
+    }
+}
             }
             .padding(10)
             .font(.subheadline)

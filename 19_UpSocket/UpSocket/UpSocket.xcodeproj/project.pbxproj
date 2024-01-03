@@ -66,11 +66,11 @@
 				D10F4C8E2B3C043600B574A6 /* ContentView.swift */,
 				D10F4CA42B3C42A600B574A6 /* ContentViewModel.swift */,
 				D10F4C9B2B3C118600B574A6 /* MarketNetworkManager.swift */,
+				D10F4CC92B42F24A00B574A6 /* LoginView.swift */,
 				D10F4CA02B3C37A700B574A6 /* Model.swift */,
 				D10F4C902B3C043700B574A6 /* Assets.xcassets */,
 				D10F4C922B3C043700B574A6 /* UpSocket.entitlements */,
 				D10F4C932B3C043700B574A6 /* Preview Content */,
-				D10F4CC92B42F24A00B574A6 /* LoginView.swift */,
 			);
 			path = UpSocket;
 			sourceTree = "<group>";

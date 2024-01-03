@@ -9,15 +9,12 @@ import UIKit
 import AuthenticationServices
 
 /*
-<<<<<<< HEAD
-=======
  1. Build Configuration: Debug / Release
     만약에 같은 앱을 light / origin / pro로 비슷한데 조금~~씩만 다른 버전을 배포한다고 하면?
  2.
  */
 
 /*
->>>>>>> upsocket_network
  소셜 로그인 기능 구현 시 애플 로그인 기능 구현 필수
  근데 자체 로그인만 구성되어 있다면? 굳이 애플 로그인 기능을 구현하지 않아도 댐
  애플로 로그인 -> 개인 개발자 계정이 있어야 가능함

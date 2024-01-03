@@ -15,6 +15,7 @@
 		D10F4C9F2B3C11E900B574A6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D10F4C9E2B3C11E900B574A6 /* Alamofire */; };
 		D10F4CA12B3C37A700B574A6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10F4CA02B3C37A700B574A6 /* Model.swift */; };
 		D10F4CA52B3C42A600B574A6 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10F4CA42B3C42A600B574A6 /* ContentViewModel.swift */; };
+		D10F4CCA2B42F24A00B574A6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10F4CC92B42F24A00B574A6 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		D10F4C9B2B3C118600B574A6 /* MarketNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketNetworkManager.swift; sourceTree = "<group>"; };
 		D10F4CA02B3C37A700B574A6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		D10F4CA42B3C42A600B574A6 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		D10F4CC92B42F24A00B574A6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				D10F4C902B3C043700B574A6 /* Assets.xcassets */,
 				D10F4C922B3C043700B574A6 /* UpSocket.entitlements */,
 				D10F4C932B3C043700B574A6 /* Preview Content */,
+				D10F4CC92B42F24A00B574A6 /* LoginView.swift */,
 			);
 			path = UpSocket;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D10F4CCA2B42F24A00B574A6 /* LoginView.swift in Sources */,
 				D10F4C8F2B3C043600B574A6 /* ContentView.swift in Sources */,
 				D10F4C9C2B3C118600B574A6 /* MarketNetworkManager.swift in Sources */,
 				D10F4C8D2B3C043600B574A6 /* UpSocketApp.swift in Sources */,

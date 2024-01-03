@@ -80,5 +80,15 @@ struct ExchangeHeader: View {
     }
 }
 
+struct SubtitleView: View {
+    @State var name: String
+    
+    var body: some View {
+        HStack {
+            Text(name)
+            Image(systemName: "arrow.up.arrow.down")
+                .font(.caption2)
+        }
+        .frame(minWidth: 40)
     }
 }

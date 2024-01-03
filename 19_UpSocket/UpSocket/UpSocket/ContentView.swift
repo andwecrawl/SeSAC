@@ -11,12 +11,18 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationStack {
-            VStack {
-         ㄹ
-                coinCell(coinName: "코인이름", coinEngName: "코인이름", comparsion: "현재가", cost: "전일대비", payment: "거래대금")
-                
+        
+            List(0..<200) {_ in
+                Section {
+                    LazyVStack {
+                            CoinCell(coinName: "이더리움", coinEngName: "코인이름", tradePrice: "현재가", change: "전일대비", accTradePrice: "거래대금")
+                    }
+                } header: {
+                    
+                    ExchangeHeader()
+                }
             }
-            .padding()
+            .listStyle(.inset)
             .navigationTitle("upsockets")
         }
     }

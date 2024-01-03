@@ -11,39 +11,41 @@ import Combine
 
 class NetworkManager {
     
-    static let shared = MarketNetworkManager()
+    static let shared = NetworkManager()
     
     private init() { }
     
-    let url = URL(string: "https://api.upbit.com/v1/market/all?isDetails=false")!
-    let header: HTTPHeaders = [
-        "accept": "application/json"
-    ]
-    
-//    func fetchMarket() -> AnyPublisher<MarketModel, AFError> {
-//        return AF.request(url, method: .get, headers: header)
-//            .validate()
-//            .publishDecodable(type: MarketModel.self)
-//            .map({ response in
-//                response.mapError { error in
-//                    return
-//                }
-//            })
-//            .receive(on: DispatchQueue.main)
-//            .eraseToAnyPublisher()
-//    }
-    
-    func fetchMarketData(completion: @escaping ([MarketModel]) -> ()) {
-        AF.request(url, method: .get, headers: header)
-            .validate(statusCode: 200...500)
-            .responseDecodable(of: [MarketModel].self) { response in
+    func fetchData<T: Decodable>(api: Router, type: T.Type, completion: @escaping (Result<T, Error>) -> ()) {
+        AF.request(api)
+            .validate()
+            .responseDecodable(of: T.self) { response in
+                print(response.result)
                 switch response.result {
                 case .success(let success):
-                    completion(success)
+                    completion(.success(success))
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    completion(.failure(error))
                 }
             }
+    }
+    
+    func fetchMarket<T: Decodable>(api: Router, type: T.Type) -> AnyPublisher<T, AFError> {
+        return AF.request(api)
+            .validate()
+            .publishDecodable(type: T.self)
+            .flatMap({ response -> AnyPublisher<T, AFError> in
+                // success
+                if let decodedValue = response.value {
+                    return Just(decodedValue)
+                        .setFailureType(to: AFError.self)
+                        .eraseToAnyPublisher()
+                } else { // failure
+                    let error = AFError.responseValidationFailed(reason: .dataFileNil)
+                    return Fail(error: error).eraseToAnyPublisher()
+                }
+            })
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
     
     

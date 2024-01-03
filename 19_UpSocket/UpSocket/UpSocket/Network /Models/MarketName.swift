@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MarketModel: Decodable {
+struct MarketName: Decodable {
     let market, koreanName, englishName: String
 
     enum CodingKeys: String, CodingKey {

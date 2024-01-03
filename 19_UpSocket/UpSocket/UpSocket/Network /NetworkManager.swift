@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 import Combine
 
-class MarketNetworkManager {
+class NetworkManager {
     
     static let shared = MarketNetworkManager()
     

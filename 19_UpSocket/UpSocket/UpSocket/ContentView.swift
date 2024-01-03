@@ -53,9 +53,32 @@ struct CoinCell: View {
         .frame(width: .infinity, height: 36)
     }
 }
+
+struct ExchangeHeader: View {
+    var body: some View {
+        HStack(alignment: .center) {
+            
+            LazyVStack(alignment: .leading) {
+                HStack {
+                    Text("코인 이름")
+                    Image(systemName: "arrow.left.arrow.right")
+                        .font(.caption2)
+                }
             }
-            .padding(10)
-            .font(.subheadline)
+            .frame(minWidth: 100)
+            .padding()
+            Group {
+                SubtitleView(name: "현재가")
+                SubtitleView(name: "전일대비")
+                SubtitleView(name: "거래대금")
+                    .padding(.trailing, 3)
+            }
         }
+        .font(.footnote.bold())
+        .padding(.horizontal, 2)
+        .frame(width: .infinity, height: 30)
+    }
+}
+
     }
 }

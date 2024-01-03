@@ -33,10 +33,10 @@ class MarketNetworkManager {
 //            .eraseToAnyPublisher()
 //    }
     
-    func fetchMarketData(completion: @escaping (MarketModel) -> ()) {
+    func fetchMarketData(completion: @escaping ([MarketModel]) -> ()) {
         AF.request(url, method: .get, headers: header)
             .validate(statusCode: 200...500)
-            .responseDecodable(of: MarketModel.self) { response in
+            .responseDecodable(of: [MarketModel].self) { response in
                 switch response.result {
                 case .success(let success):
                     completion(success)

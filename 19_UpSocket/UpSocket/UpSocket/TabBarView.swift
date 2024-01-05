@@ -12,12 +12,12 @@ struct TabBarView: View {
         TabView {
             FeedView()
                 .tabItem {
-                    Image(systemName: "person.crop.circle")
+                    Image(systemName: "bitcoinsign.circle")
                     Text("Hello")
                 }
             LoginView()
                 .tabItem{
-                    Image(systemName: "arrow.right.circle.fill")
+                    Image(systemName: "gearshape.fill")
                     Text("Login")
                 }
         }

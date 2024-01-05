@@ -22,7 +22,7 @@ extension Double {
         numberFormatter.roundingMode = .floor
         numberFormatter.maximumFractionDigits = 2
         let num = self * 100
-        return numberFormatter.string(for: self)!
+        return numberFormatter.string(for: num)!
     }
     
     func toFormattedString() -> String {

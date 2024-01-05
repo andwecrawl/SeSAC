@@ -11,6 +11,7 @@ import Alamofire
 enum Router: URLRequestConvertible {
     case marketName
     case marketData
+    case currentCharge
     
     var baseURL: URL {
         return URL(string: "https://api.upbit.com/v1/")!
@@ -25,19 +26,27 @@ enum Router: URLRequestConvertible {
         case .marketData:
             return ""
         case .marketName:
-           return "v1/market/all?isDetails=false"
+           return "market/all"
+        case .currentCharge:
+            return "ticker"
         }
     }
    
-    var header: HTTPHeaders {[
-        "accept": "application/json"
-    ]}
+    var parameters: Parameters {
+        [
+            "markets": SocketManager.shared.codes.map { $0.market }.joined(separator: ",")
+        ]
+    }
     
     func asURLRequest() throws -> URLRequest {
         let url = baseURL.appendingPathComponent(path)
         var request = URLRequest(url: url)
         request.method = method
-        request.headers = header
+        
+        if self == .currentCharge {
+            print(parameters)
+            request = try URLEncoding.default.encode(request, with: parameters)
+        }
         
         return request
     }

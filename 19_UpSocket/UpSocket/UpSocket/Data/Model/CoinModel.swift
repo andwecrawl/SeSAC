@@ -14,6 +14,7 @@ struct CoinModel: Hashable, Identifiable {
     let marketCode: String
     var tradePrice: Double
     var change: Double
+    var changePrice: Double
     var accTradePrice: Double
     
     mutating func applySocketResponse(response: SocketResponse) {
@@ -28,6 +29,7 @@ struct CoinModel: Hashable, Identifiable {
         self.marketCode = names.market
         self.tradePrice = information.tradePrice
         self.change = information.change
+        self.changePrice = information.changePrice
         self.accTradePrice = information.accTradePrice
     }
 }

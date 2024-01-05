@@ -21,11 +21,13 @@ struct CoinInformation: Decodable {
     var market: String
     var tradePrice: Double
     var change: Double
+    var changePrice: Double
     var accTradePrice: Double
     
     enum CodingKeys: String, CodingKey {
         case market
         case change = "signed_change_rate"
+        case changePrice = "signed_change_price"
         case tradePrice = "trade_price"
         case accTradePrice = "acc_trade_price"
     }

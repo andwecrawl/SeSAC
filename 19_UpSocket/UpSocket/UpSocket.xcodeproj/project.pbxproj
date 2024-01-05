@@ -28,6 +28,12 @@
 		D1F3933A2B488F3C00239BFD /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F393392B488F3C00239BFD /* CoinCell.swift */; };
 		D1F3933F2B4892D000239BFD /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3933E2B4892D000239BFD /* DetailView.swift */; };
 		D1F393422B489D5F00239BFD /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F393412B489D5F00239BFD /* DetailViewModel.swift */; };
+		D1F393462B48AB1300239BFD /* DetailBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F393452B48AB1300239BFD /* DetailBannerView.swift */; };
+		D1F393482B48ACB300239BFD /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F393472B48ACB300239BFD /* SegmentedControlView.swift */; };
+		D1F3934A2B48AD1000239BFD /* UnderlineModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F393492B48AD1000239BFD /* UnderlineModifier.swift */; };
+		D1F3934C2B48AE1100239BFD /* GeometryFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3934B2B48AE1100239BFD /* GeometryFinder.swift */; };
+		D1F3934F2B48BF3100239BFD /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3934E2B48BF3100239BFD /* WaitingView.swift */; };
+		D1F393522B48C44F00239BFD /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F393512B48C44F00239BFD /* WalletView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +60,12 @@
 		D1F393392B488F3C00239BFD /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
 		D1F3933E2B4892D000239BFD /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		D1F393412B489D5F00239BFD /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		D1F393452B48AB1300239BFD /* DetailBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBannerView.swift; sourceTree = "<group>"; };
+		D1F393472B48ACB300239BFD /* SegmentedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
+		D1F393492B48AD1000239BFD /* UnderlineModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineModifier.swift; sourceTree = "<group>"; };
+		D1F3934B2B48AE1100239BFD /* GeometryFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryFinder.swift; sourceTree = "<group>"; };
+		D1F3934E2B48BF3100239BFD /* WaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingView.swift; sourceTree = "<group>"; };
+		D1F393512B48C44F00239BFD /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +102,9 @@
 				D1F393332B483CAF00239BFD /* Info.plist */,
 				D10F4C8C2B3C043600B574A6 /* UpSocketApp.swift */,
 				D151FD8C2B45C3ED00CDF9A8 /* TabBarView.swift */,
-				D1F393342B488EEE00239BFD /* Feed */,
+				D1F393502B48C43600239BFD /* Wallet */,
 				D1F3933D2B48910500239BFD /* Login */,
+				D1F393342B488EEE00239BFD /* Feed */,
 				D1F393402B4892D300239BFD /* Detail */,
 				D1F3932E2B482A3800239BFD /* Data */,
 				D10F4C902B3C043700B574A6 /* Assets.xcassets */,
@@ -205,6 +218,9 @@
 			isa = PBXGroup;
 			children = (
 				D1F3933E2B4892D000239BFD /* DetailView.swift */,
+				D1F393452B48AB1300239BFD /* DetailBannerView.swift */,
+				D1F3934E2B48BF3100239BFD /* WaitingView.swift */,
+				D1F3934D2B48B52C00239BFD /* SegmentedControl */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +231,24 @@
 				D1F393412B489D5F00239BFD /* DetailViewModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D1F3934D2B48B52C00239BFD /* SegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				D1F393472B48ACB300239BFD /* SegmentedControlView.swift */,
+				D1F393492B48AD1000239BFD /* UnderlineModifier.swift */,
+				D1F3934B2B48AE1100239BFD /* GeometryFinder.swift */,
+			);
+			path = SegmentedControl;
+			sourceTree = "<group>";
+		};
+		D1F393502B48C43600239BFD /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				D1F393512B48C44F00239BFD /* WalletView.swift */,
+			);
+			path = Wallet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +328,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1F3934F2B48BF3100239BFD /* WaitingView.swift in Sources */,
+				D1F3934C2B48AE1100239BFD /* GeometryFinder.swift in Sources */,
 				D151FD912B45C72400CDF9A8 /* Router.swift in Sources */,
 				D1F3933A2B488F3C00239BFD /* CoinCell.swift in Sources */,
 				D10F4CCA2B42F24A00B574A6 /* LoginView.swift in Sources */,
@@ -303,14 +339,18 @@
 				D10F4C8D2B3C043600B574A6 /* UpSocketApp.swift in Sources */,
 				D151FD8D2B45C3ED00CDF9A8 /* TabBarView.swift in Sources */,
 				D10F4CA12B3C37A700B574A6 /* MarketName.swift in Sources */,
+				D1F393522B48C44F00239BFD /* WalletView.swift in Sources */,
 				D1F3933F2B4892D000239BFD /* DetailView.swift in Sources */,
 				D151FD952B46816B00CDF9A8 /* SocketResponse.swift in Sources */,
+				D1F3934A2B48AD1000239BFD /* UnderlineModifier.swift in Sources */,
 				D1F393422B489D5F00239BFD /* DetailViewModel.swift in Sources */,
 				D1F393382B488F2300239BFD /* ExchangeHeader.swift in Sources */,
 				D1F393362B488F0900239BFD /* SearchBarView.swift in Sources */,
 				D151FD932B467D2D00CDF9A8 /* SocketManager.swift in Sources */,
 				D1F3932D2B48289F00239BFD /* Double+.swift in Sources */,
+				D1F393482B48ACB300239BFD /* SegmentedControlView.swift in Sources */,
 				D10F4CA52B3C42A600B574A6 /* FeedViewModel.swift in Sources */,
+				D1F393462B48AB1300239BFD /* DetailBannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

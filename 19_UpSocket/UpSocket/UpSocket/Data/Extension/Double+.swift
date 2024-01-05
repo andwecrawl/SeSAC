@@ -16,6 +16,15 @@ extension Double {
         return numberFormatter.string(for: self)!
     }
     
+    func percentToString() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.roundingMode = .floor
+        numberFormatter.maximumFractionDigits = 2
+        let num = self * 100
+        return numberFormatter.string(for: self)!
+    }
+    
     func toFormattedString() -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal

@@ -10,7 +10,7 @@ import SwiftUI
 struct TabBarView: View {
     var body: some View {
         TabView {
-            ContentView()
+            FeedView()
                 .tabItem {
                     Image(systemName: "person.crop.circle")
                     Text("Hello")
@@ -21,7 +21,7 @@ struct TabBarView: View {
                     Text("Login")
                 }
         }
-        .tint(.mainYellow)
+        .tint(.trustBlue)
     }
 }
 

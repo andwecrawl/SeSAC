@@ -26,6 +26,8 @@
 		D1F393362B488F0900239BFD /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F393352B488F0900239BFD /* SearchBarView.swift */; };
 		D1F393382B488F2300239BFD /* ExchangeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F393372B488F2300239BFD /* ExchangeHeader.swift */; };
 		D1F3933A2B488F3C00239BFD /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F393392B488F3C00239BFD /* CoinCell.swift */; };
+		D1F3933F2B4892D000239BFD /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3933E2B4892D000239BFD /* DetailView.swift */; };
+		D1F393422B489D5F00239BFD /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F393412B489D5F00239BFD /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		D1F393352B488F0900239BFD /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		D1F393372B488F2300239BFD /* ExchangeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeHeader.swift; sourceTree = "<group>"; };
 		D1F393392B488F3C00239BFD /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
+		D1F3933E2B4892D000239BFD /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		D1F393412B489D5F00239BFD /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 				D151FD8C2B45C3ED00CDF9A8 /* TabBarView.swift */,
 				D1F393342B488EEE00239BFD /* Feed */,
 				D1F3933D2B48910500239BFD /* Login */,
+				D1F393402B4892D300239BFD /* Detail */,
 				D1F3932E2B482A3800239BFD /* Data */,
 				D10F4C902B3C043700B574A6 /* Assets.xcassets */,
 				D10F4C922B3C043700B574A6 /* UpSocket.entitlements */,
@@ -187,6 +192,31 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		D1F393402B4892D300239BFD /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D1F393432B489DF800239BFD /* View */,
+				D1F393442B489DFC00239BFD /* Model */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		D1F393432B489DF800239BFD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D1F3933E2B4892D000239BFD /* DetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D1F393442B489DFC00239BFD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D1F393412B489D5F00239BFD /* DetailViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -273,7 +303,9 @@
 				D10F4C8D2B3C043600B574A6 /* UpSocketApp.swift in Sources */,
 				D151FD8D2B45C3ED00CDF9A8 /* TabBarView.swift in Sources */,
 				D10F4CA12B3C37A700B574A6 /* MarketName.swift in Sources */,
+				D1F3933F2B4892D000239BFD /* DetailView.swift in Sources */,
 				D151FD952B46816B00CDF9A8 /* SocketResponse.swift in Sources */,
+				D1F393422B489D5F00239BFD /* DetailViewModel.swift in Sources */,
 				D1F393382B488F2300239BFD /* ExchangeHeader.swift in Sources */,
 				D1F393362B488F0900239BFD /* SearchBarView.swift in Sources */,
 				D151FD932B467D2D00CDF9A8 /* SocketManager.swift in Sources */,

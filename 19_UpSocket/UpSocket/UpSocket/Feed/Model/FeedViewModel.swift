@@ -10,9 +10,14 @@ import Combine
 
 class FeedViewModel: ObservableObject {
     
+    @Published 
+    var showingCoinList: [CoinModel] = []
+    
     @Published
     var coinList: [CoinModel] = []
+    
     private var cancellbae = Set<AnyCancellable>()
+    
     
     init() {
         fetchMarketName()
@@ -21,6 +26,7 @@ class FeedViewModel: ObservableObject {
     deinit {
         SocketManager.shared.closeWebSocket()
     }
+    
     
     func fetchMarketName() {
         NetworkManager.shared.fetchData(api: .marketName, type: [MarketName].self) { [weak self] response in
@@ -49,7 +55,8 @@ class FeedViewModel: ObservableObject {
                         list.append(CoinModel(names: names, information: element))
                     }
                 }
-                self?.coinList = list.filter({ $0.tradePrice > 1 })
+                self?.coinList = list.filter({ $0.tradePrice > 1  && $0.accTradePrice.toFormattedString() != "0백만" })
+                self?.showingCoinList = self?.coinList ?? []
                 self?.manageSocket()
                 
             case .failure(let error):

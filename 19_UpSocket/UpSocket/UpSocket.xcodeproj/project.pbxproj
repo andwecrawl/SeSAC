@@ -85,10 +85,9 @@
 			children = (
 				D1F393332B483CAF00239BFD /* Info.plist */,
 				D10F4C8C2B3C043600B574A6 /* UpSocketApp.swift */,
-				D1F393342B488EEE00239BFD /* Feed */,
-				D10F4CA42B3C42A600B574A6 /* FeedViewModel.swift */,
 				D151FD8C2B45C3ED00CDF9A8 /* TabBarView.swift */,
-				D10F4CC92B42F24A00B574A6 /* LoginView.swift */,
+				D1F393342B488EEE00239BFD /* Feed */,
+				D1F3933D2B48910500239BFD /* Login */,
 				D1F3932E2B482A3800239BFD /* Data */,
 				D10F4C902B3C043700B574A6 /* Assets.xcassets */,
 				D10F4C922B3C043700B574A6 /* UpSocket.entitlements */,
@@ -155,12 +154,37 @@
 		D1F393342B488EEE00239BFD /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				D1F3933B2B4890EF00239BFD /* View */,
+				D1F3933C2B4890F500239BFD /* Model */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		D1F3933B2B4890EF00239BFD /* View */ = {
+			isa = PBXGroup;
+			children = (
 				D10F4C8E2B3C043600B574A6 /* FeedView.swift */,
 				D1F393392B488F3C00239BFD /* CoinCell.swift */,
 				D1F393372B488F2300239BFD /* ExchangeHeader.swift */,
 				D1F393352B488F0900239BFD /* SearchBarView.swift */,
 			);
-			path = Feed;
+			path = View;
+			sourceTree = "<group>";
+		};
+		D1F3933C2B4890F500239BFD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D10F4CA42B3C42A600B574A6 /* FeedViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D1F3933D2B48910500239BFD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D10F4CC92B42F24A00B574A6 /* LoginView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

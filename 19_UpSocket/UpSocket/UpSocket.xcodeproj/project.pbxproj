@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D10F4C8D2B3C043600B574A6 /* UpSocketApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10F4C8C2B3C043600B574A6 /* UpSocketApp.swift */; };
-		D10F4C8F2B3C043600B574A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10F4C8E2B3C043600B574A6 /* ContentView.swift */; };
+		D10F4C8F2B3C043600B574A6 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10F4C8E2B3C043600B574A6 /* FeedView.swift */; };
 		D10F4C912B3C043700B574A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D10F4C902B3C043700B574A6 /* Assets.xcassets */; };
 		D10F4C952B3C043700B574A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D10F4C942B3C043700B574A6 /* Preview Assets.xcassets */; };
 		D10F4C9C2B3C118600B574A6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10F4C9B2B3C118600B574A6 /* NetworkManager.swift */; };
@@ -18,12 +18,16 @@
 		D10F4CCA2B42F24A00B574A6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10F4CC92B42F24A00B574A6 /* LoginView.swift */; };
 		D151FD8D2B45C3ED00CDF9A8 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D151FD8C2B45C3ED00CDF9A8 /* TabView.swift */; };
 		D151FD912B45C72400CDF9A8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D151FD902B45C72400CDF9A8 /* Router.swift */; };
+		D151FD932B467D2D00CDF9A8 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D151FD922B467D2D00CDF9A8 /* SocketManager.swift */; };
+		D151FD952B46816B00CDF9A8 /* SocketResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D151FD942B46816B00CDF9A8 /* SocketResponse.swift */; };
+		D1F3932B2B48224300239BFD /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3932A2B48224300239BFD /* CoinModel.swift */; };
+		D1F3932D2B48289F00239BFD /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3932C2B48289F00239BFD /* Double+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D10F4C892B3C043600B574A6 /* UpSocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpSocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10F4C8C2B3C043600B574A6 /* UpSocketApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpSocketApp.swift; sourceTree = "<group>"; };
-		D10F4C8E2B3C043600B574A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D10F4C8E2B3C043600B574A6 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		D10F4C902B3C043700B574A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D10F4C922B3C043700B574A6 /* UpSocket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UpSocket.entitlements; sourceTree = "<group>"; };
 		D10F4C942B3C043700B574A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -33,6 +37,10 @@
 		D10F4CC92B42F24A00B574A6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D151FD8C2B45C3ED00CDF9A8 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		D151FD902B45C72400CDF9A8 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		D151FD922B467D2D00CDF9A8 /* SocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
+		D151FD942B46816B00CDF9A8 /* SocketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketResponse.swift; sourceTree = "<group>"; };
+		D1F3932A2B48224300239BFD /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
+		D1F3932C2B48289F00239BFD /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +75,11 @@
 			isa = PBXGroup;
 			children = (
 				D10F4C8C2B3C043600B574A6 /* UpSocketApp.swift */,
-				D10F4C8E2B3C043600B574A6 /* ContentView.swift */,
+				D10F4C8E2B3C043600B574A6 /* FeedView.swift */,
 				D10F4CA42B3C42A600B574A6 /* ContentViewModel.swift */,
 				D151FD8C2B45C3ED00CDF9A8 /* TabView.swift */,
 				D10F4CC92B42F24A00B574A6 /* LoginView.swift */,
-				D151FD8E2B45C6BC00CDF9A8 /* Network  */,
+				D1F3932E2B482A3800239BFD /* Data */,
 				D10F4C902B3C043700B574A6 /* Assets.xcassets */,
 				D10F4C922B3C043700B574A6 /* UpSocket.entitlements */,
 				D10F4C932B3C043700B574A6 /* Preview Content */,
@@ -91,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				D10F4C9B2B3C118600B574A6 /* NetworkManager.swift */,
+				D151FD922B467D2D00CDF9A8 /* SocketManager.swift */,
 				D151FD902B45C72400CDF9A8 /* Router.swift */,
 				D151FD8F2B45C6F000CDF9A8 /* Models */,
 			);
@@ -101,8 +110,35 @@
 			isa = PBXGroup;
 			children = (
 				D10F4CA02B3C37A700B574A6 /* MarketName.swift */,
+				D151FD942B46816B00CDF9A8 /* SocketResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D1F3932E2B482A3800239BFD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D1F393302B482A4900239BFD /* Extension */,
+				D1F3932F2B482A3F00239BFD /* Model */,
+				D151FD8E2B45C6BC00CDF9A8 /* Network  */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		D1F3932F2B482A3F00239BFD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D1F3932A2B48224300239BFD /* CoinModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D1F393302B482A4900239BFD /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D1F3932C2B48289F00239BFD /* Double+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,11 +219,15 @@
 			files = (
 				D151FD912B45C72400CDF9A8 /* Router.swift in Sources */,
 				D10F4CCA2B42F24A00B574A6 /* LoginView.swift in Sources */,
-				D10F4C8F2B3C043600B574A6 /* ContentView.swift in Sources */,
+				D10F4C8F2B3C043600B574A6 /* FeedView.swift in Sources */,
 				D10F4C9C2B3C118600B574A6 /* NetworkManager.swift in Sources */,
+				D1F3932B2B48224300239BFD /* CoinModel.swift in Sources */,
 				D10F4C8D2B3C043600B574A6 /* UpSocketApp.swift in Sources */,
 				D151FD8D2B45C3ED00CDF9A8 /* TabView.swift in Sources */,
 				D10F4CA12B3C37A700B574A6 /* MarketName.swift in Sources */,
+				D151FD952B46816B00CDF9A8 /* SocketResponse.swift in Sources */,
+				D151FD932B467D2D00CDF9A8 /* SocketManager.swift in Sources */,
+				D1F3932D2B48289F00239BFD /* Double+.swift in Sources */,
 				D10F4CA52B3C42A600B574A6 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

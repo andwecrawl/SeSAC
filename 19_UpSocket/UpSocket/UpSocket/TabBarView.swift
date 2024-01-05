@@ -21,7 +21,7 @@ struct TabBarView: View {
                     Text("Login")
                 }
         }
-        .tint(.trustBlue)
+        .tint(.mainYellow)
     }
 }
 

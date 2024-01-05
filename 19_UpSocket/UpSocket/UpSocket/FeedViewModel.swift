@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class ContentViewModel: ObservableObject {
+class FeedViewModel: ObservableObject {
     
     @Published
     var coinList: [CoinModel] = []

@@ -15,6 +15,7 @@ struct CoinCell: View {
             LazyVStack(alignment: .leading) {
                 Text(coin.korName)
                     .font(.system(size: 13).bold())
+                    .foregroundStyle(.white)
                 Text(coin.engName)
                     .font(.caption)
                     .foregroundStyle(.gray.opacity(0.6))
@@ -37,6 +38,7 @@ struct CoinCell: View {
                 .frame(width: 60, alignment: .trailing)
                 Text(coin.accTradePrice.toFormattedString())
                     .font(.footnote)
+                    .foregroundStyle(.white)
                     .frame(width: 76, alignment: .trailing)
                     .padding(.trailing, 8)
             }

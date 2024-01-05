@@ -16,15 +16,28 @@ class FeedViewModel: ObservableObject {
     @Published
     var coinList: [CoinModel] = []
     
+    let searchQuery = CurrentValueSubject<String, Never>("")
+    
     private var cancellbae = Set<AnyCancellable>()
     
     
     init() {
         fetchMarketName()
+        bind()
     }
     
     deinit {
         SocketManager.shared.closeWebSocket()
+    }
+    
+    func bind() {
+        searchQuery
+            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .sink { [weak self] str in
+                self?.search(str: str)
+            }
+            .store(in: &cancellbae)
+        
     }
     
     
@@ -86,7 +99,14 @@ class FeedViewModel: ObservableObject {
             .store(in: &cancellbae)
     }
     
-    
+    func search(str: String) {
+        if str == "" {
+            showingCoinList = coinList
+        } else {
+            let newValue = coinList.filter { $0.korName.contains(str) || $0.engName.contains(str) }
+            showingCoinList = newValue
+        }
+    }
     
 }
 

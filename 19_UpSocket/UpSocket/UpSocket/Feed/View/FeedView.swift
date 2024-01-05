@@ -12,8 +12,8 @@ struct FeedView: View {
     @StateObject
     private var viewModel = FeedViewModel()
     @State var searchQueryString = ""
+    
     var body: some View {
-        
         NavigationStack {
             ScrollView {
                 Image(.coin)
@@ -22,12 +22,21 @@ struct FeedView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 12))
                     .frame(width: 40, height: 40)
                     .padding(.top, 4)
-                SearchBarView(searchText: $searchQueryString)
+                
+                SearchBarView(searchText: $searchQueryString)                    .onSubmit(of: .text) {
+                        viewModel.searchQuery.send(searchQueryString)
+                    }
+                
                 LazyVStack(pinnedViews: [.sectionHeaders]) {
                     Section {
-                        ForEach(viewModel.coinList, id: \.id) { item in
-                            CoinCell(coin: item)
-                                .frame(maxWidth: .infinity)
+                        ForEach(viewModel.showingCoinList, id: \.id) { item in
+                            NavigationLink {
+                                DetailView(viewModel: DetailViewModel(coin: item))
+                            } label: {
+                                CoinCell(coin: item)
+                                    .frame(maxWidth: .infinity)
+                            }
+                            
                             Rectangle()
                                 .fill(.trustGray.opacity(0.6))
                                 .frame(height: 1)
@@ -38,9 +47,9 @@ struct FeedView: View {
                             .frame(maxWidth: .infinity)
                     }
                 }
+                
             }
             .clipped()
-            
         }
     }
 }

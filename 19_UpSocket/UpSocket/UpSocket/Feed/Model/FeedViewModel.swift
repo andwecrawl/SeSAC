@@ -16,6 +16,7 @@ class FeedViewModel: ObservableObject {
     @Published
     var coinList: [CoinModel] = []
     
+    var coinCodes: [String] = []
     let searchQuery = CurrentValueSubject<String, Never>("")
     
     private var cancellbae = Set<AnyCancellable>()
@@ -26,10 +27,6 @@ class FeedViewModel: ObservableObject {
         bind()
     }
     
-    deinit {
-        SocketManager.shared.closeWebSocket()
-    }
-    
     func bind() {
         searchQuery
             .debounce(for: 0.5, scheduler: RunLoop.main)
@@ -38,6 +35,20 @@ class FeedViewModel: ObservableObject {
             }
             .store(in: &cancellbae)
         
+        SocketManager.shared.coinData
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] order in
+                print("========================================")
+                guard let self else { return }
+                print(order)
+                for index in self.coinList.indices {
+                    if self.coinList[index].marketCode == order.code {
+                        self.coinList[index].applySocketResponse(response: order)
+                        print("\(coinList[index].korName): has changed!!!!!")
+                    }
+                }
+            }
+            .store(in: &cancellbae)
     }
     
     
@@ -56,11 +67,9 @@ class FeedViewModel: ObservableObject {
     func fetchFeedData() {
         
         NetworkManager.shared.fetchData(api: .currentCharge, type: [CoinInformation].self) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let value):
-                print("success!!")
-                print("======================================================")
-                print(value)
                 
                 var list: [CoinModel] = []
                 for element in value {
@@ -68,9 +77,13 @@ class FeedViewModel: ObservableObject {
                         list.append(CoinModel(names: names, information: element))
                     }
                 }
-                self?.coinList = list.filter({ $0.tradePrice > 1  && $0.accTradePrice.toFormattedString() != "0백만" })
-                self?.showingCoinList = self?.coinList ?? []
-                self?.manageSocket()
+                self.coinList = list.filter({ $0.tradePrice > 1  && $0.accTradePrice.toFormattedString() != "0백만" })
+                self.showingCoinList = self.coinList
+                
+                WalletManager.shared.coinModels = list
+                self.coinCodes = list.map { $0.marketCode }
+                
+                self.manageSocket()
                 
             case .failure(let error):
                 print(error)
@@ -79,24 +92,9 @@ class FeedViewModel: ObservableObject {
     }
     
     func manageSocket() {
-        
+        SocketManager.shared.request = self.coinCodes
         SocketManager.shared.openWebSocket()
         SocketManager.shared.send()
-        
-        SocketManager.shared.data
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] order in
-                print("========================================")
-                guard let self else { return }
-                print(order)
-                for index in self.coinList.indices {
-                    if self.coinList[index].marketCode == order.code {
-                        self.coinList[index].applySocketResponse(response: order)
-                        print("\(coinList[index].korName): has changed!!!!!")
-                    }
-                }
-            }
-            .store(in: &cancellbae)
     }
     
     func search(str: String) {

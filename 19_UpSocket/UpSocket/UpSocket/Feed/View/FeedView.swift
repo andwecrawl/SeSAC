@@ -10,7 +10,7 @@ import SwiftUI
 struct FeedView: View {
     
     @StateObject
-    private var viewModel = FeedViewModel()
+    var viewModel: FeedViewModel
     @State var searchQueryString = ""
     
     var body: some View {
@@ -50,10 +50,15 @@ struct FeedView: View {
                 
             }
             .clipped()
+            .navigationBarTitle("", displayMode: .inline)
+            .onAppear {
+                if !viewModel.coinList.isEmpty {
+                    viewModel.manageSocket()
+                }
+            }
+            .onDisappear {
+                SocketManager.shared.closeWebSocket()
+            }
         }
     }
-}
-
-#Preview {
-    FeedView()
 }

@@ -13,9 +13,8 @@ class SocketManager: NSObject {
     
     static let shared = SocketManager()
     var codes: [MarketName] = []
-    private var request: [String] {
-        codes.map { $0.market }
-    }
+    var request: [String] = []
+    var models: [CoinModel] = []
     
     private override init() {
         super.init()
@@ -28,8 +27,9 @@ class SocketManager: NSObject {
     
     private var isOpen = false
     
-    var data = PassthroughSubject<SocketResponse, Never>()
-    // 이후 next 대신 send!!
+    var coinData = PassthroughSubject<SocketResponse, Never>()
+    
+    var orderbookData = PassthroughSubject<OrderBookModel, Never>()
     
     
     // open -> ping ->
@@ -58,13 +58,14 @@ class SocketManager: NSObject {
     
     
     func send() {
+        let type = request.count == 1 ? "orderbook" : "ticker"
         let str = """
         [
           {
             "ticket": "test example"
           },
           {
-            "type": "ticker",
+            "type": \(type),
             "codes": \(request)
           },
           {
@@ -92,11 +93,23 @@ class SocketManager: NSObject {
                 case .success(let result):
                     switch result {
                     case .data(let data):
-                        if let decodeData = try? JSONDecoder().decode(SocketResponse.self, from: data) {
-                            print(decodeData)
-                            self?.data.send(decodeData)
-                        } else {
-                            print("decode error")
+                        
+                        if self?.request.count != 1 { // feed
+                            if let decodeData = try? JSONDecoder().decode(SocketResponse.self, from: data) {
+                                print(decodeData)
+                                self?.coinData.send(decodeData)
+                            } else {
+                                print("decode error")
+                            }
+                        } else { // detail
+                            
+                            if let decodeData = try? JSONDecoder().decode(OrderBookModel.self, from: data) {
+                                print(decodeData)
+                                self?.orderbookData.send(decodeData)
+                                
+                            } else {
+                                print("decode error")
+                            }
                         }
                     case .string(let str):
                         print(str)
@@ -106,6 +119,7 @@ class SocketManager: NSObject {
                 case .failure(let error):
                     print("receive error, \(error)")
                 }
+                self?.receive()
             })
         } else {
             print("not open!!")

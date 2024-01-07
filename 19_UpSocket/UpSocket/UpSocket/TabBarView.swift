@@ -10,7 +10,7 @@ import SwiftUI
 struct TabBarView: View {
     var body: some View {
         TabView {
-            FeedView()
+            FeedView(viewModel: FeedViewModel(), searchQueryString: "")
                 .tabItem {
                     Image(systemName: "bitcoinsign.circle")
                     Text("Hello")

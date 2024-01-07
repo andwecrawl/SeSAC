@@ -9,6 +9,11 @@ import SwiftUI
 
 struct CoinCell: View {
     @State var coin: CoinModel
+    @State var blink = false
+    
+    var updownColor: Color {
+        coin.change < 0 ? .blue : .red
+    }
     
     var body: some View {
         HStack(alignment: .center) {
@@ -25,7 +30,7 @@ struct CoinCell: View {
             
             Group {
                 Text(coin.tradePrice.toString())
-                    .foregroundStyle(coin.change < 0 ? .blue : .red)
+                    .foregroundStyle(updownColor)
                     .font(.footnote)
                     .frame(width: 75, alignment: .trailing)
                 VStack(alignment: .trailing) {
@@ -34,7 +39,7 @@ struct CoinCell: View {
                     Text(coin.changePrice.toString())
                         .font(.caption2)
                 }
-                .foregroundStyle(coin.change < 0 ? .blue : .red)
+                .foregroundStyle(updownColor)
                 .frame(width: 60, alignment: .trailing)
                 Text(coin.accTradePrice.toFormattedString())
                     .font(.footnote)

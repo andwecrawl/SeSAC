@@ -13,7 +13,12 @@ struct TabBarView: View {
             FeedView(viewModel: FeedViewModel(), searchQueryString: "")
                 .tabItem {
                     Image(systemName: "bitcoinsign.circle")
-                    Text("Hello")
+                    Text("Exchange")
+                }
+            WalletView()
+                .tabItem {
+                    Image(systemName: "wallet.pass")
+                    Text("Wallet")
                 }
             LoginView()
                 .tabItem{

@@ -10,7 +10,6 @@ import Alamofire
 
 enum Router: URLRequestConvertible {
     case marketName
-    case marketData
     case currentCharge
     
     var baseURL: URL {
@@ -23,8 +22,6 @@ enum Router: URLRequestConvertible {
     
     var path: String {
         switch self {
-        case .marketData:
-            return ""
         case .marketName:
            return "market/all"
         case .currentCharge:

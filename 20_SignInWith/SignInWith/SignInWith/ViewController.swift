@@ -35,6 +35,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var faceIDButton: UIButton!
     
+    @IBOutlet weak var textField: UITextField!
+    
+    var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +57,20 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func buttonTapped(_ sender: Any) {
+        textField.text = "버튼 클릭"
+        
+        count += 1
+        
+        let value = random()
+        
+        print(value)
+    }
+    
+    func random() -> Int {
+        let num = Int.random(in: 1...100)
+        return num
+    }
 }
 
 extension ViewController: ASAuthorizationControllerPresentationContextProviding {

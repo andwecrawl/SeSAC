@@ -1,0 +1,18 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "alertMessage" : {
+      "comment" : "주석을달아바요",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "show Alert Message"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
